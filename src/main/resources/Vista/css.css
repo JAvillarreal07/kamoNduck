@@ -1,0 +1,30 @@
+#botonAlmacen {
+    /*-fx-graphic: url('/Imagenes/iconoAlmacen.png');
+    -fx-graphic-size: 74px 86px;*/
+
+    -fx-background-image: url(/Imagenes/iconoAlmacen.png);
+    -fx-background-size: 74px 86px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#botonGestion {
+    /*-fx-graphic: url('/Imagenes/iconoAlmacen.png');
+    -fx-graphic-size: 74px 86px;*/
+
+    -fx-background-image: url(/Imagenes/iconoGestion.png);
+    -fx-background-size: 74px 86px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#botonEmpleados {
+    /*-fx-graphic: url('/Imagenes/iconoAlmacen.png');
+    -fx-graphic-size: 74px 86px;*/
+
+    -fx-background-image: url(/Imagenes/iconoEmpleados.png);
+    -fx-background-size: 74px 86px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
