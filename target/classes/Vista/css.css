@@ -1,3 +1,7 @@
+.root{
+    -fx-background-color: white;
+}
+
 #botonAlmacen {
     /*-fx-graphic: url('/Imagenes/iconoAlmacen.png');
     -fx-graphic-size: 74px 86px;*/
