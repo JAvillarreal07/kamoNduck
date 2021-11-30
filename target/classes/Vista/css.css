@@ -6,7 +6,7 @@
     /*-fx-graphic: url('/Imagenes/iconoAlmacen.png');
     -fx-graphic-size: 74px 86px;*/
 
-    -fx-background-image: url(/Imagenes/iconoAlmacen.png);
+    -fx-background-image: url(/Imagenes/box.png);
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: 55px 60px;
@@ -16,7 +16,7 @@
     /*-fx-graphic: url('/Imagenes/iconoAlmacen.png');
     -fx-graphic-size: 74px 86px;*/
 
-    -fx-background-image: url(/Imagenes/iconoGestion.png);
+    -fx-background-image: url(/Imagenes/documents.png);
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
@@ -25,7 +25,7 @@
     /*-fx-graphic: url('/Imagenes/iconoAlmacen.png');
     -fx-graphic-size: 74px 86px;*/
 
-    -fx-background-image: url(/Imagenes/iconoEmpleados.png);
+    -fx-background-image: url(/Imagenes/employees.png);
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
@@ -36,20 +36,20 @@
     -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
     -fx-background-radius: 8;
     -fx-background-color:
-            linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),
-            #9d4024,
-            #d86e3a,
-            radial-gradient(center 50% 50%, radius 100%, #d86e3a, #c54e2c);
+            linear-gradient(from 0% 93% to 0% 100%, #FF5757 0%, #DD4D4D 100%),
+            #FF5757,
+            #DD4D4D,
+            radial-gradient(center 50% 50%, radius 100%, black, black);
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-font-weight: bold;
     -fx-font-size: 1.1em;
 }
 .button:hover {
     -fx-background-color:
-            linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),
-            #9d4024,
-            #d86e3a,
-            radial-gradient(center 50% 50%, radius 100%, #ea7f4b, #c54e2c);
+            linear-gradient(from 0% 93% to 0% 100%, BLACK 0%, BLACK 100%),
+            #8D3131,
+            #8D3131,
+            radial-gradient(center 50% 50%, radius 100%, #8D3131, #CF8080);
 }
 .button:pressed {
     -fx-padding: 10 15 13 15;
