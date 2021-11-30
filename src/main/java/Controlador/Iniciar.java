@@ -19,7 +19,8 @@ public class Iniciar extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/Vista/VentanaBienvenida.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("/Vista/VentanaBienvenida.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Vista/Pruebas.fxml"));
         stage.getIcons().add(new Image("/Imagenes/iconoSolo.png"));
         Scene scene = new Scene(root);
         stage.setTitle("Empresa kamoNduck");
