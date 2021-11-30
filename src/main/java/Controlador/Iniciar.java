@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.scene.image.Image;
+
 import java.io.IOException;
 
 /**
@@ -18,10 +18,10 @@ public class Iniciar extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Vista.VentanaPrincipal.fxml"));
-        //stage.getIcons().add(new Image("libro-logo.png"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Vista/VentanaPrincipal.fxml"));
+
         Scene scene = new Scene(root);
-        stage.setTitle("kamoNduck");
+
         stage.setScene(scene);
         stage.show();
     }
