@@ -2,12 +2,13 @@ package Modelo;
 
 public class Producto {
 
-    private int IDProducto, cantidad, IDProveedor;
+    private int IDProducto, cantidad, IDProveedor, Minimo;
     private String Nombre_Producto, Observaciones;
 
-    public Producto(int IDProducto, int cantidad, String nombre_Producto, String observaciones, int IDProveedor) {
+    public Producto(int IDProducto, int cantidad, int minimo, String nombre_Producto, String observaciones, int IDProveedor) {
         this.IDProducto = IDProducto;
         this.cantidad = cantidad;
+        this.Minimo = minimo;
         Nombre_Producto = nombre_Producto;
         this.Observaciones = observaciones;
         this.IDProveedor = IDProveedor;
@@ -32,4 +33,8 @@ public class Producto {
     public int getIDProveedor() {return IDProveedor;}
 
     public void setIDProveedor(int IDProveedor) {this.IDProveedor = IDProveedor;}
+
+    public int getMinimo() {return Minimo;}
+
+    public void setMinimo(int minimo) {Minimo = minimo;}
 }

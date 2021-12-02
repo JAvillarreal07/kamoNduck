@@ -77,6 +77,7 @@ CREATE TABLE Productos
     IDProducto INT NOT NULL,
     Nombre_Producto VARCHAR(100) NOT NULL,
     Cantidad INT NOT NULL,
+    Minimo INT NOT NULL,
     Observaciones VARCHAR(250),
     IDProveedor INT NOT NULL,
     PRIMARY KEY (IDProducto),
