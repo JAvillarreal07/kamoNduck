@@ -5,14 +5,13 @@ public class Pato {
     private String Nombre_Pato, Raza, Descripcion;
     private int IDPato, Edad, Num_Cartilla;
 
-    public Pato(String nombre_pato, String raza, String descripcion, int IDPato, int edad, int num_Cartilla) {
-        Nombre_Pato = nombre_pato;
-        Raza = raza;
-        Descripcion = descripcion;
+    public Pato(int IDPato, String nombre_pato, String raza, int edad, int num_Cartilla, String descripcion) {
         this.IDPato = IDPato;
-        Edad = edad;
-        Num_Cartilla = num_Cartilla;
-
+        this.Nombre_Pato = nombre_pato;
+        this.Raza = raza;
+        this.Edad = edad;
+        this.Num_Cartilla = num_Cartilla;
+        this.Descripcion = descripcion;
 
     }
 

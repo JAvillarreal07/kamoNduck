@@ -3,17 +3,17 @@ package Modelo;
 public class Cliente {
 
     private int IDCliente;
-    private String DNI, Nombre_Cliente, Apellidos_Cliente, Telefono1, Telefono2, Email, TipoPago;
+    private String DNI, Nombre_Cliente, Apellidos_Cliente, Telefono_Cliente1, Telefono_Cliente2, Email_Cliente, TipoPago;
 
-    public Cliente(int IDCliente, String DNI, String nombre_cliente, String apellidos_cliente, String telefono1, String telefono2, String email, String tipoPago) {
+    public Cliente(int IDCliente, String DNI, String nombre_cliente, String apellidos_cliente, String telefono1, String telefono2, String email_Cliente, String tipoPago) {
         this.IDCliente = IDCliente;
         this.DNI = DNI;
-        Nombre_Cliente = nombre_cliente;
-        Apellidos_Cliente = apellidos_cliente;
-        Telefono1 = telefono1;
-        Telefono2 = telefono2;
-        Email = email;
-        TipoPago = tipoPago;
+        this.Nombre_Cliente = nombre_cliente;
+        this.Apellidos_Cliente = apellidos_cliente;
+        this.Telefono_Cliente1 = telefono1;
+        this.Telefono_Cliente2 = telefono2;
+        this.Email_Cliente = email_Cliente;
+        this.TipoPago = tipoPago;
     }
 
     public int getIDCliente() {return IDCliente;}
@@ -32,17 +32,17 @@ public class Cliente {
 
     public void setApellidos_Cliente(String apellidos_Cliente) {Apellidos_Cliente = apellidos_Cliente;}
 
-    public String getTelefono1() {return Telefono1;}
+    public String getTelefono1() {return Telefono_Cliente1;}
 
-    public void setTelefono1(String telefono1) {Telefono1 = telefono1;}
+    public void setTelefono1(String telefono1) {Telefono_Cliente1 = telefono1;}
 
-    public String getTelefono2() {return Telefono2;}
+    public String getTelefono2() {return Telefono_Cliente2;}
 
-    public void setTelefono2(String telefono2) {Telefono2 = telefono2;}
+    public void setTelefono2(String telefono2) {Telefono_Cliente2 = telefono2;}
 
-    public String getEmail() {return Email;}
+    public String getEmail() {return Email_Cliente;}
 
-    public void setEmail(String email) {Email = email;}
+    public void setEmail(String email) {Email_Cliente = email;}
 
     public String getTipoPago() {return TipoPago;}
 

@@ -3,23 +3,23 @@ package Modelo;
 public class Proveedor {
 
     private int IDProveedor;
-    private String Nombre, Direccion, Telefono_Proveedor, Pais;
+    private String Nombre_Proveedor, Direccion, Telefono_Proveedor, Pais;
 
-    public Proveedor(int IDProveedor, String nombre, String direccion, String telefono_Proveedor, String pais) {
+    public Proveedor(int IDProveedor, String nombre_Proveedor, String direccion, String telefono_Proveedor, String pais) {
         this.IDProveedor = IDProveedor;
-        Nombre = nombre;
-        Direccion = direccion;
-        Telefono_Proveedor = telefono_Proveedor;
-        Pais = pais;
+        this.Nombre_Proveedor = nombre_Proveedor;
+        this.Direccion = direccion;
+        this.Telefono_Proveedor = telefono_Proveedor;
+        this.Pais = pais;
     }
 
     public int getIDProveedor() {return IDProveedor;}
 
     public void setIDProveedor(int IDProveedor) {this.IDProveedor = IDProveedor;}
 
-    public String getNombre() {return Nombre;}
+    public String getNombre() {return Nombre_Proveedor;}
 
-    public void setNombre(String nombre) {Nombre = nombre;}
+    public void setNombre(String nombre) {Nombre_Proveedor = nombre;}
 
     public String getDireccion() {return Direccion;}
 

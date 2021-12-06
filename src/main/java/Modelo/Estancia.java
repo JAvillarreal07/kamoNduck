@@ -6,13 +6,13 @@ public class Estancia {
     private int IDEstancia, IDCliente, IDPato, IDLago;
     private Date Fecha_Ingreso, Fecha_Salida;
 
-    public Estancia(int IDEstancia, int IDCliente, int IDPato, int IDLago, Date fecha_Ingreso, Date fecha_Salida) {
+    public Estancia(int IDEstancia, Date fecha_Ingreso, Date fecha_Salida, int IDPato, int IDCliente, int IDLago ) {
         this.IDEstancia = IDEstancia;
-        this.IDCliente = IDCliente;
+        this.Fecha_Ingreso = fecha_Ingreso;
+        this.Fecha_Salida = fecha_Salida;
         this.IDPato = IDPato;
+        this.IDCliente = IDCliente;
         this.IDLago = IDLago;
-        Fecha_Ingreso = fecha_Ingreso;
-        Fecha_Salida = fecha_Salida;
     }
 
     public int getIDEstancia() {return IDEstancia;}

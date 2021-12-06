@@ -2,16 +2,17 @@ package Modelo;
 
 public class Empleado {
     private int IDEmpleado, IDLago;
-    private String Nombre_Empleado, Apellidos_Empleado, Telefono_Empleado, Cargo, Horario_Trabajo, Turno;
+    private String Nombre_Empleado, Apellidos_Empleado, Telefono_Empleado, Email_Empleado, Cargo, Horario_Trabajo, Turno;
 
-    public Empleado(int IDEmpleado, String nombre_Empleado, String apellidos_Empleado, String telefono_Empleado, String cargo, String horario_Trabajo, String turno, int IDLago) {
+    public Empleado(int IDEmpleado, String nombre_Empleado, String apellidos_Empleado, String telefono_Empleado, String email_Empleado, String cargo, String horario_Trabajo, String turno, int IDLago) {
         this.IDEmpleado = IDEmpleado;
-        Nombre_Empleado = nombre_Empleado;
-        Apellidos_Empleado = apellidos_Empleado;
-        Telefono_Empleado = telefono_Empleado;
-        Cargo = cargo;
-        Horario_Trabajo = horario_Trabajo;
-        Turno = turno;
+        this.Nombre_Empleado = nombre_Empleado;
+        this.Apellidos_Empleado = apellidos_Empleado;
+        this.Telefono_Empleado = telefono_Empleado;
+        this.Email_Empleado = email_Empleado;
+        this.Cargo = cargo;
+        this.Horario_Trabajo = horario_Trabajo;
+        this.Turno = turno;
         this.IDLago = IDLago;
     }
 
@@ -30,6 +31,10 @@ public class Empleado {
     public String getTelefono_Empleado() {return Telefono_Empleado;}
 
     public void setTelefono_Empleado(String telefono_Empleado) {Telefono_Empleado = telefono_Empleado;}
+
+    public String getEmail_Empleado() {return Email_Empleado;}
+
+    public void setEmail_Empleado(String email_Empleado) {Email_Empleado = email_Empleado;}
 
     public String getCargo() {return Cargo;}
 

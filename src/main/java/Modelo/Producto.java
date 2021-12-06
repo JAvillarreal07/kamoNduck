@@ -5,7 +5,7 @@ public class Producto {
     private int IDProducto, cantidad, IDProveedor, Minimo;
     private String Tipo_Producto, Nombre_Producto, Observaciones;
 
-    public Producto(int IDProducto, int cantidad, int minimo, String Tipo_Producto, String nombre_Producto, String observaciones, int IDProveedor) {
+    public Producto(int IDProducto, String nombre_Producto, String Tipo_Producto, int cantidad, int minimo, String observaciones, int IDProveedor) {
         this.IDProducto = IDProducto;
         this.Nombre_Producto = nombre_Producto;
         this.Tipo_Producto = Tipo_Producto;
