@@ -30,8 +30,7 @@ public class Cliente {
 
     public String getApellidos_Cliente() {return Apellidos_Cliente;}
 
-    public void setApellidos_Cliente(String apellidos_Cliente) {
-        Apellidos_Cliente = apellidos_Cliente;}
+    public void setApellidos_Cliente(String apellidos_Cliente) {Apellidos_Cliente = apellidos_Cliente;}
 
     public String getTelefono1() {return Telefono1;}
 
