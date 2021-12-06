@@ -14,7 +14,7 @@ import java.io.IOException;
  */
 //Clase principal encargada de ejecutar la ventana principal.
 public class Iniciar extends Application {
-//Holaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
     private static Scene scene;
 
     @Override
