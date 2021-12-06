@@ -18,8 +18,7 @@ public class Pato {
 
     public String getNombre_Pato() {return Nombre_Pato;}
 
-    public void setNombre_Pato(String nombre_Pato) {
-        Nombre_Pato = nombre_Pato;}
+    public void setNombre_Pato(String nombre_Pato) {Nombre_Pato = nombre_Pato;}
 
     public String getRaza() {return Raza;}
 

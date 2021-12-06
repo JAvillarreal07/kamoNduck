@@ -30,6 +30,7 @@ CREATE TABLE Lagos
     TarifaPato INT NOT NULL,
     Tamanho VARCHAR(50) NOT NULL,
     Cap_Patos INT NOT NULL,
+    Patos_dentro INT NOT NULL,
     Nombre_Lago VARCHAR(50) NOT NULL,
     PRIMARY KEY (IDLago)
 );
