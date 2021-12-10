@@ -7,21 +7,38 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.Tooltip?>
 <AnchorPane prefHeight="557.0" prefWidth="371.0" stylesheets="@css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VentanaBienvenidaController">
    <children>
-      <ImageView fitHeight="85.0" fitWidth="353.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="25.0" fitWidth="350.0" layoutX="20.0" layoutY="45.0" pickOnBounds="true" preserveRatio="false">
          <image>
             <Image url="@../Imagenes/marcoBienvenida.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="32.0" layoutY="29.0" style="-fx-font-weight: bold;" text="Bienvenido a kamoNduck" textAlignment="CENTER">
+      <Label alignment="CENTER" layoutX="50.0" layoutY="32.0" text="BIENVENIDO A KAMO(N)DUCK" textAlignment="CENTER" style ="-fx-text-fill:black; -fx-font-weight: bold">
+
          <font>
-            <Font size="24.0" />
+            <Font name="Abel" size="15.0" />
          </font>
       </Label>
-      <JFXButton fx:id="botonAlmacen" alignment="CENTER" layoutX="38.0" layoutY="103.0" onAction="#pulsado" prefHeight="74.0" prefWidth="86.0" />
-      <JFXButton fx:id="botonGestion" alignment="CENTER" layoutX="143.0" layoutY="103.0" onAction="#pulsado" prefHeight="74.0" prefWidth="86.0" />
-      <JFXButton fx:id="botonEmpleados" alignment="CENTER" layoutX="248.0" layoutY="103.0" onAction="#pulsado" prefHeight="74.0" prefWidth="86.0" />
+      <JFXButton fx:id="botonAlmacen" alignment="CENTER" layoutX="38.0" layoutY="103.0" onAction="#pulsado" prefHeight="74.0" prefWidth="86.0">
+         <tooltip>
+            <Tooltip text="Almacén" />
+         </tooltip>
+
+      </JFXButton>
+      <JFXButton fx:id="botonGestion" alignment="CENTER" layoutX="143.0" layoutY="103.0" onAction="#pulsado" prefHeight="74.0" prefWidth="86.0">
+         <tooltip>
+            <Tooltip text="Facturación" />
+         </tooltip>
+
+      </JFXButton>
+      <JFXButton fx:id="botonEmpleados" alignment="CENTER" layoutX="248.0" layoutY="103.0" onAction="#pulsado" prefHeight="74.0" prefWidth="86.0">
+         <tooltip>
+            <Tooltip text="Empleados" />
+         </tooltip>
+
+      </JFXButton>
       <ImageView fitHeight="354.0" fitWidth="409.0" layoutX="-1.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="/Imagenes/iconoCompleto.png" />
