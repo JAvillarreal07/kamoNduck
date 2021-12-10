@@ -38,6 +38,7 @@ CREATE TABLE Lagos
 CREATE TABLE Empleados
 (
     IDEmpleado INT AUTO_INCREMENT,
+    DNI_Empleado CHAR (9) NOT NULL,
     Nombre_Empleado VARCHAR(50) NOT NULL,
     Apellidos_Empleado VARCHAR(50) NOT NULL,
     Telefono_Empleado CHAR(9) NOT NULL,
@@ -86,3 +87,4 @@ CREATE TABLE Productos
     PRIMARY KEY (IDProducto),
     FOREIGN KEY (IDProveedor) REFERENCES Proveedor(IDProveedor)
 );
+

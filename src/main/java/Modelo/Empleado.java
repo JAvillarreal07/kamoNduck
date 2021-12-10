@@ -2,10 +2,11 @@ package Modelo;
 
 public class Empleado {
     private int IDEmpleado, IDLago;
-    private String Nombre_Empleado, Apellidos_Empleado, Telefono_Empleado, Email_Empleado, Cargo, Horario_Trabajo, Turno;
+    private String DNI_Empleado, Nombre_Empleado, Apellidos_Empleado, Telefono_Empleado, Email_Empleado, Cargo, Horario_Trabajo, Turno;
 
-    public Empleado(int IDEmpleado, String nombre_Empleado, String apellidos_Empleado, String telefono_Empleado, String email_Empleado, String cargo, String horario_Trabajo, String turno, int IDLago) {
+    public Empleado(int IDEmpleado, String DNI_Empleado, String nombre_Empleado, String apellidos_Empleado, String telefono_Empleado, String email_Empleado, String cargo, String horario_Trabajo, String turno, int IDLago) {
         this.IDEmpleado = IDEmpleado;
+        this.DNI_Empleado = DNI_Empleado;
         this.Nombre_Empleado = nombre_Empleado;
         this.Apellidos_Empleado = apellidos_Empleado;
         this.Telefono_Empleado = telefono_Empleado;
@@ -19,6 +20,12 @@ public class Empleado {
     public int getIDEmpleado() {return IDEmpleado;}
 
     public void setIDEmpleado(int IDEmpleado) {this.IDEmpleado = IDEmpleado;}
+
+    public String getDNI_Empleado() {return DNI_Empleado;}
+
+    public void setDNI_Empleado(String DNI_Empleado) {
+        this.DNI_Empleado = DNI_Empleado;
+    }
 
     public String getNombre_Empleado() {return Nombre_Empleado;}
 
