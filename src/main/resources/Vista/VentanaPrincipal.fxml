@@ -1,20 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="392.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VentanaPrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="392.0" prefWidth="915.0" stylesheets="@css.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VentanaPrincipalController">
    <children>
-      <TabPane fx:id="tbpane" layoutX="14.0" layoutY="44.0" prefHeight="336.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
+      <JFXButton layoutX="830.0" layoutY="306.0" prefHeight="42.0" prefWidth="52.0" ripplerFill="#d90f0f" style="-fx-background-color: black;" stylesheets="@css.css" text="+" textAlignment="CENTER" textFill="#f35d6d">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <MotionBlur />
+         </effect>
+         <font>
+            <Font name="Century Gothic" size="22.0" />
+         </font>
+         <tooltip>
+            <Tooltip text="Añada al almacén" />
+         </tooltip>
+      </JFXButton>
+      <ImageView fitHeight="181.0" fitWidth="197.0" layoutX="685.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/iconoSolo.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="675.0" layoutY="306.0" prefHeight="42.0" prefWidth="52.0" ripplerFill="#d90f0f" style="-fx-background-color: black;" stylesheets="@css.css" text="↩" textAlignment="CENTER" textFill="#f35d6d">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <MotionBlur />
+         </effect>
+         <font>
+            <Font name="Century Gothic" size="22.0" />
+         </font>
+         <tooltip>
+            <Tooltip graphicTextGap="1.0" text="Actualice datos del almacén" />
+         </tooltip>
+      </JFXButton>
+      <JFXButton layoutX="752.0" layoutY="306.0" prefHeight="42.0" prefWidth="52.0" ripplerFill="#d90f0f" style="-fx-background-color: black;" stylesheets="@css.css" text="-" textAlignment="CENTER" textFill="#f35d6d">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Century Gothic" size="22.0" />
+         </font>
+         <effect>
+            <MotionBlur />
+         </effect>
+         <tooltip>
+            <Tooltip text="elimine del almacén" />
+         </tooltip></JFXButton>
+      <JFXTabPane prefHeight="392.0" prefWidth="642.0">
+         <tabs>
           <Tab text="Productos">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
                      <children>
-                        <TableView prefHeight="308.0" prefWidth="642.0">
+                        <TableView layoutX="2.0" layoutY="-1.0" prefHeight="356.0" prefWidth="640.0">
                           <columns>
                             <TableColumn prefWidth="44.0" text="ID" />
                             <TableColumn prefWidth="149.0" text="NOMBRE" />
@@ -28,33 +79,36 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Proveedores">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="307.0" prefWidth="635.0">
+            <Tab text="Proveedores">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
                      <children>
-                        <TableView layoutY="-5.0" prefHeight="313.0" prefWidth="640.0">
-                          <columns>
-                            <TableColumn prefWidth="52.0" text="ID" />
-                            <TableColumn prefWidth="141.0" text="NOMBRE" />
-                              <TableColumn prefWidth="197.0" text="DIRECCION" />
-                              <TableColumn prefWidth="131.0" text="TELEFONO" />
-                              <TableColumn prefWidth="117.0" text="PAIS" />
-                          </columns>
+                        <TableView layoutX="2.0" layoutY="-1.0" prefHeight="356.0" prefWidth="640.0">
+                           <columns>
+                              <TableColumn prefWidth="44.0" text="ID" />
+                              <TableColumn prefWidth="149.0" text="NOMBRE" />
+                              <TableColumn prefWidth="74.0" text="TIPO" />
+                              <TableColumn prefWidth="84.0" text="CANTIDAD" />
+                              <TableColumn prefWidth="96.0" text="PROVEEDOR" />
+                              <TableColumn prefWidth="194.0" text="OBSERVACIONES" />
+                           </columns>
                         </TableView>
                      </children>
                   </AnchorPane>
-            </content>
-          </Tab>
-        </tabs>
-      </TabPane>
-      <ImageView fitHeight="181.0" fitWidth="197.0" layoutX="685.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Imagenes/iconoSolo.png" />
-         </image>
-      </ImageView>
-      <JFXButton layoutX="790.0" layoutY="306.0" prefHeight="25.0" prefWidth="52.0" text="+" />
-      <JFXButton layoutX="738.0" layoutY="306.0" prefHeight="25.0" prefWidth="52.0" text="-" />
-      <Label layoutX="715.0" layoutY="94.0" text="NOMBRE PRODUCTO" />
-      <JFXButton layoutX="697.0" layoutY="306.0" prefHeight="25.0" prefWidth="52.0" text="R" />
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+      <Text layoutX="685.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ALMACEN">
+         <font>
+            <Font name="Bauhaus 93" size="45.0" />
+         </font>
+      </Text>
+      <Line endX="100.0" layoutX="776.0" layoutY="75.0" startX="-100.0" />
+      <Text layoutX="744.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KAMO(N)DUCK">
+         <font>
+            <Font name="Bauhaus 93" size="10.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

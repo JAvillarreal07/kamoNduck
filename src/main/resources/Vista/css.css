@@ -49,9 +49,27 @@
             linear-gradient(from 0% 93% to 0% 100%, BLACK 0%, BLACK 100%),
             #8D3131,
             #8D3131,
-            radial-gradient(center 50% 50%, radius 100%, #8D3131, #CF8080);
+            radial-gradient(center 50% 50%, radius 100%, #ff5353, #CF8080);
 }
 .button:pressed {
     -fx-padding: 10 15 13 15;
     -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+.jfx-tab-pane .tab-header-background {
+    -fx-background-color: #f35d6d !IMPORTANT;
+}
+
+.jfx-tab-pane .headers-region > .tab > .jfx-rippler {
+    -jfx-rippler-fill: black;
+}
+
+.jfx-tab-pane .headers-region .tab-selected-line {
+    -fx-background-color: black;
+}
+
+.table-view .show-hide-columns-button {
+    -fx-background-color: red;
+    -fx-border-color: -fx-box-border;
+    -fx-border-insets: -1 -1 0 0;
 }
