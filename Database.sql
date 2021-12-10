@@ -88,3 +88,15 @@ CREATE TABLE Productos
     FOREIGN KEY (IDProveedor) REFERENCES Proveedor(IDProveedor)
 );
 
+INSERT INTO lagos VALUES (1, 'El Origen', 'Grande', 30, 0, 20);
+
+INSERT INTO empleados VALUES (NULL, '77823713Q', 'Jesus', 'Cruces Soto', '456126548', 'JCViceAdmin@KamoNDuck.com', 'ViceAdmin', 'L-D', 'Mañana', 1);
+INSERT INTO empleados VALUES (NULL, 'DNIEjemp', 'Jose Antonio', 'Ejemplo', '124516987', 'JAAdmin@KamoNDuck.com', 'Admin', 'L-D', 'Mañana', 1);
+INSERT INTO empleados VALUES (NULL, 'DNIEjemp', 'Freya', 'Ejemplo', '78123659', 'FrViceAdmin@KamoNDuck.com', 'ViceAdmin', 'L-D', 'Mañana', 1);
+INSERT INTO empleados VALUES (NULL, '77836512L', 'Benito', 'Ejemplo', '142032012', 'BenBecario@KamoNDuck.com', 'Becario', 'L-D', 'Partido', 1);
+
+INSERT INTO patos VALUES (NULL, 'Gilito', 'Animado', 65, 220001, 'No existe, pero tiene ALEGRÍA al dinero');
+INSERT INTO patos VALUES (NULL, 'Jaimito', 'Animado', 12, 220002, 'No existe, pero tiene ALERGIA a las nueces');
+INSERT INTO patos VALUES (NULL, 'Jorgito', 'Animado', 12, 220003, 'No existe, pero está sanisimo');
+INSERT INTO patos VALUES (NULL, 'Juanito', 'Animado', 12, 220004, 'No existe, nada relevante');
+
