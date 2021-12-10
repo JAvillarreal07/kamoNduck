@@ -47,7 +47,7 @@ CREATE TABLE Empleados
     Horario_Trabajo VARCHAR(10) NOT NULL,
     Turno VARCHAR(20) NOT NULL,
     IDLago INT NOT NULL,
-    PRIMARY KEY (IDEmp),
+    PRIMARY KEY (IDEmpleado),
     FOREIGN KEY (IDLago) REFERENCES Lagos(IDLago)
 );
 
