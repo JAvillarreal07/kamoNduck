@@ -50,7 +50,7 @@
             <Tooltip graphicTextGap="1.0" text="Actualice datos del almacén" />
          </tooltip>
       </JFXButton>
-      <JFXButton fx:id="botonEliminar" layoutX="752.0" layoutY="306.0" prefHeight="42.0" prefWidth="52.0" ripplerFill="#d90f0f" style="-fx-background-color: black;" stylesheets="@css.css" text="-" textAlignment="CENTER" textFill="#f35d6d">
+      <JFXButton fx:id="botonEliminar" layoutX="752.0" layoutY="306.0" onAction="#accionEliminar" prefHeight="42.0" prefWidth="52.0" ripplerFill="#d90f0f" style="-fx-background-color: black;" stylesheets="@css.css" text="-" textAlignment="CENTER" textFill="#f35d6d">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -71,12 +71,12 @@
                      <children>
                         <TableView fx:id="tablaProductos" layoutX="2.0" layoutY="-1.0" prefHeight="356.0" prefWidth="640.0">
                           <columns>
-                            <TableColumn prefWidth="44.0" text="ID" />
-                            <TableColumn prefWidth="149.0" text="NOMBRE" />
-                              <TableColumn prefWidth="74.0" text="TIPO" />
-                              <TableColumn prefWidth="84.0" text="CANTIDAD" />
-                              <TableColumn prefWidth="96.0" text="PROVEEDOR" />
-                              <TableColumn prefWidth="194.0" text="OBSERVACIONES" />
+                            <TableColumn fx:id="colIDProduc" prefWidth="44.0" text="ID" />
+                            <TableColumn fx:id="colNomProduc" prefWidth="149.0" text="NOMBRE" />
+                              <TableColumn fx:id="colTipoProduc" prefWidth="74.0" text="TIPO" />
+                              <TableColumn fx:id="colCantProduc" prefWidth="84.0" text="CANTIDAD" />
+                              <TableColumn fx:id="colPorvProduc" prefWidth="96.0" text="PROVEEDOR" />
+                              <TableColumn fx:id="colObserProduc" prefWidth="194.0" text="OBSERVACIONES" />
                           </columns>
                         </TableView>
                      </children>

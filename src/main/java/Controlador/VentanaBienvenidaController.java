@@ -35,13 +35,6 @@ public class VentanaBienvenidaController implements Initializable {
     }
 
     public void pulsado() throws IOException {
-        if (botonAlmacen.isFocused()){
-            vpc.setBotonPulsado("Almacen");
-        }else if (botonGestion.isFocused()){
-            vpc.setBotonPulsado("Gestion");
-        }else if (botonEmpleados.isFocused()){
-            vpc.setBotonPulsado("Empleados");
-        }
 
         //Abre la ventana
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vista/VentanaPrincipal.fxml"));

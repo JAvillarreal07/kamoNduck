@@ -2,17 +2,17 @@ package Modelo;
 
 public class Producto {
 
-    private int IDProducto, cantidad, IDProveedor, Minimo;
-    private String Tipo_Producto, Nombre_Producto, Observaciones;
+    private int IDProducto, Cantidad, Minimo;
+    private String Proveedor, Tipo_Producto, Nombre_Producto, Observaciones;
 
-    public Producto(int IDProducto, String nombre_Producto, String Tipo_Producto, int cantidad, int minimo, String observaciones, int IDProveedor) {
+    public Producto(int IDProducto, String Nombre_Producto, String Tipo_Producto, int Cantidad, int Minimo, String Observaciones, String Proveedor) {
         this.IDProducto = IDProducto;
-        this.Nombre_Producto = nombre_Producto;
+        this.Nombre_Producto = Nombre_Producto;
         this.Tipo_Producto = Tipo_Producto;
-        this.cantidad = cantidad;
-        this.Minimo = minimo;
-        this.Observaciones = observaciones;
-        this.IDProveedor = IDProveedor;
+        this.Cantidad = Cantidad;
+        this.Minimo = Minimo;
+        this.Observaciones = Observaciones;
+        this.Proveedor = Proveedor;
     }
 
 
@@ -22,29 +22,32 @@ public class Producto {
 
     public String getNombre_Producto() {return Nombre_Producto;}
 
-    public void setNombre_Producto(String nombre_Producto) {Nombre_Producto = nombre_Producto;}
+    public void setNombre_Producto(String Nombre_Producto) {
+        this.Nombre_Producto = Nombre_Producto;}
 
     public String getTipo_Producto() {
         return Tipo_Producto;
     }
 
-    public void setTipo_Producto(String tipo_Producto) {
-        Tipo_Producto = tipo_Producto;
+    public void setTipo_Producto(String Tipo_Producto) {
+        this.Tipo_Producto = Tipo_Producto;
     }
 
-    public int getCantidad() {return cantidad;}
+    public int getCantidad() {return Cantidad;}
 
-    public void setCantidad(int cantidad) {this.cantidad = cantidad;}
+    public void setCantidad(int Cantidad) {this.Cantidad = Cantidad;}
 
     public int getMinimo() {return Minimo;}
 
-    public void setMinimo(int minimo) {Minimo = minimo;}
+    public void setMinimo(int Minimo) {
+        this.Minimo = Minimo;}
 
     public String getObservaciones() {return Observaciones;}
 
-    public void setObservaciones(String observaciones) {Observaciones = observaciones;}
+    public void setObservaciones(String Observaciones) {
+        this.Observaciones = Observaciones;}
 
-    public int getIDProveedor() {return IDProveedor;}
+    public String getProveedor() {return Proveedor;}
 
-    public void setIDProveedor(int IDProveedor) {this.IDProveedor = IDProveedor;}
+    public void setProveedor(String Proveedor) {this.Proveedor = Proveedor;}
 }

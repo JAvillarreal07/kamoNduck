@@ -1,5 +1,7 @@
 CREATE DATABASE kamonduck;
 
+USE kamonduck;
+
 CREATE TABLE Patos
 (
     IDPato INT AUTO_INCREMENT,
@@ -55,7 +57,7 @@ CREATE TABLE Proveedor
 (
     IDProveedor INT AUTO_INCREMENT,
     Nombre_Proveedor VARCHAR(100) NOT NULL,
-    Dirección VARCHAR(100) NOT NULL,
+    Direccion VARCHAR(100) NOT NULL,
     Telefono_Proveedor CHAR(16) NOT NULL,
     Pais VARCHAR(50) NOT NULL,
     PRIMARY KEY (IDProveedor)

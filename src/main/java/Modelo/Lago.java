@@ -5,13 +5,13 @@ public class Lago {
     private int IDLago, Tarifa, Cap_Patos, Patos_Dentro;
     private String Tamanho, Nombre_Lago;
 
-    public Lago(int IDLago, String nombre_Lago, String tamanho, int cap_Patos, int patos_Dentro, int tarifa  ) {
+    public Lago(int IDLago, String Nombre_Lago, String Tamanho, int Cap_Patos, int Patos_Dentro, int Tarifa  ) {
         this.IDLago = IDLago;
-        this.Nombre_Lago = nombre_Lago;
-        this.Tamanho = tamanho;
-        this.Cap_Patos = cap_Patos;
-        this.Patos_Dentro = patos_Dentro;
-        this.Tarifa = tarifa;
+        this.Nombre_Lago = Nombre_Lago;
+        this.Tamanho = Tamanho;
+        this.Cap_Patos = Cap_Patos;
+        this.Patos_Dentro = Patos_Dentro;
+        this.Tarifa = Tarifa;
     }
 
     public int getIDLago() {return IDLago;}
@@ -20,21 +20,26 @@ public class Lago {
 
     public int getTarifa() {return Tarifa;}
 
-    public void setTarifa(int tarifa) {Tarifa = tarifa;}
+    public void setTarifa(int Tarifa) {
+        this.Tarifa = Tarifa;}
 
     public int getCap_Patos() {return Cap_Patos;}
 
-    public void setCap_Patos(int cap_Patos) {Cap_Patos = cap_Patos;}
+    public void setCap_Patos(int Cap_Patos) {
+        this.Cap_Patos = Cap_Patos;}
 
     public int getPatos_dentro() {return Patos_Dentro;}
 
-    public void setPatos_dentro(int patos_dentro) {Patos_Dentro = patos_dentro;}
+    public void setPatos_dentro(int Patos_Dentro) {
+        this.Patos_Dentro = Patos_Dentro;}
 
     public String getTamanho() {return Tamanho;}
 
-    public void setTamanho(String tamanho) {Tamanho = tamanho;}
+    public void setTamanho(String Tamanho) {
+        this.Tamanho = Tamanho;}
 
     public String getNombre_Lago() {return Nombre_Lago;}
 
-    public void setNombre_Lago(String nombre_Lago) {Nombre_Lago = nombre_Lago;}
+    public void setNombre_Lago(String Nombre_Lago) {
+        this.Nombre_Lago = Nombre_Lago;}
 }
