@@ -3,6 +3,8 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -72,11 +74,11 @@
                         <TableView fx:id="tablaProductos" layoutX="2.0" layoutY="-1.0" prefHeight="356.0" prefWidth="955.0">
                           <columns>
                             <TableColumn fx:id="colIDProduc" prefWidth="44.0" text="ID" />
-                            <TableColumn fx:id="colNomProduc" prefWidth="149.0" text="NOMBRE" />
-                              <TableColumn fx:id="colTipoProduc" prefWidth="74.0" text="TIPO" />
-                              <TableColumn fx:id="colCantProduc" prefWidth="84.0" text="CANTIDAD" />
-                              <TableColumn fx:id="colPorvProduc" prefWidth="96.0" text="PROVEEDOR" />
-                              <TableColumn fx:id="colObserProduc" prefWidth="194.0" text="OBSERVACIONES" />
+                            <TableColumn fx:id="colNomProduc" prefWidth="326.00001525878906" text="NOMBRE" />
+                              <TableColumn fx:id="colTipoProduc" prefWidth="116.0" text="TIPO" />
+                              <TableColumn fx:id="colCantProduc" prefWidth="94.0" text="CANTIDAD" />
+                              <TableColumn fx:id="colPorvProduc" prefWidth="110.0" text="PROVEEDOR" />
+                              <TableColumn fx:id="colObserProduc" prefWidth="264.0" text="OBSERVACIONES" />
                           </columns>
                         </TableView>
                      </children>
@@ -87,13 +89,13 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
                      <children>
-                        <TableView fx:id="tablaProveedor" layoutX="2.0" layoutY="-1.0" prefHeight="356.0" prefWidth="640.0">
+                        <TableView fx:id="tablaProveedor" layoutX="2.0" layoutY="-1.0" prefHeight="356.0" prefWidth="955.0">
                            <columns>
                               <TableColumn prefWidth="44.0" text="ID" />
-                              <TableColumn prefWidth="118.0" text="NOMBRE" />
-                              <TableColumn prefWidth="287.0" text="DIRECCION" />
-                              <TableColumn prefWidth="112.0" text="TELEFONO" />
-                              <TableColumn prefWidth="78.0" text="PAIS" />
+                              <TableColumn prefWidth="201.0" text="NOMBRE" />
+                              <TableColumn prefWidth="448.0" text="DIRECCION" />
+                              <TableColumn prefWidth="158.0" text="TELEFONO" />
+                              <TableColumn prefWidth="103.0" text="PAIS" />
                            </columns>
                         </TableView>
                      </children>
@@ -113,5 +115,12 @@
             <Font name="Bauhaus 93" size="10.0" />
          </font>
       </Text>
+      <MenuButton fx:id="menubutton" alignment="CENTER" layoutX="1137.0" layoutY="3.0" mnemonicParsing="false" stylesheets="@css.css" text="MENU">
+        <items>
+          <MenuItem fx:id="atras" mnemonicParsing="false" text="Atrás" />
+          <MenuItem fx:id="empleadosmenu" mnemonicParsing="false" text="Empleados" />
+            <MenuItem fx:id="gestionmenu" mnemonicParsing="false" text="Gestión" />
+        </items>
+      </MenuButton>
    </children>
 </AnchorPane>
