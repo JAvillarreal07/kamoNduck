@@ -1,5 +1,6 @@
 package Controlador;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -112,7 +113,7 @@ public class VentanaPrincipalController implements Initializable {
         }
     }
 
-    public void accionAnadir(){
+    public void accionAnadir() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vista/VentanaMedico.fxml"));
         Parent root = loader.load();
 
