@@ -1,0 +1,11 @@
+
+j	java:S116"URename this field "IDEmpleado" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØÕÿ¡
+f	java:S116"QRename this field "IDLago" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØÕÿ¡
+t	java:S116"ZRename this field "Nombre_Empleado" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ¹Áõşÿÿÿÿ
+w	java:S116"]Rename this field "Apellidos_Empleado" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ¹Áõşÿÿÿÿ
+v	java:S116"\Rename this field "Telefono_Empleado" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ¹Áõşÿÿÿÿ
+h	java:S100+"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èööøÿÿÿÿ
+c	java:S100-"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ ˜§
+f	java:S117-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ ˜§
+f	java:S1175"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»½¢´
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(àÄ€ü

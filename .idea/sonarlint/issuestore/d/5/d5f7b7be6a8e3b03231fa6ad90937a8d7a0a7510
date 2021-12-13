@@ -1,0 +1,7 @@
+
+i	java:S116"TRename this field "IDCliente" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çø²ö
+c	java:S116"NRename this field "DNI" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ý¹Ã¥
+n	java:S116"YRename this field "Nombre_Cliente" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ý¹Ã¥
+q	java:S116"\Rename this field "Apellidos_Cliente" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ý¹Ã¥
+i	java:S116"TRename this field "Telefono1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ý¹Ã¥
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(àÄ€ü
