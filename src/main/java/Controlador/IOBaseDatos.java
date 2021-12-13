@@ -14,7 +14,7 @@ public class IOBaseDatos {
     public void actualizaRegistros(String actualiza) throws SQLException{
         try {
             Class.forName("org.mariadb.jdbc.Driver");
-            String urlCon = "jdbc:mariadb://localhost:3306/kamonduck";
+            String urlCon = "jdbc:mariadb://localhost:3307/kamonduck";
             Connection conexBd = DriverManager.getConnection(urlCon, "root", "root");
             Statement encapsulaCons = conexBd.createStatement();
 
@@ -33,7 +33,7 @@ public class IOBaseDatos {
         ResultSet resulCons = null;
         try {
             Class.forName("org.mariadb.jdbc.Driver");
-            String urlCon = "jdbc:mariadb://localhost:3306/kamonduck";
+            String urlCon = "jdbc:mariadb://localhost:3307/kamonduck";
             Connection conexBd = DriverManager.getConnection(urlCon, "root", "root");
             Statement encapsulaCons = conexBd.createStatement();
 

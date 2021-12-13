@@ -15,9 +15,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="392.0" prefWidth="915.0" stylesheets="@css.css" xmlns="http://javafx.com/javafx/1.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VentanaPrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="392.0" prefWidth="1207.0" stylesheets="@css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VentanaPrincipalController">
    <children>
-      <JFXButton fx:id="botonAnadir" layoutX="830.0" layoutY="306.0" prefHeight="42.0" prefWidth="52.0" ripplerFill="#d90f0f" style="-fx-background-color: black;" stylesheets="@css.css" text="+" textAlignment="CENTER" textFill="#f35d6d">
+      <JFXButton fx:id="botonAnadir" layoutX="1141.0" layoutY="316.0" prefHeight="42.0" prefWidth="52.0" ripplerFill="#d90f0f" style="-fx-background-color: black;" stylesheets="@css.css" text="+" textAlignment="CENTER" textFill="#f35d6d">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -31,12 +31,12 @@
             <Tooltip text="Añada al almacén" />
          </tooltip>
       </JFXButton>
-      <ImageView fx:id="imgAlmacen" fitHeight="181.0" fitWidth="197.0" layoutX="685.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgAlmacen" fitHeight="181.0" fitWidth="197.0" layoutX="996.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/iconoSolo.png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="botonModificar" layoutX="675.0" layoutY="306.0" prefHeight="42.0" prefWidth="52.0" ripplerFill="#d90f0f" style="-fx-background-color: black;" stylesheets="@css.css" text="↩" textAlignment="CENTER" textFill="#f35d6d">
+      <JFXButton fx:id="botonModificar" layoutX="986.0" layoutY="316.0" prefHeight="42.0" prefWidth="52.0" ripplerFill="#d90f0f" style="-fx-background-color: black;" stylesheets="@css.css" text="↩" textAlignment="CENTER" textFill="#f35d6d">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -50,7 +50,7 @@
             <Tooltip graphicTextGap="1.0" text="Actualice datos del almacén" />
          </tooltip>
       </JFXButton>
-      <JFXButton fx:id="botonEliminar" layoutX="752.0" layoutY="306.0" onAction="#accionEliminar" prefHeight="42.0" prefWidth="52.0" ripplerFill="#d90f0f" style="-fx-background-color: black;" stylesheets="@css.css" text="-" textAlignment="CENTER" textFill="#f35d6d">
+      <JFXButton fx:id="botonEliminar" layoutX="1063.0" layoutY="316.0" onAction="#accionEliminar" prefHeight="42.0" prefWidth="52.0" ripplerFill="#d90f0f" style="-fx-background-color: black;" stylesheets="@css.css" text="-" textAlignment="CENTER" textFill="#f35d6d">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -63,13 +63,13 @@
          <tooltip>
             <Tooltip text="elimine del almacén" />
          </tooltip></JFXButton>
-      <JFXTabPane prefHeight="392.0" prefWidth="642.0">
+      <JFXTabPane prefHeight="392.0" prefWidth="955.0">
          <tabs>
           <Tab text="Productos">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
                      <children>
-                        <TableView fx:id="tablaProductos" layoutX="2.0" layoutY="-1.0" prefHeight="356.0" prefWidth="640.0">
+                        <TableView fx:id="tablaProductos" layoutX="2.0" layoutY="-1.0" prefHeight="356.0" prefWidth="955.0">
                           <columns>
                             <TableColumn fx:id="colIDProduc" prefWidth="44.0" text="ID" />
                             <TableColumn fx:id="colNomProduc" prefWidth="149.0" text="NOMBRE" />
@@ -90,11 +90,10 @@
                         <TableView fx:id="tablaProveedor" layoutX="2.0" layoutY="-1.0" prefHeight="356.0" prefWidth="640.0">
                            <columns>
                               <TableColumn prefWidth="44.0" text="ID" />
-                              <TableColumn prefWidth="149.0" text="NOMBRE" />
-                              <TableColumn prefWidth="74.0" text="TIPO" />
-                              <TableColumn prefWidth="84.0" text="CANTIDAD" />
-                              <TableColumn prefWidth="96.0" text="PROVEEDOR" />
-                              <TableColumn prefWidth="194.0" text="OBSERVACIONES" />
+                              <TableColumn prefWidth="118.0" text="NOMBRE" />
+                              <TableColumn prefWidth="287.0" text="DIRECCION" />
+                              <TableColumn prefWidth="112.0" text="TELEFONO" />
+                              <TableColumn prefWidth="78.0" text="PAIS" />
                            </columns>
                         </TableView>
                      </children>
@@ -103,13 +102,13 @@
             </Tab>
          </tabs>
       </JFXTabPane>
-      <Text fx:id="labelAlmacen" layoutX="685.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ALMACEN">
+      <Text fx:id="labelAlmacen" layoutX="996.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ALMACEN">
          <font>
             <Font name="Bauhaus 93" size="45.0" />
          </font>
       </Text>
-      <Line endX="100.0" layoutX="776.0" layoutY="75.0" startX="-100.0" />
-      <Text layoutX="744.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KAMO(N)DUCK">
+      <Line endX="100.0" layoutX="1087.0" layoutY="97.0" startX="-100.0" />
+      <Text layoutX="1055.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KAMO(N)DUCK">
          <font>
             <Font name="Bauhaus 93" size="10.0" />
          </font>

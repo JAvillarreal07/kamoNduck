@@ -11,7 +11,3 @@ R
 0src/main/java/Controlador/PruebasController.java,8\7\8733af9cf1e184e26601711f4c1ceb59769de076
 N
 src/main/java/Modelo/Pato.java,6\b\6bad60ee8fec11b29fa880514803afed812870e2
-j
-:src/main/java/Controlador/VentanaBienvenidaController.java,4\3\4380ce85b0eb7917483ebd77121fefe14137dff4
-i
-9src/main/java/Controlador/VentanaPrincipalController.java,e\6\e6d2aa5d371f185ca8ac5b122b57a039a9aa5acd

@@ -22,7 +22,9 @@ public class Iniciar extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/Vista/VentanaBienvenida.fxml"));
         //Parent root = FXMLLoader.load(getClass().getResource("/Vista/Pruebas.fxml"));
         stage.getIcons().add(new Image("/Imagenes/iconoSolo.png"));
+
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("http://fonts.googleapis.com/css?family=Allerta+Stencil");
         stage.setTitle("Empresa kamoNduck");
         stage.setScene(scene);
         stage.show();
