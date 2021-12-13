@@ -21,19 +21,19 @@
             <Font name="Abel" size="15.0" />
          </font>
       </Label>
-      <JFXButton fx:id="botonAlmacen" alignment="CENTER" layoutX="38.0" layoutY="103.0" onAction="#pulsado" prefHeight="74.0" prefWidth="86.0" stylesheets="@css.css">
+      <JFXButton fx:id="botonAlmacen" alignment="CENTER" layoutX="38.0" layoutY="103.0" onAction="#abrirVentana" prefHeight="74.0" prefWidth="86.0" stylesheets="@css.css">
          <tooltip>
             <Tooltip text="Almacén" />
          </tooltip>
 
       </JFXButton>
-      <JFXButton fx:id="botonGestion" alignment="CENTER" layoutX="143.0" layoutY="103.0" onAction="#pulsado" prefHeight="74.0" prefWidth="86.0" stylesheets="@css.css">
+      <JFXButton fx:id="botonGestion" alignment="CENTER" layoutX="143.0" layoutY="103.0" onAction="#abrirVentana" prefHeight="74.0" prefWidth="86.0" stylesheets="@css.css">
          <tooltip>
             <Tooltip text="Facturación" />
          </tooltip>
 
       </JFXButton>
-      <JFXButton fx:id="botonEmpleados" alignment="CENTER" layoutX="248.0" layoutY="103.0" onAction="#pulsado" prefHeight="74.0" prefWidth="86.0" stylesheets="@css.css">
+      <JFXButton fx:id="botonEmpleados" alignment="CENTER" layoutX="248.0" layoutY="103.0" onAction="#abrirVentana" prefHeight="74.0" prefWidth="86.0" stylesheets="@css.css">
          <tooltip>
             <Tooltip text="Empleados" />
          </tooltip>

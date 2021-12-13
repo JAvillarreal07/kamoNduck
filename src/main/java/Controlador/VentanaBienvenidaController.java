@@ -5,13 +5,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -30,22 +27,53 @@ public class VentanaBienvenidaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        //botonAlmacen.setStyle("-fx-background-color: purple");
+
 
     }
 
-    public void pulsado() throws IOException {
+    public void abrirVentana() throws IOException {
+
+
 
         //Abre la ventana
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vista/VentanaPrincipal.fxml"));
         Parent root = loader.load();
+        VentanaPrincipalController controlador = loader.getController();
+
+        if (botonAlmacen.isFocused()){
+            controlador.moduloElegido("Almacén");
+            controlador.cambiaModulo();
+
+        }else  if (botonGestion.isFocused()){
+            controlador.moduloElegido("Facturación");
+            controlador.cambiaModulo();
+
+        }else  if (botonEmpleados.isFocused()){
+            controlador.moduloElegido("Empleados");
+            controlador.cambiaModulo();
+
+        }
+
         Scene scene = new Scene(root);
         Stage stage = new Stage();
+
         stage.getIcons().add(new Image("/Imagenes/iconoSolo.png"));
         stage.setTitle("Empresa kamoNduck");
+
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(scene);
-        stage.showAndWait();
+
+        stage.show();
+        stage.setOnCloseRequest(e -> {
+            try {
+                controlador.volverABienvenida();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+
+        Stage myStage = (Stage) this.botonAlmacen.getScene().getWindow();
+        myStage.close();
     }
 
 }

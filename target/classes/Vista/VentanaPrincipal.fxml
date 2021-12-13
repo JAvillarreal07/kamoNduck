@@ -3,11 +3,12 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -22,130 +23,133 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="793.0" prefWidth="1454.0" stylesheets="@css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VentanaPrincipalController">
-   <children>
-      <JFXButton fx:id="botonAnadir" layoutX="1273.0" layoutY="629.0" prefHeight="42.0" prefWidth="90.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="+" textAlignment="CENTER" textFill="#f35d6d">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <effect>
-            <MotionBlur />
-         </effect>
-         <font>
-            <Font name="Century Gothic" size="22.0" />
-         </font>
-         <tooltip>
-            <Tooltip text="Añada al almacén" />
-         </tooltip>
-      </JFXButton>
-      <ImageView fx:id="imgAlmacen" fitHeight="418.0" fitWidth="483.0" layoutX="967.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Imagenes/iconoSolo.png" />
-         </image>
-      </ImageView>
-      <JFXButton fx:id="botonModificar" layoutX="1072.0" layoutY="629.0" prefHeight="42.0" prefWidth="90.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="↩" textAlignment="CENTER" textFill="#f35d6d">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <effect>
-            <MotionBlur />
-         </effect>
-         <font>
-            <Font name="Century Gothic" size="22.0" />
-         </font>
-         <tooltip>
-            <Tooltip graphicTextGap="1.0" text="Actualice datos del almacén" />
-         </tooltip>
-      </JFXButton>
-      <JFXButton fx:id="botonEliminar" layoutX="1173.0" layoutY="629.0" onAction="#accionEliminar" prefHeight="42.0" prefWidth="90.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="-" textAlignment="CENTER" textFill="#f35d6d">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="Century Gothic" size="22.0" />
-         </font>
-         <effect>
-            <MotionBlur />
-         </effect>
-         <tooltip>
-            <Tooltip text="elimine del almacén" />
-         </tooltip></JFXButton>
-      <JFXTabPane prefHeight="702.0" prefWidth="955.0">
-         <tabs>
-          <Tab text="Productos">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
-                     <children>
-                        <TableView fx:id="tablaProductos" layoutX="2.0" layoutY="-1.0" prefHeight="673.0" prefWidth="955.0">
-                          <columns>
-                            <TableColumn fx:id="colIDProduc" prefWidth="44.0" text="ID" />
-                            <TableColumn fx:id="colNomProduc" prefWidth="326.00001525878906" text="NOMBRE" />
-                              <TableColumn fx:id="colTipoProduc" prefWidth="116.0" text="TIPO" />
-                              <TableColumn fx:id="colCantProduc" prefWidth="94.0" text="CANTIDAD" />
-                              <TableColumn fx:id="colPorvProduc" prefWidth="110.0" text="PROVEEDOR" />
-                              <TableColumn fx:id="colObserProduc" prefWidth="264.0" text="OBSERVACIONES" />
-                          </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-            <Tab text="Proveedores">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
-                     <children>
-                        <TableView fx:id="tablaProveedor" layoutX="2.0" layoutY="-1.0" prefHeight="666.0" prefWidth="955.0">
-                           <columns>
-                              <TableColumn prefWidth="44.0" text="ID" />
-                              <TableColumn prefWidth="201.0" text="NOMBRE" />
-                              <TableColumn prefWidth="448.0" text="DIRECCION" />
-                              <TableColumn prefWidth="158.0" text="TELEFONO" />
-                              <TableColumn prefWidth="103.0" text="PAIS" />
-                           </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-         </tabs>
-      </JFXTabPane>
-      <Text fx:id="labelAlmacen" layoutX="1090.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ALMACEN">
-         <font>
-            <Font name="Bauhaus 93" size="45.0" />
-         </font>
-      </Text>
-      <Line endX="100.0" layoutX="1181.0" layoutY="108.0" startX="-100.0" />
-      <Text layoutX="1149.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KAMO(N)DUCK">
-         <font>
-            <Font name="Bauhaus 93" size="10.0" />
-         </font>
-      </Text>
-      <MenuButton fx:id="menubutton" alignment="CENTER" layoutX="1137.0" layoutY="3.0" mnemonicParsing="false" stylesheets="@css.css" text="MENU">
-        <items>
-            <MenuItem mnemonicParsing="false" text="Almacén" visible="false" />
-            <MenuItem fx:id="gestionmenu" mnemonicParsing="false" text="Gestión" />
-          <MenuItem fx:id="empleadosmenu" mnemonicParsing="false" text="Empleados" />
-          <MenuItem fx:id="atras" mnemonicParsing="false" text="Atrás" />
-        </items>
-      </MenuButton>
-      <Accordion layoutX="753.0">
-        <panes>
-          <TitledPane animated="false" prefHeight="367.0" prefWidth="202.0" style="-fx-max-height: 255;" text="FILTROS">
-               <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <JFXTextField layoutX="33.0" layoutY="26.0" prefHeight="23.0" prefWidth="132.0" promptText="ID" />
-                        <JFXTextField layoutX="34.0" layoutY="63.0" prefHeight="23.0" prefWidth="132.0" promptText="NOMBRE" />
-                        <JFXTextField layoutX="34.0" layoutY="178.0" prefHeight="23.0" prefWidth="132.0" promptText="PROVEEDOR" />
-                        <JFXTextField layoutX="34.0" layoutY="101.0" prefHeight="23.0" prefWidth="132.0" promptText="TIPO" />
-                        <JFXTextField layoutX="34.0" layoutY="139.0" prefHeight="23.0" prefWidth="132.0" promptText="CANTIDAD" />
-                        <JFXTextField layoutX="33.0" layoutY="101.0" prefHeight="23.0" prefWidth="132.0" promptText="TELEFONO" />
-                        <JFXTextField layoutX="34.0" layoutY="139.0" prefHeight="23.0" prefWidth="132.0" promptText="PAIS" />
-                     </children>
-                  </AnchorPane>
-               </content>
-          </TitledPane>
-        </panes>
-      </Accordion>
-      <Label layoutX="1105.0" layoutY="124.0" text="NOMBRE DE LAS COSITES" />
-   </children>
+    <children>
+        <JFXButton fx:id="botonAnadir" layoutX="1273.0" layoutY="629.0" onAction="#accionesCRUD" prefHeight="42.0" prefWidth="90.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="+" textAlignment="CENTER" textFill="#f35d6d">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <effect>
+                <MotionBlur />
+            </effect>
+            <font>
+                <Font name="Century Gothic" size="22.0" />
+            </font>
+            <tooltip>
+                <Tooltip text="Añada al almacén" />
+            </tooltip>
+        </JFXButton>
+        <ImageView fx:id="imgAlmacen" fitHeight="418.0" fitWidth="483.0" layoutX="967.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Imagenes/iconoSolo.png" />
+            </image>
+        </ImageView>
+        <JFXButton fx:id="botonModificar" layoutX="1072.0" layoutY="629.0" onAction="#accionesCRUD" prefHeight="42.0" prefWidth="90.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="↩" textAlignment="CENTER" textFill="#f35d6d">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <effect>
+                <MotionBlur />
+            </effect>
+            <font>
+                <Font name="Century Gothic" size="22.0" />
+            </font>
+            <tooltip>
+                <Tooltip graphicTextGap="1.0" text="Actualice datos del almacén" />
+            </tooltip>
+        </JFXButton>
+        <JFXButton fx:id="botonEliminar" layoutX="1173.0" layoutY="629.0" onAction="#accionesCRUD" prefHeight="42.0" prefWidth="90.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="-" textAlignment="CENTER" textFill="#f35d6d">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <font>
+                <Font name="Century Gothic" size="22.0" />
+            </font>
+            <effect>
+                <MotionBlur />
+            </effect>
+            <tooltip>
+                <Tooltip text="elimine del almacén" />
+            </tooltip>
+        </JFXButton>
+        <JFXTabPane fx:id="tabsAlmacen" focusTraversable="false" onMousePressed="#escuchaTabs" prefHeight="702.0" prefWidth="955.0">
+            <tabs>
+                <Tab fx:id="tabProductos" text="Productos">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
+                            <children>
+                                <TableView fx:id="tablaProductos" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="673.0" prefWidth="955.0">
+                                    <columns>
+                                        <TableColumn fx:id="colIDProduc" prefWidth="44.0" text="ID" />
+                                        <TableColumn fx:id="colNomProduc" prefWidth="326.00001525878906" text="NOMBRE" />
+                                        <TableColumn fx:id="colTipoProduc" prefWidth="116.0" text="TIPO" />
+                                        <TableColumn fx:id="colCantProduc" prefWidth="94.0" text="CANTIDAD" />
+                                        <TableColumn fx:id="colPorvProduc" prefWidth="110.0" text="PROVEEDOR" />
+                                        <TableColumn fx:id="colObserProduc" prefWidth="264.0" text="OBSERVACIONES" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabProveedores" text="Proveedores">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
+                            <children>
+                                <TableView fx:id="tablaProveedor" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="666.0" prefWidth="955.0">
+                                    <columns>
+                                        <TableColumn fx:id="colProvID" prefWidth="44.0" text="ID" />
+                                        <TableColumn fx:id="colProvNom" prefWidth="201.0" text="NOMBRE" />
+                                        <TableColumn fx:id="colProvDirec" prefWidth="448.0" text="DIRECCION" />
+                                        <TableColumn fx:id="colProvTel" prefWidth="158.0" text="TELEFONO" />
+                                        <TableColumn fx:id="colProvPais" prefWidth="103.0" text="PAIS" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </JFXTabPane>
+        <Text fx:id="labelAlmacen" layoutX="1110.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ALMACEN">
+            <font>
+                <Font name="Bauhaus 93" size="45.0" />
+            </font>
+        </Text>
+        <Line endX="100.0" layoutX="1201.0" layoutY="105.0" startX="-100.0" />
+        <Text layoutX="1169.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KAMO(N)DUCK">
+            <font>
+                <Font name="Bauhaus 93" size="10.0" />
+            </font>
+        </Text>
+        <ComboBox fx:id="menuModulos" accessibleRole="COMBO_BOX" layoutX="1137.0" layoutY="3.0" onAction="#cambiaModulo" stylesheets="@css.css">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Almacén" />
+                    <String fx:value="Facturación" />
+                    <String fx:value="Empleados" />
+                    <String fx:value="Atrás" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <Accordion layoutX="753.0">
+            <panes>
+                <TitledPane animated="false" prefHeight="367.0" prefWidth="202.0" style="-fx-max-height: 255;" text="FILTROS">
+                    <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                            <children>
+                                <JFXTextField fx:id="textFiltroID" layoutX="33.0" layoutY="26.0" prefHeight="23.0" prefWidth="132.0" promptText="ID" />
+                                <JFXTextField fx:id="textFiltroNombre" layoutX="34.0" layoutY="63.0" prefHeight="23.0" prefWidth="132.0" promptText="NOMBRE" />
+                                <JFXTextField fx:id="textFiltroProveedor" layoutX="34.0" layoutY="178.0" prefHeight="23.0" prefWidth="132.0" promptText="PROVEEDOR" />
+                                <JFXTextField fx:id="textFiltroTipo" layoutX="34.0" layoutY="101.0" prefHeight="23.0" prefWidth="132.0" promptText="TIPO" />
+                                <JFXTextField fx:id="textFiltroCantidad" layoutX="34.0" layoutY="139.0" prefHeight="23.0" prefWidth="132.0" promptText="CANTIDAD" />
+                                <JFXTextField fx:id="textFiltroTelefono" layoutX="33.0" layoutY="101.0" prefHeight="23.0" prefWidth="132.0" promptText="TELEFONO" visible="false" />
+                                <JFXTextField fx:id="textFiltroPais" layoutX="34.0" layoutY="139.0" prefHeight="23.0" prefWidth="132.0" promptText="PAIS" visible="false" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </TitledPane>
+            </panes>
+        </Accordion>
+        <Label fx:id="labelNomProdProv" alignment="CENTER" contentDisplay="CENTER" layoutX="966.0" layoutY="124.0" prefHeight="21.0" prefWidth="483.0" text="KAMO(N)DUCK" />
+    </children>
 </AnchorPane>
