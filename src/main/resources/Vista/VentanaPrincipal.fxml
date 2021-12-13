@@ -71,7 +71,7 @@
          </tooltip></JFXButton>
       <JFXTabPane prefHeight="702.0" prefWidth="955.0">
          <tabs>
-          <Tab text="Productos">
+          <Tab fx:id="tabProductos" text="Productos">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
                      <children>
@@ -89,17 +89,17 @@
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab text="Proveedores">
+            <Tab fx:id="tabProveedores" text="Proveedores">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
                      <children>
                         <TableView fx:id="tablaProveedor" layoutX="2.0" layoutY="-1.0" prefHeight="666.0" prefWidth="955.0">
                            <columns>
-                              <TableColumn prefWidth="44.0" text="ID" />
-                              <TableColumn prefWidth="201.0" text="NOMBRE" />
-                              <TableColumn prefWidth="448.0" text="DIRECCION" />
-                              <TableColumn prefWidth="158.0" text="TELEFONO" />
-                              <TableColumn prefWidth="103.0" text="PAIS" />
+                              <TableColumn fx:id="colProvID" prefWidth="44.0" text="ID" />
+                              <TableColumn fx:id="colProvNom" prefWidth="201.0" text="NOMBRE" />
+                              <TableColumn fx:id="colProvDirec" prefWidth="448.0" text="DIRECCION" />
+                              <TableColumn fx:id="colProvTel" prefWidth="158.0" text="TELEFONO" />
+                              <TableColumn fx:id="colProvPais" prefWidth="103.0" text="PAIS" />
                            </columns>
                         </TableView>
                      </children>
@@ -119,12 +119,12 @@
             <Font name="Bauhaus 93" size="10.0" />
          </font>
       </Text>
-      <MenuButton fx:id="menubutton" alignment="CENTER" layoutX="1137.0" layoutY="3.0" mnemonicParsing="false" stylesheets="@css.css" text="MENU">
+      <MenuButton alignment="CENTER" layoutX="1137.0" layoutY="3.0" mnemonicParsing="false" stylesheets="@css.css" text="MENU">
         <items>
-            <MenuItem mnemonicParsing="false" text="Almacén" visible="false" />
-            <MenuItem fx:id="gestionmenu" mnemonicParsing="false" text="Gestión" />
-          <MenuItem fx:id="empleadosmenu" mnemonicParsing="false" text="Empleados" />
-          <MenuItem fx:id="atras" mnemonicParsing="false" text="Atrás" />
+            <MenuItem fx:id="menuItemAlmacen" mnemonicParsing="false" text="Almacén" visible="false" />
+            <MenuItem fx:id="menuItemGestion" mnemonicParsing="false" text="Gestión" />
+          <MenuItem fx:id="menuItemEmpleados" mnemonicParsing="false" text="Empleados" />
+          <MenuItem fx:id="menuItemAtras" mnemonicParsing="false" text="Atrás" />
         </items>
       </MenuButton>
       <Accordion layoutX="753.0">
@@ -133,19 +133,19 @@
                <content>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <JFXTextField layoutX="33.0" layoutY="26.0" prefHeight="23.0" prefWidth="132.0" promptText="ID" />
-                        <JFXTextField layoutX="34.0" layoutY="63.0" prefHeight="23.0" prefWidth="132.0" promptText="NOMBRE" />
-                        <JFXTextField layoutX="34.0" layoutY="178.0" prefHeight="23.0" prefWidth="132.0" promptText="PROVEEDOR" />
-                        <JFXTextField layoutX="34.0" layoutY="101.0" prefHeight="23.0" prefWidth="132.0" promptText="TIPO" />
-                        <JFXTextField layoutX="34.0" layoutY="139.0" prefHeight="23.0" prefWidth="132.0" promptText="CANTIDAD" />
-                        <JFXTextField layoutX="33.0" layoutY="101.0" prefHeight="23.0" prefWidth="132.0" promptText="TELEFONO" />
-                        <JFXTextField layoutX="34.0" layoutY="139.0" prefHeight="23.0" prefWidth="132.0" promptText="PAIS" />
+                        <JFXTextField fx:id="textFiltroID" layoutX="33.0" layoutY="26.0" prefHeight="23.0" prefWidth="132.0" promptText="ID" />
+                        <JFXTextField fx:id="textFiltroNombre" layoutX="34.0" layoutY="63.0" prefHeight="23.0" prefWidth="132.0" promptText="NOMBRE" />
+                        <JFXTextField fx:id="textFiltroProveedor" layoutX="34.0" layoutY="178.0" prefHeight="23.0" prefWidth="132.0" promptText="PROVEEDOR" />
+                        <JFXTextField fx:id="textFiltroTipo" layoutX="34.0" layoutY="101.0" prefHeight="23.0" prefWidth="132.0" promptText="TIPO" />
+                        <JFXTextField fx:id="textFiltroCantidad" layoutX="34.0" layoutY="139.0" prefHeight="23.0" prefWidth="132.0" promptText="CANTIDAD" />
+                        <JFXTextField fx:id="textFiltroTelefono" layoutX="33.0" layoutY="101.0" prefHeight="23.0" prefWidth="132.0" promptText="TELEFONO" />
+                        <JFXTextField fx:id="textFiltroPais" layoutX="34.0" layoutY="139.0" prefHeight="23.0" prefWidth="132.0" promptText="PAIS" />
                      </children>
                   </AnchorPane>
                </content>
           </TitledPane>
         </panes>
       </Accordion>
-      <Label layoutX="1105.0" layoutY="124.0" text="NOMBRE DE LAS COSITES" />
+      <Label fx:id="labelNomProdProv" layoutX="1105.0" layoutY="124.0" text="NOMBRE DE LAS COSITES" />
    </children>
 </AnchorPane>

@@ -9,15 +9,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import Modelo.Producto;
+import Modelo.Proveedor;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -34,12 +35,18 @@ public class VentanaPrincipalController implements Initializable {
     public ImageView imgAlmacen;
     public TableView tablaProductos, tablaProveedor;
     public TableColumn colIDProduc, colNomProduc, colTipoProduc, colCantProduc, colPorvProduc, colObserProduc;
+    public TableColumn colProvID, colProvNom, colProvDirec, colProvTel, colProvPais;
     public Text labelAlmacen;
+    public Tab tabProductos, tabProveedores;
+    public MenuItem menuItemAlmacen, menuItemGestion, menuItemEmpleados, menuItemAtras;
+    public JFXTextField textFiltroID, textFiltroNombre, textFiltroProveedor, textFiltroTipo, textFiltroCantidad, textFiltroTelefono, textFiltroPais;
+    public Label labelNomProdProv;
 
 
     private IOBaseDatos IO = new IOBaseDatos();
 
     private ObservableList<Producto> ListaProductos;
+    private ObservableList<Proveedor> ListaProveedor;
 
 
     @Override
@@ -64,7 +71,7 @@ public class VentanaPrincipalController implements Initializable {
             String proveedor = proveedorConsult.getString("Nombre_Proveedor");
 
 
-            Producto p = new Producto(r1.getInt("IDProducto"),
+            Producto prod = new Producto(r1.getInt("IDProducto"),
                     r1.getString("Nombre_Producto"),
                     r1.getString("Tipo_Producto"),
                     r1.getInt("Cantidad"),
@@ -74,11 +81,31 @@ public class VentanaPrincipalController implements Initializable {
 
             if (r1 != null) {
 
-                this.ListaProductos.add(p);
+                this.ListaProductos.add(prod);
             }
 
             this.tablaProductos.setItems(ListaProductos);
             this.tablaProductos.refresh();
+        }
+
+
+        ResultSet r2 = IO.introduceRegistros("SELECT * FROM PROVEEDOR");
+
+        while (r2.next()) {
+
+            Proveedor prov = new Proveedor(r2.getInt("IDProveedor"),
+                    r2.getString("Nombre_Proveedor"),
+                    r2.getString("Direccion"),
+                    r2.getString("Telefono_Proveedor"),
+                    r2.getString("Pais"));
+
+            if (r2 != null) {
+
+                this.ListaProveedor.add(prov);
+            }
+
+            this.tablaProveedor.setItems(ListaProveedor);
+            this.tablaProveedor.refresh();
         }
     }
 
@@ -87,6 +114,7 @@ public class VentanaPrincipalController implements Initializable {
     public void iniciaTablas() {
 
         ListaProductos = FXCollections.observableArrayList();
+        ListaProveedor = FXCollections.observableArrayList();
 
         this.colIDProduc.setCellValueFactory(new PropertyValueFactory<>("IDProducto"));
         this.colNomProduc.setCellValueFactory(new PropertyValueFactory<>("Nombre_Producto"));
@@ -95,7 +123,11 @@ public class VentanaPrincipalController implements Initializable {
         this.colObserProduc.setCellValueFactory(new PropertyValueFactory<>("Observaciones"));
         this.colPorvProduc.setCellValueFactory(new PropertyValueFactory<>("Proveedor"));
 
-
+        this.colProvID.setCellValueFactory(new PropertyValueFactory<>("IDProveedor"));
+        this.colProvNom.setCellValueFactory(new PropertyValueFactory<>("Nombre_Proveedor"));
+        this.colProvDirec.setCellValueFactory(new PropertyValueFactory<>("Direccion"));
+        this.colProvTel.setCellValueFactory(new PropertyValueFactory<>("Telefono_Proveedor"));
+        this.colProvPais.setCellValueFactory(new PropertyValueFactory<>("Pais"));
     }
 
     public void accionEliminar() throws SQLException {
