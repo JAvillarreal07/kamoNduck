@@ -11,12 +11,18 @@ import Modelo.Producto;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * @author josea
@@ -104,5 +110,20 @@ public class VentanaPrincipalController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(VentanaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public void accionAnadir(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vista/VentanaMedico.fxml"));
+        Parent root = loader.load();
+
+        VentanaCampos controlador = loader.getController();
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.getIcons().add(new Image("/Vista/logito.png"));
+        stage.setTitle("Modificar médico");
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.showAndWait();
     }
 }
