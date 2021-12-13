@@ -1,0 +1,36 @@
+
+i	java:S116"URename this field "IDEstancia" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ¸›/
+h	java:S116"TRename this field "IDCliente" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ¸›/
+e	java:S116"QRename this field "IDPato" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ¸›/
+e	java:S116"QRename this field "IDLago" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ¸›/
+m	java:S116"XRename this field "Fecha_Ingreso" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïÑå±
+l	java:S116"WRename this field "Fecha_Salida" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïÑå±
+c	java:S100""NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬Ä†í
+h	java:S100$"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥„–úÿÿÿÿ
+c
+java:S1854$"ARemove this useless assignment to local variable "Fecha_Ingreso".(¥„–úÿÿÿÿ8Òæ÷ÒÚ/
+Q
+java:S1656$"/Remove or correct this useless self-assignment.(¥„–úÿÿÿÿ8Óæ÷ÒÚ/
+c	java:S100&"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µµ²Æ
+h	java:S100("NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â¬Áíÿÿÿÿÿ
+b
+java:S1854("@Remove this useless assignment to local variable "Fecha_Salida".(Â¬Áíÿÿÿÿÿ8€ÜøÒÚ/
+Q
+java:S1656("/Remove or correct this useless self-assignment.(Â¬Áíÿÿÿÿÿ8ÜøÒÚ/
+f	java:S117	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€™•®
+f	java:S117	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€™•®
+f	java:S117	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€™•®
+f	java:S117	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€™•®
+f	java:S117	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€™•®
+f	java:S117	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€™•®
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²œØºùÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ö¨ğËûÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğ´õ™øÿÿÿÿ
+f	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»½¢´
+k	java:S117$"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥„–úÿÿÿÿ
+k	java:S117("QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â¬Áíÿÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(àÄ€ü
+Œ
+java:S4165("jRemove this useless assignment; "Fecha_Salida" already holds the assigned value along all execution paths.(Â¬Áíÿÿÿÿÿ8ˆÜøÒÚ/
+
+java:S4165$"kRemove this useless assignment; "Fecha_Ingreso" already holds the assigned value along all execution paths.(¥„–úÿÿÿÿ8Úæ÷ÒÚ/

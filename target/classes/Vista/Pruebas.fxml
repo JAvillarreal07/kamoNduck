@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@css.css" xmlns="http://javafx.com/javafx/1.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.PruebasController">
+   <children>
+      <JFXButton fx:id="boton1" alignment="CENTER" layoutX="22.0" layoutY="20.0" prefHeight="74.0" prefWidth="86.0" text="Boton 1" />
+      <JFXButton fx:id="boton2" alignment="CENTER" layoutX="121.0" layoutY="20.0" prefHeight="74.0" prefWidth="86.0" text="Boton 2" />
+      <JFXButton fx:id="boton3" alignment="CENTER" layoutX="214.0" layoutY="20.0" prefHeight="74.0" prefWidth="86.0" text="Boton 3" />
+      <JFXButton fx:id="boton4" alignment="CENTER" layoutX="314.0" layoutY="20.0" prefHeight="74.0" prefWidth="86.0" text="Boton 4" />
+      <JFXButton fx:id="boton5" alignment="CENTER" layoutX="413.0" layoutY="20.0" prefHeight="74.0" prefWidth="86.0" text="Boton 5" />
+      <JFXButton fx:id="boton6" alignment="CENTER" layoutX="22.0" layoutY="110.0" prefHeight="74.0" prefWidth="86.0" text="Boton 6" />
+      <JFXButton fx:id="boton7" alignment="CENTER" layoutX="121.0" layoutY="110.0" prefHeight="74.0" prefWidth="86.0" text="Boton 7" />
+      <JFXButton fx:id="boton8" alignment="CENTER" layoutX="214.0" layoutY="110.0" prefHeight="74.0" prefWidth="86.0" text="Boton 8" />
+      <JFXButton fx:id="boton9" alignment="CENTER" layoutX="314.0" layoutY="110.0" prefHeight="74.0" prefWidth="86.0" text="Boton 9" />
+      <JFXButton fx:id="boton10" alignment="CENTER" layoutX="413.0" layoutY="110.0" prefHeight="74.0" prefWidth="86.0" text="Boton 10" />
+      <JFXButton fx:id="boton11" alignment="CENTER" layoutX="22.0" layoutY="206.0" prefHeight="74.0" prefWidth="86.0" text="Boton 11" />
+      <JFXButton fx:id="boton12" alignment="CENTER" layoutX="121.0" layoutY="206.0" prefHeight="74.0" prefWidth="86.0" text="Boton 12" />
+      <JFXButton fx:id="boton13" alignment="CENTER" layoutX="214.0" layoutY="206.0" prefHeight="74.0" prefWidth="86.0" text="Boton 13" />
+      <JFXButton fx:id="boton14" alignment="CENTER" layoutX="314.0" layoutY="206.0" prefHeight="74.0" prefWidth="86.0" text="Boton 14" />
+      <JFXButton fx:id="boton15" alignment="CENTER" layoutX="413.0" layoutY="206.0" prefHeight="74.0" prefWidth="86.0" text="Boton 15" />
+      <JFXButton fx:id="boton16" alignment="CENTER" layoutX="22.0" layoutY="280.0" prefHeight="74.0" prefWidth="86.0" text="Boton 16" />
+      <JFXButton fx:id="boton17" alignment="CENTER" layoutX="121.0" layoutY="287.0" prefHeight="74.0" prefWidth="86.0" text="Boton 17" />
+   </children>
+</AnchorPane>
