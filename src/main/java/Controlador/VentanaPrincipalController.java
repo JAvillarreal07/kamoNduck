@@ -1,9 +1,7 @@
 package Controlador;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,6 +16,9 @@ import com.jfoenix.controls.JFXTabPane;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -36,22 +37,41 @@ import org.controlsfx.control.textfield.TextFields;
  */
 public class VentanaPrincipalController implements Initializable {
 
+    @FXML
     public JFXButton botonAnadir, botonModificar, botonEliminar;
+    @FXML
     public ImageView imgAlmacen;
+    @FXML
     public TableView tablaProductos, tablaProveedor;
+    @FXML
     public TableColumn colIDProduc, colNomProduc, colTipoProduc, colCantProduc, colPorvProduc, colObserProduc;
+    @FXML
     public TableColumn colProvID, colProvNom, colProvDirec, colProvTel, colProvPais;
+    @FXML
     public Tab tabProductos, tabProveedores;
-    public JFXTextField textFiltroID, textFiltroNombre, textFiltroProveedor, textFiltroTipo, textFiltroCantidad, textFiltroTelefono, textFiltroPais;
+    @FXML
+    public JFXTextField textFiltroIDProd, textFiltroIDProv, textFiltroNombreProd, textFiltroNombreProv, textFiltroProveedor, textFiltroTipo, textFiltroCantidad, textFiltroTelefono, textFiltroPais;
+    @FXML
     public Label labelNomProdProv;
+    @FXML
     public ComboBox menuModulos;
+    @FXML
     public JFXTabPane tabsAlmacen;
-
 
     private IOBaseDatos IO = new IOBaseDatos();
 
     private ObservableList<Producto> ListaProductos;
     private ObservableList<Proveedor> ListaProveedor;
+
+    private ArrayList<Integer> IDProdFiltros = new ArrayList<Integer>();
+    private ArrayList<Integer> IDProvFiltros = new ArrayList<Integer>();
+    private ArrayList<String> nombresProdFiltros = new ArrayList<String>();
+    private ArrayList<String> nombresProvFiltros = new ArrayList<String>();
+    private ArrayList<String> proveedorProdFiltros = new ArrayList<String>();
+    private ArrayList<String> tipoProdFiltros = new ArrayList<String>();
+    private ArrayList<Integer> cantidadProdFiltros = new ArrayList<Integer>();
+    private ArrayList<String> telefonoProvFiltros = new ArrayList<String>();
+    private ArrayList<String> paisProvFiltros = new ArrayList<String>();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -59,14 +79,10 @@ public class VentanaPrincipalController implements Initializable {
         iniciaTablas();
         try {
             iniciaRegistros();
+            iniciaFiltros();
         } catch (SQLException ex) {
             Logger.getLogger(VentanaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
-        String[] nombres = {"Hola", "Hello", "Atope", "Puto", "yesss"};
-
-        TextFields.bindAutoCompletion(textFiltroNombre, nombres);
     }
 
     public void iniciaRegistros() throws SQLException {
@@ -135,6 +151,91 @@ public class VentanaPrincipalController implements Initializable {
         this.colProvDirec.setCellValueFactory(new PropertyValueFactory<>("Direccion"));
         this.colProvTel.setCellValueFactory(new PropertyValueFactory<>("Telefono_Proveedor"));
         this.colProvPais.setCellValueFactory(new PropertyValueFactory<>("Pais"));
+    }
+
+    public void iniciaFiltros(){
+        for (int i = 0; i < ListaProductos.size(); i++){
+            IDProdFiltros.add(ListaProductos.get(i).getIDProducto());
+            nombresProdFiltros.add(ListaProductos.get(i).getNombre_Producto());
+            proveedorProdFiltros.add(ListaProductos.get(i).getProveedor());
+            tipoProdFiltros.add(ListaProductos.get(i).getTipo_Producto());
+            cantidadProdFiltros.add(ListaProductos.get(i).getCantidad());
+        }
+
+        for (int i = 0; i < ListaProveedor.size(); i++){
+            IDProvFiltros.add(ListaProveedor.get(i).getIDProveedor());
+            nombresProvFiltros.add(ListaProveedor.get(i).getNombre_Proveedor());
+            telefonoProvFiltros.add(ListaProveedor.get(i).getTelefono_Proveedor());
+            paisProvFiltros.add(ListaProveedor.get(i).getPais());
+        }
+
+
+        TextFields.bindAutoCompletion(textFiltroIDProd, IDProdFiltros);
+        TextFields.bindAutoCompletion(textFiltroNombreProd, nombresProdFiltros);
+        TextFields.bindAutoCompletion(textFiltroProveedor, proveedorProdFiltros);
+        TextFields.bindAutoCompletion(textFiltroTipo, tipoProdFiltros);
+        TextFields.bindAutoCompletion(textFiltroCantidad, cantidadProdFiltros);
+
+        TextFields.bindAutoCompletion(textFiltroIDProv, IDProvFiltros);
+        TextFields.bindAutoCompletion(textFiltroNombreProv, nombresProvFiltros);
+        TextFields.bindAutoCompletion(textFiltroTelefono, telefonoProvFiltros);
+        TextFields.bindAutoCompletion(textFiltroPais, paisProvFiltros);
+
+        FilteredList<Producto> filteredDataProd = new FilteredList<>(ListaProductos, b -> true);
+
+        //Establece el predicado del filtro siempre que el filtro cambie.
+        textFiltroNombreProd.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredDataProd.setPredicate(producto -> {
+
+                //Si el texto del filtro está vacío, mostrará todos los pacientes.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                //Compara los datos en la tabla con lo escrito en el filtro.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (producto.getNombre_Producto().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true;
+                } else {
+                    return false; // No coincide nada.
+                }
+            });
+        });
+
+        sorter(filteredDataProd);
+
+        textFiltroTipo.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredDataProd.setPredicate(producto -> {
+
+                //Si el texto del filtro está vacío, mostrará todos los pacientes.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                //Compara los datos en la tabla con lo escrito en el filtro.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (producto.getTipo_Producto().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true;
+                } else {
+                    return false; // No coincide nada.
+                }
+            });
+        });
+
+        sorter(filteredDataProd);
+    }
+
+    public void sorter(FilteredList<Producto> filteredDataProd){
+        //Envuelve el FilteredList en un SortedList.
+        SortedList<Producto> sortedDataPaci = new SortedList<>(filteredDataProd);
+
+        //Vincula el comparador SortedList al comparador TableView.
+        //sortedDataPaci.comparatorProperty().bind(tablaProductos.comparatorProperty());
+
+        //Agregue los datos ordenados (y filtrados) a la tabla.
+        tablaProductos.setItems(sortedDataPaci);
     }
 
     public void accionesCRUD() throws SQLException, IOException {
@@ -224,27 +325,43 @@ public class VentanaPrincipalController implements Initializable {
         }
     }
 
-    public void escuchaTabs(){
+    public void escuchaTabs() {
 
-        if (tabProductos.isSelected()){
-            textFiltroTipo.setVisible(true);
-            textFiltroCantidad.setVisible(true);
+        if (tabProductos.isSelected()) {
+            try {
+                textFiltroIDProd.setVisible(true);
+                textFiltroNombreProd.setVisible(true);
+                textFiltroTipo.setVisible(true);
+                textFiltroCantidad.setVisible(true);
+                textFiltroProveedor.setVisible(true);
 
-            textFiltroTelefono.setVisible(false);
-            textFiltroPais.setVisible(false);
+                textFiltroIDProv.setVisible(false);
+                textFiltroNombreProv.setVisible(false);
+                textFiltroTelefono.setVisible(false);
+                textFiltroPais.setVisible(false);
 
-            labelNomProdProv.setText("KAMO(N)DUCK");
-            imgAlmacen.setImage(new Image("/Imagenes/iconoSolo.png"));
+                labelNomProdProv.setText("KAMO(N)DUCK");
+                imgAlmacen.setImage(new Image("/Imagenes/iconoSolo.png"));
+            } catch (NullPointerException e){}
 
-        }else if (tabProveedores.isSelected()){
-            textFiltroTipo.setVisible(false);
-            textFiltroCantidad.setVisible(false);
+        } else if (tabProveedores.isSelected()) {
 
-            textFiltroTelefono.setVisible(true);
-            textFiltroPais.setVisible(true);
+            try{
+                textFiltroIDProd.setVisible(false);
+                textFiltroNombreProd.setVisible(false);
+                textFiltroTipo.setVisible(false);
+                textFiltroCantidad.setVisible(false);
+                textFiltroProveedor.setVisible(false);
 
-            labelNomProdProv.setText("KAMO(N)DUCK");
-            imgAlmacen.setImage(new Image("/Imagenes/iconoSolo.png"));
+                textFiltroIDProv.setVisible(true);
+                textFiltroNombreProv.setVisible(true);
+                textFiltroTelefono.setVisible(true);
+                textFiltroPais.setVisible(true);
+
+
+                labelNomProdProv.setText("KAMO(N)DUCK");
+                imgAlmacen.setImage(new Image("/Imagenes/iconoSolo.png"));
+            } catch (NullPointerException e){}
         }
     }
 
