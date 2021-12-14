@@ -249,6 +249,6 @@ public class VentanaPrincipalController implements Initializable {
     }
 
     public void moduloElegido(String boton) {
-        this.menuModulos.setValue(boton);
+        this.menuModulos.setValue(boton); //Atope
     }
 }
