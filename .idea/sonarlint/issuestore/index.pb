@@ -19,3 +19,15 @@ S
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 j
 :src/main/java/Controlador/VentanaBienvenidaController.java,4\3\4380ce85b0eb7917483ebd77121fefe14137dff4
+V
+&src/main/java/Controlador/Iniciar.java,f\b\fba46dc94f5925b7b6fdff736c9c1e5ea5eeaf10
+`
+0src/main/java/Controlador/PruebasController.java,8\7\8733af9cf1e184e26601711f4c1ceb59769de076
+\
+,src/main/java/Controlador/VentanaCampos.java,0\0\00c256960e831301bed6cb2199239d4fa97b5996
+i
+9src/main/java/Controlador/VentanaPrincipalController.java,e\6\e6d2aa5d371f185ca8ac5b122b57a039a9aa5acd
+N
+src/main/java/Modelo/Lago.java,f\7\f714cef81bb76f5b294e184898da28cf0cf323db
+R
+"src/main/java/Modelo/Producto.java,4\7\47587026e76765dad2c0142b592adfc079c12eb2
