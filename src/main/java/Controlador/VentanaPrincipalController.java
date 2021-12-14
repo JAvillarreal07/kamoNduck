@@ -14,10 +14,10 @@ import Modelo.Proveedor;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTabPane;
 import com.jfoenix.controls.JFXTextField;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -63,6 +63,9 @@ public class VentanaPrincipalController implements Initializable {
 
     private ObservableList<Producto> ListaProductos;
     private ObservableList<Proveedor> ListaProveedor;
+
+    private ObservableList<Producto> listaFiltrosProd = FXCollections.observableArrayList();
+    private ObservableList<Proveedor> listaFiltrosProv = FXCollections.observableArrayList();
 
     ObservableList<String> nombreEmpleados = FXCollections.observableArrayList("Engineering", "MCA", "MBA", "Graduation", "MTECH", "Mphil", "Phd");
     ListView<String> listView = new ListView<String>(nombreEmpleados);
@@ -158,8 +161,8 @@ public class VentanaPrincipalController implements Initializable {
         this.colProvPais.setCellValueFactory(new PropertyValueFactory<>("Pais"));
     }
 
-    public void iniciaFiltros(){
-        for (int i = 0; i < ListaProductos.size(); i++){
+    public void iniciaFiltros() {
+        for (int i = 0; i < ListaProductos.size(); i++) {
             IDProdFiltros.add(ListaProductos.get(i).getIDProducto());
             nombresProdFiltros.add(ListaProductos.get(i).getNombre_Producto());
             proveedorProdFiltros.add(ListaProductos.get(i).getProveedor());
@@ -167,7 +170,7 @@ public class VentanaPrincipalController implements Initializable {
             cantidadProdFiltros.add(ListaProductos.get(i).getCantidad());
         }
 
-        for (int i = 0; i < ListaProveedor.size(); i++){
+        for (int i = 0; i < ListaProveedor.size(); i++) {
             IDProvFiltros.add(ListaProveedor.get(i).getIDProveedor());
             nombresProvFiltros.add(ListaProveedor.get(i).getNombre_Proveedor());
             telefonoProvFiltros.add(ListaProveedor.get(i).getTelefono_Proveedor());
@@ -186,61 +189,107 @@ public class VentanaPrincipalController implements Initializable {
         TextFields.bindAutoCompletion(textFiltroTelefono, telefonoProvFiltros);
         TextFields.bindAutoCompletion(textFiltroPais, paisProvFiltros);
 
-        FilteredList<Producto> filteredDataProd = new FilteredList<>(ListaProductos, b -> true);
-
-        //Establece el predicado del filtro siempre que el filtro cambie.
-        textFiltroNombreProd.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredDataProd.setPredicate(producto -> {
-
-                //Si el texto del filtro está vacío, mostrará todos los pacientes.
-                if (newValue == null || newValue.isEmpty()) {
-                    return true;
-                }
-
-                //Compara los datos en la tabla con lo escrito en el filtro.
-                String lowerCaseFilter = newValue.toLowerCase();
-
-                if (producto.getNombre_Producto().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-                    return true;
-                } else {
-                    return false; // No coincide nada.
-                }
-            });
+        textFiltroIDProd.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrar();
+            }
         });
 
-        sorter(filteredDataProd);
-
-        textFiltroTipo.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredDataProd.setPredicate(producto -> {
-
-                //Si el texto del filtro está vacío, mostrará todos los pacientes.
-                if (newValue == null || newValue.isEmpty()) {
-                    return true;
-                }
-
-                //Compara los datos en la tabla con lo escrito en el filtro.
-                String lowerCaseFilter = newValue.toLowerCase();
-
-                if (producto.getTipo_Producto().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-                    return true;
-                } else {
-                    return false; // No coincide nada.
-                }
-            });
+        textFiltroNombreProd.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrar();
+            }
         });
 
-        sorter(filteredDataProd);
+        textFiltroProveedor.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrar();
+            }
+        });
+
+        textFiltroTipo.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrar();
+            }
+        });
+
+        textFiltroCantidad.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrar();
+            }
+        });
+
+        textFiltroIDProv.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrar();
+            }
+        });
+
+        textFiltroNombreProv.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrar();
+            }
+        });
+
+        textFiltroTelefono.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrar();
+            }
+        });
+
+        textFiltroPais.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrar();
+            }
+        });
     }
 
-    public void sorter(FilteredList<Producto> filteredDataProd){
-        //Envuelve el FilteredList en un SortedList.
-        SortedList<Producto> sortedDataPaci = new SortedList<>(filteredDataProd);
+    public void filtrar() {
+        if (tabProductos.isSelected()) {
+            listaFiltrosProd.clear();
 
-        //Vincula el comparador SortedList al comparador TableView.
-        //sortedDataPaci.comparatorProperty().bind(tablaProductos.comparatorProperty());
+            for (int i = 0; i < ListaProductos.size(); i++) {
+                try {
+                    if (String.valueOf(ListaProductos.get(i).getIDProducto()).contains(textFiltroIDProd.getText()) &&
+                            ListaProductos.get(i).getNombre_Producto().toLowerCase().contains(textFiltroNombreProd.getText().toLowerCase()) &&
+                            ListaProductos.get(i).getTipo_Producto().toLowerCase().contains(textFiltroTipo.getText().toLowerCase()) &&
+                            String.valueOf(ListaProductos.get(i).getCantidad()).contains(textFiltroCantidad.getText()) &&
+                            ListaProductos.get(i).getProveedor().toLowerCase().contains(textFiltroProveedor.getText().toLowerCase())
+                    ) {
+                        listaFiltrosProd.add(ListaProductos.get(i));
+                    }
+                } catch (NullPointerException e) {
+                }
+            }
 
-        //Agregue los datos ordenados (y filtrados) a la tabla.
-        tablaProductos.setItems(sortedDataPaci);
+            tablaProductos.setItems(listaFiltrosProd);
+        } else if (tabProveedores.isSelected()) {
+            listaFiltrosProv.clear();
+
+            for (int i = 0; i < ListaProveedor.size(); i++) {
+                try {
+                    if (String.valueOf(ListaProveedor.get(i).getIDProveedor()).contains(textFiltroIDProv.getText()) &&
+                            ListaProveedor.get(i).getNombre_Proveedor().toLowerCase().contains(textFiltroNombreProv.getText().toLowerCase()) &&
+                            ListaProveedor.get(i).getTelefono_Proveedor().toLowerCase().contains(textFiltroTelefono.getText().toLowerCase()) &&
+                            ListaProveedor.get(i).getPais().toLowerCase().contains(textFiltroPais.getText().toLowerCase())
+                    ) {
+                        listaFiltrosProv.add(ListaProveedor.get(i));
+                    }
+                } catch (NullPointerException e) {
+                }
+            }
+
+            tablaProductos.setItems(listaFiltrosProv);
+        }
     }
 
     public void accionesCRUD() throws SQLException, IOException {
@@ -347,11 +396,12 @@ public class VentanaPrincipalController implements Initializable {
 
                 labelNomProdProv.setText("KAMO(N)DUCK");
                 imgAlmacen.setImage(new Image("/Imagenes/iconoSolo.png"));
-            } catch (NullPointerException e){}
+            } catch (NullPointerException e) {
+            }
 
         } else if (tabProveedores.isSelected()) {
 
-            try{
+            try {
                 textFiltroIDProd.setVisible(false);
                 textFiltroNombreProd.setVisible(false);
                 textFiltroTipo.setVisible(false);
@@ -366,7 +416,8 @@ public class VentanaPrincipalController implements Initializable {
 
                 labelNomProdProv.setText("KAMO(N)DUCK");
                 imgAlmacen.setImage(new Image("/Imagenes/iconoSolo.png"));
-            } catch (NullPointerException e){}
+            } catch (NullPointerException e) {
+            }
         }
     }
 
