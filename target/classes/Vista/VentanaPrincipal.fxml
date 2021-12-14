@@ -25,7 +25,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="793.0" prefWidth="1454.0" stylesheets="@css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VentanaPrincipalController">
     <children>
-      <JFXListView id="tabsEmpleados" layoutX="69.0" layoutY="43.0" />
+      <JFXListView id="tabsEmpleados" layoutX="60.0" layoutY="26.0" prefHeight="757.0" prefWidth="372.0" />
         <JFXButton fx:id="botonAnadir" layoutX="1273.0" layoutY="629.0" onAction="#accionesCRUD" prefHeight="42.0" prefWidth="90.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="+" textAlignment="CENTER" textFill="#f35d6d" visible="false">
             <cursor>
                 <Cursor fx:constant="HAND" />
@@ -166,6 +166,14 @@
         </Accordion>
 
         <Label fx:id="labelNomProdProv" alignment="CENTER" contentDisplay="CENTER" layoutX="966.0" layoutY="124.0" prefHeight="21.0" prefWidth="483.0" text="KAMO(N)DUCK" visible="false" />
+      <Label layoutX="452.0" layoutY="43.0" prefHeight="15.0" prefWidth="230.0" text="¿Quien está trabajando hoy?" />
+      <JFXListView layoutX="452.0" layoutY="58.0" prefHeight="477.0" prefWidth="230.0" />
+      <Label layoutX="452.0" layoutY="68.0" prefHeight="15.0" prefWidth="222.0" text="Nombre empleado &amp; (Diurno/nocturno)" />
+      <ImageView fitHeight="191.0" fitWidth="279.0" layoutX="469.0" layoutY="555.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/iconoSolo.png" />
+         </image>
+      </ImageView>
 
     </children>
 </AnchorPane>
