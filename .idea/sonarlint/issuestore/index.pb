@@ -15,8 +15,6 @@ S
 #src/main/java/Modelo/Proveedor.java,9\5\9599cd063c9ae24574abe3f138bd598ccd769fbe
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-j
-:src/main/java/Controlador/VentanaBienvenidaController.java,4\3\4380ce85b0eb7917483ebd77121fefe14137dff4
 V
 &src/main/java/Controlador/Iniciar.java,f\b\fba46dc94f5925b7b6fdff736c9c1e5ea5eeaf10
 `
