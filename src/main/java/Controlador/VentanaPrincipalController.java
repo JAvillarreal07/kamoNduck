@@ -57,11 +57,16 @@ public class VentanaPrincipalController implements Initializable {
     public ComboBox menuModulos;
     @FXML
     public JFXTabPane tabsAlmacen;
+    @FXML
 
     private IOBaseDatos IO = new IOBaseDatos();
 
     private ObservableList<Producto> ListaProductos;
     private ObservableList<Proveedor> ListaProveedor;
+
+    ObservableList<String> nombreEmpleados = FXCollections.observableArrayList("Engineering", "MCA", "MBA", "Graduation", "MTECH", "Mphil", "Phd");
+    ListView<String> listView = new ListView<String>(nombreEmpleados);
+
 
     private ArrayList<Integer> IDProdFiltros = new ArrayList<Integer>();
     private ArrayList<Integer> IDProvFiltros = new ArrayList<Integer>();

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.lang.String?>
@@ -24,7 +25,8 @@
 
 <AnchorPane id="AnchorPane" prefHeight="793.0" prefWidth="1454.0" stylesheets="@css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VentanaPrincipalController">
     <children>
-        <JFXButton fx:id="botonAnadir" layoutX="1273.0" layoutY="629.0" onAction="#accionesCRUD" prefHeight="42.0" prefWidth="90.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="+" textAlignment="CENTER" textFill="#f35d6d">
+      <JFXListView id="tabsEmpleados" layoutX="69.0" layoutY="43.0" />
+        <JFXButton fx:id="botonAnadir" layoutX="1273.0" layoutY="629.0" onAction="#accionesCRUD" prefHeight="42.0" prefWidth="90.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="+" textAlignment="CENTER" textFill="#f35d6d" visible="false">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
@@ -39,13 +41,13 @@
             </tooltip>
         </JFXButton>
 
-        <ImageView fx:id="imgAlmacen" fitHeight="418.0" fitWidth="483.0" layoutX="967.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="imgAlmacen" fitHeight="418.0" fitWidth="483.0" layoutX="967.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true" visible="false">
             <image>
                 <Image url="@../Imagenes/iconoSolo.png" />
             </image>
         </ImageView>
 
-        <JFXButton fx:id="botonModificar" layoutX="1072.0" layoutY="629.0" onAction="#accionesCRUD" prefHeight="42.0" prefWidth="90.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="↩" textAlignment="CENTER" textFill="#f35d6d">
+        <JFXButton fx:id="botonModificar" layoutX="1072.0" layoutY="629.0" onAction="#accionesCRUD" prefHeight="42.0" prefWidth="90.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="↩" textAlignment="CENTER" textFill="#f35d6d" visible="false">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
@@ -60,7 +62,7 @@
             </tooltip>
         </JFXButton>
 
-        <JFXButton fx:id="botonEliminar" layoutX="1173.0" layoutY="629.0" onAction="#accionesCRUD" prefHeight="42.0" prefWidth="90.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="-" textAlignment="CENTER" textFill="#f35d6d">
+        <JFXButton fx:id="botonEliminar" layoutX="1173.0" layoutY="629.0" onAction="#accionesCRUD" prefHeight="42.0" prefWidth="90.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="-" textAlignment="CENTER" textFill="#f35d6d" visible="false">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
@@ -75,7 +77,7 @@
             </tooltip>
         </JFXButton>
 
-        <JFXTabPane fx:id="tabsAlmacen" focusTraversable="false" prefHeight="702.0" prefWidth="955.0">
+        <JFXTabPane fx:id="tabsAlmacen" focusTraversable="false" prefHeight="702.0" prefWidth="955.0" visible="false">
             <tabs>
                 <Tab fx:id="tabProductos" onSelectionChanged="#escuchaTabs" text="Productos">
                     <content>
@@ -116,15 +118,15 @@
             </tabs>
         </JFXTabPane>
 
-        <Text fx:id="labelAlmacen" layoutX="1110.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ALMACEN">
+        <Text fx:id="labelAlmacen" layoutX="1110.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ALMACEN" visible="false">
             <font>
                 <Font name="Bauhaus 93" size="45.0" />
             </font>
         </Text>
 
-        <Line endX="100.0" layoutX="1201.0" layoutY="105.0" startX="-100.0" />
+        <Line endX="100.0" layoutX="1201.0" layoutY="105.0" startX="-100.0" visible="false" />
 
-        <Text layoutX="1169.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KAMO(N)DUCK">
+        <Text layoutX="1169.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KAMO(N)DUCK" visible="false">
             <font>
                 <Font name="Bauhaus 93" size="10.0" />
             </font>
@@ -141,7 +143,7 @@
             </items>
         </ComboBox>
 
-        <Accordion layoutX="753.0">
+        <Accordion layoutX="753.0" visible="false">
             <panes>
                 <TitledPane animated="false" prefHeight="367.0" prefWidth="202.0" style="-fx-max-height: 255;" text="FILTROS">
                     <content>
@@ -150,7 +152,7 @@
                                 <JFXTextField fx:id="textFiltroIDProd" layoutX="33.0" layoutY="26.0" prefHeight="23.0" prefWidth="132.0" promptText="ID" />
                                 <JFXTextField fx:id="textFiltroIDProv" layoutX="33.0" layoutY="26.0" prefHeight="23.0" prefWidth="132.0" promptText="ID" visible="false" />
                                 <JFXTextField fx:id="textFiltroNombreProd" layoutX="34.0" layoutY="63.0" prefHeight="23.0" prefWidth="132.0" promptText="NOMBRE" />
-                                <JFXTextField fx:id="textFiltroNombreProv" layoutX="34.0" layoutY="63.0" prefHeight="23.0" prefWidth="132.0" promptText="NOMBRE"  visible="false"/>
+                                <JFXTextField fx:id="textFiltroNombreProv" layoutX="34.0" layoutY="63.0" prefHeight="23.0" prefWidth="132.0" promptText="NOMBRE" visible="false" />
                                 <JFXTextField fx:id="textFiltroProveedor" layoutX="34.0" layoutY="178.0" prefHeight="23.0" prefWidth="132.0" promptText="PROVEEDOR" />
                                 <JFXTextField fx:id="textFiltroTipo" layoutX="34.0" layoutY="101.0" prefHeight="23.0" prefWidth="132.0" promptText="TIPO" />
                                 <JFXTextField fx:id="textFiltroCantidad" layoutX="34.0" layoutY="139.0" prefHeight="23.0" prefWidth="132.0" promptText="CANTIDAD" />
@@ -163,7 +165,7 @@
             </panes>
         </Accordion>
 
-        <Label fx:id="labelNomProdProv" alignment="CENTER" contentDisplay="CENTER" layoutX="966.0" layoutY="124.0" prefHeight="21.0" prefWidth="483.0" text="KAMO(N)DUCK" />
+        <Label fx:id="labelNomProdProv" alignment="CENTER" contentDisplay="CENTER" layoutX="966.0" layoutY="124.0" prefHeight="21.0" prefWidth="483.0" text="KAMO(N)DUCK" visible="false" />
 
     </children>
 </AnchorPane>

@@ -1,19 +1,19 @@
 
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(ñ­ôãøÿÿÿÿ8§éË›Û/
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ñ­ôãøÿÿÿÿ
 N	java:S106"9Replace this use of System.out or System.err by a logger.(»¢™è
 N	java:S106-"9Replace this use of System.out or System.err by a logger.(»¢™è
 S	java:S106/"9Replace this use of System.out or System.err by a logger.(©şêÜúÿÿÿÿ
-U	java:S106?"9Replace this use of System.out or System.err by a logger.(»¢™è8±éË›Û/
+N	java:S106?"9Replace this use of System.out or System.err by a logger.(»¢™è
+Š
+java:S1192"hDefine a constant instead of duplicating this literal "jdbc:mariadb://localhost:3307/kamonduck" 3 times.(ƒĞİ½ûÿÿÿÿ8œ˜ô›Û/
 m
 java:S1192"XDefine a constant instead of duplicating this literal "org.mariadb.jdbc.Driver" 3 times.(áğöX
-…
-java:S1192"hDefine a constant instead of duplicating this literal "jdbc:mariadb://localhost:3306/kamonduck" 3 times.(ä¤ÉÕ8ƒ±Ì›Û/
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ï‡Î£
 ]
-java:S2095&"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÁŸìÔ
-d
-java:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÁŸìÔ8ØéË›Û/
+java:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÁŸìÔ
 c
 java:S2095%"HUse try-with-resources or close this "Connection" in a "finally" clause.(ğÁÏşÿÿÿÿ
-j
-java:S2095"HUse try-with-resources or close this "Connection" in a "finally" clause.(ğÁÏşÿÿÿÿ8ØéË›Û/
+c
+java:S2095"HUse try-with-resources or close this "Connection" in a "finally" clause.(ğÁÏşÿÿÿÿ
+]
+java:S2095&"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÁŸìÔ
