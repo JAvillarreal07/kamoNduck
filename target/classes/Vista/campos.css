@@ -1,0 +1,15 @@
+#ventanuca{
+
+    -fx-background-image: url(../Imagenes/fondocampos.png);
+    -fx-background-repeat: none;
+    -fx-background-size: cover;
+
+
+}
+#HEADER{
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+#camposform, #textaco{
+    -fx-text-fill: white;
+}
