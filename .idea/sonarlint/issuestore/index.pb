@@ -11,8 +11,6 @@ N
 ,.idea/inspectionProfiles/Project_Default.xml,4\9\496a238a6afa168dbaf6efd37bb459331589579c
 Z
 *src/main/java/Controlador/IOBaseDatos.java,1\a\1ae40d4eedff48749c8b13d4f26f039960022aac
-<
-Database.sql,d\e\de489ee0ac91870158282f03aaffeb63e08872a2
 S
 #src/main/java/Modelo/Proveedor.java,9\5\9599cd063c9ae24574abe3f138bd598ccd769fbe
 7
@@ -25,8 +23,6 @@ V
 0src/main/java/Controlador/PruebasController.java,8\7\8733af9cf1e184e26601711f4c1ceb59769de076
 \
 ,src/main/java/Controlador/VentanaCampos.java,0\0\00c256960e831301bed6cb2199239d4fa97b5996
-i
-9src/main/java/Controlador/VentanaPrincipalController.java,e\6\e6d2aa5d371f185ca8ac5b122b57a039a9aa5acd
 N
 src/main/java/Modelo/Lago.java,f\7\f714cef81bb76f5b294e184898da28cf0cf323db
 R

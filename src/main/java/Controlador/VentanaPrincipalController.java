@@ -139,11 +139,11 @@ public class VentanaPrincipalController implements Initializable {
 
     public void accionesCRUD() throws SQLException, IOException {
         if (botonAnadir.isFocused()) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vista/VentanaMedico.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vista/VentanaCampos.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            stage.getIcons().add(new Image("/Vista/logito.png"));
+            stage.getIcons().add(new Image("/Imagenes/iconosolo.png"));
             stage.setTitle("Modificar médico");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
