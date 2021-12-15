@@ -84,6 +84,7 @@ CREATE TABLE Productos
     Tipo_Producto VARCHAR(50) NOT NULL,
     Cantidad INT NOT NULL,
     Minimo INT NOT NULL,
+    Precio DOUBLE NOT NULL,
     Observaciones VARCHAR(250),
     IDProveedor INT NOT NULL,
     PRIMARY KEY (IDProducto),
@@ -118,10 +119,10 @@ INSERT INTO Proveedor VALUES (1,'Versele-laga', 'Kapellestraat 70 / 9800 Deinze'
 INSERT INTO Proveedor VALUES (2, 'Corporación ACME', 'Calle ficticia', '123123123', '?');
 
 
-INSERT INTO Productos VALUES (001, 'Pienso para patos adultos sabor salmón', 'Alimentación', 20, 15, 'Pienso para patos reales adultos, en concreto los que aman el pescado',1);
-INSERT INTO Productos VALUES (002,'Pienso para patos imaginarios', 'Alimentacion',60,20,'Pienso especial para patos que no existen',2);
-INSERT INTO Productos VALUES (008,'Comida pokemon especial monotipo', 'Alimentación', 6, 5 ,'Especialmente diseñado para el tipo agua',2);
-INSERT INTO Productos VALUES (015, 'Pala para recoger excrementos imaginarios','Limpieza', 2, 1, 'Indispensable para recoger excrementos imaginarios',2);
+INSERT INTO Productos VALUES (001, 'Pienso para patos adultos sabor salmón', 'Alimentación', 20, 15, 20, 'Pienso para patos reales adultos, en concreto los que aman el pescado',1);
+INSERT INTO Productos VALUES (002,'Pienso para patos imaginarios', 'Alimentacion',60,20,5,'Pienso especial para patos que no existen',2);
+INSERT INTO Productos VALUES (008,'Comida pokemon especial monotipo', 'Alimentación', 6, 5, 10,'Especialmente diseñado para el tipo agua',2);
+INSERT INTO Productos VALUES (015, 'Pala para recoger excrementos imaginarios','Limpieza', 2, 1, 25, 'Indispensable para recoger excrementos imaginarios',2);
 
 INSERT INTO Estancia VALUES (NULL, '2021-12-11', '2021-12-24', 5,2,2);
 INSERT INTO Estancia VALUES (NULL, '2021-12-13', '2021-12-15', 6,5,2);
