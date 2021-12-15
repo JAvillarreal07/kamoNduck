@@ -1,9 +1,7 @@
 package Controlador;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,8 +14,11 @@ import Modelo.Proveedor;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTabPane;
 import com.jfoenix.controls.JFXTextField;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -36,22 +37,49 @@ import org.controlsfx.control.textfield.TextFields;
  */
 public class VentanaPrincipalController implements Initializable {
 
+    @FXML
     public JFXButton botonAnadir, botonModificar, botonEliminar;
+    @FXML
     public ImageView imgAlmacen;
+    @FXML
     public TableView tablaProductos, tablaProveedor;
+    @FXML
     public TableColumn colIDProduc, colNomProduc, colTipoProduc, colCantProduc, colPorvProduc, colObserProduc;
+    @FXML
     public TableColumn colProvID, colProvNom, colProvDirec, colProvTel, colProvPais;
+    @FXML
     public Tab tabProductos, tabProveedores;
-    public JFXTextField textFiltroID, textFiltroNombre, textFiltroProveedor, textFiltroTipo, textFiltroCantidad, textFiltroTelefono, textFiltroPais;
+    @FXML
+    public JFXTextField textFiltroIDProd, textFiltroIDProv, textFiltroNombreProd, textFiltroNombreProv, textFiltroProveedor, textFiltroTipo, textFiltroCantidad, textFiltroTelefono, textFiltroPais;
+    @FXML
     public Label labelNomProdProv;
+    @FXML
     public ComboBox menuModulos;
+    @FXML
     public JFXTabPane tabsAlmacen;
-
+    @FXML
 
     private IOBaseDatos IO = new IOBaseDatos();
 
     private ObservableList<Producto> ListaProductos;
     private ObservableList<Proveedor> ListaProveedor;
+
+    private ObservableList<Producto> listaFiltrosProd = FXCollections.observableArrayList();
+    private ObservableList<Proveedor> listaFiltrosProv = FXCollections.observableArrayList();
+
+    ObservableList<String> nombreEmpleados = FXCollections.observableArrayList("Engineering", "MCA", "MBA", "Graduation", "MTECH", "Mphil", "Phd");
+    ListView<String> listView = new ListView<String>(nombreEmpleados);
+
+
+    private ArrayList<Integer> IDProdFiltros = new ArrayList<Integer>();
+    private ArrayList<Integer> IDProvFiltros = new ArrayList<Integer>();
+    private ArrayList<String> nombresProdFiltros = new ArrayList<String>();
+    private ArrayList<String> nombresProvFiltros = new ArrayList<String>();
+    private ArrayList<String> proveedorProdFiltros = new ArrayList<String>();
+    private ArrayList<String> tipoProdFiltros = new ArrayList<String>();
+    private ArrayList<Integer> cantidadProdFiltros = new ArrayList<Integer>();
+    private ArrayList<String> telefonoProvFiltros = new ArrayList<String>();
+    private ArrayList<String> paisProvFiltros = new ArrayList<String>();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -59,14 +87,10 @@ public class VentanaPrincipalController implements Initializable {
         iniciaTablas();
         try {
             iniciaRegistros();
+            iniciaFiltros();
         } catch (SQLException ex) {
             Logger.getLogger(VentanaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
-        String[] nombres = {"Hola", "Hello", "Atope", "Puto", "yesss"};
-
-        TextFields.bindAutoCompletion(textFiltroNombre, nombres);
     }
 
     public void iniciaRegistros() throws SQLException {
@@ -137,13 +161,144 @@ public class VentanaPrincipalController implements Initializable {
         this.colProvPais.setCellValueFactory(new PropertyValueFactory<>("Pais"));
     }
 
+    public void iniciaFiltros() {
+        for (int i = 0; i < ListaProductos.size(); i++) {
+            IDProdFiltros.add(ListaProductos.get(i).getIDProducto());
+            nombresProdFiltros.add(ListaProductos.get(i).getNombre_Producto());
+            proveedorProdFiltros.add(ListaProductos.get(i).getProveedor());
+            tipoProdFiltros.add(ListaProductos.get(i).getTipo_Producto());
+            cantidadProdFiltros.add(ListaProductos.get(i).getCantidad());
+        }
+
+        for (int i = 0; i < ListaProveedor.size(); i++) {
+            IDProvFiltros.add(ListaProveedor.get(i).getIDProveedor());
+            nombresProvFiltros.add(ListaProveedor.get(i).getNombre_Proveedor());
+            telefonoProvFiltros.add(ListaProveedor.get(i).getTelefono_Proveedor());
+            paisProvFiltros.add(ListaProveedor.get(i).getPais());
+        }
+
+
+        TextFields.bindAutoCompletion(textFiltroIDProd, IDProdFiltros);
+        TextFields.bindAutoCompletion(textFiltroNombreProd, nombresProdFiltros);
+        TextFields.bindAutoCompletion(textFiltroProveedor, proveedorProdFiltros);
+        TextFields.bindAutoCompletion(textFiltroTipo, tipoProdFiltros);
+        TextFields.bindAutoCompletion(textFiltroCantidad, cantidadProdFiltros);
+
+        TextFields.bindAutoCompletion(textFiltroIDProv, IDProvFiltros);
+        TextFields.bindAutoCompletion(textFiltroNombreProv, nombresProvFiltros);
+        TextFields.bindAutoCompletion(textFiltroTelefono, telefonoProvFiltros);
+        TextFields.bindAutoCompletion(textFiltroPais, paisProvFiltros);
+
+        textFiltroIDProd.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrar();
+            }
+        });
+
+        textFiltroNombreProd.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrar();
+            }
+        });
+
+        textFiltroProveedor.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrar();
+            }
+        });
+
+        textFiltroTipo.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrar();
+            }
+        });
+
+        textFiltroCantidad.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrar();
+            }
+        });
+
+        textFiltroIDProv.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrar();
+            }
+        });
+
+        textFiltroNombreProv.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrar();
+            }
+        });
+
+        textFiltroTelefono.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrar();
+            }
+        });
+
+        textFiltroPais.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                filtrar();
+            }
+        });
+    }
+
+    public void filtrar() {
+        if (tabProductos.isSelected()) {
+            listaFiltrosProd.clear();
+
+            for (int i = 0; i < ListaProductos.size(); i++) {
+                try {
+                    if (String.valueOf(ListaProductos.get(i).getIDProducto()).contains(textFiltroIDProd.getText()) &&
+                            ListaProductos.get(i).getNombre_Producto().toLowerCase().contains(textFiltroNombreProd.getText().toLowerCase()) &&
+                            ListaProductos.get(i).getTipo_Producto().toLowerCase().contains(textFiltroTipo.getText().toLowerCase()) &&
+                            String.valueOf(ListaProductos.get(i).getCantidad()).contains(textFiltroCantidad.getText()) &&
+                            ListaProductos.get(i).getProveedor().toLowerCase().contains(textFiltroProveedor.getText().toLowerCase())
+                    ) {
+                        listaFiltrosProd.add(ListaProductos.get(i));
+                    }
+                } catch (NullPointerException e) {
+                }
+            }
+
+            tablaProductos.setItems(listaFiltrosProd);
+        } else if (tabProveedores.isSelected()) {
+            listaFiltrosProv.clear();
+
+            for (int i = 0; i < ListaProveedor.size(); i++) {
+                try {
+                    if (String.valueOf(ListaProveedor.get(i).getIDProveedor()).contains(textFiltroIDProv.getText()) &&
+                            ListaProveedor.get(i).getNombre_Proveedor().toLowerCase().contains(textFiltroNombreProv.getText().toLowerCase()) &&
+                            ListaProveedor.get(i).getTelefono_Proveedor().toLowerCase().contains(textFiltroTelefono.getText().toLowerCase()) &&
+                            ListaProveedor.get(i).getPais().toLowerCase().contains(textFiltroPais.getText().toLowerCase())
+                    ) {
+                        listaFiltrosProv.add(ListaProveedor.get(i));
+                    }
+                } catch (NullPointerException e) {
+                }
+            }
+
+            tablaProductos.setItems(listaFiltrosProv);
+        }
+    }
+
     public void accionesCRUD() throws SQLException, IOException {
         if (botonAnadir.isFocused()) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vista/VentanaMedico.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vista/VentanaCampos.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            stage.getIcons().add(new Image("/Vista/logito.png"));
+            stage.getIcons().add(new Image("/Imagenes/iconosolo.png"));
             stage.setTitle("Modificar médico");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
@@ -224,27 +379,45 @@ public class VentanaPrincipalController implements Initializable {
         }
     }
 
-    public void escuchaTabs(){
+    public void escuchaTabs() {
 
-        if (tabProductos.isSelected()){
-            textFiltroTipo.setVisible(true);
-            textFiltroCantidad.setVisible(true);
+        if (tabProductos.isSelected()) {
+            try {
+                textFiltroIDProd.setVisible(true);
+                textFiltroNombreProd.setVisible(true);
+                textFiltroTipo.setVisible(true);
+                textFiltroCantidad.setVisible(true);
+                textFiltroProveedor.setVisible(true);
 
-            textFiltroTelefono.setVisible(false);
-            textFiltroPais.setVisible(false);
+                textFiltroIDProv.setVisible(false);
+                textFiltroNombreProv.setVisible(false);
+                textFiltroTelefono.setVisible(false);
+                textFiltroPais.setVisible(false);
 
-            labelNomProdProv.setText("KAMO(N)DUCK");
-            imgAlmacen.setImage(new Image("/Imagenes/iconoSolo.png"));
+                labelNomProdProv.setText("KAMO(N)DUCK");
+                imgAlmacen.setImage(new Image("/Imagenes/iconoSolo.png"));
+            } catch (NullPointerException e) {
+            }
 
-        }else if (tabProveedores.isSelected()){
-            textFiltroTipo.setVisible(false);
-            textFiltroCantidad.setVisible(false);
+        } else if (tabProveedores.isSelected()) {
 
-            textFiltroTelefono.setVisible(true);
-            textFiltroPais.setVisible(true);
+            try {
+                textFiltroIDProd.setVisible(false);
+                textFiltroNombreProd.setVisible(false);
+                textFiltroTipo.setVisible(false);
+                textFiltroCantidad.setVisible(false);
+                textFiltroProveedor.setVisible(false);
 
-            labelNomProdProv.setText("KAMO(N)DUCK");
-            imgAlmacen.setImage(new Image("/Imagenes/iconoSolo.png"));
+                textFiltroIDProv.setVisible(true);
+                textFiltroNombreProv.setVisible(true);
+                textFiltroTelefono.setVisible(true);
+                textFiltroPais.setVisible(true);
+
+
+                labelNomProdProv.setText("KAMO(N)DUCK");
+                imgAlmacen.setImage(new Image("/Imagenes/iconoSolo.png"));
+            } catch (NullPointerException e) {
+            }
         }
     }
 
