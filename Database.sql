@@ -46,7 +46,7 @@ CREATE TABLE Empleados
     Telefono_Empleado CHAR(16) NOT NULL,
     Email_Empleado VARCHAR(50) NOT NULL,
     Cargo VARCHAR(10) NOT NULL,
-    Horario_Trabajo VARCHAR(10) NOT NULL,
+    Horario_Trabajo VARCHAR(20) NOT NULL,
     Turno VARCHAR(20) NOT NULL,
     IDLago INT NOT NULL,
     PRIMARY KEY (IDEmpleado),
@@ -93,10 +93,10 @@ CREATE TABLE Productos
 INSERT INTO lagos VALUES (1, 'El Original', 'Grande', 30, 0, 20);
 INSERT INTO lagos VALUES (2, 'El animado', 'Mediano', 15, 0, 10);
 
-INSERT INTO empleados VALUES (NULL, '77823713Q', 'Jesus', 'Cruces Soto', '456126548', 'JCViceAdmin@KamoNDuck.com', 'ViceAdmin', 'L-D', 'Mañana', 1);
-INSERT INTO empleados VALUES (NULL, 'DNIEjemp', 'Jose Antonio', 'Ejemplo', '124516987', 'JAAdmin@KamoNDuck.com', 'Admin', 'L-D', 'Mañana', 1);
-INSERT INTO empleados VALUES (NULL, 'DNIEjemp', 'Freya', 'Ejemplo', '78123659', 'FrViceAdmin@KamoNDuck.com', 'ViceAdmin', 'L-D', 'Mañana', 1);
-INSERT INTO empleados VALUES (NULL, '77836512L', 'Benito', 'Ejemplo', '142032012', 'BenBecario@KamoNDuck.com', 'Becario', 'L-D', 'Partido', 2);
+INSERT INTO empleados VALUES (NULL, '77823713Q', 'Jesus', 'Cruces Soto', '456126548', 'JCViceAdmin@KamoNDuck.com', 'ViceAdmin', 'L-M-X-J-V-S-D', 'Diurno', 1);
+INSERT INTO empleados VALUES (NULL, 'DNIEjemp', 'Jose Antonio', 'Ejemplo', '124516987', 'JAAdmin@KamoNDuck.com', 'Admin', 'L-X-V', 'Nocturno', 1);
+INSERT INTO empleados VALUES (NULL, 'DNIEjemp', 'Freya', 'Ejemplo', '78123659', 'FrViceAdmin@KamoNDuck.com', 'ViceAdmin', 'M-J-S', 'Diurno', 1);
+INSERT INTO empleados VALUES (NULL, '77836512L', 'Benito', 'Ejemplo', '142032012', 'BenBecario@KamoNDuck.com', 'Becario', 'L-M-X-J-V-S-D', 'Nocturno', 2);
 
 INSERT INTO patos VALUES (NULL, 'Gilito', 'Animado', 65, 220001, 'No existe, pero tiene ALEGRÍA al dinero');
 INSERT INTO patos VALUES (NULL, 'Jaimito', 'Animado', 12, 220002, 'No existe, pero tiene ALERGIA a las nueces');

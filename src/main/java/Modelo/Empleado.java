@@ -64,4 +64,8 @@ public class Empleado {
     public int getIDLago() {return IDLago;}
 
     public void setIDLago(int IDLago) {this.IDLago = IDLago;}
+
+    public String getNombreCompleto(){
+        return Nombre_Empleado + " " + Apellidos_Empleado;
+    }
 }
