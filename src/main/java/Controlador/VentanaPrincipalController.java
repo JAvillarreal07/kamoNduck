@@ -149,6 +149,7 @@ public class VentanaPrincipalController implements Initializable {
                     r1.getString("Tipo_Producto"),
                     r1.getInt("Cantidad"),
                     r1.getInt("Minimo"),
+                    r1.getDouble("precio"),
                     r1.getString("Observaciones"),
                     proveedor);
 
