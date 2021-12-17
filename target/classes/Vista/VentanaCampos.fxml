@@ -74,6 +74,7 @@
                </font>
             </JFXButton>
             <ImageView fx:id="imagen" fitHeight="96.0" fitWidth="141.0" layoutX="402.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <JFXButton fx:id="botonsubirimagen" layoutX="571.0" layoutY="626.0" onAction="#saveToFile" text="BOTON" textFill="WHITE" />
          </children>
       </AnchorPane>
    </children>
