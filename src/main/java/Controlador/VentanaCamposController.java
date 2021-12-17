@@ -39,8 +39,8 @@ public class VentanaCamposController {
             image = new Image(pathdelimage);
     }
     public void saveToFile() {
-        //nombrenuevo = "francisquita";
-        File outputFile = new File("C:\\Users\\User-01\\Documents\\MTC\\interfaces\\kamoNduck\\src\\main\\resources\\FotosEmpleados\\"+nombrenuevo+".png");
+        nombrenuevo = "francisquita";
+        File outputFile = new File("C:\\Users\\User-01\\Documents\\MTC\\interfaces\\kamoNduck\\src\\main\\resources\\ImgEmpleados"+nombrenuevo+".png");
         BufferedImage bImage = SwingFXUtils.fromFXImage(image, null);
         try {
             ImageIO.write(bImage, "png", outputFile);
