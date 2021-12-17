@@ -62,11 +62,6 @@
             <artifactId>controlsfx</artifactId>
             <version>8.40.18</version>
         </dependency>
-        <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>1T-DDI-VISOR-E1</artifactId>
-            <version>13</version>
-        </dependency>
     </dependencies>
 
     <build>
