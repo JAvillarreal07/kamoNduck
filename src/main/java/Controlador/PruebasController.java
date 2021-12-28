@@ -13,8 +13,8 @@ public class PruebasController {
 
         HashMap parametros = new HashMap();
 
-        parametros.put("ParIDUsuario","01");
-        parametros.put("ParFechaIng","");
+        parametros.put("ParIDUsuario", 2);
+        parametros.put("ParFechaIng","2021-12-11");
 
 
         JasperReport reporte;
@@ -26,7 +26,7 @@ public class PruebasController {
             reporte = (JasperReport) JRLoader.loadObjectFromFile(archivo);
 
             JasperPrint print = JasperFillManager.fillReport(reporte, parametros, BD.conexion() );
-            JasperExportManager.exportReportToPdfFile(print,"Factura"+java.time.LocalDate.now()+".pdf");
+            JasperExportManager.exportReportToPdfFile(print,"Factura-"+java.time.LocalDate.now()+".pdf");
 
             JasperViewer.viewReport(print, false);
 
@@ -54,7 +54,7 @@ public class PruebasController {
             reporte = (JasperReport) JRLoader.loadObjectFromFile(archivo);
 
             JasperPrint print = JasperFillManager.fillReport(reporte, parametros, BD.conexion() );
-            JasperExportManager.exportReportToPdfFile(print,"Orden Compra"+java.time.LocalDate.now()+".pdf");
+            JasperExportManager.exportReportToPdfFile(print,"Orden Compra-"+java.time.LocalDate.now()+".pdf");
 
             JasperViewer.viewReport(print, false);
 
