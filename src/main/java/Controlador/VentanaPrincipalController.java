@@ -21,6 +21,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
@@ -46,11 +47,11 @@ public class VentanaPrincipalController implements Initializable {
     @FXML
     private ComboBox<String> menuModulos;
 
-
+    // Módulo Almacén.
     @FXML
-    private JFXButton botonAnadir, botonModificar, botonEliminar;
+    private JFXTabPane tabsAlmacen;
     @FXML
-    private ImageView imgAlmacen;
+    private Tab tabProductos, tabProveedores;
     @FXML
     public TableView<Producto> tablaProductos;
     @FXML
@@ -64,27 +65,38 @@ public class VentanaPrincipalController implements Initializable {
     @FXML
     private TableColumn<Producto, Integer> colProvID;
     @FXML
-    private Tab tabProductos, tabProveedores;
+    private Accordion panelFiltros;
     @FXML
     private JFXTextField textFiltroIDProd, textFiltroIDProv, textFiltroNombreProd, textFiltroNombreProv, textFiltroProveedor, textFiltroTipo, textFiltroCantidad, textFiltroTelefono, textFiltroPais;
     @FXML
     private Label labelNomProdProv;
     @FXML
-    private JFXTabPane tabsAlmacen;
-    @FXML
-    private TitledPane panelFiltros;
-    @FXML
     public Text labelAlmacen, miniLabelAlmacen;
     @FXML
     public Line lineaAlamacen;
+    @FXML
+    private JFXButton botonAnadir, botonModificar, botonEliminar;
+    @FXML
+    private ImageView imgAlmacen;
+
+    // Módulo Facturación.
+
+    // Módulo Empleados.
     @FXML
     public Label labelNoModifiEmpleados, labelNombreEmpleado;
     @FXML
     public JFXListView<CustomListView> listViewEmpleados = new JFXListView<CustomListView>();
     @FXML
-    public JFXListView<CustomListView> listViewEmpeadosActivos = new JFXListView<CustomListView>();
+    public JFXListView<CustomListView> listViewEmpleadosActivos = new JFXListView<CustomListView>();
     @FXML
-    public ImageView imgEmpleados;
+    public Pane tarjetaEmplePanel;
+    @FXML
+    public ImageView tarjetaEmpleImg;
+    @FXML
+    public JFXTextField tarjetaEmpleNom, tarjetaEmpleApe, tarjetaEmpleDNI, tarjetaEmpleTel, tarjetaEmpleEmail, tarjetaEmpleCargo, tarjetaEmpleHorario, tarjetaEmpleTurno, tarjetaEmpleLago;
+    @FXML
+    public JFXButton botonAnadirEmple, botonModificarEmple, botonEliminarEmple;
+
 
     private IOBaseDatos IO = new IOBaseDatos();
 
@@ -94,7 +106,6 @@ public class VentanaPrincipalController implements Initializable {
 
     private ObservableList<Producto> listaFiltrosProd = FXCollections.observableArrayList();
     private ObservableList<Proveedor> listaFiltrosProv = FXCollections.observableArrayList();
-
 
     private ArrayList<Integer> IDProdFiltros = new ArrayList<Integer>();
     private ArrayList<Integer> IDProvFiltros = new ArrayList<Integer>();
@@ -106,6 +117,7 @@ public class VentanaPrincipalController implements Initializable {
     private ArrayList<String> telefonoProvFiltros = new ArrayList<String>();
     private ArrayList<String> paisProvFiltros = new ArrayList<String>();
 
+/*___________________________________________________________________________________________________________________________________________________________________________*/
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         iniciaTablas();
@@ -123,6 +135,7 @@ public class VentanaPrincipalController implements Initializable {
         }
     }
 
+    /*___________________________________________________________________________________________________________________________________________________________________________*/
     public void iniciaRegistros() throws SQLException {
         ListaProductos.clear();
         ListaProveedor.clear();
@@ -213,6 +226,7 @@ public class VentanaPrincipalController implements Initializable {
         this.colProvPais.setCellValueFactory(new PropertyValueFactory<>("Pais"));
     }
 
+    /*___________________________________________________________________________________________________________________________________________________________________________*/
     public void iniciaFiltros() {
         for (int i = 0; i < ListaProductos.size(); i++) {
             IDProdFiltros.add(ListaProductos.get(i).getIDProducto());
@@ -344,6 +358,7 @@ public class VentanaPrincipalController implements Initializable {
         }
     }
 
+    /*___________________________________________________________________________________________________________________________________________________________________________*/
     public void iniciaListView() {
 
         List<CustomListView> list1 = new ArrayList<>();
@@ -359,19 +374,19 @@ public class VentanaPrincipalController implements Initializable {
         ObservableList<CustomListView> myObservableList1 = FXCollections.observableList(list1);
         ObservableList<CustomListView> myObservableList2 = FXCollections.observableList(list2);
         listViewEmpleados.setItems(myObservableList1);
-        listViewEmpeadosActivos.setItems(myObservableList2);
-        listViewEmpeadosActivos.setFixedCellSize(60);
+        listViewEmpleadosActivos.setItems(myObservableList2);
+        listViewEmpleadosActivos.setFixedCellSize(60);
 
-        for (int i = 0; i < listViewEmpeadosActivos.getItems().size(); i++) {
-            String nombre = listViewEmpeadosActivos.getItems().get(i).getNombreCompleto();
+        for (int i = 0; i < listViewEmpleadosActivos.getItems().size(); i++) {
+            String nombre = listViewEmpleadosActivos.getItems().get(i).getNombreCompleto();
             for (int j = 0; j < ListaEmpleados.size(); j++) {
                 if (ListaEmpleados.get(j).getNombreCompleto().equals(nombre)) {
                     switch (ListaEmpleados.get(j).getTurno()) {
                         case "Diurno":
-                            listViewEmpeadosActivos.getItems().get(i).setStyle("-fx-background-color: pink");
+                            listViewEmpleadosActivos.getItems().get(i).setStyle("-fx-background-color: pink");
                             break;
                         case "Nocturno":
-                            listViewEmpeadosActivos.getItems().get(i).setStyle("-fx-background-color: cyan");
+                            listViewEmpleadosActivos.getItems().get(i).setStyle("-fx-background-color: cyan");
                             break;
                     }
                     break;
@@ -380,35 +395,85 @@ public class VentanaPrincipalController implements Initializable {
         }
     }
 
+    public void seleccionarEmpleado() {
+        ListView<CustomListView> seleccionada = null;
+        if (listViewEmpleados.isFocused()){
+            seleccionada = listViewEmpleados;
+        }else if (listViewEmpleadosActivos.isFocused()){
+            seleccionada = listViewEmpleadosActivos;
+        }
+        for (int i = 0; i < ListaEmpleados.size(); i++) {
+            if (ListaEmpleados.get(i).getNombreCompleto().equals(seleccionada.getSelectionModel().getSelectedItem().getNombreCompleto())) {
+                try {
+                    ResultSet lago = IO.introduceRegistros("SELECT Nombre_Lago FROM LAGOS WHERE IDLago = " + ListaEmpleados.get(i).getIDLago());
+                    lago.next();
+
+                    tarjetaEmpleNom.setText(ListaEmpleados.get(i).getNombre_Empleado());
+                    tarjetaEmpleApe.setText(ListaEmpleados.get(i).getApellidos_Empleado());
+                    tarjetaEmpleDNI.setText(ListaEmpleados.get(i).getDNI_Empleado());
+                    tarjetaEmpleTel.setText(ListaEmpleados.get(i).getTelefono_Empleado());
+                    tarjetaEmpleEmail.setText(ListaEmpleados.get(i).getEmail_Empleado());
+                    tarjetaEmpleCargo.setText(ListaEmpleados.get(i).getCargo());
+                    tarjetaEmpleHorario.setText(ListaEmpleados.get(i).getHorario_Trabajo());
+                    tarjetaEmpleTurno.setText(ListaEmpleados.get(i).getTurno());
+                    tarjetaEmpleLago.setText(lago.getString("Nombre_Lago"));
+                    tarjetaEmpleImg.setImage(new Image("/ImgEmpleados/" + seleccionada.getSelectionModel().getSelectedItem().getNombreCompleto().replace(" ", "_") + ".png"));
+                    break;
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /*___________________________________________________________________________________________________________________________________________________________________________*/
     public void accionesCRUD() throws SQLException, IOException {
-        if (botonAnadir.isFocused()) {
+        if (botonAnadir.isFocused() || botonAnadirEmple.isFocused()) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vista/VentanaCampos.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            stage.getIcons().add(new Image("/Imagenes/iconosolo.png"));
-            stage.setTitle("Modificar médico");
+            stage.getIcons().add(new Image("/Imagenes/iconoSolo.png"));
+            stage.setTitle("Añadir producto");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.showAndWait();
 
-        } else if (botonEliminar.isFocused()) {
-            ObservableList<Producto> SingleProduct;
-            SingleProduct = tablaProductos.getSelectionModel().getSelectedItems();
+        } else if (botonEliminar.isFocused() || botonEliminarEmple.isFocused()) {
 
-            this.IO.actualizaRegistros("DELETE FROM PRODUCTOS where IDProducto = " + SingleProduct.get(0).getIDProducto());
-            SingleProduct.forEach(ListaProductos::remove);
+            String tabla = null, columnas = null;
 
-            iniciaTablas();
-            try {
-                iniciaRegistros();
-            } catch (SQLException ex) {
-                Logger.getLogger(VentanaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+            if (tabsAlmacen.isVisible() && tabProductos.isSelected()){
+                ObservableList<Producto> producto;
+                producto = tablaProductos.getSelectionModel().getSelectedItems();
+                tabla = "PRODUCTOS";
+                columnas = "IDProducto = " + producto.get(0).getIDProducto();
+            }else if (tabsAlmacen.isVisible() && tabProveedores.isSelected()){
+                ObservableList<Proveedor> proveedor;
+                proveedor = tablaProveedor.getSelectionModel().getSelectedItems();
+                tabla = "PROVEEDOR";
+                columnas = "IDProveedor = " + proveedor.get(0).getIDProveedor();
+            }else if (tarjetaEmplePanel.isVisible()){
+                tabla = "EMPLEADOS";
+                columnas = "Nombre_Empleado = '" + tarjetaEmpleNom.getText() + "' AND Apellidos_Empleado = '" + tarjetaEmpleApe.getText() + "'";
             }
 
-        } else if (botonModificar.isFocused()) {
-            System.out.println("B3");
+            this.IO.actualizaRegistros("DELETE FROM " + tabla + " WHERE " + columnas);
+
+            iniciaTodo();
+
+        } else if (botonModificar.isFocused() || botonModificarEmple.isFocused()) {
+            if (botonModificar.isFocused()){
+                System.out.println("1");
+            } else if (botonModificarEmple.isFocused()){
+                System.out.println("2");
+            }
         }
+    }
+
+    /*___________________________________________________________________________________________________________________________________________________________________________*/
+    public void moduloElegido(String boton) {
+        this.menuModulos.setValue(boton);
     }
 
     public void cambiaModulo() throws IOException {
@@ -429,8 +494,8 @@ public class VentanaPrincipalController implements Initializable {
                 labelNoModifiEmpleados.setVisible(false);
                 labelNombreEmpleado.setVisible(false);
                 listViewEmpleados.setVisible(false);
-                listViewEmpeadosActivos.setVisible(false);
-                imgEmpleados.setVisible(false);
+                listViewEmpleadosActivos.setVisible(false);
+                tarjetaEmplePanel.setVisible(false);
                 break;
 
             case "Facturación":
@@ -448,8 +513,8 @@ public class VentanaPrincipalController implements Initializable {
                 labelNoModifiEmpleados.setVisible(false);
                 labelNombreEmpleado.setVisible(false);
                 listViewEmpleados.setVisible(false);
-                listViewEmpeadosActivos.setVisible(false);
-                imgEmpleados.setVisible(false);
+                listViewEmpleadosActivos.setVisible(false);
+                tarjetaEmplePanel.setVisible(false);
                 break;
 
             case "Empleados":
@@ -467,8 +532,8 @@ public class VentanaPrincipalController implements Initializable {
                 labelNoModifiEmpleados.setVisible(true);
                 labelNombreEmpleado.setVisible(true);
                 listViewEmpleados.setVisible(true);
-                listViewEmpeadosActivos.setVisible(true);
-                imgEmpleados.setVisible(true);
+                listViewEmpleadosActivos.setVisible(true);
+                tarjetaEmplePanel.setVisible(true);
                 break;
 
             case "Atrás":
@@ -496,6 +561,7 @@ public class VentanaPrincipalController implements Initializable {
         myStage.close();
     }
 
+    /*___________________________________________________________________________________________________________________________________________________________________________*/
     public void escuchaTablas() {
 
         if (tablaProductos.isFocused()) {
@@ -555,10 +621,7 @@ public class VentanaPrincipalController implements Initializable {
         }
     }
 
-    public void moduloElegido(String boton) {
-        this.menuModulos.setValue(boton); //Atope
-    }
-
+    /*___________________________________________________________________________________________________________________________________________________________________________*/
     public boolean trabajaHoy(String horario) {
         String diaActul = null;
         Calendar calendar = Calendar.getInstance();
@@ -594,4 +657,5 @@ public class VentanaPrincipalController implements Initializable {
             return false;
         }
     }
+    /*___________________________________________________________________________________________________________________________________________________________________________*/
 }

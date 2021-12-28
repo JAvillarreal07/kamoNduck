@@ -15,12 +15,13 @@ import java.io.IOException;
 
 public class VentanaCamposController {
     @FXML
-        private AnchorPane anchorpane;
+    private AnchorPane anchorpane;
 
-        public String pathdelimage;
-        public ImageView imagen;
-        public Image image;
-        public String nombrenuevo;
+    public String pathdelimage;
+    public ImageView imagen;
+    public Image image;
+    public String nombrenuevo;
+
     public void HandleButtonAction(ActionEvent event) {
 
         FileChooser fileChooser = new FileChooser();
@@ -31,16 +32,17 @@ public class VentanaCamposController {
                 FileChooser.ExtensionFilter("Archivos PNG", "*.PNG");
         fileChooser.getExtensionFilters().addAll(extFilterJPG, extFilterPNG);
 
-            File file = fileChooser.showOpenDialog(null);
-            imagen.setImage(new Image(file.toURI().toString()));
-            //por si hace falta tener el path aqui va
-            pathdelimage = file.toURI().toString();
+        File file = fileChooser.showOpenDialog(null);
+        imagen.setImage(new Image(file.toURI().toString()));
+        //por si hace falta tener el path aqui va
+        pathdelimage = file.toURI().toString();
 
-            image = new Image(pathdelimage);
+        image = new Image(pathdelimage);
     }
+
     public void saveToFile() {
         nombrenuevo = "francisquita";
-        File outputFile = new File("C:\\Users\\User-01\\Documents\\MTC\\interfaces\\kamoNduck\\src\\main\\resources\\ImgEmpleados"+nombrenuevo+".png");
+        File outputFile = new File("C:\\Users\\User-01\\Documents\\MTC\\interfaces\\kamoNduck\\src\\main\\resources\\ImgEmpleados" + nombrenuevo + ".png");
         BufferedImage bImage = SwingFXUtils.fromFXImage(image, null);
         try {
             ImageIO.write(bImage, "png", outputFile);
