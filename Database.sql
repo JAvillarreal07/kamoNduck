@@ -93,18 +93,26 @@ CREATE TABLE Productos
 
 INSERT INTO lagos VALUES (1, 'El Original', 'Grande', 30, 0, 20);
 INSERT INTO lagos VALUES (2, 'El animado', 'Mediano', 15, 0, 10);
+INSERT INTO lagos VALUES (3, 'El Coloso', 'Grande', 40, 0, 25);
+INSERT INTO lagos VALUES (4, 'La Charca', 'Pequeño', 5, 0, 50);
 
 INSERT INTO empleados VALUES (NULL, '77823713Q', 'Jesus', 'Cruces Soto', '456126548', 'JCViceAdmin@KamoNDuck.com', 'ViceAdmin', 'L-M-X-J-V-S-D', 'Diurno', 1);
 INSERT INTO empleados VALUES (NULL, 'DNIEjemp', 'Jose Antonio', 'Ejemplo', '124516987', 'JAAdmin@KamoNDuck.com', 'Admin', 'L-X-V', 'Nocturno', 1);
 INSERT INTO empleados VALUES (NULL, 'DNIEjemp', 'Freya', 'Ejemplo', '78123659', 'FrViceAdmin@KamoNDuck.com', 'ViceAdmin', 'M-J-S', 'Diurno', 1);
 INSERT INTO empleados VALUES (NULL, '77836512L', 'Benito', 'Ejemplo', '142032012', 'BenBecario@KamoNDuck.com', 'Becario', 'L-M-X-J-V-S-D', 'Nocturno', 2);
+INSERT INTO empleados VALUES (NULL, '78912451W', 'Álvaro', 'Ortiz Castillo', '695647125', 'ÁlvVet@KamoNDuck.com', 'Veterinario', 'L-M-X-J', 'Partido', 1);
+INSERT INTO empleados VALUES (NULL, '69514723G', 'Ángela', 'Ortiz Castillo', '695647125', 'ÁngVet@KamoNDuck.com', 'Veterinario', 'V-S-D', 'Partido', 1);
+INSERT INTO empleados VALUES (NULL, '59845125P', 'Miguel', 'Castaño Laredo', '548126589', 'MigMante@KamoNDuck.com', 'Mantenimiento', 'L-X-V-D', 'Diurno', 1);
+INSERT INTO empleados VALUES (NULL, '59845125P', 'Carlos', 'Gómez Pérez', '954214785', 'CarMante@KamoNDuck.com', 'Mantenimiento', 'M-J-S', 'Diurno', 1);
 
-INSERT INTO patos VALUES (NULL, 'Gilito', 'Animado', 65, 220001, 'No existe, pero tiene ALEGRÍA al dinero');
-INSERT INTO patos VALUES (NULL, 'Jaimito', 'Animado', 12, 220002, 'No existe, pero tiene ALERGIA a las nueces');
-INSERT INTO patos VALUES (NULL, 'Jorgito', 'Animado', 12, 220003, 'No existe, pero está sanisimo');
-INSERT INTO patos VALUES (NULL, 'Juanito', 'Animado', 12, 220004, 'No existe, nada relevante');
-INSERT INTO patos VALUES (NULL, 'Pyduck', 'Pokemon', 2, 220006, 'No existe, PROBLEMA tiene dolores de cabeza');
-INSERT INTO patos VALUES (NULL, 'Lucas', 'Animado', 30, 220008, 'No existe, todo le molesta');
+INSERT INTO patos VALUES (NULL, 'Gilito', 'Pekín americano', 11, 220001, 'Está algo mayor');
+INSERT INTO patos VALUES (NULL, 'Jaimito', 'Pekín americano', 2, 220002, 'ALERGIA a las nueces');
+INSERT INTO patos VALUES (NULL, 'Jorgito', 'Pekín americano', 2, 220_003, 'Muy sano');
+INSERT INTO patos VALUES (NULL, 'Juanito', 'Pekín americano', 2, 220_004, 'ALERGIA al salmón');
+INSERT INTO patos VALUES (NULL, 'Pyduck', 'Pekín blanco', 1, 220006, 'Es una cría, PROBLEMA tiene dolores de cabeza');
+INSERT INTO patos VALUES (NULL, 'Lucas', 'Ánade sombrío', 5, 220008, 'Muy exigente');
+INSERT INTO patos VALUES (NULL, 'Funky', 'Tadorne coreano', 3, 220_009, 'Tratar con cuidado, casi extinto');
+INSERT INTO patos VALUES (NULL, 'Iris', 'Mandarín', 4, 220_010, 'PROBLEMA está bajo de peso, necesita alimento extra');
 
 
 INSERT INTO clientes VALUES (NULL, '12345678L', 'Walter', 'Elias Disney', '954623154', '954872102','WDisney@Dinero.com', 'Cheque');
@@ -117,6 +125,8 @@ INSERT INTO Clientes VALUES (NULL, '84752136W', 'Jack', 'Warner', '945125480', '
 
 INSERT INTO Proveedor VALUES (1,'Versele-laga', 'Kapellestraat 70 / 9800 Deinze','+32 093813200','Bélgica');
 INSERT INTO Proveedor VALUES (2, 'Corporación ACME', 'Calle ficticia', '123123123', '?');
+INSERT INTO Proveedor VALUES (3, 'Anecoop S.c.', 'CALLE MONFORTE , 1 - LOCAL 1', '963938500', 'Valencia');
+INSERT INTO Proveedor VALUES (4, 'Groupe Limagrain', '	Biopôle Clermont-Limagne Rue Henri Mondor', '473634000', 'Saint Beauzire Francia');
 
 
 INSERT INTO Productos VALUES (001, 'Pienso para patos adultos sabor salmón', 'Alimentación', 20, 15, 20, 'Pienso para patos reales adultos, en concreto los que aman el pescado',1);
