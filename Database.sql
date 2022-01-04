@@ -123,16 +123,19 @@ INSERT INTO Clientes VALUES (NULL, '84752136W', 'Sam', 'Warner', '945125479', '6
 INSERT INTO Clientes VALUES (NULL, '84752136W', 'Jack', 'Warner', '945125480', '666231548', 'JacoboElMenor@HermanosWarner.com', 'Transferencia');
 
 
-INSERT INTO Proveedor VALUES (1,'Versele-laga', 'Kapellestraat 70 / 9800 Deinze','+32 093813200','Bélgica');
+INSERT INTO Proveedor VALUES (1, 'Versele-laga', 'Kapellestraat 70 / 9800 Deinze','+32 093813200','Bélgica');
 INSERT INTO Proveedor VALUES (2, 'Corporación ACME', 'Calle ficticia', '123123123', '?');
 INSERT INTO Proveedor VALUES (3, 'Anecoop S.c.', 'CALLE MONFORTE , 1 - LOCAL 1', '963938500', 'Valencia');
 INSERT INTO Proveedor VALUES (4, 'Groupe Limagrain', '	Biopôle Clermont-Limagne Rue Henri Mondor', '473634000', 'Saint Beauzire Francia');
 
 
-INSERT INTO Productos VALUES (001, 'Pienso para patos adultos sabor salmón', 'Alimentación', 20, 15, 20, 'Pienso para patos reales adultos, en concreto los que aman el pescado',1);
-INSERT INTO Productos VALUES (002,'Pienso para patos imaginarios', 'Alimentacion',60,20,5,'Pienso especial para patos que no existen',2);
-INSERT INTO Productos VALUES (008,'Comida pokemon especial monotipo', 'Alimentación', 6, 5, 10,'Especialmente diseñado para el tipo agua',2);
-INSERT INTO Productos VALUES (015, 'Pala para recoger excrementos imaginarios','Limpieza', 2, 1, 25, 'Indispensable para recoger excrementos imaginarios',2);
+INSERT INTO Productos VALUES (001, 'Pienso patos adultos salmón', 'Alimentación', 20, 15, 20, 'Pienso para patos adultos',1);
+INSERT INTO Productos VALUES (002, 'Preparado para papilla', 'Alimentacion',60,20,5,'Preparado para papilla, para patos recien nacidos',1);
+INSERT INTO Productos VALUES (015, 'Pala para excrementos','Limpieza', 2, 1, 25, 'Indispensable para recoger excrementos imaginarios',2);
+INSERT INTO Productos VALUES (010, 'Saco 10 Kg Zanahoria','Alimentacion', 5, 3, 10, '-',3);
+INSERT INTO Productos VALUES (011, 'Saco 15 Kg Pepino','Alimentacion', 5, 3, 10, '-',3);
+INSERT INTO Productos VALUES (012, 'Saco 10 Kg Manzana','Alimentacion', 5, 3, 10, '-',3);
+INSERT INTO Productos VALUES (009, 'Saco 20 Kg semillas','Alimentación', 5, 2, 55, 'Elección de ganos y semillas especiales para patos',4);
 
 INSERT INTO Estancia VALUES (NULL, '2021-12-11', '2021-12-24', 5,2,2);
 INSERT INTO Estancia VALUES (NULL, '2021-12-13', '2021-12-15', 6,5,2);
