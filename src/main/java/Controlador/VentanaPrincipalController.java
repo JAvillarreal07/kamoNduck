@@ -32,6 +32,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -59,7 +60,7 @@ public class VentanaPrincipalController implements Initializable {
     @FXML
     private TableColumn<Producto, Integer> colIDProduc, colCantProduc;
     @FXML
-    private TableView<Proveedor> tablaProveedor;
+    public TableView<Proveedor> tablaProveedor;
     @FXML
     private TableColumn<Producto, String> colProvNom, colProvDirec, colProvTel, colProvPais;
     @FXML
@@ -363,10 +364,18 @@ public class VentanaPrincipalController implements Initializable {
 
         List<CustomListView> list1 = new ArrayList<>();
         List<CustomListView> list2 = new ArrayList<>();
+
+        Image iconEmple;
+
         for (int i = 0; i < ListaEmpleados.size(); i++) {
-            list1.add(new CustomListView(new Image("/ImgEmpleados/" + ListaEmpleados.get(i).getNombreCompleto().replace(" ", "_") + ".png"), ListaEmpleados.get(i).getNombre_Empleado(), ListaEmpleados.get(i).getApellidos_Empleado(), ListaEmpleados.get(i).getCargo()));
+            try{
+                iconEmple = new Image("/ImgEmpleados/" + ListaEmpleados.get(i).getNombreCompleto().replace(" ", "_") + ".png");
+            }catch (IllegalArgumentException e){
+                iconEmple = new Image("/ImgEmpleados/Null.png");
+            }
+            list1.add(new CustomListView(iconEmple, ListaEmpleados.get(i).getNombre_Empleado(), ListaEmpleados.get(i).getApellidos_Empleado(), ListaEmpleados.get(i).getCargo()));
             if (trabajaHoy(ListaEmpleados.get(i).getHorario_Trabajo())) {
-                list2.add(new CustomListView(new Image("/ImgEmpleados/" + ListaEmpleados.get(i).getNombreCompleto().replace(" ", "_") + ".png"), ListaEmpleados.get(i).getNombre_Empleado(), ListaEmpleados.get(i).getApellidos_Empleado(), ListaEmpleados.get(i).getCargo()));
+                list2.add(new CustomListView(iconEmple, ListaEmpleados.get(i).getNombre_Empleado(), ListaEmpleados.get(i).getApellidos_Empleado(), ListaEmpleados.get(i).getCargo()));
             }
         }
 
@@ -427,14 +436,23 @@ public class VentanaPrincipalController implements Initializable {
     }
 
     /*___________________________________________________________________________________________________________________________________________________________________________*/
-    public void accionesCRUD() throws SQLException, IOException {
+    public void accionesCRUD() throws SQLException, IOException, ParseException {
         if (botonAnadir.isFocused() || botonAnadirEmple.isFocused()) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vista/VentanaCampos.fxml"));
+            FXMLLoader loader = null;
+            String tituoVentana = null;
+            if (menuModulos.getValue().equals("Almacén") && tabProductos.isSelected()){
+                loader = new FXMLLoader(getClass().getResource("/Vista/VentanaCamposProductos.fxml"));
+                tituoVentana = "Añadir Producto";
+            }else if (menuModulos.getValue().equals("Almacén") && tabProveedores.isSelected()){
+                loader = new FXMLLoader(getClass().getResource("/Vista/VentanaCamposProveedores.fxml"));
+                tituoVentana = "Añadir Proveedor";
+            }
+
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.getIcons().add(new Image("/Imagenes/iconoSolo.png"));
-            stage.setTitle("Añadir producto");
+            stage.setTitle(tituoVentana);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.showAndWait();
@@ -463,11 +481,33 @@ public class VentanaPrincipalController implements Initializable {
             iniciaTodo();
 
         } else if (botonModificar.isFocused() || botonModificarEmple.isFocused()) {
-            if (botonModificar.isFocused()){
-                System.out.println("1");
-            } else if (botonModificarEmple.isFocused()){
-                System.out.println("2");
+            FXMLLoader loader = null;
+            String tituoVentana = null;
+            if (menuModulos.getValue().equals("Almacén") && tabProductos.isSelected()){
+                loader = new FXMLLoader(getClass().getResource("/Vista/VentanaCamposProductos.fxml"));
+                tituoVentana = "Modificar Producto";
+            }else if (menuModulos.getValue().equals("Almacén") && tabProveedores.isSelected()){
+                loader = new FXMLLoader(getClass().getResource("/Vista/VentanaCamposProveedores.fxml"));
+                tituoVentana = "Modificar Proveedor";
             }
+
+            Parent root = loader.load();
+
+            VentanaCamposController controlador = loader.getController();
+
+            if (menuModulos.getValue().equals("Almacén") && tabProductos.isSelected()){
+                controlador.iniciarCampos(tablaProductos.getSelectionModel().getSelectedItem());
+            }else if (menuModulos.getValue().equals("Almacén") && tabProveedores.isSelected()){
+                controlador.iniciarCampos(tablaProveedor.getSelectionModel().getSelectedItem());
+            }
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.getIcons().add(new Image("/Imagenes/iconoSolo.png"));
+            stage.setTitle(tituoVentana);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.showAndWait();
         }
     }
 
@@ -477,7 +517,7 @@ public class VentanaPrincipalController implements Initializable {
     }
 
     public void cambiaModulo() throws IOException {
-        switch (menuModulos.getValue().toString()) {
+        switch (menuModulos.getValue()) {
             case "Almacén":
                 tabsAlmacen.setVisible(true);
                 panelFiltros.setVisible(true);
@@ -569,14 +609,21 @@ public class VentanaPrincipalController implements Initializable {
             Seleccionado = (ObservableList<Producto>) tablaProductos.getSelectionModel().getSelectedItems();
 
             labelNomProdProv.setText(Seleccionado.get(0).getNombre_Producto());
-            imgAlmacen.setImage(new Image("/ImgProductos/" + Seleccionado.get(0).getNombre_Producto().replace(" ", "_") + ".png"));
+            try {
+                imgAlmacen.setImage(new Image("/ImgProductos/" + Seleccionado.get(0).getNombre_Producto().replace(" ", "_") + ".png"));
+            }catch (IllegalArgumentException e){
+                imgAlmacen.setImage(new Image("/Imagenes/iconoSolo.png"));
+            }
         } else if (tablaProveedor.isFocused()) {
             ObservableList<Proveedor> Seleccionado;
             Seleccionado = (ObservableList<Proveedor>) tablaProveedor.getSelectionModel().getSelectedItems();
 
             labelNomProdProv.setText(Seleccionado.get(0).getNombre_Proveedor());
-            imgAlmacen.setImage(new Image("/ImgProveedores/" + Seleccionado.get(0).getNombre_Proveedor().replace(" ", "_") + ".png"));
-        }
+            try {
+                imgAlmacen.setImage(new Image("/ImgProveedores/" + Seleccionado.get(0).getNombre_Proveedor().replace(" ", "_") + ".png"));
+            }catch (IllegalArgumentException e){
+                imgAlmacen.setImage(new Image("/Imagenes/iconoSolo.png"));
+            }}
     }
 
     public void escuchaTabs() {
