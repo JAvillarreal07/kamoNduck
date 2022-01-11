@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.controlsfx.control.textfield.TextFields;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -19,6 +20,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
 
 public class VentanaCamposController {
 
@@ -43,6 +45,8 @@ public class VentanaCamposController {
     public ImageView imagenActual;
     public Image imagenNueva;
 
+
+
     public void iniciarCampos(Producto pd) throws ParseException, SQLException {
         textNomProd.setText(pd.getNombre_Producto());
         textTipoProd.setText(pd.getTipo_Producto());
@@ -51,7 +55,8 @@ public class VentanaCamposController {
         textObseProd.setText(pd.getObservaciones());
         try {
             imagenActual.setImage(new Image("/ImgProductos/" + pd.getNombre_Producto().replace(" ", "_") + ".png"));
-        }catch (IllegalArgumentException e){}
+        } catch (IllegalArgumentException e) {
+        }
 
         ResultSet pdID = IO.introduceRegistros("SELECT IDProducto FROM PRODUCTOS WHERE " +
                 "Nombre_Producto = '" + textNomProd.getText() + "' AND " +
@@ -71,7 +76,8 @@ public class VentanaCamposController {
         textPaisProv.setText(pv.getPais());
         try {
             imagenActual.setImage(new Image("/ImgProveedores/" + pv.getNombre_Proveedor().replace(" ", "_") + ".png"));
-        }catch (IllegalArgumentException e){}
+        } catch (IllegalArgumentException e) {
+        }
 
         ResultSet pvID = IO.introduceRegistros("SELECT IDProveedor FROM PROVEEDOR WHERE " +
                 "Nombre_Proveedor = '" + textNomProv.getText() + "' AND " +
@@ -82,6 +88,12 @@ public class VentanaCamposController {
         pvID.next();
 
         IDPrv = pvID.getInt("IDProveedor");
+    }
+
+    public void iniciaFieldProv(ArrayList<String> nombresProvFiltros) {
+
+        TextFields.bindAutoCompletion(textProvProd, nombresProvFiltros);
+        nombresProvFiltros.clear();
     }
 
     public void saveToFile() {
@@ -122,6 +134,12 @@ public class VentanaCamposController {
             Stage stage = (Stage) this.botonCancelar.getScene().getWindow();
             switch (stage.getTitle()) {
                 case "Añadir Producto":
+                    ResultSet pvID1 = IO.introduceRegistros("SELECT IDProveedor FROM PROVEEDOR WHERE " +
+                            "Nombre_Proveedor = '" + textProvProd.getText() + "'");
+
+                    pvID1.next();
+                    Integer IDBuscado1 = pvID1.getInt("IDProveedor");
+
                     IO.actualizaRegistros("INSERT INTO PRODUCTOS VALUES ("
                             + "null" + ", '"
                             + textNomProd.getText() + "', '"
@@ -130,14 +148,15 @@ public class VentanaCamposController {
                             + 100 + ", "
                             + 50 + ", '"
                             + textObseProd.getText() + "', "
-                            + 1 + ")");
+                            + IDBuscado1 + ")");
                     break;
 
                 case "Modificar Producto":
-                    ResultSet pvID = IO.introduceRegistros("SELECT IDProveedor FROM PROVEEDOR WHERE " +
+                    ResultSet pvID2 = IO.introduceRegistros("SELECT IDProveedor FROM PROVEEDOR WHERE " +
                             "Nombre_Proveedor = '" + textProvProd.getText() + "'");
 
-                    pvID.next();
+                    pvID2.next();
+                    Integer IDBuscado2 = pvID2.getInt("IDProveedor");
 
                     IO.actualizaRegistros("UPDATE PRODUCTOS set " +
                             "Nombre_Producto = '" + textNomProd.getText() + "', " +
@@ -145,8 +164,8 @@ public class VentanaCamposController {
                             "Cantidad = " + textCantProd.getText() + ", " +
                             "Minimo = " + 100 + ", " +
                             "Precio = " + 50 + ", " +
-                            "Observaciones = '" + textObseProd.getText() + "'" +
-                            "IDProveedor = " + pvID.getInt("IDProveedor") +
+                            "Observaciones = '" + textObseProd.getText() + "' " +
+                            "IDProveedor = " + IDBuscado2 +
                             "WHERE IDProducto = " + IDPrd);
                     break;
 
@@ -170,6 +189,7 @@ public class VentanaCamposController {
             }
 
             saveToFile();
+            stage.close();
 
         } else if (botonCancelar.isFocused()) {
             Stage stage = (Stage) this.botonCancelar.getScene().getWindow();

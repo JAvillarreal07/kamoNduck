@@ -118,7 +118,9 @@ public class VentanaPrincipalController implements Initializable {
     private ArrayList<String> telefonoProvFiltros = new ArrayList<String>();
     private ArrayList<String> paisProvFiltros = new ArrayList<String>();
 
-/*___________________________________________________________________________________________________________________________________________________________________________*/
+    boolean fieldIniciado = false;
+
+    /*___________________________________________________________________________________________________________________________________________________________________________*/
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         iniciaTablas();
@@ -368,9 +370,9 @@ public class VentanaPrincipalController implements Initializable {
         Image iconEmple;
 
         for (int i = 0; i < ListaEmpleados.size(); i++) {
-            try{
+            try {
                 iconEmple = new Image("/ImgEmpleados/" + ListaEmpleados.get(i).getNombreCompleto().replace(" ", "_") + ".png");
-            }catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 iconEmple = new Image("/ImgEmpleados/Null.png");
             }
             list1.add(new CustomListView(iconEmple, ListaEmpleados.get(i).getNombre_Empleado(), ListaEmpleados.get(i).getApellidos_Empleado(), ListaEmpleados.get(i).getCargo()));
@@ -406,9 +408,9 @@ public class VentanaPrincipalController implements Initializable {
 
     public void seleccionarEmpleado() {
         ListView<CustomListView> seleccionada = null;
-        if (listViewEmpleados.isFocused()){
+        if (listViewEmpleados.isFocused()) {
             seleccionada = listViewEmpleados;
-        }else if (listViewEmpleadosActivos.isFocused()){
+        } else if (listViewEmpleadosActivos.isFocused()) {
             seleccionada = listViewEmpleadosActivos;
         }
         for (int i = 0; i < ListaEmpleados.size(); i++) {
@@ -440,15 +442,21 @@ public class VentanaPrincipalController implements Initializable {
         if (botonAnadir.isFocused() || botonAnadirEmple.isFocused()) {
             FXMLLoader loader = null;
             String tituoVentana = null;
-            if (menuModulos.getValue().equals("Almacén") && tabProductos.isSelected()){
+            if (menuModulos.getValue().equals("Almacén") && tabProductos.isSelected()) {
                 loader = new FXMLLoader(getClass().getResource("/Vista/VentanaCamposProductos.fxml"));
                 tituoVentana = "Añadir Producto";
-            }else if (menuModulos.getValue().equals("Almacén") && tabProveedores.isSelected()){
+            } else if (menuModulos.getValue().equals("Almacén") && tabProveedores.isSelected()) {
                 loader = new FXMLLoader(getClass().getResource("/Vista/VentanaCamposProveedores.fxml"));
                 tituoVentana = "Añadir Proveedor";
             }
 
             Parent root = loader.load();
+
+            VentanaCamposController controlador = loader.getController();
+            if (menuModulos.getValue().equals("Almacén") && tabProductos.isSelected()) {
+                controlador.iniciaFieldProv(nombresProvFiltros);
+            }
+
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.getIcons().add(new Image("/Imagenes/iconoSolo.png"));
@@ -461,32 +469,30 @@ public class VentanaPrincipalController implements Initializable {
 
             String tabla = null, columnas = null;
 
-            if (tabsAlmacen.isVisible() && tabProductos.isSelected()){
+            if (tabsAlmacen.isVisible() && tabProductos.isSelected()) {
                 ObservableList<Producto> producto;
                 producto = tablaProductos.getSelectionModel().getSelectedItems();
                 tabla = "PRODUCTOS";
                 columnas = "IDProducto = " + producto.get(0).getIDProducto();
-            }else if (tabsAlmacen.isVisible() && tabProveedores.isSelected()){
+            } else if (tabsAlmacen.isVisible() && tabProveedores.isSelected()) {
                 ObservableList<Proveedor> proveedor;
                 proveedor = tablaProveedor.getSelectionModel().getSelectedItems();
                 tabla = "PROVEEDOR";
                 columnas = "IDProveedor = " + proveedor.get(0).getIDProveedor();
-            }else if (tarjetaEmplePanel.isVisible()){
+            } else if (tarjetaEmplePanel.isVisible()) {
                 tabla = "EMPLEADOS";
                 columnas = "Nombre_Empleado = '" + tarjetaEmpleNom.getText() + "' AND Apellidos_Empleado = '" + tarjetaEmpleApe.getText() + "'";
             }
 
             this.IO.actualizaRegistros("DELETE FROM " + tabla + " WHERE " + columnas);
 
-            iniciaTodo();
-
         } else if (botonModificar.isFocused() || botonModificarEmple.isFocused()) {
             FXMLLoader loader = null;
             String tituoVentana = null;
-            if (menuModulos.getValue().equals("Almacén") && tabProductos.isSelected()){
+            if (menuModulos.getValue().equals("Almacén") && tabProductos.isSelected()) {
                 loader = new FXMLLoader(getClass().getResource("/Vista/VentanaCamposProductos.fxml"));
                 tituoVentana = "Modificar Producto";
-            }else if (menuModulos.getValue().equals("Almacén") && tabProveedores.isSelected()){
+            } else if (menuModulos.getValue().equals("Almacén") && tabProveedores.isSelected()) {
                 loader = new FXMLLoader(getClass().getResource("/Vista/VentanaCamposProveedores.fxml"));
                 tituoVentana = "Modificar Proveedor";
             }
@@ -495,9 +501,11 @@ public class VentanaPrincipalController implements Initializable {
 
             VentanaCamposController controlador = loader.getController();
 
-            if (menuModulos.getValue().equals("Almacén") && tabProductos.isSelected()){
+            if (menuModulos.getValue().equals("Almacén") && tabProductos.isSelected()) {
                 controlador.iniciarCampos(tablaProductos.getSelectionModel().getSelectedItem());
-            }else if (menuModulos.getValue().equals("Almacén") && tabProveedores.isSelected()){
+                controlador.iniciaFieldProv(nombresProvFiltros);
+
+            } else if (menuModulos.getValue().equals("Almacén") && tabProveedores.isSelected()) {
                 controlador.iniciarCampos(tablaProveedor.getSelectionModel().getSelectedItem());
             }
 
@@ -509,6 +517,8 @@ public class VentanaPrincipalController implements Initializable {
             stage.setScene(scene);
             stage.showAndWait();
         }
+
+        iniciaTodo();
     }
 
     /*___________________________________________________________________________________________________________________________________________________________________________*/
@@ -611,7 +621,7 @@ public class VentanaPrincipalController implements Initializable {
             labelNomProdProv.setText(Seleccionado.get(0).getNombre_Producto());
             try {
                 imgAlmacen.setImage(new Image("/ImgProductos/" + Seleccionado.get(0).getNombre_Producto().replace(" ", "_") + ".png"));
-            }catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 imgAlmacen.setImage(new Image("/Imagenes/iconoSolo.png"));
             }
         } else if (tablaProveedor.isFocused()) {
@@ -621,9 +631,10 @@ public class VentanaPrincipalController implements Initializable {
             labelNomProdProv.setText(Seleccionado.get(0).getNombre_Proveedor());
             try {
                 imgAlmacen.setImage(new Image("/ImgProveedores/" + Seleccionado.get(0).getNombre_Proveedor().replace(" ", "_") + ".png"));
-            }catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 imgAlmacen.setImage(new Image("/Imagenes/iconoSolo.png"));
-            }}
+            }
+        }
     }
 
     public void escuchaTabs() {

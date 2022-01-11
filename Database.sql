@@ -79,7 +79,7 @@ CREATE TABLE Estancia
 
 CREATE TABLE Productos
 (
-    IDProducto INT NOT NULL,
+    IDProducto INT AUTO_INCREMENT,
     Nombre_Producto VARCHAR(100) NOT NULL,
     Tipo_Producto VARCHAR(50) NOT NULL,
     Cantidad INT NOT NULL,
