@@ -15,6 +15,7 @@ import org.controlsfx.control.textfield.TextFields;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -97,20 +98,24 @@ public class VentanaCamposController {
     }
 
     public void saveToFile() {
-        if (!textNomProd.isDisable()) {
+        Stage stage = (Stage) this.botonCancelar.getScene().getWindow();
+        if (stage.getTitle().contains("Producto")){
             nombreNuevoImagen = textNomProd.getText().replace(" ", "_");
             carpeta = "ImgProductos";
-        } else if (!textNomProv.isDisable()) {
+
+        }else if (stage.getTitle().contains("Proveedor")){
             nombreNuevoImagen = textNomProv.getText().replace(" ", "_");
             carpeta = "ImgProveedores";
+
         }
 
-        File outputFile = new File("src/main/resources/" + carpeta + "/" + nombreNuevoImagen + ".png");
-        BufferedImage bImage = SwingFXUtils.fromFXImage(imagenNueva, null);
         try {
+            File outputFile = new File("src/main/resources/" + carpeta + "/" + nombreNuevoImagen + ".png");
+
+            BufferedImage bImage = SwingFXUtils.fromFXImage(imagenNueva, null);
             ImageIO.write(bImage, "png", outputFile);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (NullPointerException a){} catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -164,9 +169,9 @@ public class VentanaCamposController {
                             "Cantidad = " + textCantProd.getText() + ", " +
                             "Minimo = " + 100 + ", " +
                             "Precio = " + 50 + ", " +
-                            "Observaciones = '" + textObseProd.getText() + "' " +
+                            "Observaciones = '" + textObseProd.getText() + "', " +
                             "IDProveedor = " + IDBuscado2 +
-                            "WHERE IDProducto = " + IDPrd);
+                            " WHERE IDProducto = " + IDPrd);
                     break;
 
                 case "Añadir Proveedor":
