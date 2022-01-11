@@ -6,7 +6,7 @@ CREATE TABLE Patos
 (
     IDPato INT AUTO_INCREMENT,
     Nombre_Pato VARCHAR(50) NOT NULL,
-    Raza VARCHAR(10) NOT NULL,
+    Raza VARCHAR(50) NOT NULL,
     Edad INT NOT NULL,
     Num_Cartilla INT NOT NULL,
     Descripcion VARCHAR (100),
@@ -45,7 +45,7 @@ CREATE TABLE Empleados
     Apellidos_Empleado VARCHAR(50) NOT NULL,
     Telefono_Empleado CHAR(16) NOT NULL,
     Email_Empleado VARCHAR(50) NOT NULL,
-    Cargo VARCHAR(10) NOT NULL,
+    Cargo VARCHAR(50) NOT NULL,
     Horario_Trabajo VARCHAR(20) NOT NULL,
     Turno VARCHAR(20) NOT NULL,
     IDLago INT NOT NULL,
@@ -107,12 +107,12 @@ INSERT INTO empleados VALUES (NULL, '59845125P', 'Carlos', 'Gómez Pérez', '954
 
 INSERT INTO patos VALUES (NULL, 'Gilito', 'Pekín americano', 11, 220001, 'Está algo mayor');
 INSERT INTO patos VALUES (NULL, 'Jaimito', 'Pekín americano', 2, 220002, 'ALERGIA a las nueces');
-INSERT INTO patos VALUES (NULL, 'Jorgito', 'Pekín americano', 2, 220_003, 'Muy sano');
-INSERT INTO patos VALUES (NULL, 'Juanito', 'Pekín americano', 2, 220_004, 'ALERGIA al salmón');
+INSERT INTO patos VALUES (NULL, 'Jorgito', 'Pekín americano', 2, 220003, 'Muy sano');
+INSERT INTO patos VALUES (NULL, 'Juanito', 'Pekín americano', 2, 220004, 'ALERGIA al salmón');
 INSERT INTO patos VALUES (NULL, 'Pyduck', 'Pekín blanco', 1, 220006, 'Es una cría, PROBLEMA tiene dolores de cabeza');
 INSERT INTO patos VALUES (NULL, 'Lucas', 'Ánade sombrío', 5, 220008, 'Muy exigente');
-INSERT INTO patos VALUES (NULL, 'Funky', 'Tadorne coreano', 3, 220_009, 'Tratar con cuidado, casi extinto');
-INSERT INTO patos VALUES (NULL, 'Iris', 'Mandarín', 4, 220_010, 'PROBLEMA está bajo de peso, necesita alimento extra');
+INSERT INTO patos VALUES (NULL, 'Funky', 'Tadorne coreano', 3, 220009, 'Tratar con cuidado, casi extinto');
+INSERT INTO patos VALUES (NULL, 'Iris', 'Mandarín', 4, 220010, 'PROBLEMA está bajo de peso, necesita alimento extra');
 
 
 INSERT INTO clientes VALUES (NULL, '12345678L', 'Walter', 'Elias Disney', '954623154', '954872102','WDisney@Dinero.com', 'Cheque');
