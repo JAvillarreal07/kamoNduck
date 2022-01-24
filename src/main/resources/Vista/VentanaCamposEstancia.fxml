@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ventanuca" prefHeight="697.0" prefWidth="689.0" stylesheets="@campos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VentanaCamposController">
+   <children>
+      <AnchorPane id="ventanuca" prefHeight="697.0" prefWidth="695.0">
+         <children>
+            <Label id="HEADER" layoutX="66.0" layoutY="43.0" prefHeight="46.0" prefWidth="382.0" text="FORMULARIO DE REGISTRO" textFill="WHITE">
+               <font>
+                  <Font name="Courier New" size="20.0" />
+               </font>
+            </Label>
+            <Line endX="459.0" layoutX="168.0" layoutY="110.0" startX="-100.0" stroke="WHITE" />
+            <JFXTextField id="camposform" fx:id="txtDNICliente" focusColor="TRANSPARENT" layoutX="197.0" layoutY="133.0" prefHeight="25.0" prefWidth="256.0" unFocusColor="TRANSPARENT" />
+            <Line endX="459.0" layoutX="168.0" layoutY="175.0" startX="-100.0" stroke="WHITE" />
+            <Label layoutX="68.0" layoutY="129.0" prefHeight="32.0" prefWidth="127.0" text="DNI Cliente" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="-100.0" endY="63.0" layoutX="285.0" layoutY="100.0" startX="-100.0" startY="26.0" stroke="WHITE" />
+            <Label layoutX="68.0" layoutY="197.0" prefHeight="32.0" prefWidth="141.0" text="Cartilla Pato" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="459.0" layoutX="168.0" layoutY="245.0" startX="-100.0" stroke="WHITE" />
+            <Line endX="-100.0" endY="63.0" layoutX="328.0" layoutY="168.0" startX="-100.0" startY="26.0" stroke="WHITE" />
+            <JFXTextField id="camposform" fx:id="txtTlfEmp" focusColor="TRANSPARENT" layoutX="406.0" layoutY="200.0" prefHeight="25.0" prefWidth="208.0" unFocusColor="TRANSPARENT" />
+            <Label layoutX="61.0" layoutY="266.0" prefHeight="32.0" prefWidth="141.0" text="Fecha Ingreso" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="79.0" layoutX="169.0" layoutY="309.0" startX="-100.0" stroke="WHITE" />
+            <Line endX="-100.0" endY="63.0" layoutX="424.0" layoutY="237.0" startX="-100.0" startY="26.0" stroke="WHITE" />
+            <Line endX="228.0" layoutX="398.0" layoutY="309.0" startX="-23.0" stroke="WHITE" />
+            <Line endX="459.0" layoutX="168.0" layoutY="603.0" startX="-100.0" stroke="WHITE" />
+            <Label layoutX="81.0" layoutY="632.0" prefHeight="38.0" prefWidth="78.0" text="ENVIAR" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="21.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="71.0" layoutY="619.0" prefHeight="66.0" prefWidth="127.0" ripplerFill="#9e4c4c" style="-fx-padding: 0;" text="     ➤" textFill="WHITE">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="imagensubir" layoutX="543.0" layoutY="73.0" onAction="#subirImagen" prefHeight="32.0" prefWidth="127.0" ripplerFill="#9e4c4c" style="-fx-padding: 0;" text="subir imagen" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <ImageView fx:id="imagenActual" fitHeight="96.0" fitWidth="141.0" layoutX="402.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <JFXButton fx:id="botonsubirimagen" layoutX="571.0" layoutY="626.0" onAction="#saveToFile" text="BOTON" textFill="WHITE" />
+            <JFXTextField id="camposform" fx:id="txtApEmp" focusColor="TRANSPARENT" layoutX="450.0" layoutY="132.0" prefHeight="25.0" prefWidth="180.0" unFocusColor="TRANSPARENT" />
+            <JFXTextField id="camposform" fx:id="textNCartillaPato" focusColor="TRANSPARENT" layoutX="262.0" layoutY="200.0" prefHeight="25.0" prefWidth="361.0" unFocusColor="TRANSPARENT" />
+            <Line endX="228.0" layoutX="259.0" layoutY="392.0" startX="-100.0" stroke="WHITE" />
+            <Label layoutX="159.0" layoutY="349.0" prefHeight="32.0" prefWidth="148.0" text="Nombre Lago*" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="comboNombreLago" focusColor="#a84047" layoutX="290.0" layoutY="353.0" onAction="#comboLago" prefHeight="25.0" prefWidth="192.0" unFocusColor="WHITE" />
+            <JFXDatePicker fx:id="fechaSalida" defaultColor="WHITE" layoutX="204.0" layoutY="269.0" prefHeight="25.0" prefWidth="100.0" />
+            <JFXDatePicker fx:id="fechaSalida" defaultColor="WHITE" layoutX="521.0" layoutY="269.0" prefHeight="25.0" prefWidth="100.0" />
+            <Label layoutX="336.0" layoutY="266.0" prefHeight="32.0" prefWidth="141.0" text="Fecha Salida" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
