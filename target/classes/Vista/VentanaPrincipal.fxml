@@ -77,6 +77,84 @@
                 <Tooltip text="elimine del almacén" />
             </tooltip>
         </JFXButton>
+      <JFXTabPane fx:id="tabsFacturacion" focusTraversable="false" layoutX="10.0" layoutY="10.0" prefHeight="702.0" prefWidth="955.0">
+         <tabs>
+            <Tab fx:id="tabPatos" onSelectionChanged="#escuchaTabs" text="Pato">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
+                     <children>
+                        <TableView fx:id="tablaProductos1" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="673.0" prefWidth="955.0">
+                           <columns>
+                              <TableColumn fx:id="colIDpato" prefWidth="44.0" text="ID" />
+                              <TableColumn fx:id="colNombrePato" prefWidth="326.00001525878906" text="NOMBRE" />
+                              <TableColumn fx:id="colRazaPato" prefWidth="116.0" text="Raza" />
+                              <TableColumn fx:id="colEdadPato" prefWidth="94.0" text="Edad" />
+                              <TableColumn fx:id="colNum_cartilla" prefWidth="110.0" text="Numero cartilla" />
+                              <TableColumn fx:id="colDescPato" prefWidth="264.0" text="Descripción" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="TabLago" onSelectionChanged="#escuchaTabs" text="Lago">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
+                     <children>
+                        <TableView fx:id="tablaProveedor1" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="666.0" prefWidth="955.0">
+                           <columns>
+                              <TableColumn fx:id="colIDLago" prefWidth="44.0" text="ID" />
+                              <TableColumn fx:id="colNombreLago" prefWidth="201.0" text="NOMBRE" />
+                              <TableColumn fx:id="colTamanhoLago" prefWidth="448.0" text="Tamaño" />
+                              <TableColumn fx:id="colCapLago" prefWidth="158.0" text="Capacidad" />
+                              <TableColumn fx:id="colPatosAC" prefWidth="103.0" text="Patos actuales" />
+                              <TableColumn fx:id="colTarifaPatos" prefWidth="103.0" text="Tarifa" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabEstancia" onSelectionChanged="#escuchaTabs" text="Estancia">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
+                     <children>
+                        <TableView fx:id="tablaProductos11" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="673.0" prefWidth="955.0">
+                           <columns>
+                              <TableColumn fx:id="colIDEstancia" prefWidth="44.0" text="ID" />
+                              <TableColumn fx:id="colFechaIngresoEstancia" prefWidth="326.00001525878906" text="Fecha de ingreso" />
+                              <TableColumn fx:id="colFechaSalidaEstancia" prefWidth="116.0" text="Fecha salida" />
+                              <TableColumn fx:id="colNombrePatoEstancia" prefWidth="94.0" text="Nombre del pato" />
+                              <TableColumn fx:id="colNombreClienteEstancia" prefWidth="110.0" text="Nombre del dueño" />
+                              <TableColumn fx:id="colNombreLagoEstancia" prefWidth="264.0" text="Nombre del lago" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="TabCliente" onSelectionChanged="#escuchaTabs" text="Cliente">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
+                     <children>
+                        <TableView fx:id="tablaProductos12" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="673.0" prefWidth="955.0">
+                           <columns>
+                              <TableColumn fx:id="colIDCliente" prefWidth="44.0" text="ID" />
+                              <TableColumn fx:id="colDNICliente" prefWidth="326.00001525878906" text="DNI" />
+                              <TableColumn fx:id="colNombreCliente" prefWidth="116.0" text="Nombre" />
+                              <TableColumn fx:id="colApellidosCliente" prefWidth="94.0" text="Apellidos" />
+                              <TableColumn fx:id="colTelf1Cliente" prefWidth="110.0" text="Telefono 1" />
+                              <TableColumn fx:id="colTelef2Cliente" prefWidth="264.0" text="Telefono 2" />
+                              <TableColumn fx:id="colEmailCliente" prefWidth="264.0" text="Email" />
+                              <TableColumn fx:id="colTipoPagoCliente" prefWidth="264.0" text="Tipo de pago" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
 
         <JFXTabPane fx:id="tabsAlmacen" focusTraversable="false" prefHeight="702.0" prefWidth="955.0" visible="false">
             <tabs>
@@ -228,81 +306,6 @@
             </JFXButton>
          </children>
       </Pane>
-      <JFXTabPane fx:id="tabsAlmacen1" focusTraversable="false" layoutX="10.0" layoutY="10.0" prefHeight="702.0" prefWidth="955.0" visible="false">
-         <tabs>
-            <Tab fx:id="tabPatos" onSelectionChanged="#escuchaTabs" text="Pato">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
-                     <children>
-                        <TableView fx:id="tablaProductos1" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="673.0" prefWidth="955.0">
-                           <columns>
-                              <TableColumn fx:id="colIDProduc1" prefWidth="44.0" text="ID" />
-                              <TableColumn fx:id="colNomProduc1" prefWidth="326.00001525878906" text="NOMBRE" />
-                              <TableColumn fx:id="colTipoProduc1" prefWidth="116.0" text="TIPO" />
-                              <TableColumn fx:id="colCantProduc1" prefWidth="94.0" text="CANTIDAD" />
-                              <TableColumn fx:id="colPorvProduc1" prefWidth="110.0" text="PROVEEDOR" />
-                              <TableColumn fx:id="colObserProduc1" prefWidth="264.0" text="OBSERVACIONES" />
-                           </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-            <Tab fx:id="TabLago" onSelectionChanged="#escuchaTabs" text="Lago">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
-                     <children>
-                        <TableView fx:id="tablaProveedor1" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="666.0" prefWidth="955.0">
-                           <columns>
-                              <TableColumn fx:id="colProvID1" prefWidth="44.0" text="ID" />
-                              <TableColumn fx:id="colProvNom1" prefWidth="201.0" text="NOMBRE" />
-                              <TableColumn fx:id="colProvDirec1" prefWidth="448.0" text="DIRECCION" />
-                              <TableColumn fx:id="colProvTel1" prefWidth="158.0" text="TELEFONO" />
-                              <TableColumn fx:id="colProvPais1" prefWidth="103.0" text="PAIS" />
-                           </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-            <Tab fx:id="tabEstancia" onSelectionChanged="#escuchaTabs" text="Estancia">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
-                     <children>
-                        <TableView fx:id="tablaProductos11" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="673.0" prefWidth="955.0">
-                           <columns>
-                              <TableColumn fx:id="colIDProduc11" prefWidth="44.0" text="ID" />
-                              <TableColumn fx:id="colNomProduc11" prefWidth="326.00001525878906" text="NOMBRE" />
-                              <TableColumn fx:id="colTipoProduc11" prefWidth="116.0" text="TIPO" />
-                              <TableColumn fx:id="colCantProduc11" prefWidth="94.0" text="CANTIDAD" />
-                              <TableColumn fx:id="colPorvProduc11" prefWidth="110.0" text="PROVEEDOR" />
-                              <TableColumn fx:id="colObserProduc11" prefWidth="264.0" text="OBSERVACIONES" />
-                           </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-            <Tab fx:id="TabCliente" onSelectionChanged="#escuchaTabs" text="Cliente">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
-                     <children>
-                        <TableView fx:id="tablaProductos12" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="673.0" prefWidth="955.0">
-                           <columns>
-                              <TableColumn fx:id="colIDProduc12" prefWidth="44.0" text="ID" />
-                              <TableColumn fx:id="colNomProduc12" prefWidth="326.00001525878906" text="NOMBRE" />
-                              <TableColumn fx:id="colTipoProduc12" prefWidth="116.0" text="TIPO" />
-                              <TableColumn fx:id="colCantProduc12" prefWidth="94.0" text="CANTIDAD" />
-                              <TableColumn fx:id="colPorvProduc12" prefWidth="110.0" text="PROVEEDOR" />
-                              <TableColumn fx:id="colObserProduc12" prefWidth="264.0" text="OBSERVACIONES" />
-                           </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-         </tabs>
-      </JFXTabPane>
 
     </children>
 </AnchorPane>
