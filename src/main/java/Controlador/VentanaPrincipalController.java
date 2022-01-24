@@ -1,5 +1,6 @@
 package Controlador;
 
+import Controlador.Excepciones.CamposVaciosException;
 import Modelo.CustomListView;
 import Modelo.Empleado;
 import Modelo.Producto;
@@ -28,15 +29,13 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -94,7 +93,7 @@ public class VentanaPrincipalController implements Initializable {
     @FXML
     public ImageView tarjetaEmpleImg;
     @FXML
-    public JFXTextField tarjetaEmpleNom, tarjetaEmpleApe, tarjetaEmpleDNI, tarjetaEmpleTel, tarjetaEmpleEmail, tarjetaEmpleCargo, tarjetaEmpleHorario, tarjetaEmpleTurno, tarjetaEmpleLago;
+    public Label tarjetaEmpleNom, tarjetaEmpleApe, tarjetaEmpleDNI, tarjetaEmpleTel, tarjetaEmpleEmail, tarjetaEmpleCargo, tarjetaEmpleHorario, tarjetaEmpleTurno, tarjetaEmpleLago;
     @FXML
     public JFXButton botonAnadirEmple, botonModificarEmple, botonEliminarEmple;
 
@@ -370,9 +369,10 @@ public class VentanaPrincipalController implements Initializable {
         Image iconEmple;
 
         for (int i = 0; i < ListaEmpleados.size(); i++) {
-            try {
-                iconEmple = new Image("/ImgEmpleados/" + ListaEmpleados.get(i).getNombreCompleto().replace(" ", "_") + ".png");
-            } catch (IllegalArgumentException e) {
+
+            iconEmple = new Image(new File("ImgEmpleados/" + ListaEmpleados.get(i).getNombreCompleto().replace(" ", "_") + ".png").toURI().toString());
+
+            if (iconEmple.getHeight() == 0.0) {
                 iconEmple = new Image("/ImgEmpleados/Null.png");
             }
             list1.add(new CustomListView(iconEmple, ListaEmpleados.get(i).getNombre_Empleado(), ListaEmpleados.get(i).getApellidos_Empleado(), ListaEmpleados.get(i).getCargo()));
@@ -428,7 +428,7 @@ public class VentanaPrincipalController implements Initializable {
                     tarjetaEmpleHorario.setText(ListaEmpleados.get(i).getHorario_Trabajo());
                     tarjetaEmpleTurno.setText(ListaEmpleados.get(i).getTurno());
                     tarjetaEmpleLago.setText(lago.getString("Nombre_Lago"));
-                    tarjetaEmpleImg.setImage(new Image("/ImgEmpleados/" + seleccionada.getSelectionModel().getSelectedItem().getNombreCompleto().replace(" ", "_") + ".png"));
+                    tarjetaEmpleImg.setImage(new Image(new File("ImgEmpleados/" + seleccionada.getSelectionModel().getSelectedItem().getNombreCompleto().replace(" ", "_") + ".png").toURI().toString()));
                     break;
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -619,19 +619,22 @@ public class VentanaPrincipalController implements Initializable {
             Seleccionado = (ObservableList<Producto>) tablaProductos.getSelectionModel().getSelectedItems();
 
             labelNomProdProv.setText(Seleccionado.get(0).getNombre_Producto());
-            try {
-                imgAlmacen.setImage(new Image("/ImgProductos/" + Seleccionado.get(0).getNombre_Producto().replace(" ", "_") + ".png"));
-            } catch (IllegalArgumentException e) {
+
+            imgAlmacen.setImage(new Image(new File("ImgProductos/" + Seleccionado.get(0).getNombre_Producto().replace(" ", "_") + ".png").toURI().toString()));
+
+            if (imgAlmacen.getImage().isError()) {
                 imgAlmacen.setImage(new Image("/Imagenes/iconoSolo.png"));
             }
+
         } else if (tablaProveedor.isFocused()) {
             ObservableList<Proveedor> Seleccionado;
             Seleccionado = (ObservableList<Proveedor>) tablaProveedor.getSelectionModel().getSelectedItems();
 
             labelNomProdProv.setText(Seleccionado.get(0).getNombre_Proveedor());
-            try {
-                imgAlmacen.setImage(new Image("/ImgProveedores/" + Seleccionado.get(0).getNombre_Proveedor().replace(" ", "_") + ".png"));
-            } catch (IllegalArgumentException e) {
+
+            imgAlmacen.setImage(new Image(new File("ImgProveedores/" + Seleccionado.get(0).getNombre_Proveedor().replace(" ", "_") + ".png").toURI().toString()));
+
+            if (imgAlmacen.getImage().isError()) {
                 imgAlmacen.setImage(new Image("/Imagenes/iconoSolo.png"));
             }
         }
@@ -716,4 +719,9 @@ public class VentanaPrincipalController implements Initializable {
         }
     }
     /*___________________________________________________________________________________________________________________________________________________________________________*/
+
+    public void prueba() throws CamposVaciosException{
+
+        System.out.println(new Random().nextInt(100));
+    }
 }
