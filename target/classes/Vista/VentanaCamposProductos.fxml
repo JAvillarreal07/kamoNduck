@@ -50,13 +50,13 @@
                   <Font name="Consolas" size="18.0" />
                </font>
             </Label>
-            <JFXTextArea id="textaco" fx:id="textObseProd" focusColor="#405aa800" layoutX="241.0" layoutY="344.0" prefHeight="243.0" prefWidth="382.0" unFocusColor="#ffffff00" />
-            <Label layoutX="66.0" layoutY="349.0" prefHeight="32.0" prefWidth="133.0" text="Observaciones" textFill="WHITE">
+            <JFXTextArea id="textaco" fx:id="textObseProd" focusColor="#405aa800" layoutX="244.0" layoutY="396.0" prefHeight="168.0" prefWidth="382.0" unFocusColor="#ffffff00" />
+            <Label layoutX="69.0" layoutY="401.0" prefHeight="32.0" prefWidth="133.0" text="Observaciones" textFill="WHITE">
                <font>
                   <Font name="Consolas" size="18.0" />
                </font>
             </Label>
-            <Line endX="-100.0" endY="63.0" layoutX="316.0" layoutY="320.0" startX="-100.0" startY="26.0" stroke="WHITE" />
+            <Line endX="-100.0" endY="63.0" layoutX="319.0" layoutY="372.0" startX="-100.0" startY="26.0" stroke="WHITE" />
             <Line endX="459.0" layoutX="168.0" layoutY="603.0" startX="-100.0" stroke="WHITE" />
             <Label layoutX="81.0" layoutY="632.0" prefHeight="38.0" prefWidth="78.0" text="ENVIAR" textFill="WHITE">
                <font>
@@ -75,6 +75,21 @@
             </JFXButton>
             <JFXButton fx:id="botonCancelar" layoutX="537.0" layoutY="626.0" onAction="#accionBotones" text="CANCELAR" textFill="WHITE" />
             <ImageView fx:id="imagenActual" fitHeight="96.0" fitWidth="141.0" layoutX="402.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="74.0" layoutY="333.0" prefHeight="32.0" prefWidth="133.0" text="Mínimo stock" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="136.0" layoutX="173.0" layoutY="375.0" startX="-100.0" stroke="WHITE" />
+            <JFXTextField id="camposform" fx:id="minStock" focusColor="TRANSPARENT" layoutX="218.0" layoutY="337.0" prefHeight="25.0" prefWidth="78.0" unFocusColor="TRANSPARENT" />
+            <Line endX="-100.0" endY="63.0" layoutX="423.0" layoutY="304.0" startX="-100.0" startY="26.0" stroke="WHITE" />
+            <JFXTextField id="camposform" fx:id="textPrecProducto" focusColor="TRANSPARENT" layoutX="467.0" layoutY="338.0" prefHeight="25.0" prefWidth="169.0" unFocusColor="TRANSPARENT" />
+            <Label layoutX="341.0" layoutY="334.0" prefHeight="32.0" prefWidth="108.0" text="Precio*" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="136.0" layoutX="444.0" layoutY="375.0" startX="-100.0" stroke="WHITE" />
          </children>
       </AnchorPane>
    </children>
