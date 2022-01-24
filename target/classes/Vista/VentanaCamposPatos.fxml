@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="Ventanuca" fx:id="ventanuca" prefHeight="697.0" prefWidth="689.0" stylesheets="@campos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VentanaCamposController">
+<AnchorPane fx:id="ventanuca" prefHeight="697.0" prefWidth="689.0" stylesheets="@campos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VentanaCamposController">
    <children>
       <AnchorPane id="ventanuca" prefHeight="697.0" prefWidth="695.0">
          <children>
@@ -19,7 +19,7 @@
                </font>
             </Label>
             <Line endX="459.0" layoutX="168.0" layoutY="110.0" startX="-100.0" stroke="WHITE" />
-            <JFXTextField id="camposform" focusColor="TRANSPARENT" layoutX="257.0" layoutY="132.0" prefHeight="25.0" prefWidth="372.0" unFocusColor="TRANSPARENT" />
+            <JFXTextField id="camposform" fx:id="textNomPato" focusColor="TRANSPARENT" layoutX="257.0" layoutY="132.0" prefHeight="25.0" prefWidth="372.0" unFocusColor="TRANSPARENT" />
             <Line endX="459.0" layoutX="168.0" layoutY="175.0" startX="-100.0" stroke="WHITE" />
             <Label layoutX="68.0" layoutY="128.0" prefHeight="32.0" prefWidth="148.0" text="Nombre Pato  *" textFill="WHITE">
                <font>
@@ -34,7 +34,7 @@
             </Label>
             <Line endX="459.0" layoutX="168.0" layoutY="245.0" startX="-100.0" stroke="WHITE" />
             <Line endX="-100.0" endY="63.0" layoutX="251.0" layoutY="168.0" startX="-100.0" startY="26.0" stroke="WHITE" />
-            <JFXTextField id="camposform" focusColor="TRANSPARENT" layoutX="171.0" layoutY="200.0" prefHeight="25.0" prefWidth="429.0" unFocusColor="TRANSPARENT" />
+            <JFXTextField id="camposform" fx:id="textRazaPato" focusColor="TRANSPARENT" layoutX="171.0" layoutY="200.0" prefHeight="25.0" prefWidth="429.0" unFocusColor="TRANSPARENT" />
             <Label layoutX="68.0" layoutY="266.0" prefHeight="32.0" prefWidth="78.0" text="Edad *" textFill="WHITE">
                <font>
                   <Font name="Consolas" size="18.0" />
@@ -43,14 +43,14 @@
             <Line endX="79.0" layoutX="169.0" layoutY="309.0" startX="-100.0" stroke="WHITE" />
             <Line endX="-100.0" endY="63.0" layoutX="374.0" layoutY="237.0" startX="-100.0" startY="26.0" stroke="WHITE" />
             <Line endX="228.0" layoutX="398.0" layoutY="309.0" startX="-100.0" stroke="WHITE" />
-            <JFXTextField id="camposform" focusColor="TRANSPARENT" layoutX="133.0" layoutY="269.0" prefHeight="25.0" prefWidth="108.0" unFocusColor="TRANSPARENT" />
-            <JFXTextField id="camposform" focusColor="TRANSPARENT" layoutX="458.0" layoutY="270.0" prefHeight="25.0" prefWidth="169.0" unFocusColor="TRANSPARENT" />
+            <JFXTextField id="camposform" fx:id="textEdadPato" focusColor="TRANSPARENT" layoutX="133.0" layoutY="269.0" prefHeight="25.0" prefWidth="108.0" unFocusColor="TRANSPARENT" />
+            <JFXTextField id="camposform" fx:id="textNCartillaPato" focusColor="TRANSPARENT" layoutX="458.0" layoutY="270.0" prefHeight="25.0" prefWidth="169.0" unFocusColor="TRANSPARENT" />
             <Label layoutX="298.0" layoutY="266.0" prefHeight="32.0" prefWidth="148.0" text="Nº Cartilla *" textFill="WHITE">
                <font>
                   <Font name="Consolas" size="18.0" />
                </font>
             </Label>
-            <JFXTextArea id="textaco" focusColor="#405aa800" layoutX="241.0" layoutY="344.0" prefHeight="243.0" prefWidth="382.0" unFocusColor="#ffffff00" />
+            <JFXTextArea id="textaco" fx:id="textDescPato" focusColor="#405aa800" layoutX="241.0" layoutY="344.0" prefHeight="243.0" prefWidth="382.0" unFocusColor="#ffffff00" />
             <Label layoutX="81.0" layoutY="349.0" prefHeight="32.0" prefWidth="118.0" text="Descripcion" textFill="WHITE">
                <font>
                   <Font name="Consolas" size="18.0" />
@@ -68,12 +68,12 @@
                   <Font size="45.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="imagensubir" layoutX="543.0" layoutY="73.0" onAction="#HandleButtonAction" prefHeight="32.0" prefWidth="127.0" ripplerFill="#9e4c4c" style="-fx-padding: 0;" text="subir imagen" textFill="WHITE">
+            <JFXButton fx:id="imagensubir" layoutX="543.0" layoutY="73.0" onAction="#subirImagen" prefHeight="32.0" prefWidth="127.0" ripplerFill="#9e4c4c" style="-fx-padding: 0;" text="subir imagen" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <ImageView fx:id="imagen" fitHeight="96.0" fitWidth="141.0" layoutX="402.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imagenActual" fitHeight="96.0" fitWidth="141.0" layoutX="402.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
             <JFXButton fx:id="botonsubirimagen" layoutX="571.0" layoutY="626.0" onAction="#saveToFile" text="BOTON" textFill="WHITE" />
          </children>
       </AnchorPane>

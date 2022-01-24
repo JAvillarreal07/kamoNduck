@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ventanuca" prefHeight="402.0" prefWidth="558.0" stylesheets="@campos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VentanaCamposController">
+   <children>
+      <AnchorPane id="ventanuca" prefHeight="697.0" prefWidth="695.0">
+         <children>
+            <Label id="HEADER" layoutX="66.0" layoutY="165.0" prefHeight="46.0" prefWidth="382.0" text="FORMULARIO DE REGISTRO" textFill="WHITE">
+               <font>
+                  <Font name="Courier New" size="20.0" />
+               </font>
+            </Label>
+            <Line endX="459.0" layoutX="168.0" layoutY="232.0" startX="-100.0" stroke="WHITE" />
+            <JFXTextField id="camposform" fx:id="textNomProv" focusColor="TRANSPARENT" layoutX="287.0" layoutY="254.0" prefHeight="25.0" prefWidth="342.0" unFocusColor="TRANSPARENT" />
+            <Line endX="459.0" layoutX="168.0" layoutY="297.0" startX="-100.0" stroke="WHITE" />
+            <Label layoutX="68.0" layoutY="250.0" prefHeight="32.0" prefWidth="180.0" text="Nombre empresa  *" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="-100.0" endY="63.0" layoutX="359.0" layoutY="221.0" startX="-100.0" startY="26.0" stroke="WHITE" />
+            <Label layoutX="68.0" layoutY="319.0" prefHeight="32.0" prefWidth="127.0" text="Dirección *" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="459.0" layoutX="168.0" layoutY="367.0" startX="-100.0" stroke="WHITE" />
+            <Line endX="-100.0" endY="63.0" layoutX="304.0" layoutY="290.0" startX="-100.0" startY="26.0" stroke="WHITE" />
+            <JFXTextField id="camposform" fx:id="textDireProv" focusColor="TRANSPARENT" layoutX="240.0" layoutY="322.0" prefHeight="25.0" prefWidth="360.0" unFocusColor="TRANSPARENT" />
+            <Label layoutX="68.0" layoutY="388.0" prefHeight="32.0" prefWidth="78.0" text="Tlfno*" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="79.0" layoutX="169.0" layoutY="431.0" startX="-100.0" stroke="WHITE" />
+            <Line endX="-100.0" endY="63.0" layoutX="374.0" layoutY="359.0" startX="-100.0" startY="26.0" stroke="WHITE" />
+            <Line endX="228.0" layoutX="398.0" layoutY="431.0" startX="-100.0" stroke="WHITE" />
+            <JFXTextField id="camposform" fx:id="textTelProv" focusColor="TRANSPARENT" layoutX="133.0" layoutY="391.0" prefHeight="25.0" prefWidth="108.0" unFocusColor="TRANSPARENT" />
+            <JFXTextField id="camposform" fx:id="textPaisProv" focusColor="TRANSPARENT" layoutX="379.0" layoutY="392.0" prefHeight="25.0" prefWidth="248.0" unFocusColor="TRANSPARENT" />
+            <Label layoutX="298.0" layoutY="388.0" prefHeight="32.0" prefWidth="58.0" text="País*" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="459.0" layoutX="160.0" layoutY="560.0" startX="-100.0" stroke="WHITE" />
+            <Label layoutX="73.0" layoutY="563.0" prefHeight="38.0" prefWidth="78.0" text="ENVIAR" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="21.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="botonEnviar" layoutX="63.0" layoutY="550.0" onAction="#accionBotones" prefHeight="66.0" prefWidth="127.0" ripplerFill="#9e4c4c" style="-fx-padding: 0;" text="     ➤" textFill="WHITE">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="botonSubirImagen" layoutX="479.0" layoutY="172.0" onAction="#accionBotones" prefHeight="32.0" prefWidth="127.0" ripplerFill="#9e4c4c" style="-fx-padding: 0;" text="subir imagen" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <ImageView fx:id="imagenActual" fitHeight="96.0" fitWidth="141.0" layoutX="402.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <JFXButton fx:id="botonCancelar" layoutX="537.0" layoutY="626.0" onAction="#accionBotones" text="CANCELAR" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
