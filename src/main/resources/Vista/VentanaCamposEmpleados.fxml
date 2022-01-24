@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ventanuca" prefHeight="697.0" prefWidth="689.0" stylesheets="@campos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VentanaCamposController">
+   <children>
+      <AnchorPane id="ventanuca" prefHeight="697.0" prefWidth="695.0">
+         <children>
+            <Label id="HEADER" layoutX="66.0" layoutY="43.0" prefHeight="46.0" prefWidth="382.0" text="FORMULARIO DE REGISTRO" textFill="WHITE">
+               <font>
+                  <Font name="Courier New" size="20.0" />
+               </font>
+            </Label>
+            <Line endX="459.0" layoutX="168.0" layoutY="110.0" startX="-100.0" stroke="WHITE" />
+            <JFXTextField id="camposform" fx:id="textNomEmp" focusColor="TRANSPARENT" layoutX="171.0" layoutY="132.0" prefHeight="25.0" prefWidth="141.0" unFocusColor="TRANSPARENT" />
+            <Line endX="459.0" layoutX="168.0" layoutY="175.0" startX="-100.0" stroke="WHITE" />
+            <Label layoutX="68.0" layoutY="128.0" prefHeight="32.0" prefWidth="101.0" text="Nombre  *" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="-100.0" endY="63.0" layoutX="259.0" layoutY="99.0" startX="-100.0" startY="26.0" stroke="WHITE" />
+            <Label layoutX="68.0" layoutY="197.0" prefHeight="32.0" prefWidth="63.0" text="Tlfn1" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="459.0" layoutX="168.0" layoutY="245.0" startX="-100.0" stroke="WHITE" />
+            <Line endX="-100.0" endY="63.0" layoutX="231.0" layoutY="168.0" startX="-100.0" startY="26.0" stroke="WHITE" />
+            <JFXTextField id="camposform" fx:id="txtTlfEmp" focusColor="TRANSPARENT" layoutX="142.0" layoutY="200.0" prefHeight="25.0" prefWidth="101.0" unFocusColor="TRANSPARENT" />
+            <Label layoutX="61.0" layoutY="266.0" prefHeight="32.0" prefWidth="78.0" text="Email *" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="79.0" layoutX="169.0" layoutY="309.0" startX="-100.0" stroke="WHITE" />
+            <Line endX="-100.0" endY="63.0" layoutX="374.0" layoutY="237.0" startX="-100.0" startY="26.0" stroke="WHITE" />
+            <Line endX="228.0" layoutX="398.0" layoutY="309.0" startX="-100.0" stroke="WHITE" />
+            <JFXTextField id="camposform" fx:id="txtCargoEmp" focusColor="TRANSPARENT" layoutX="133.0" layoutY="269.0" prefHeight="25.0" prefWidth="127.0" unFocusColor="TRANSPARENT" />
+            <JFXTextField id="camposform" fx:id="txtHorario" focusColor="TRANSPARENT" layoutX="458.0" layoutY="270.0" prefHeight="25.0" prefWidth="169.0" unFocusColor="TRANSPARENT" />
+            <Label layoutX="298.0" layoutY="266.0" prefHeight="32.0" prefWidth="148.0" text="Horario*" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="459.0" layoutX="168.0" layoutY="603.0" startX="-100.0" stroke="WHITE" />
+            <Label layoutX="81.0" layoutY="632.0" prefHeight="38.0" prefWidth="78.0" text="ENVIAR" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="21.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="71.0" layoutY="619.0" prefHeight="66.0" prefWidth="127.0" ripplerFill="#9e4c4c" style="-fx-padding: 0;" text="     ➤" textFill="WHITE">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="imagensubir" layoutX="543.0" layoutY="73.0" onAction="#subirImagen" prefHeight="32.0" prefWidth="127.0" ripplerFill="#9e4c4c" style="-fx-padding: 0;" text="subir imagen" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <ImageView fx:id="imagenActual" fitHeight="96.0" fitWidth="141.0" layoutX="402.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <JFXButton fx:id="botonsubirimagen" layoutX="571.0" layoutY="626.0" onAction="#saveToFile" text="BOTON" textFill="WHITE" />
+            <JFXTextField id="camposform" fx:id="txtApEmp" focusColor="TRANSPARENT" layoutX="450.0" layoutY="132.0" prefHeight="25.0" prefWidth="180.0" unFocusColor="TRANSPARENT" />
+            <Label layoutX="322.0" layoutY="128.0" prefHeight="32.0" prefWidth="127.0" text="Apellidos *" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="-100.0" endY="63.0" layoutX="538.0" layoutY="99.0" startX="-100.0" startY="26.0" stroke="WHITE" />
+            <Label layoutX="260.0" layoutY="197.0" prefHeight="32.0" prefWidth="63.0" text="Email" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="-100.0" endY="63.0" layoutX="423.0" layoutY="168.0" startX="-100.0" startY="26.0" stroke="WHITE" />
+            <JFXTextField id="camposform" fx:id="txtEmailEmp" focusColor="TRANSPARENT" layoutX="334.0" layoutY="200.0" prefHeight="25.0" prefWidth="289.0" unFocusColor="TRANSPARENT" />
+            <Label layoutX="60.0" layoutY="349.0" prefHeight="32.0" prefWidth="78.0" text="Turno" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="85.0" layoutX="168.0" layoutY="392.0" startX="-100.0" stroke="WHITE" />
+            <JFXComboBox fx:id="comboTurno" focusColor="#a84047" layoutX="120.0" layoutY="353.0" onAction="#comboTurno" prefHeight="25.0" prefWidth="127.0" unFocusColor="WHITE" />
+            <Line endX="228.0" layoutX="408.0" layoutY="395.0" startX="-100.0" stroke="WHITE" />
+            <Label layoutX="308.0" layoutY="352.0" prefHeight="32.0" prefWidth="148.0" text="Nombre Lago*" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="-100.0" endY="63.0" layoutX="374.0" layoutY="330.0" startX="-100.0" startY="26.0" stroke="WHITE" />
+            <JFXComboBox fx:id="comboNombreLago" focusColor="#a84047" layoutX="439.0" layoutY="356.0" onAction="#comboLago" prefHeight="25.0" prefWidth="192.0" unFocusColor="WHITE" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

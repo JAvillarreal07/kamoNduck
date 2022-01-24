@@ -97,6 +97,26 @@
                   </AnchorPane>
                </content>
             </Tab>
+            <Tab fx:id="TabCliente" onSelectionChanged="#escuchaTabs" text="Cliente">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
+                     <children>
+                        <TableView fx:id="tablaProductos12" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="673.0" prefWidth="955.0">
+                           <columns>
+                              <TableColumn fx:id="colIDCliente" prefWidth="44.0" text="ID" />
+                              <TableColumn fx:id="colDNICliente" prefWidth="326.00001525878906" text="DNI" />
+                              <TableColumn fx:id="colNombreCliente" prefWidth="116.0" text="Nombre" />
+                              <TableColumn fx:id="colApellidosCliente" prefWidth="94.0" text="Apellidos" />
+                              <TableColumn fx:id="colTelf1Cliente" prefWidth="110.0" text="Telefono 1" />
+                              <TableColumn fx:id="colTelef2Cliente" prefWidth="264.0" text="Telefono 2" />
+                              <TableColumn fx:id="colEmailCliente" prefWidth="264.0" text="Email" />
+                              <TableColumn fx:id="colTipoPagoCliente" prefWidth="264.0" text="Tipo de pago" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
             <Tab fx:id="TabLago" onSelectionChanged="#escuchaTabs" text="Lago">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
@@ -127,26 +147,6 @@
                               <TableColumn fx:id="colNombrePatoEstancia" prefWidth="94.0" text="Nombre del pato" />
                               <TableColumn fx:id="colNombreClienteEstancia" prefWidth="110.0" text="Nombre del dueño" />
                               <TableColumn fx:id="colNombreLagoEstancia" prefWidth="264.0" text="Nombre del lago" />
-                           </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-            <Tab fx:id="TabCliente" onSelectionChanged="#escuchaTabs" text="Cliente">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
-                     <children>
-                        <TableView fx:id="tablaProductos12" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="673.0" prefWidth="955.0">
-                           <columns>
-                              <TableColumn fx:id="colIDCliente" prefWidth="44.0" text="ID" />
-                              <TableColumn fx:id="colDNICliente" prefWidth="326.00001525878906" text="DNI" />
-                              <TableColumn fx:id="colNombreCliente" prefWidth="116.0" text="Nombre" />
-                              <TableColumn fx:id="colApellidosCliente" prefWidth="94.0" text="Apellidos" />
-                              <TableColumn fx:id="colTelf1Cliente" prefWidth="110.0" text="Telefono 1" />
-                              <TableColumn fx:id="colTelef2Cliente" prefWidth="264.0" text="Telefono 2" />
-                              <TableColumn fx:id="colEmailCliente" prefWidth="264.0" text="Email" />
-                              <TableColumn fx:id="colTipoPagoCliente" prefWidth="264.0" text="Tipo de pago" />
                            </columns>
                         </TableView>
                      </children>
