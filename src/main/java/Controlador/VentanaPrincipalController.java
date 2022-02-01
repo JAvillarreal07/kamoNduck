@@ -191,10 +191,6 @@ public class VentanaPrincipalController implements Initializable {
 
     private ObservableList<String> nombresLagosFiltros = FXCollections.observableArrayList();
 
-    @FXML
-    private JFXProgressBar barraPrueba;
-
-
     /*___________________________________________________________________________________________________________________________________________________________________________*/
     //Lo primero que se ejecutará al iniciar el programa
     @Override
@@ -418,7 +414,7 @@ public class VentanaPrincipalController implements Initializable {
         this.colNombreLago.setCellValueFactory(new PropertyValueFactory<>("Nombre_Lago"));
         this.colTamanoLago.setCellValueFactory(new PropertyValueFactory<>("Tamanho"));
         this.colCapLago.setCellValueFactory(new PropertyValueFactory<>("Cap_Patos"));
-        this.colPatosAC.setCellValueFactory(new PropertyValueFactory<>("Patos_Dentro"));
+        this.colPatosAC.setCellValueFactory(new PropertyValueFactory<>("barra"));
         this.colTarifaPatos.setCellValueFactory(new PropertyValueFactory<>("Tarifa"));
 
         //Tabla Estancia.
@@ -1367,37 +1363,11 @@ public class VentanaPrincipalController implements Initializable {
                     botonEliminar.setVisible(true);
                     botonModificar.setVisible(true);
 
-                    textFiltroIDProd.setVisible(true);
-                    textFiltroNombreProd.setVisible(true);
-                    textFiltroTipo.setVisible(true);
-                    textFiltroCantidad.setVisible(true);
-                    textFiltroProveedor.setVisible(true);
-
-                    textFiltroIDProv.setVisible(false);
-                    textFiltroNombreProv.setVisible(false);
-                    textFiltroTelefono.setVisible(false);
-                    textFiltroPais.setVisible(false);
-
-                    textFiltroIDPato.setVisible(false);
-                    textFiltroNombrePato.setVisible(false);
-                    textFiltroRazaPato.setVisible(false);
-                    textFiltroEdadPato.setVisible(false);
-                    textFiltroCartillaPato.setVisible(false);
-
-                    textFiltroIDCliente.setVisible(false);
-                    textFiltroNombreCliente.setVisible(false);
-                    textFiltroApellidosCliente.setVisible(false);
-                    textFiltroTel1Cliente.setVisible(false);
-                    textFiltroTel2Cliente.setVisible(false);
-                    textFiltroEmailCliente.setVisible(false);
-                    textFiltroTipoPagoCliente.setVisible(false);
-
-                    textFiltroIDEstancia.setVisible(false);
-                    textFiltroIngresoEstancia.setVisible(false);
-                    textFiltroSalidaEstancia.setVisible(false);
-                    textFiltroNomPatoEstancia.setVisible(false);
-                    textFiltroNomClienteEstancia.setVisible(false);
-                    textFiltroNomLagoEstancia.setVisible(false);
+                    mostrarFiltrosProd(true);
+                    mostrarFiltrosProv(false);
+                    mostrarFiltrosPato(false);
+                    mostrarFiltrosCliente(false);
+                    mostrarFiltrosEstancia(false);
 
                     labelNomPato.setVisible(false);
                     labelNomCliente.setVisible(false);
@@ -1424,37 +1394,11 @@ public class VentanaPrincipalController implements Initializable {
                     botonEliminar.setVisible(true);
                     botonModificar.setVisible(true);
 
-                    textFiltroIDProd.setVisible(false);
-                    textFiltroNombreProd.setVisible(false);
-                    textFiltroTipo.setVisible(false);
-                    textFiltroCantidad.setVisible(false);
-                    textFiltroProveedor.setVisible(false);
-
-                    textFiltroIDProv.setVisible(true);
-                    textFiltroNombreProv.setVisible(true);
-                    textFiltroTelefono.setVisible(true);
-                    textFiltroPais.setVisible(true);
-
-                    textFiltroIDPato.setVisible(false);
-                    textFiltroNombrePato.setVisible(false);
-                    textFiltroRazaPato.setVisible(false);
-                    textFiltroEdadPato.setVisible(false);
-                    textFiltroCartillaPato.setVisible(false);
-
-                    textFiltroIDCliente.setVisible(false);
-                    textFiltroNombreCliente.setVisible(false);
-                    textFiltroApellidosCliente.setVisible(false);
-                    textFiltroTel1Cliente.setVisible(false);
-                    textFiltroTel2Cliente.setVisible(false);
-                    textFiltroEmailCliente.setVisible(false);
-                    textFiltroTipoPagoCliente.setVisible(false);
-
-                    textFiltroIDEstancia.setVisible(false);
-                    textFiltroIngresoEstancia.setVisible(false);
-                    textFiltroSalidaEstancia.setVisible(false);
-                    textFiltroNomPatoEstancia.setVisible(false);
-                    textFiltroNomClienteEstancia.setVisible(false);
-                    textFiltroNomLagoEstancia.setVisible(false);
+                    mostrarFiltrosProd(false);
+                    mostrarFiltrosProv(true);
+                    mostrarFiltrosPato(false);
+                    mostrarFiltrosCliente(false);
+                    mostrarFiltrosEstancia(false);
 
                     labelNomPato.setVisible(false);
                     labelNomCliente.setVisible(false);
@@ -1483,37 +1427,11 @@ public class VentanaPrincipalController implements Initializable {
                     botonEliminar.setVisible(true);
                     botonModificar.setVisible(true);
 
-                    textFiltroIDProd.setVisible(false);
-                    textFiltroNombreProd.setVisible(false);
-                    textFiltroTipo.setVisible(false);
-                    textFiltroCantidad.setVisible(false);
-                    textFiltroProveedor.setVisible(false);
-
-                    textFiltroIDProv.setVisible(false);
-                    textFiltroNombreProv.setVisible(false);
-                    textFiltroTelefono.setVisible(false);
-                    textFiltroPais.setVisible(false);
-
-                    textFiltroIDPato.setVisible(true);
-                    textFiltroNombrePato.setVisible(true);
-                    textFiltroRazaPato.setVisible(true);
-                    textFiltroEdadPato.setVisible(true);
-                    textFiltroCartillaPato.setVisible(true);
-
-                    textFiltroIDCliente.setVisible(false);
-                    textFiltroNombreCliente.setVisible(false);
-                    textFiltroApellidosCliente.setVisible(false);
-                    textFiltroTel1Cliente.setVisible(false);
-                    textFiltroTel2Cliente.setVisible(false);
-                    textFiltroEmailCliente.setVisible(false);
-                    textFiltroTipoPagoCliente.setVisible(false);
-
-                    textFiltroIDEstancia.setVisible(false);
-                    textFiltroIngresoEstancia.setVisible(false);
-                    textFiltroSalidaEstancia.setVisible(false);
-                    textFiltroNomPatoEstancia.setVisible(false);
-                    textFiltroNomClienteEstancia.setVisible(false);
-                    textFiltroNomLagoEstancia.setVisible(false);
+                    mostrarFiltrosProd(false);
+                    mostrarFiltrosProv(false);
+                    mostrarFiltrosPato(true);
+                    mostrarFiltrosCliente(false);
+                    mostrarFiltrosEstancia(false);
 
                     labelNomPato.setVisible(false);
                     labelNomCliente.setVisible(false);
@@ -1540,37 +1458,11 @@ public class VentanaPrincipalController implements Initializable {
                     botonEliminar.setVisible(true);
                     botonModificar.setVisible(true);
 
-                    textFiltroIDProd.setVisible(false);
-                    textFiltroNombreProd.setVisible(false);
-                    textFiltroTipo.setVisible(false);
-                    textFiltroCantidad.setVisible(false);
-                    textFiltroProveedor.setVisible(false);
-
-                    textFiltroIDProv.setVisible(false);
-                    textFiltroNombreProv.setVisible(false);
-                    textFiltroTelefono.setVisible(false);
-                    textFiltroPais.setVisible(false);
-
-                    textFiltroIDPato.setVisible(false);
-                    textFiltroNombrePato.setVisible(false);
-                    textFiltroRazaPato.setVisible(false);
-                    textFiltroEdadPato.setVisible(false);
-                    textFiltroCartillaPato.setVisible(false);
-
-                    textFiltroIDCliente.setVisible(true);
-                    textFiltroNombreCliente.setVisible(true);
-                    textFiltroApellidosCliente.setVisible(true);
-                    textFiltroTel1Cliente.setVisible(true);
-                    textFiltroTel2Cliente.setVisible(true);
-                    textFiltroEmailCliente.setVisible(true);
-                    textFiltroTipoPagoCliente.setVisible(true);
-
-                    textFiltroIDEstancia.setVisible(false);
-                    textFiltroIngresoEstancia.setVisible(false);
-                    textFiltroSalidaEstancia.setVisible(false);
-                    textFiltroNomPatoEstancia.setVisible(false);
-                    textFiltroNomClienteEstancia.setVisible(false);
-                    textFiltroNomLagoEstancia.setVisible(false);
+                    mostrarFiltrosProd(false);
+                    mostrarFiltrosProv(false);
+                    mostrarFiltrosPato(false);
+                    mostrarFiltrosCliente(true);
+                    mostrarFiltrosEstancia(false);
 
                     labelNomPato.setVisible(false);
                     labelNomCliente.setVisible(false);
@@ -1622,37 +1514,11 @@ public class VentanaPrincipalController implements Initializable {
                     botonEliminar.setVisible(true);
                     botonModificar.setVisible(true);
 
-                    textFiltroIDProd.setVisible(false);
-                    textFiltroNombreProd.setVisible(false);
-                    textFiltroTipo.setVisible(false);
-                    textFiltroCantidad.setVisible(false);
-                    textFiltroProveedor.setVisible(false);
-
-                    textFiltroIDProv.setVisible(false);
-                    textFiltroNombreProv.setVisible(false);
-                    textFiltroTelefono.setVisible(false);
-                    textFiltroPais.setVisible(false);
-
-                    textFiltroIDPato.setVisible(false);
-                    textFiltroNombrePato.setVisible(false);
-                    textFiltroRazaPato.setVisible(false);
-                    textFiltroEdadPato.setVisible(false);
-                    textFiltroCartillaPato.setVisible(false);
-
-                    textFiltroIDCliente.setVisible(false);
-                    textFiltroNombreCliente.setVisible(false);
-                    textFiltroApellidosCliente.setVisible(false);
-                    textFiltroTel1Cliente.setVisible(false);
-                    textFiltroTel2Cliente.setVisible(false);
-                    textFiltroEmailCliente.setVisible(false);
-                    textFiltroTipoPagoCliente.setVisible(false);
-
-                    textFiltroIDEstancia.setVisible(true);
-                    textFiltroIngresoEstancia.setVisible(true);
-                    textFiltroSalidaEstancia.setVisible(true);
-                    textFiltroNomPatoEstancia.setVisible(true);
-                    textFiltroNomClienteEstancia.setVisible(true);
-                    textFiltroNomLagoEstancia.setVisible(true);
+                    mostrarFiltrosProd(false);
+                    mostrarFiltrosProv(false);
+                    mostrarFiltrosPato(false);
+                    mostrarFiltrosCliente(false);
+                    mostrarFiltrosEstancia(true);
 
                     labelNomPato.setVisible(true);
                     labelNomCliente.setVisible(true);
@@ -1676,6 +1542,48 @@ public class VentanaPrincipalController implements Initializable {
             }
         } catch (NullPointerException e) {
         }
+    }
+
+    public void mostrarFiltrosProd(boolean sino){
+        textFiltroIDProd.setVisible(sino);
+        textFiltroNombreProd.setVisible(sino);
+        textFiltroTipo.setVisible(sino);
+        textFiltroCantidad.setVisible(sino);
+        textFiltroProveedor.setVisible(sino);
+    }
+
+    public void mostrarFiltrosProv(boolean sino){
+        textFiltroIDProv.setVisible(sino);
+        textFiltroNombreProv.setVisible(sino);
+        textFiltroTelefono.setVisible(sino);
+        textFiltroPais.setVisible(sino);
+    }
+
+    public void mostrarFiltrosPato(boolean sino){
+        textFiltroIDPato.setVisible(sino);
+        textFiltroNombrePato.setVisible(sino);
+        textFiltroRazaPato.setVisible(sino);
+        textFiltroEdadPato.setVisible(sino);
+        textFiltroCartillaPato.setVisible(sino);
+    }
+
+    public void mostrarFiltrosCliente(boolean sino){
+        textFiltroIDCliente.setVisible(sino);
+        textFiltroNombreCliente.setVisible(sino);
+        textFiltroApellidosCliente.setVisible(sino);
+        textFiltroTel1Cliente.setVisible(sino);
+        textFiltroTel2Cliente.setVisible(sino);
+        textFiltroEmailCliente.setVisible(sino);
+        textFiltroTipoPagoCliente.setVisible(sino);
+    }
+
+    public void mostrarFiltrosEstancia(boolean sino){
+        textFiltroIDEstancia.setVisible(sino);
+        textFiltroIngresoEstancia.setVisible(sino);
+        textFiltroSalidaEstancia.setVisible(sino);
+        textFiltroNomPatoEstancia.setVisible(sino);
+        textFiltroNomClienteEstancia.setVisible(sino);
+        textFiltroNomLagoEstancia.setVisible(sino);
     }
 
     /*___________________________________________________________________________________________________________________________________________________________________________*/

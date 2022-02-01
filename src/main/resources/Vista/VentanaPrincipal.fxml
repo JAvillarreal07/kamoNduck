@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXListView?>
-<?import com.jfoenix.controls.JFXProgressBar?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.lang.String?>
@@ -373,7 +372,6 @@
                 </TitledPane>
             </panes>
         </Accordion>
-      <JFXProgressBar fx:id="barraPrueba" layoutX="60.0" layoutY="735.0" prefHeight="23.0" progress="0.0" />
         <!--=============================================================================-->
 
     </children>
