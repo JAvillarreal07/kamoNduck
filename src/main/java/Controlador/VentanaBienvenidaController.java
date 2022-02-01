@@ -1,5 +1,6 @@
 package Controlador;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -57,7 +58,7 @@ public class VentanaBienvenidaController implements Initializable {
         Scene scene = new Scene(root);
         Stage stage = new Stage();
 
-        stage.getIcons().add(new Image("Imagenes/iconoSolo.png"));
+        stage.getIcons().add(new Image("/Imagenes/iconoSolo.png"));
         stage.setTitle("Empresa kamoNduck");
 
         stage.initModality(Modality.APPLICATION_MODAL);

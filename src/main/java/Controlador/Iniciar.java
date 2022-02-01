@@ -7,7 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 /**
  * JavaFX App
@@ -19,6 +21,7 @@ public class Iniciar extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("/Vista/VentanaBienvenida.fxml"));
         //Parent root = FXMLLoader.load(getClass().getResource("/Vista/Pruebas.fxml"));
         stage.getIcons().add(new Image("/Imagenes/iconoSolo.png"));
@@ -30,7 +33,16 @@ public class Iniciar extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws URISyntaxException, IOException {
+        String currentPath=VentanaBienvenidaController.class
+                .getProtectionDomain()
+                .getCodeSource().getLocation()
+                .toURI().getPath()
+                .replace('/', File.separator.charAt(0)).substring(1);
+        if(args.length==0 && Runtime.getRuntime().maxMemory()/1024/1024<980) {
+            Runtime.getRuntime().exec("java -Xmx1024m -jar "+currentPath+" restart");
+            return;
+        }
         launch();
     }
 }
