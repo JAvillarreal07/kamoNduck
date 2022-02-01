@@ -2,8 +2,6 @@ package Controlador.Excepciones;
 
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;

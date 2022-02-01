@@ -57,7 +57,7 @@ public class VentanaBienvenidaController implements Initializable {
         Scene scene = new Scene(root);
         Stage stage = new Stage();
 
-        stage.getIcons().add(new Image("/Imagenes/iconoSolo.png"));
+        stage.getIcons().add(new Image("Imagenes/iconoSolo.png"));
         stage.setTitle("Empresa kamoNduck");
 
         stage.initModality(Modality.APPLICATION_MODAL);

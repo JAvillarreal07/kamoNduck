@@ -55,7 +55,7 @@ public class VentanaCamposController {
     // Elementos Estancia
     public JFXTextField textDNIClEstancia, textNCartillaPatoEstancia;
     public DatePicker DPfechaEntradaEstancia, DPfechaSalidaEstancia;
-    public ComboBox CBNombreLagoEstancia;
+    public ComboBox<String> CBNombreLagoEstancia;
 
     //Botones comunes entre las ventanas.
     public JFXButton botonSubirImagen, botonEnviar, botonCancelar;
@@ -222,7 +222,7 @@ public class VentanaCamposController {
         }
 
         CBNombreLagoEstancia.getItems().clear();
-        CBNombreLagoEstancia.setItems((ObservableList) nombresLagos);
+        CBNombreLagoEstancia.setItems((ObservableList<String>) nombresLagos);
 
         TextFields.bindAutoCompletion(textDNIClEstancia, DNIClientes);
         TextFields.bindAutoCompletion(textNCartillaPatoEstancia, cartillaPatos);

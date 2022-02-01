@@ -1,17 +1,10 @@
 package Modelo;
 
 import com.jfoenix.controls.JFXProgressBar;
-import com.thoughtworks.qdox.parser.impl.Parser;
 import javafx.geometry.HPos;
-import javafx.geometry.Insets;
-import javafx.scene.Node;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
-
-import java.awt.*;
 
 public class CustomProgressBar extends GridPane {
     private JFXProgressBar barra = new JFXProgressBar();
