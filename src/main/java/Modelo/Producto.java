@@ -1,12 +1,19 @@
 package Modelo;
 
+import Controlador.IOBaseDatos;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Producto {
 
-    private int IDProducto, Cantidad, Minimo;
+    private int IDProducto, Cantidad, Minimo, IDProveedor;
     private double Precio;
-    private String Proveedor, Tipo_Producto, Nombre_Producto, Observaciones;
+    private String nombreProveedor, Tipo_Producto, Nombre_Producto, Observaciones;
 
-    public Producto(int IDProducto, String Nombre_Producto, String Tipo_Producto, int Cantidad, int Minimo, double Precio, String Observaciones, String Proveedor) {
+    private IOBaseDatos IO = new IOBaseDatos();
+
+    public Producto(int IDProducto, String Nombre_Producto, String Tipo_Producto, int Cantidad, int Minimo, double Precio, String Observaciones, int IDProveedor) {
         this.IDProducto = IDProducto;
         this.Nombre_Producto = Nombre_Producto;
         this.Tipo_Producto = Tipo_Producto;
@@ -14,7 +21,13 @@ public class Producto {
         this.Minimo = Minimo;
         this.Precio = Precio;
         this.Observaciones = Observaciones;
-        this.Proveedor = Proveedor;
+        this.IDProveedor = IDProveedor;
+
+        try {
+            nombreProveedor = buscarNombre(IDProveedor);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -57,7 +70,23 @@ public class Producto {
     public void setObservaciones(String Observaciones) {
         this.Observaciones = Observaciones;}
 
-    public String getProveedor() {return Proveedor;}
+    public int getIDProveedor() {return IDProveedor;}
 
-    public void setProveedor(String Proveedor) {this.Proveedor = Proveedor;}
+    public void setIDProveedor(int IDProveedor) {this.IDProveedor = IDProveedor;}
+
+    public String getNombreProveedor() {
+        return nombreProveedor;
+    }
+
+    public void setNombreProveedor(String nombreProveedor) {
+        this.nombreProveedor = nombreProveedor;
+    }
+
+    private String buscarNombre(int ID) throws SQLException {
+        String encontrado = "";
+        ResultSet Consult = IO.introduceRegistros("SELECT Nombre_Proveedor FROM PROVEEDOR WHERE IDProveedor = " + ID);
+        Consult.next();
+
+        return encontrado = Consult.getString("Nombre_Proveedor");
+    }
 }

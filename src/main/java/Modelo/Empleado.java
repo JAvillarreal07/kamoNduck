@@ -1,8 +1,15 @@
 package Modelo;
 
+import Controlador.IOBaseDatos;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Empleado {
     private int IDEmpleado, IDLago;
     private String DNI_Empleado, Nombre_Empleado, Apellidos_Empleado, Telefono_Empleado, Email_Empleado, Cargo, Horario_Trabajo, Turno;
+
+    private IOBaseDatos IO = new IOBaseDatos();
 
     public Empleado(int IDEmpleado, String DNI_Empleado, String Nombre_Empleado, String Apellidos_Empleado, String Telefono_Empleado, String Email_Empleado, String Cargo, String Horario_Trabajo, String Turno, int IDLago) {
         this.IDEmpleado = IDEmpleado;
@@ -67,5 +74,12 @@ public class Empleado {
 
     public String getNombreCompleto(){
         return Nombre_Empleado + " " + Apellidos_Empleado;
+    }
+
+    public String getNombreLago() throws SQLException {
+        ResultSet Consult = IO.introduceRegistros("SELECT Nombre_Lago FROM LAGOS WHERE IDLago = " + this.IDLago);
+        Consult.next();
+
+        return Consult.getString("Nombre_Lago");
     }
 }

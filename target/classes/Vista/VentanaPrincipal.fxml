@@ -24,138 +24,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="793.0" prefWidth="1454.0" stylesheets="@css.css" xmlns="http://javafx.com/javafx/1.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VentanaPrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="793.0" prefWidth="1454.0" stylesheets="@css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VentanaPrincipalController">
     <children>
-      <JFXListView id="tabsEmpleados" fx:id="listViewEmpleados" layoutX="60.0" layoutY="26.0" onMouseClicked="#seleccionarEmpleado" prefHeight="757.0" prefWidth="372.0" />
-        <JFXButton fx:id="botonAnadir" layoutX="1273.0" layoutY="629.0" onAction="#accionesCRUD" prefHeight="42.0" prefWidth="90.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="+" textAlignment="CENTER" textFill="#f35d6d">
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-            <effect>
-                <MotionBlur />
-            </effect>
-            <font>
-                <Font name="Century Gothic" size="22.0" />
-            </font>
-            <tooltip>
-                <Tooltip text="Añada al almacén" />
-            </tooltip>
-        </JFXButton>
 
-        <ImageView fx:id="imgAlmacen" fitHeight="418.0" fitWidth="483.0" layoutX="967.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true" visible="false">
-            <image>
-                <Image url="@../Imagenes/iconoSolo.png" />
-            </image>
-        </ImageView>
+        <ComboBox fx:id="menuModulos" accessibleRole="COMBO_BOX" layoutX="1137.0" layoutY="3.0" onAction="#cambiaModulo" stylesheets="@css.css">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Almacén" />
+                    <String fx:value="Facturación" />
+                    <String fx:value="Empleados" />
+                    <String fx:value="Atrás" />
+                </FXCollections>
+            </items>
+        </ComboBox>
 
-        <JFXButton fx:id="botonModificar" layoutX="1072.0" layoutY="629.0" onAction="#accionesCRUD" prefHeight="42.0" prefWidth="90.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="↩" textAlignment="CENTER" textFill="#f35d6d">
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-            <effect>
-                <MotionBlur />
-            </effect>
-            <font>
-                <Font name="Century Gothic" size="22.0" />
-            </font>
-            <tooltip>
-                <Tooltip graphicTextGap="1.0" text="Actualice datos del almacén" />
-            </tooltip>
-        </JFXButton>
-
-        <JFXButton fx:id="botonEliminar" layoutX="1173.0" layoutY="629.0" onAction="#accionesCRUD" prefHeight="42.0" prefWidth="90.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="-" textAlignment="CENTER" textFill="#f35d6d">
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-            <font>
-                <Font name="Century Gothic" size="22.0" />
-            </font>
-            <effect>
-                <MotionBlur />
-            </effect>
-            <tooltip>
-                <Tooltip text="elimine del almacén" />
-            </tooltip>
-        </JFXButton>
-      <JFXTabPane fx:id="tabsFacturacion" focusTraversable="false" layoutX="10.0" layoutY="10.0" prefHeight="702.0" prefWidth="955.0">
-         <tabs>
-            <Tab fx:id="tabPatos" onSelectionChanged="#escuchaTabs" text="Pato">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
-                     <children>
-                        <TableView fx:id="tablaProductos1" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="673.0" prefWidth="955.0">
-                           <columns>
-                              <TableColumn fx:id="colIDpato" prefWidth="44.0" text="ID" />
-                              <TableColumn fx:id="colNombrePato" prefWidth="326.00001525878906" text="NOMBRE" />
-                              <TableColumn fx:id="colRazaPato" prefWidth="116.0" text="Raza" />
-                              <TableColumn fx:id="colEdadPato" prefWidth="94.0" text="Edad" />
-                              <TableColumn fx:id="colNum_cartilla" prefWidth="110.0" text="Numero cartilla" />
-                              <TableColumn fx:id="colDescPato" prefWidth="264.0" text="Descripción" />
-                           </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-            <Tab fx:id="TabCliente" onSelectionChanged="#escuchaTabs" text="Cliente">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
-                     <children>
-                        <TableView fx:id="tablaProductos12" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="673.0" prefWidth="955.0">
-                           <columns>
-                              <TableColumn fx:id="colIDCliente" prefWidth="44.0" text="ID" />
-                              <TableColumn fx:id="colDNICliente" prefWidth="326.00001525878906" text="DNI" />
-                              <TableColumn fx:id="colNombreCliente" prefWidth="116.0" text="Nombre" />
-                              <TableColumn fx:id="colApellidosCliente" prefWidth="94.0" text="Apellidos" />
-                              <TableColumn fx:id="colTelf1Cliente" prefWidth="110.0" text="Telefono 1" />
-                              <TableColumn fx:id="colTelef2Cliente" prefWidth="264.0" text="Telefono 2" />
-                              <TableColumn fx:id="colEmailCliente" prefWidth="264.0" text="Email" />
-                              <TableColumn fx:id="colTipoPagoCliente" prefWidth="264.0" text="Tipo de pago" />
-                           </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-            <Tab fx:id="TabLago" onSelectionChanged="#escuchaTabs" text="Lago">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
-                     <children>
-                        <TableView fx:id="tablaProveedor1" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="666.0" prefWidth="955.0">
-                           <columns>
-                              <TableColumn fx:id="colIDLago" prefWidth="44.0" text="ID" />
-                              <TableColumn fx:id="colNombreLago" prefWidth="201.0" text="NOMBRE" />
-                              <TableColumn fx:id="colTamanhoLago" prefWidth="448.0" text="Tamaño" />
-                              <TableColumn fx:id="colCapLago" prefWidth="158.0" text="Capacidad" />
-                              <TableColumn fx:id="colPatosAC" prefWidth="103.0" text="Patos actuales" />
-                              <TableColumn fx:id="colTarifaPatos" prefWidth="103.0" text="Tarifa" />
-                           </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-            <Tab fx:id="tabEstancia" onSelectionChanged="#escuchaTabs" text="Estancia">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
-                     <children>
-                        <TableView fx:id="tablaProductos11" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="673.0" prefWidth="955.0">
-                           <columns>
-                              <TableColumn fx:id="colIDEstancia" prefWidth="44.0" text="ID" />
-                              <TableColumn fx:id="colFechaIngresoEstancia" prefWidth="326.00001525878906" text="Fecha de ingreso" />
-                              <TableColumn fx:id="colFechaSalidaEstancia" prefWidth="116.0" text="Fecha salida" />
-                              <TableColumn fx:id="colNombrePatoEstancia" prefWidth="94.0" text="Nombre del pato" />
-                              <TableColumn fx:id="colNombreClienteEstancia" prefWidth="110.0" text="Nombre del dueño" />
-                              <TableColumn fx:id="colNombreLagoEstancia" prefWidth="264.0" text="Nombre del lago" />
-                           </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-         </tabs>
-      </JFXTabPane>
-
+        <!--Modulo Almacén===============================================================-->
         <JFXTabPane fx:id="tabsAlmacen" focusTraversable="false" prefHeight="702.0" prefWidth="955.0" visible="false">
             <tabs>
                 <Tab fx:id="tabProductos" onSelectionChanged="#escuchaTabs" text="Productos">
@@ -197,7 +80,7 @@
             </tabs>
         </JFXTabPane>
 
-        <Text fx:id="labelAlmacen" layoutX="1110.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ALMACEN" visible="false">
+        <Text fx:id="labelAlmacen" layoutX="955.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ALMACÉN" textAlignment="CENTER" visible="false" wrappingWidth="499.92822265625">
             <font>
                 <Font name="Bauhaus 93" size="45.0" />
             </font>
@@ -211,101 +94,285 @@
             </font>
         </Text>
 
-        <ComboBox fx:id="menuModulos" accessibleRole="COMBO_BOX" layoutX="1137.0" layoutY="3.0" onAction="#cambiaModulo" stylesheets="@css.css">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Almacén" />
-                    <String fx:value="Facturación" />
-                    <String fx:value="Empleados" />
-                    <String fx:value="Atrás" />
-                </FXCollections>
-            </items>
-        </ComboBox>
+        <Label fx:id="labelNomProdProv" alignment="CENTER" contentDisplay="CENTER" layoutX="966.0" layoutY="124.0" prefHeight="21.0" prefWidth="483.0" text="KAMO(N)DUCK" visible="false" />
 
-        <Accordion fx:id="panelFiltros" layoutX="753.0" visible="false">
-         <panes>
+        <ImageView fx:id="imgAlmacen" fitHeight="418.0" fitWidth="483.0" layoutX="967.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <image>
+                <Image url="@../Imagenes/iconoSolo.png" />
+            </image>
+        </ImageView>
+
+        <JFXButton fx:id="botonAnadir" layoutX="1273.0" layoutY="629.0" onAction="#accionesCRUD" prefHeight="42.0" prefWidth="90.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="+" textAlignment="CENTER" textFill="#f35d6d" visible="false">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <effect>
+                <MotionBlur />
+            </effect>
+            <font>
+                <Font name="Century Gothic" size="22.0" />
+            </font>
+            <tooltip>
+                <Tooltip text="Añada al almacén" />
+            </tooltip>
+        </JFXButton>
+
+        <JFXButton fx:id="botonModificar" layoutX="1072.0" layoutY="629.0" onAction="#accionesCRUD" prefHeight="42.0" prefWidth="90.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="↩" textAlignment="CENTER" textFill="#f35d6d" visible="false">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <effect>
+                <MotionBlur />
+            </effect>
+            <font>
+                <Font name="Century Gothic" size="22.0" />
+            </font>
+            <tooltip>
+                <Tooltip graphicTextGap="1.0" text="Actualice datos del almacén" />
+            </tooltip>
+        </JFXButton>
+
+        <JFXButton fx:id="botonEliminar" layoutX="1173.0" layoutY="629.0" onAction="#accionesCRUD" prefHeight="42.0" prefWidth="90.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="-" textAlignment="CENTER" textFill="#f35d6d" visible="false">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <font>
+                <Font name="Century Gothic" size="22.0" />
+            </font>
+            <effect>
+                <MotionBlur />
+            </effect>
+            <tooltip>
+                <Tooltip text="elimine del almacén" />
+            </tooltip>
+        </JFXButton>
+        <!--=============================================================================-->
+
+        <!--Modulo Facturación===========================================================-->
+        <JFXTabPane fx:id="tabsFacturacion" focusTraversable="false" prefHeight="702.0" prefWidth="955.0">
+            <tabs>
+                <Tab fx:id="tabPatos" onSelectionChanged="#escuchaTabs" text="Pato">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
+                            <children>
+                                <TableView fx:id="tablaPatos" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="673.0" prefWidth="955.0">
+                                    <columns>
+                                        <TableColumn fx:id="colIDpato" prefWidth="44.0" text="ID" />
+                                        <TableColumn fx:id="colNombrePato" prefWidth="326.00001525878906" text="NOMBRE" />
+                                        <TableColumn fx:id="colRazaPato" prefWidth="116.0" text="Raza" />
+                                        <TableColumn fx:id="colEdadPato" prefWidth="94.0" text="Edad" />
+                                        <TableColumn fx:id="colNum_cartillaPato" prefWidth="110.0" text="Numero cartilla" />
+                                        <TableColumn fx:id="colDescPato" prefWidth="264.0" text="Descripción" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+
+                <Tab fx:id="tabCliente" onSelectionChanged="#escuchaTabs" text="Cliente">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
+                            <children>
+                                <TableView fx:id="tablaClientes" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="673.0" prefWidth="955.0">
+                                    <columns>
+                                        <TableColumn fx:id="colIDCliente" prefWidth="44.0" text="ID" />
+                                        <TableColumn fx:id="colDNICliente" prefWidth="326.00001525878906" text="DNI" />
+                                        <TableColumn fx:id="colNombreCliente" prefWidth="116.0" text="Nombre" />
+                                        <TableColumn fx:id="colApellidosCliente" prefWidth="94.0" text="Apellidos" />
+                                        <TableColumn fx:id="colTelf1Cliente" prefWidth="110.0" text="Telefono 1" />
+                                        <TableColumn fx:id="colTelef2Cliente" prefWidth="264.0" text="Telefono 2" />
+                                        <TableColumn fx:id="colEmailCliente" prefWidth="264.0" text="Email" />
+                                        <TableColumn fx:id="colTipoPagoCliente" prefWidth="264.0" text="Tipo de pago" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+
+                <Tab fx:id="tabLago" onSelectionChanged="#escuchaTabs" text="Lago">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
+                            <children>
+                                <TableView fx:id="tablaLagos" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="666.0" prefWidth="955.0">
+                                    <columns>
+                                        <TableColumn fx:id="colIDLago" prefWidth="44.0" text="ID" />
+                                        <TableColumn fx:id="colNombreLago" prefWidth="201.0" text="NOMBRE" />
+                                        <TableColumn fx:id="colTamanoLago" prefWidth="448.0" text="Tamaño" />
+                                        <TableColumn fx:id="colCapLago" prefWidth="158.0" text="Capacidad" />
+                                        <TableColumn fx:id="colPatosAC" prefWidth="103.0" text="Patos actuales" />
+                                        <TableColumn fx:id="colTarifaPatos" prefWidth="103.0" text="Tarifa" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+
+                <Tab fx:id="tabEstancia" onSelectionChanged="#escuchaTabs" text="Estancia">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
+                            <children>
+                                <TableView fx:id="tablaEstancia" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="673.0" prefWidth="955.0">
+                                    <columns>
+                                        <TableColumn fx:id="colIDEstancia" prefWidth="44.0" text="ID" />
+                                        <TableColumn fx:id="colFechaIngresoEstancia" prefWidth="326.00001525878906" text="Fecha de ingreso" />
+                                        <TableColumn fx:id="colFechaSalidaEstancia" prefWidth="116.0" text="Fecha salida" />
+                                        <TableColumn fx:id="colNombrePatoEstancia" prefWidth="94.0" text="Nombre del pato" />
+                                        <TableColumn fx:id="colNombreClienteEstancia" prefWidth="110.0" text="Nombre del dueño" />
+                                        <TableColumn fx:id="colNombreLagoEstancia" prefWidth="264.0" text="Nombre del lago" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </JFXTabPane>
+
+        <Label fx:id="labelNomPato" alignment="CENTER" layoutX="1008.0" layoutY="369.0" prefHeight="19.0" prefWidth="181.0" visible="false" />
+        <Label fx:id="labelNomCliente" alignment="CENTER" layoutX="1238.0" layoutY="369.0" prefHeight="19.0" prefWidth="181.0" visible="false" />
+        <Label fx:id="labelNomLago" alignment="CENTER" layoutX="1136.0" layoutY="558.0" prefHeight="19.0" prefWidth="181.0" visible="false" />
+
+        <ImageView fx:id="imagePato" fitHeight="150.0" fitWidth="200.0" layoutX="1007.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <image>
+                <Image url="@../Imagenes/iconoSolo.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="imageLago" fitHeight="150.0" fitWidth="200.0" layoutX="1136.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <image>
+                <Image url="@../Imagenes/iconoSolo.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="imageCliente" fitHeight="150.0" fitWidth="200.0" layoutX="1236.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <image>
+                <Image url="@../Imagenes/iconoSolo.png" />
+            </image>
+        </ImageView>
+        <!--=============================================================================-->
+
+        <!--Modulo Empleados=============================================================-->
+        <JFXListView id="tabsEmpleados" fx:id="listViewEmpleados" layoutX="60.0" layoutY="26.0" onMouseClicked="#seleccionarEmpleado" prefHeight="757.0" prefWidth="372.0" visible="false" />
+
+        <JFXListView fx:id="listViewEmpleadosActivos" layoutX="452.0" layoutY="58.0" onMouseClicked="#seleccionarEmpleado" prefHeight="477.0" prefWidth="230.0" visible="false" />
+
+        <Label fx:id="labelNoModifiEmpleados" layoutX="1016.0" layoutY="709.0" prefHeight="19.0" prefWidth="315.0" text="¿Quien está trabajando hoy?" visible="false" />
+
+        <Label fx:id="labelNombreEmpleado" layoutX="932.0" layoutY="737.0" prefHeight="19.0" prefWidth="352.0" text="Nombre empleado &amp; (Diurno/nocturno)" visible="false" />
+
+        <Pane fx:id="tarjetaEmplePanel" layoutX="746.0" layoutY="112.0" prefHeight="407.0" prefWidth="652.0" visible="false">
+            <children>
+
+                <Label fx:id="tarjetaEmpleNom" layoutX="26.0" layoutY="22.0" prefHeight="29.0" prefWidth="315.0" text="Nombre" />
+                <Label fx:id="tarjetaEmpleApe" layoutX="26.0" layoutY="61.0" prefHeight="29.0" prefWidth="315.0" text="Apellidos" />
+                <Label fx:id="tarjetaEmpleDNI" layoutX="26.0" layoutY="101.0" prefHeight="29.0" prefWidth="315.0" text="DNI" />
+                <Label fx:id="tarjetaEmpleTel" layoutX="26.0" layoutY="144.0" prefHeight="29.0" prefWidth="315.0" text="Teléfono" />
+                <Label fx:id="tarjetaEmpleEmail" layoutX="26.0" layoutY="189.0" prefHeight="23.0" prefWidth="315.0" text="email" />
+                <Label fx:id="tarjetaEmpleCargo" layoutX="26.0" layoutY="228.0" prefHeight="29.0" prefWidth="315.0" text="Cargo" />
+                <Label fx:id="tarjetaEmpleHorario" layoutX="26.0" layoutY="272.0" prefHeight="29.0" prefWidth="315.0" text="Horario" />
+                <Label fx:id="tarjetaEmpleTurno" layoutX="26.0" layoutY="310.0" prefHeight="29.0" prefWidth="315.0" text="Turno" />
+                <Label fx:id="tarjetaEmpleLago" layoutX="26.0" layoutY="345.0" prefHeight="29.0" prefWidth="315.0" text="Lago" />
+
+                <ImageView fx:id="tarjetaEmpleImg" fitHeight="150.0" fitWidth="187.0" layoutX="451.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Imagenes/iconoSolo.png" />
+                    </image>
+                </ImageView>
+
+                <JFXButton fx:id="botonAnadirEmple" layoutX="585.0" layoutY="331.0" onAction="#accionesCRUD" prefHeight="43.0" prefWidth="32.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="+" textAlignment="CENTER" textFill="#f35d6d">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <effect>
+                        <MotionBlur />
+                    </effect>
+                    <font>
+                        <Font name="Century Gothic" size="22.0" />
+                    </font>
+                    <tooltip>
+                        <Tooltip text="Añada al almacén" />
+                    </tooltip>
+                </JFXButton>
+
+                <JFXButton fx:id="botonModificarEmple" layoutX="475.0" layoutY="331.0" onAction="#accionesCRUD" prefHeight="43.0" prefWidth="39.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="↩" textAlignment="CENTER" textFill="#f35d6d">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <effect>
+                        <MotionBlur />
+                    </effect>
+                    <font>
+                        <Font name="Century Gothic" size="22.0" />
+                    </font>
+                    <tooltip>
+                        <Tooltip graphicTextGap="1.0" text="Actualice datos del almacén" />
+                    </tooltip>
+                </JFXButton>
+
+                <JFXButton fx:id="botonEliminarEmple" layoutX="533.0" layoutY="331.0" onAction="#accionesCRUD" prefHeight="43.0" prefWidth="32.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="-" textAlignment="CENTER" textFill="#f35d6d">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font name="Century Gothic" size="22.0" />
+                    </font>
+                    <effect>
+                        <MotionBlur />
+                    </effect>
+                    <tooltip>
+                        <Tooltip text="elimine del almacén" />
+                    </tooltip>
+                </JFXButton>
+            </children>
+        </Pane>
+
+        <Accordion fx:id="panelFiltros" layoutX="753.0">
+            <panes>
                 <TitledPane prefHeight="367.0" prefWidth="202.0" style="-fx-max-height: 255;" text="FILTROS">
                     <content>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                        <AnchorPane fx:id="anchoPanelFiltros" prefWidth="200.0">
                             <children>
-                                <JFXTextField fx:id="textFiltroIDProd" layoutX="33.0" layoutY="26.0" prefHeight="23.0" prefWidth="132.0" promptText="ID" />
-                                <JFXTextField fx:id="textFiltroIDProv" layoutX="33.0" layoutY="26.0" prefHeight="23.0" prefWidth="132.0" promptText="ID" visible="false" />
-                                <JFXTextField fx:id="textFiltroNombreProd" layoutX="34.0" layoutY="63.0" prefHeight="23.0" prefWidth="132.0" promptText="NOMBRE" />
-                                <JFXTextField fx:id="textFiltroNombreProv" layoutX="34.0" layoutY="63.0" prefHeight="23.0" prefWidth="132.0" promptText="NOMBRE" visible="false" />
-                                <JFXTextField fx:id="textFiltroProveedor" layoutX="34.0" layoutY="178.0" prefHeight="23.0" prefWidth="132.0" promptText="PROVEEDOR" />
-                                <JFXTextField fx:id="textFiltroTipo" layoutX="34.0" layoutY="101.0" prefHeight="23.0" prefWidth="132.0" promptText="TIPO" />
-                                <JFXTextField fx:id="textFiltroCantidad" layoutX="34.0" layoutY="139.0" prefHeight="23.0" prefWidth="132.0" promptText="CANTIDAD" />
-                                <JFXTextField fx:id="textFiltroTelefono" layoutX="33.0" layoutY="101.0" prefHeight="23.0" prefWidth="132.0" promptText="TELEFONO" visible="false" />
-                                <JFXTextField fx:id="textFiltroPais" layoutX="34.0" layoutY="139.0" prefHeight="23.0" prefWidth="132.0" promptText="PAIS" visible="false" />
+                                <JFXTextField fx:id="textFiltroIDProd" layoutX="34.0" layoutY="26.0" prefHeight="23.0" prefWidth="132.0" promptText="ID" visible="false" />
+                                <JFXTextField fx:id="textFiltroNombreProd" layoutX="34.0" layoutY="64.0" prefHeight="23.0" prefWidth="132.0" promptText="NOMBRE" visible="false" />
+                                <JFXTextField fx:id="textFiltroTipo" layoutX="34.0" layoutY="102.0" prefHeight="23.0" prefWidth="132.0" promptText="TIPO" visible="false" />
+                                <JFXTextField fx:id="textFiltroCantidad" layoutX="34.0" layoutY="140.0" prefHeight="23.0" prefWidth="132.0" promptText="CANTIDAD" visible="false" />
+                                <JFXTextField fx:id="textFiltroProveedor" layoutX="34.0" layoutY="178.0" prefHeight="23.0" prefWidth="132.0" promptText="PROVEEDOR" visible="false" />
+
+                                <JFXTextField fx:id="textFiltroIDProv" layoutX="34.0" layoutY="26.0" prefHeight="23.0" prefWidth="132.0" promptText="ID" visible="false" />
+                                <JFXTextField fx:id="textFiltroNombreProv" layoutX="34.0" layoutY="64.0" prefHeight="23.0" prefWidth="132.0" promptText="NOMBRE" visible="false" />
+                                <JFXTextField fx:id="textFiltroTelefono" layoutX="33.0" layoutY="102.0" prefHeight="23.0" prefWidth="132.0" promptText="TELEFONO" visible="false" />
+                                <JFXTextField fx:id="textFiltroPais" layoutX="34.0" layoutY="140.0" prefHeight="23.0" prefWidth="132.0" promptText="PAIS" visible="false" />
+
+                                <JFXTextField fx:id="textFiltroIDPato" layoutX="34.0" layoutY="26.0" prefHeight="23.0" prefWidth="132.0" promptText="ID" visible="false" />
+                                <JFXTextField fx:id="textFiltroNombrePato" layoutX="34.0" layoutY="64.0" prefHeight="23.0" prefWidth="132.0" promptText="NOMBRE" visible="false" />
+                                <JFXTextField fx:id="textFiltroRazaPato" layoutX="34.0" layoutY="102.0" prefHeight="23.0" prefWidth="132.0" promptText="RAZA" visible="false" />
+                                <JFXTextField fx:id="textFiltroEdadPato" layoutX="34.0" layoutY="140.0" prefHeight="23.0" prefWidth="132.0" promptText="EDAD" visible="false" />
+                                <JFXTextField fx:id="textFiltroCartillaPato" layoutX="34.0" layoutY="178.0" prefHeight="23.0" prefWidth="132.0" promptText="Nº CARTILLA" visible="false" />
+
+                                <JFXTextField fx:id="textFiltroIDCliente" layoutX="34.0" layoutY="26.0" prefHeight="23.0" prefWidth="132.0" promptText="ID" visible="false" />
+                                <JFXTextField fx:id="textFiltroNombreCliente" layoutX="34.0" layoutY="64.0" prefHeight="23.0" prefWidth="132.0" promptText="NOMBRE" visible="false" />
+                                <JFXTextField fx:id="textFiltroApellidosCliente" layoutX="34.0" layoutY="102.0" prefHeight="23.0" prefWidth="132.0" promptText="APELLIDOS" visible="false" />
+                                <JFXTextField fx:id="textFiltroTel1Cliente" layoutX="34.0" layoutY="140.0" prefHeight="23.0" prefWidth="132.0" promptText="TELÉFONO 1" visible="false" />
+                                <JFXTextField fx:id="textFiltroTel2Cliente" layoutX="34.0" layoutY="178.0" prefHeight="23.0" prefWidth="132.0" promptText="TELÉFONO 2" visible="false" />
+                                <JFXTextField fx:id="textFiltroEmailCliente" layoutX="34.0" layoutY="216.0" prefHeight="23.0" prefWidth="132.0" promptText="EMAIL" visible="false" />
+                                <JFXTextField fx:id="textFiltroTipoPagoCliente" layoutX="34.0" layoutY="254.0" prefHeight="23.0" prefWidth="132.0" promptText="TIPO DE PAGO" visible="false" />
+
+                                <JFXTextField fx:id="textFiltroIDEstancia" layoutX="34.0" layoutY="26.0" prefHeight="23.0" prefWidth="132.0" promptText="ID" visible="false" />
+                                <JFXTextField fx:id="textFiltroIngresoEstancia" layoutX="34.0" layoutY="64.0" prefHeight="23.0" prefWidth="132.0" promptText="INGRESO" visible="false" />
+                                <JFXTextField fx:id="textFiltroSalidaEstancia" layoutX="34.0" layoutY="102.0" prefHeight="23.0" prefWidth="132.0" promptText="SALIDA" visible="false" />
+                                <JFXTextField fx:id="textFiltroNomPatoEstancia" layoutX="34.0" layoutY="140.0" prefHeight="23.0" prefWidth="132.0" promptText="PATO" visible="false" />
+                                <JFXTextField fx:id="textFiltroNomClienteEstancia" layoutX="34.0" layoutY="178.0" prefHeight="23.0" prefWidth="132.0" promptText="CLIENTE" visible="false" />
+                                <JFXTextField fx:id="textFiltroNomLagoEstancia" layoutX="34.0" layoutY="216.0" prefHeight="23.0" prefWidth="132.0" promptText="LAGO" visible="false" />
+
+                                <JFXButton fx:id="botonLimpiarFiltros" layoutX="49.0" layoutY="290.0" onAction="#accionesCRUD" text="Limpiar" textAlignment="CENTER" />
                             </children>
                         </AnchorPane>
                     </content>
                 </TitledPane>
-         </panes></Accordion>
-
-        <Label fx:id="labelNomProdProv" alignment="CENTER" contentDisplay="CENTER" layoutX="966.0" layoutY="124.0" prefHeight="21.0" prefWidth="483.0" text="KAMO(N)DUCK" visible="false" />
-      <Label fx:id="labelNoModifiEmpleados" layoutX="1016.0" layoutY="709.0" prefHeight="19.0" prefWidth="315.0" text="¿Quien está trabajando hoy?" />
-      <JFXListView fx:id="listViewEmpleadosActivos" layoutX="452.0" layoutY="58.0" onMouseClicked="#seleccionarEmpleado" prefHeight="477.0" prefWidth="230.0" />
-      <Label fx:id="labelNombreEmpleado" layoutX="932.0" layoutY="737.0" prefHeight="19.0" prefWidth="352.0" text="Nombre empleado &amp; (Diurno/nocturno)" />
-      <Pane fx:id="tarjetaEmplePanel" layoutX="746.0" layoutY="112.0" prefHeight="407.0" prefWidth="652.0">
-         <children>
-            <Label fx:id="tarjetaEmpleNom" layoutX="26.0" layoutY="22.0" prefHeight="29.0" prefWidth="315.0" text="Nombre" />
-            <Label fx:id="tarjetaEmpleApe" layoutX="26.0" layoutY="61.0" prefHeight="29.0" prefWidth="315.0" text="Apellidos" />
-            <Label fx:id="tarjetaEmpleDNI" layoutX="26.0" layoutY="101.0" prefHeight="29.0" prefWidth="315.0" text="DNI" />
-            <Label fx:id="tarjetaEmpleTel" layoutX="26.0" layoutY="144.0" prefHeight="29.0" prefWidth="315.0" text="Teléfono" />
-            <Label fx:id="tarjetaEmpleEmail" layoutX="26.0" layoutY="189.0" prefHeight="23.0" prefWidth="315.0" text="email" />
-            <Label fx:id="tarjetaEmpleCargo" layoutX="26.0" layoutY="228.0" prefHeight="29.0" prefWidth="315.0" text="Cargo" />
-            <Label fx:id="tarjetaEmpleHorario" layoutX="26.0" layoutY="272.0" prefHeight="29.0" prefWidth="315.0" text="Horario" />
-            <Label fx:id="tarjetaEmpleTurno" layoutX="26.0" layoutY="310.0" prefHeight="29.0" prefWidth="315.0" text="Turno" />
-            <Label fx:id="tarjetaEmpleLago" layoutX="26.0" layoutY="345.0" prefHeight="29.0" prefWidth="315.0" text="Lago" />
-            <ImageView fx:id="tarjetaEmpleImg" fitHeight="150.0" fitWidth="187.0" layoutX="451.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Imagenes/iconoSolo.png" />
-               </image></ImageView>
-            <JFXButton fx:id="botonAnadirEmple" layoutX="585.0" layoutY="331.0" onAction="#accionesCRUD" prefHeight="43.0" prefWidth="32.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="+" textAlignment="CENTER" textFill="#f35d6d">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <effect>
-                  <MotionBlur />
-               </effect>
-               <font>
-                  <Font name="Century Gothic" size="22.0" />
-               </font>
-               <tooltip>
-                  <Tooltip text="Añada al almacén" />
-               </tooltip>
-            </JFXButton>
-            <JFXButton fx:id="botonModificarEmple" layoutX="475.0" layoutY="331.0" onAction="#accionesCRUD" prefHeight="43.0" prefWidth="39.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="↩" textAlignment="CENTER" textFill="#f35d6d">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <effect>
-                  <MotionBlur />
-               </effect>
-               <font>
-                  <Font name="Century Gothic" size="22.0" />
-               </font>
-               <tooltip>
-                  <Tooltip graphicTextGap="1.0" text="Actualice datos del almacén" />
-               </tooltip>
-            </JFXButton>
-            <JFXButton fx:id="botonEliminarEmple" layoutX="533.0" layoutY="331.0" onAction="#accionesCRUD" prefHeight="43.0" prefWidth="32.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="-" textAlignment="CENTER" textFill="#f35d6d">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Century Gothic" size="22.0" />
-               </font>
-               <effect>
-                  <MotionBlur />
-               </effect>
-               <tooltip>
-                  <Tooltip text="elimine del almacén" />
-               </tooltip>
-            </JFXButton>
-         </children>
-      </Pane>
+            </panes>
+        </Accordion>
+        <!--=============================================================================-->
 
     </children>
 </AnchorPane>

@@ -5,10 +5,10 @@ public class Pato {
     private String Nombre_Pato, Raza, Descripcion;
     private int IDPato, Edad, Num_Cartilla;
 
-    public Pato(int IDPato, String Nombre_Pato, String Rraza, int Edad, int Num_Cartilla, String Descripcion) {
+    public Pato(int IDPato, String Nombre_Pato, String Raza, int Edad, int Num_Cartilla, String Descripcion) {
         this.IDPato = IDPato;
         this.Nombre_Pato = Nombre_Pato;
-        this.Raza = Rraza;
+        this.Raza = Raza;
         this.Edad = Edad;
         this.Num_Cartilla = Num_Cartilla;
         this.Descripcion = Descripcion;

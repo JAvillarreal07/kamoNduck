@@ -1,9 +1,0 @@
-
-o	java:S116"URename this field "ImagenView" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÎĞ¿Ûûÿÿÿÿ
-s	java:S116"YRename this field "NombreCompleto" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁÂŠùÿÿÿÿ
-k	java:S116"QRename this field "Nombre" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(í÷¤´ıÿÿÿÿ
-n	java:S116"TRename this field "Apellidos" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(í÷¤´ıÿÿÿÿ
-V
-java:S1128"4Remove this unused import 'Controlador.IOBaseDatos'.(«†Êûÿÿÿÿ8¶ÛÿÂÜ/
-V	java:S110"<This class has 6 parents which is greater than 5 authorized.(±ïæ•øÿÿÿÿ
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(àÄ€ü

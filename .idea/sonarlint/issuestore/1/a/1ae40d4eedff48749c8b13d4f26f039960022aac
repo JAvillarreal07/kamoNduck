@@ -10,10 +10,10 @@ java:S1192"XDefine a constant instead of duplicating this literal "org.mariadb
 java:S1192"hDefine a constant instead of duplicating this literal "jdbc:mariadb://localhost:3306/kamonduck" 3 times.(ä¤ÉÕ
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ï‡Î£
 c
-java:S2095"HUse try-with-resources or close this "Connection" in a "finally" clause.(ğÁÏşÿÿÿÿ
+java:S2095%"HUse try-with-resources or close this "Connection" in a "finally" clause.(ğÁÏşÿÿÿÿ
 ]
 java:S2095&"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÁŸìÔ
+c
+java:S2095"HUse try-with-resources or close this "Connection" in a "finally" clause.(ğÁÏşÿÿÿÿ
 ]
 java:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(ÁŸìÔ
-c
-java:S2095%"HUse try-with-resources or close this "Connection" in a "finally" clause.(ğÁÏşÿÿÿÿ

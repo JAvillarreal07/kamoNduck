@@ -13,8 +13,6 @@ public class CustomListView extends HBox {
     private Label NombreCompleto = new Label();
     private String Nombre, Apellidos;
 
-    VentanaPrincipalController vpc = new VentanaPrincipalController();
-
     public CustomListView(Image imagen, String nombre, String apellidos, String cargo) {
         super();
 
