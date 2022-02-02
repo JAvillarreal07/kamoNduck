@@ -14,7 +14,8 @@ import java.net.URISyntaxException;
 /**
  * JavaFX App
  */
-//Clase principal encargada de ejecutar la ventana principal.
+
+//Clase principal encargada de ejecutar la ventana inicial (Ventana Bienvenida).
 public class Iniciar extends Application {
 
     private static Scene scene;
@@ -22,10 +23,9 @@ public class Iniciar extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
+        //Abre la ventana bienvenida.
         Parent root = FXMLLoader.load(getClass().getResource("/Vista/VentanaBienvenida.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("/Vista/Pruebas.fxml"));
         stage.getIcons().add(new Image("/Imagenes/iconoSolo.png"));
-
         Scene scene = new Scene(root);
         scene.getStylesheets().add("http://fonts.googleapis.com/css?family=Allerta+Stencil");
         stage.setTitle("Empresa kamoNduck");
@@ -34,6 +34,7 @@ public class Iniciar extends Application {
     }
 
     public static void main(String[] args) throws URISyntaxException, IOException {
+        //Asigna más uso de memorio al programa.
         String currentPath=VentanaBienvenidaController.class
                 .getProtectionDomain()
                 .getCodeSource().getLocation()
@@ -43,6 +44,7 @@ public class Iniciar extends Application {
             Runtime.getRuntime().exec("java -Xmx1024m -jar "+currentPath+" restart");
             return;
         }
+
         launch();
     }
 }

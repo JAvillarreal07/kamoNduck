@@ -57,20 +57,29 @@ public class VentanaCamposController {
     public DatePicker DPfechaEntradaEstancia, DPfechaSalidaEstancia;
     public ComboBox<String> CBNombreLagoEstancia;
 
+    // Elementos Estancia
+    public JFXTextField textNomEmp, txtApEmp, txtTlfEmp, txtEmailEmp, txtCargoEmp, txtHorario;
+    public ComboBox<String> comboTurno, comboNombreLago;
+
     //Botones comunes entre las ventanas.
     public JFXButton botonSubirImagen, botonEnviar, botonCancelar;
+    public ImageView imagenActual, imagenPato, imagenCliente, imagenLago;
 
     //Instancia de la clase IOBaseDatos.
     IOBaseDatos IO = new IOBaseDatos();
 
+    //Instancia de la clase VentanaPrincipalController.
+    VentanaPrincipalController vpc = new VentanaPrincipalController();
+
     //Variables.
     public String pathImagen, nombreNuevoImagen, carpeta;
-    public int IDPrd, IDPrv, IDPato, IDCliente, IDEstancia;
-    public ImageView imagenActual, imagenPato, imagenCliente, imagenLago;
+    public int IDPrd, IDPrv, IDPato, IDCliente, IDEstancia, IDEmpleado;
     public Image imagenNueva;
 
     /*___________________________________________________________________________________________________________________________________________________________________________*/
     //Muestra la información del elemento que se desea modificar en los distintos elementos de la ventana.
+
+    /******Para Productos******/
     public void iniciarCampos(Producto pd) {
         textNomProd.setText(pd.getNombre_Producto());
         textTipoProd.setText(pd.getTipo_Producto());
@@ -80,27 +89,34 @@ public class VentanaCamposController {
         textMinStockProd.setText(String.valueOf(pd.getMinimo()));
         textPrecProd.setText(String.valueOf(pd.getPrecio()));
 
+        //Busca si el producto tiene una imagen asociada y la muestra.
         try {
             imagenActual.setImage(new Image(new File("ImgProductos/" + pd.getNombre_Producto().replace(" ", "_") + ".png").toURI().toString()));
         } catch (IllegalArgumentException e) {
         }
 
-        IDPrd = pd.getIDProducto();
+        IDPrd = pd.getIDProducto(); //Almacena el ID del producto a modificar.
     }
+    /**************************/
 
+    /******Para Proveedores******/
     public void iniciarCampos(Proveedor pv) {
         textNomProv.setText(pv.getNombre_Proveedor());
         textDireProv.setText(pv.getDireccion());
         textTelProv.setText(pv.getTelefono_Proveedor());
         textPaisProv.setText(pv.getPais());
+
+        //Busca si el proveedor tiene una imagen asociada y la muestra.
         try {
             imagenActual.setImage(new Image(new File("ImgProveedores/" + pv.getNombre_Proveedor().replace(" ", "_") + ".png").toURI().toString()));
         } catch (IllegalArgumentException e) {
         }
 
-        IDPrv = pv.getIDProveedor();
+        IDPrv = pv.getIDProveedor(); //Almacena el ID del proveedor a modificar.
     }
+    /****************************/
 
+    /******Para Patos******/
     public void iniciarCampos(Pato pt) {
         textNomPato.setText(pt.getNombre_Pato());
         textRazaPato.setText(pt.getRaza());
@@ -108,14 +124,17 @@ public class VentanaCamposController {
         textNCartillaPato.setText(String.valueOf(pt.getNum_Cartilla()));
         textDescPato.setText(pt.getDescripcion());
 
+        //Busca si el pato tiene una imagen asociada y la muestra.
         try {
             imagenActual.setImage(new Image(new File("ImgPatos/" + (pt.getNombre_Pato() + " " + pt.getNum_Cartilla()).replace(" ", "_") + ".png").toURI().toString()));
         } catch (IllegalArgumentException e) {
         }
 
-        IDPato = pt.getIDPato();
+        IDPato = pt.getIDPato(); //Almacena el ID del pato a modificar.
     }
+    /**********************/
 
+    /******Para Clientes******/
     public void iniciarCampos(Cliente cl) {
         textNomCliente.setText(cl.getNombre_Cliente());
         textApeCliente.setText(cl.getApellidos_Cliente());
@@ -125,14 +144,17 @@ public class VentanaCamposController {
         CBTipPagoCliente.setValue(cl.getTipoPago());
         textDNICliente.setText(cl.getDNI());
 
+        //Busca si el cliente tiene una imagen asociada y la muestra.
         try {
             imagenActual.setImage(new Image(new File("ImgClientes/" + (cl.getNombre_Cliente() + " " + cl.getApellidos_Cliente()).replace(" ", "_") + ".png").toURI().toString()));
         } catch (IllegalArgumentException e) {
         }
 
-        IDCliente = cl.getIDCliente();
+        IDCliente = cl.getIDCliente(); //Almacena el ID del cliente a modificar.
     }
+    /*************************/
 
+    /******Para Estancias******/
     public void iniciarCampos(Estancia est) throws SQLException {
         textDNIClEstancia.setText(est.getDNICliente());
         textNCartillaPatoEstancia.setText(est.getNumCartilla());
@@ -140,6 +162,7 @@ public class VentanaCamposController {
         DPfechaSalidaEstancia.setValue(LocalDate.parse(est.getFecha_Salida().toString()));
         CBNombreLagoEstancia.setValue(est.getNombreLago());
 
+        //Estos tres listener buscan las imagenes para el pato y el cliente escrito y para el lago seleccionado.
         textNCartillaPatoEstancia.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -149,7 +172,7 @@ public class VentanaCamposController {
                 try {
                     paraImg.next();
 
-                    imagenPato.setImage(new Image("ImgPatos/" + paraImg.getString("Imagen").replace(" ", "_")));
+                    imagenPato.setImage(new Image(new File("ImgPatos/" + paraImg.getString("Imagen").replace(" ", "_") + ".png").toURI().toString()));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -165,7 +188,7 @@ public class VentanaCamposController {
                 try {
                     paraImg.next();
 
-                    imagenPato.setImage(new Image("ImgClientes/" + paraImg.getString("Imagen").replace(" ", "_")));
+                    imagenPato.setImage(new Image(new File("ImgClientes/" + paraImg.getString("Imagen").replace(" ", "_") + ".png").toURI().toString()));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -175,62 +198,69 @@ public class VentanaCamposController {
         CBNombreLagoEstancia.valueProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                imagenLago.setImage(new Image("ImgLagos/" + newValue));
+                imagenLago.setImage(new Image(new File("ImgLagos/" + newValue.replace(" ", "_") + ".png").toURI().toString()));
             }
         });
 
-        IDEstancia = est.getIDEstancia();
+        IDEstancia = est.getIDEstancia(); //Almacena el ID de la estancia a modificar.
     }
+    /**************************/
+
+    /******Para Empleador******/
+    public void iniciarCampos(Empleado empl) throws SQLException {
+        textNomEmp.setText(empl.getNombre_Empleado());
+        txtApEmp.setText(empl.getApellidos_Empleado());
+        txtTlfEmp.setText(empl.getTelefono_Empleado());
+        txtEmailEmp.setText(empl.getEmail_Empleado());
+        txtCargoEmp.setText(empl.getCargo());
+        txtHorario.setText(empl.getHorario_Trabajo());
+        comboTurno.setValue(empl.getTurno());
+        comboNombreLago.setValue(empl.getNombreLago());
+
+        //Busca si el empleado tiene una imagen asociada y la muestra.
+        try {
+            imagenActual.setImage(new Image(new File("ImgEmpleados/" + empl.getNombreCompleto().replace(" ", "_") + ".png").toURI().toString()));
+        } catch (IllegalArgumentException e) {
+        }
+
+        comboNombreLago.valueProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                imagenLago.setImage(new Image(new File("ImgLagos/" + newValue.replace(" ", "_") + ".png").toURI().toString()));
+            }
+        });
+
+        IDEmpleado = empl.getIDEmpleado(); //Almacena el ID del empleado a modificar.
+    }
+    /**************************/
 
     /*___________________________________________________________________________________________________________________________________________________________________________*/
-    //Permite autocompletar el compo Proveedor de Producto con los proveedores ya existentes.
+    //Estos métodos establecen el autocompletado de los campos necesarios y los ComboBox.
+
+    /******Para Proveedores******/
     public void iniciaFieldProv(ArrayList<String> nombresProv) {
 
+        //Introduce los elementos para autocompletar en el elemento respectivo.
         TextFields.bindAutoCompletion(textProvProd, nombresProv);
-        nombresProv.clear();
+        nombresProv.clear(); //Vacia la lista proporcionada para evitar duplicados.
     }
+    /****************************/
 
+    /******Para Estancias******/
     public void iniciaFieldEstancia(List<String> DNI, ArrayList<Integer> cartillas, ObservableList<String> lagos) {
-        CBNombreLagoEstancia.getItems().clear();
+        CBNombreLagoEstancia.getItems().clear(); //Vacia el ComboBox para evitar duplicados.
 
+        //Introduce los elementos para autocompletar en los elementos respectivos.
         TextFields.bindAutoCompletion(textDNIClEstancia, DNI);
         TextFields.bindAutoCompletion(textNCartillaPatoEstancia, cartillas);
         CBNombreLagoEstancia.getItems().addAll(lagos);
 
+        //Vacia las listas proporcionada para evitar duplicados.
         DNI.clear();
         cartillas.clear();
         lagos.clear();
     }
-
-    //Permite autocompletar los compos necesarios con datos ya existentes..
-    public void iniciaFieldEstancia(ArrayList<Cliente> Clientes, ArrayList<Pato> Patos, ArrayList<Lago> Lagos) {
-        ArrayList<String> DNIClientes = null, cartillaPatos = null, nombresLagos = null;
-
-        //Recoge todos losDNI de los clientes.
-        for (int i = 0; i < Clientes.size(); i++) {
-            DNIClientes.add(Clientes.get(i).getDNI());
-        }
-
-        //Recoge todos los números de cartilla de los patos.
-        for (int i = 0; i < Patos.size(); i++) {
-            cartillaPatos.add(String.valueOf(Patos.get(i).getNum_Cartilla()));
-        }
-
-        //Recoge todos los nombres de los lagos.
-        for (int i = 0; i < Lagos.size(); i++) {
-            nombresLagos.add(Lagos.get(i).getNombre_Lago());
-        }
-
-        CBNombreLagoEstancia.getItems().clear();
-        CBNombreLagoEstancia.setItems((ObservableList<String>) nombresLagos);
-
-        TextFields.bindAutoCompletion(textDNIClEstancia, DNIClientes);
-        TextFields.bindAutoCompletion(textNCartillaPatoEstancia, cartillaPatos);
-
-        Clientes.clear();
-        Patos.clear();
-        Lagos.clear();
-    }
+    /**************************/
 
     /*___________________________________________________________________________________________________________________________________________________________________________*/
     //Guarda la imegen seleccionada en su respectiva carpeta.
@@ -238,6 +268,7 @@ public class VentanaCamposController {
 
         Stage stage = (Stage) this.botonCancelar.getScene().getWindow();
 
+        //Dependiendo del título de la ventana cambiará la carpeta destino y el nombre de la imagen.
         if (stage.getTitle().contains("Producto")) {
             nombreNuevoImagen = textNomProd.getText().replace(" ", "_");
             carpeta = "ImgProductos";
@@ -245,8 +276,17 @@ public class VentanaCamposController {
         } else if (stage.getTitle().contains("Proveedor")) {
             nombreNuevoImagen = textNomProv.getText().replace(" ", "_");
             carpeta = "ImgProveedores";
+
+        } else if (stage.getTitle().contains("Pato")) {
+            nombreNuevoImagen = (textNomPato.getText() + " " + textNCartillaPato).replace(" ", "_");
+            carpeta = "ImgPatos";
+
+        } else if (stage.getTitle().contains("Cliente")) {
+            nombreNuevoImagen = (textNomCliente.getText() + " " + textApeCliente).replace(" ", "_");
+            carpeta = "ImgClientes";
         }
 
+        //Guarda la imagen en formato png.
         try {
             File outputFile = new File(carpeta + "/" + nombreNuevoImagen + ".png");
 
@@ -263,7 +303,6 @@ public class VentanaCamposController {
     //Controla las acciones de los botones.
     public void accionBotones() {
         try {
-
             if (botonSubirImagen.isFocused()) {
 
                 //Usa el explorador de archivos para poder seleccionar la imagen.
@@ -290,23 +329,29 @@ public class VentanaCamposController {
                 //Realiza acciones según el elemento que se desea Añadir/Modificar.
                 switch (stage.getTitle()) {
                     case "Añadir Producto":
+                        //Comprueba varios aspectos del los campos antes de seguir con el INSERT.
                         if (comprobacionGeneral("Producto")) {
 
+                            //Buscar el ID del proveedor seleccionado.
                             ResultSet pvID1 = IO.introduceRegistros("SELECT IDProveedor FROM PROVEEDOR WHERE " +
                                     "Nombre_Proveedor = '" + textProvProd.getText() + "'");
 
                             pvID1.next();
+
                             Integer IDBuscado1 = pvID1.getInt("IDProveedor");
 
+                            //Consultar para comprobar si el producto ya existe o no.
                             ResultSet comprobando = IO.introduceRegistros("SELECT * FROM PRODUCTOS WHERE " +
                                     "Nombre_Producto = '" + textNomProd.getText() + "' " +
                                     "Tipo_Producto = '" + textTipoProd.getText() + "' " +
                                     "IDProveedor = " + IDBuscado1);
 
+                            //Si el producto ya existe produce un error personalizado, en caso contrario realiza el INSERT.
                             if (comprobando.next()) {
                                 throw new YaExisteException("El producto ya existe.");
 
                             } else {
+                                //Añade el producto a la BD.
                                 IO.actualizaRegistros("INSERT INTO PRODUCTOS VALUES ("
                                         + "null" + ", '"
                                         + textNomProd.getText() + "', '"
@@ -316,19 +361,30 @@ public class VentanaCamposController {
                                         + textPrecProd.getText() + ", '"
                                         + textObseProd.getText() + "', "
                                         + IDBuscado1 + ")");
+
+                                //Realiza un reporte de pedido en caso de que la cantidad de existencias del producdo
+                                // sea menor que el mínimo que debería haber.
+                                if (Integer.parseInt(textCantProd.getText()) < Integer.parseInt(textMinStockProd.getText())) {
+                                    vpc.reportePedirProd(IDBuscado1, textNomProd.getText());
+                                }
                             }
                         }
 
                         break;
 
                     case "Modificar Producto":
+                        //Comprueba varios aspectos del los campos antes de seguir con el UPDATE.
                         if (comprobacionGeneral("Producto")) {
+
+                            //Buscar el ID del proveedor seleccionado.
                             ResultSet pvID2 = IO.introduceRegistros("SELECT IDProveedor FROM PROVEEDOR WHERE " +
                                     "Nombre_Proveedor = '" + textProvProd.getText() + "'");
 
                             pvID2.next();
+
                             Integer IDBuscado2 = pvID2.getInt("IDProveedor");
 
+                            //Modifica el producto en la BD.
                             IO.actualizaRegistros("UPDATE PRODUCTOS set " +
                                     "Nombre_Producto = '" + textNomProd.getText() + "', " +
                                     "Tipo_Producto = '" + textTipoProd.getText() + "', " +
@@ -338,11 +394,20 @@ public class VentanaCamposController {
                                     "Observaciones = '" + textObseProd.getText() + "', " +
                                     "IDProveedor = " + IDBuscado2 +
                                     " WHERE IDProducto = " + IDPrd);
+
+                            //Realiza un reporte de pedido en caso de que la cantidad de existencias del producdo
+                            // sea menor que el mínimo que debería haber.
+                            if (Integer.parseInt(textCantProd.getText()) < Integer.parseInt(textMinStockProd.getText())) {
+                                vpc.reportePedirProd(IDPrd, textNomProd.getText());
+                            }
                         }
                         break;
 
                     case "Añadir Proveedor":
+                        //Comprueba varios aspectos del los campos antes de seguir con el INSERT.
                         if (comprobacionGeneral("Proveedor")) {
+
+                            //Añade al proveedor a la BD.
                             IO.actualizaRegistros("INSERT INTO PROVEEDOR VALUES ("
                                     + "null" + ", '"
                                     + textNomProv.getText() + "', '"
@@ -353,7 +418,10 @@ public class VentanaCamposController {
                         break;
 
                     case "Modificar Proveedor":
+                        //Comprueba varios aspectos del los campos antes de seguir con el UPDATE.
                         if (comprobacionGeneral("Proveedor")) {
+
+                            //Modifica al proveedor en la BD.
                             IO.actualizaRegistros("UPDATE PROVEEDOR set " +
                                     "Nombre_Proveedor = '" + textNomProv.getText() + "', " +
                                     "Direccion = '" + textDireProv.getText() + "', " +
@@ -365,6 +433,8 @@ public class VentanaCamposController {
 
                     case "Añadir Pato":
                         if (comprobacionGeneral("Pato")) {
+
+                            //Añade al pato a la BD.
                             IO.actualizaRegistros("INSERT INTO PATOS VALUES ("
                                     + "null" + ", '"
                                     + textNomPato.getText() + "', '"
@@ -376,7 +446,10 @@ public class VentanaCamposController {
                         break;
 
                     case "Modificar Pato":
+                        //Comprueba varios aspectos del los campos antes de seguir con el UPDATE.
                         if (comprobacionGeneral("Pato")) {
+
+                            //Modifica al pato en la BD.
                             IO.actualizaRegistros("UPDATE PATOS set " +
                                     "Nombre_Pato = '" + textNomPato.getText() + "', " +
                                     "Raza = '" + textRazaPato.getText() + "', " +
@@ -388,7 +461,10 @@ public class VentanaCamposController {
                         break;
 
                     case "Añadir Cliente":
+                        //Comprueba varios aspectos del los campos antes de seguir con el INSERT.
                         if (comprobacionGeneral("Cliente")) {
+
+                            //Añade al cliente a la BD.
                             IO.actualizaRegistros("INSERT INTO PROVEEDOR VALUES ("
                                     + "null" + ", '"
                                     + textDNICliente.getText() + "', '"
@@ -402,7 +478,10 @@ public class VentanaCamposController {
                         break;
 
                     case "Modificar Cliente":
+                        //Comprueba varios aspectos del los campos antes de seguir con el UPDATE.
                         if (comprobacionGeneral("Cliente")) {
+
+                            //Modifica el cliente en la BD.
                             IO.actualizaRegistros("UPDATE CLIENTES set " +
                                     "DNI = '" + textDNICliente.getText() + "', " +
                                     "Nombre_Cliente = '" + textNomCliente.getText() + "', " +
@@ -416,7 +495,10 @@ public class VentanaCamposController {
                         break;
 
                     case "Añadir Estancia":
+                        //Comprueba varios aspectos del los campos antes de seguir con el INSERT.
                         if (comprobacionGeneral("Estancia")) {
+
+                            //Buscar el ID del pato, cliente y lago seleccionado.
                             ResultSet busqueda = IO.introduceRegistros("SELECT patos.IDPato, clientes.IDCliente, lagos.IDLago FROM patos, clientes, lagos WHERE " +
                                     "clientes.DNI = '" + textDNIClEstancia.getText() + "' && " +
                                     "patos.Num_Cartilla = " + textNCartillaPatoEstancia.getText() + " && " +
@@ -424,6 +506,7 @@ public class VentanaCamposController {
 
                             busqueda.next();
 
+                            //Añade la estancia a la BD.
                             IO.actualizaRegistros("INSERT INTO PROVEEDOR VALUES ("
                                     + "null" + ", '"
                                     + DPfechaEntradaEstancia.getValue() + "', '"
@@ -435,7 +518,10 @@ public class VentanaCamposController {
                         break;
 
                     case "Modificar Estancia":
+                        //Comprueba varios aspectos del los campos antes de seguir con el UPDATE.
                         if (comprobacionGeneral("Estancia")) {
+
+                            //Buscar el ID del pato, cliente y lago seleccionado.
                             ResultSet busqueda = IO.introduceRegistros("SELECT patos.IDPato, clientes.IDCliente, lagos.IDLago FROM patos, clientes, lagos WHERE " +
                                     "clientes.DNI = '" + textDNIClEstancia.getText() + "' && " +
                                     "patos.Num_Cartilla = " + textNCartillaPatoEstancia.getText() + " && " +
@@ -443,6 +529,7 @@ public class VentanaCamposController {
 
                             busqueda.next();
 
+                            //Modifica la estancia en la BD.
                             IO.actualizaRegistros("UPDATE ESTANCIA set " +
                                     "Fecha_Ingreso = '" + DPfechaEntradaEstancia.getValue() + "', " +
                                     "Fecha_Salida = '" + DPfechaSalidaEstancia.getValue() + "', " +
@@ -508,7 +595,7 @@ public class VentanaCamposController {
     }
 
     /*___________________________________________________________________________________________________________________________________________________________________________*/
-    //Comprueba si el proveedor ya existe o no.
+    //Comprueba si el producto/proveedor/pato ya existe o no.
     public boolean existeComprobar(String comprueba, String para) throws SQLException {
         boolean respuesta = false;
 
@@ -543,12 +630,11 @@ public class VentanaCamposController {
                 break;
         }
 
-
         return respuesta;
     }
 
     /*___________________________________________________________________________________________________________________________________________________________________________*/
-    //Comprueba que todos los campos de la venta estén bien escritos.
+    //Comprueba que todos los campos de la ventana estén bien escritos.
     public boolean comprobacionGeneral(String aComprobar) {
         boolean comprobado = false;
 

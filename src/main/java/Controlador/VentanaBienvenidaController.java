@@ -1,10 +1,5 @@
 package Controlador;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,33 +9,32 @@ import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 /**
  *
  * @author josea
  */
 public class VentanaBienvenidaController implements Initializable {
 
-    VentanaPrincipalController vpc = new VentanaPrincipalController();
-
-
     public JFXButton botonAlmacen, botonGestion, botonEmpleados;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-
-
     }
 
+    //Abre la ventana principal mostranto unos elementos u otros dependiendo del botón pulsado.
     public void abrirVentana() throws IOException {
-
-
 
         //Abre la ventana
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vista/VentanaPrincipal.fxml"));
         Parent root = loader.load();
         VentanaPrincipalController controlador = loader.getController();
 
+        //Detecta que botón ha sido pulsado.
         if (botonAlmacen.isFocused()){
             controlador.moduloElegido("Almacén");
             controlador.cambiaModulo();
@@ -65,7 +59,7 @@ public class VentanaBienvenidaController implements Initializable {
         stage.setScene(scene);
 
         stage.show();
-        stage.setOnCloseRequest(e -> {
+        stage.setOnCloseRequest(e -> { //Ejecuta un método tras cerrar la ventana principal.
             try {
                 controlador.volverABienvenida();
             } catch (IOException ex) {

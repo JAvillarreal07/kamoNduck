@@ -1,0 +1,8 @@
+
+o	java:S116
+"URename this field "ImagenView" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÎÐ¿Ûûÿÿÿÿ
+s	java:S116"YRename this field "NombreCompleto" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁŽÂŠùÿÿÿÿ
+k	java:S116"QRename this field "Nombre" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(í÷¤´ýÿÿÿÿ
+n	java:S116"TRename this field "Apellidos" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(í÷¤´ýÿÿÿÿ
+V	java:S110	"<This class has 6 parents which is greater than 5 authorized.(±ïæ•øÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(àÄ€ü

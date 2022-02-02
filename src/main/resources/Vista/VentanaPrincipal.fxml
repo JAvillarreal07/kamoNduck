@@ -24,7 +24,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="793.0" prefWidth="1454.0" stylesheets="@css.css" xmlns="http://javafx.com/javafx/1.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VentanaPrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="793.0" prefWidth="1454.0" stylesheets="@css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VentanaPrincipalController">
     <children>
 
         <ComboBox fx:id="menuModulos" accessibleRole="COMBO_BOX" layoutX="1137.0" layoutY="3.0" onAction="#cambiaModulo" stylesheets="@css.css">
@@ -149,7 +149,7 @@
         <!--=============================================================================-->
 
         <!--Modulo Facturación===========================================================-->
-        <JFXTabPane fx:id="tabsFacturacion" focusTraversable="false" prefHeight="702.0" prefWidth="955.0">
+        <JFXTabPane fx:id="tabsFacturacion" focusTraversable="false" prefHeight="702.0" prefWidth="955.0" visible="false">
             <tabs>
                 <Tab fx:id="tabPatos" onSelectionChanged="#escuchaTabs" text="Pato">
                     <content>
@@ -250,6 +250,8 @@
                 <Image url="@../Imagenes/iconoSolo.png" />
             </image>
         </ImageView>
+
+        <JFXButton fx:id="reporteEstancia" layoutX="1124.0" layoutY="692.0" onAction="#accionesCRUD" text="Reporte Estancia" visible="false" />
         <!--=============================================================================-->
 
         <!--Modulo Empleados=============================================================-->
@@ -327,7 +329,7 @@
             </children>
         </Pane>
 
-        <Accordion fx:id="panelFiltros" layoutX="753.0">
+        <Accordion fx:id="panelFiltros" layoutX="753.0" visible="false">
             <panes>
                 <TitledPane prefHeight="367.0" prefWidth="202.0" style="-fx-max-height: 255;" text="FILTROS">
                     <content>
