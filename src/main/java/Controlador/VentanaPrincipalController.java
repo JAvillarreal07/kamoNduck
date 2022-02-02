@@ -1306,7 +1306,7 @@ public class VentanaPrincipalController implements Initializable {
             Seleccionado = (ObservableList<Estancia>) tablaEstancia.getSelectionModel().getSelectedItems();
 
             //HashMap para guarda los parámetros que usará el reporte.
-            HashMap parametros = new HashMap();
+            HashMap<String, Object> parametros = new HashMap<String, Object>();
 
             //Inserta los parámetros.
             parametros.put("ParIDUsuario", Seleccionado.get(0).getIDCliente());
@@ -1338,7 +1338,7 @@ public class VentanaPrincipalController implements Initializable {
     public void reportePedirProd(int ID, String nomProducto){
 
         //HashMap para guarda los parámetros que usará el reporte.
-        HashMap parametros = new HashMap();
+        HashMap<String, Object> parametros = new HashMap<String, Object>();
 
         //Inserta los parámetros.
         parametros.put("ParIDProducto",ID);
