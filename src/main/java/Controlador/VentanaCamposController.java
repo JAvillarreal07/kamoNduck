@@ -275,6 +275,7 @@ public class VentanaCamposController {
         cargo.clear();
         lagos.clear();
     }
+
     /**************************/
 
     /*___________________________________________________________________________________________________________________________________________________________________________*/
@@ -345,6 +346,7 @@ public class VentanaCamposController {
                 imagenActual.setImage(imagenNueva);
 
             } else if (botonEnviar.isFocused()) {
+                boolean sinErrores = false;
 
                 //Realiza acciones según el elemento que se desea Añadir/Modificar.
                 switch (stage.getTitle()) {
@@ -388,6 +390,10 @@ public class VentanaCamposController {
                                     vpc.reportePedirProd(IDBuscado1, textNomProd.getText());
                                 }
                             }
+
+                            sinErrores = true;
+                        } else {
+                            sinErrores = false;
                         }
 
                         break;
@@ -420,7 +426,12 @@ public class VentanaCamposController {
                             if (Integer.parseInt(textCantProd.getText()) < Integer.parseInt(textMinStockProd.getText())) {
                                 vpc.reportePedirProd(IDPrd, textNomProd.getText());
                             }
+
+                            sinErrores = true;
+                        } else {
+                            sinErrores = false;
                         }
+
                         break;
 
                     case "Añadir Proveedor":
@@ -434,7 +445,12 @@ public class VentanaCamposController {
                                     + textDireProv.getText() + "', '"
                                     + textTelProv.getText() + "', '"
                                     + textPaisProv.getText() + "')");
+
+                            sinErrores = true;
+                        }else {
+                            sinErrores = false;
                         }
+
                         break;
 
                     case "Modificar Proveedor":
@@ -448,7 +464,12 @@ public class VentanaCamposController {
                                     "Telefono_Proveedor = '" + textTelProv.getText() + "', " +
                                     "Pais = '" + textPaisProv.getText() + "' " +
                                     "WHERE IDProveedor = " + IDPrv);
+
+                            sinErrores = true;
+                        }else {
+                            sinErrores = false;
                         }
+
                         break;
 
                     case "Añadir Pato":
@@ -462,7 +483,12 @@ public class VentanaCamposController {
                                     + textEdadPato.getText() + ", "
                                     + textNCartillaPato.getText() + ", '"
                                     + textDescPato.getText() + "')");
+
+                            sinErrores = true;
+                        }else {
+                            sinErrores = false;
                         }
+
                         break;
 
                     case "Modificar Pato":
@@ -477,7 +503,12 @@ public class VentanaCamposController {
                                     "Num_Cartilla = " + textNCartillaPato.getText() + ", " +
                                     "Descripcion = '" + textDescPato.getText() + "' " +
                                     "WHERE IDPato = " + IDPato);
+
+                            sinErrores = true;
+                        }else {
+                            sinErrores = false;
                         }
+
                         break;
 
                     case "Añadir Cliente":
@@ -494,7 +525,12 @@ public class VentanaCamposController {
                                     + textTelf2Cliente.getText() + "', '"
                                     + textEmailCliente.getText() + "', '"
                                     + CBTipPagoCliente.getValue() + "')");
+
+                            sinErrores = true;
+                        }else {
+                            sinErrores = false;
                         }
+
                         break;
 
                     case "Modificar Cliente":
@@ -511,7 +547,12 @@ public class VentanaCamposController {
                                     "Email_Cliente = '" + textEmailCliente.getText() + "', " +
                                     "TipoPago = '" + CBTipPagoCliente.getValue() + "' " +
                                     "WHERE IDCliente = " + IDCliente);
+
+                            sinErrores = true;
+                        }else {
+                            sinErrores = false;
                         }
+
                         break;
 
                     case "Añadir Estancia":
@@ -534,7 +575,12 @@ public class VentanaCamposController {
                                     + busqueda.getString("IDPato") + ", "
                                     + busqueda.getString("IDCliente") + ", "
                                     + busqueda.getString("IDLago") + ")");
+
+                            sinErrores = true;
+                        }else {
+                            sinErrores = false;
                         }
+
                         break;
 
                     case "Modificar Estancia":
@@ -557,7 +603,12 @@ public class VentanaCamposController {
                                     "IDCliente = " + busqueda.getString("IDCliente") + ", " +
                                     "IDLago = " + busqueda.getString("IDLago") +
                                     " WHERE IDEstancia = " + IDEstancia);
+
+                            sinErrores = true;
+                        }else {
+                            sinErrores = false;
                         }
+
                         break;
 
                     case "Añadir Empleado":
@@ -582,7 +633,12 @@ public class VentanaCamposController {
                                     + txtHorario.getText() + "', '"
                                     + comboTurno.getValue() + "', "
                                     + busqueda.getInt("IDLago") + ")");
+
+                            sinErrores = true;
+                        }else {
+                            sinErrores = false;
                         }
+
                         break;
 
                     case "Modificar Empleado":
@@ -607,12 +663,19 @@ public class VentanaCamposController {
                                     "Turno = '" + comboTurno.getValue() + "', " +
                                     "IDLago = " + busqueda.getInt("IDLago") +
                                     " WHERE IDEmpleado = " + IDEmpleado);
+
+                            sinErrores = true;
+                        }else {
+                            sinErrores = false;
                         }
+
                         break;
                 }
 
-                saveToFile(); //Guarda la imagen.
-                stage.close(); //Cierra la ventana.
+                if (sinErrores) {
+                    saveToFile(); //Guarda la imagen.
+                    stage.close(); //Cierra la ventana.
+                }
 
             } else if (botonCancelar.isFocused()) {
                 //Cierra la ventana.
@@ -718,7 +781,9 @@ public class VentanaCamposController {
                     }
                     break;
             }
-        }catch (NullPointerException e){};
+        } catch (NullPointerException e) {
+        }
+        ;
 
         return respuesta;
     }
@@ -890,7 +955,7 @@ public class VentanaCamposController {
                             throw new YaExisteException("El empleado con DNI '" + textDNIEmp.getText() + "' ya se encuentra registrado.");
                         } else if (!isNum(txtTlfEmp.getText().replace("+", "").replace(" ", ""))) {
                             throw new NoNumericoException("El campo 'Tlfn' solo puede contener números y '+'.");
-                        }else if (!mather.find()) {
+                        } else if (!mather.find()) {
                             throw new FormatoIncorrectoException("Email");
                         } else if (textNomEmp.getText().length() > 50) {
                             throw new MuchoTextoException("Nombre", 50);
@@ -898,11 +963,11 @@ public class VentanaCamposController {
                             throw new MuchoTextoException("Apellidos", 50);
                         } else if (txtTlfEmp.getText().length() > 16) {
                             throw new MuchoTextoException("Tlfn", 16);
-                        }else if (txtEmailEmp.getText().length() > 50) {
+                        } else if (txtEmailEmp.getText().length() > 50) {
                             throw new MuchoTextoException("Email", 50);
-                        }else if (txtCargoEmp.getText().length() > 50) {
+                        } else if (txtCargoEmp.getText().length() > 50) {
                             throw new MuchoTextoException("Cargo", 50);
-                        }else if (txtHorario.getText().length() > 20) {
+                        } else if (txtHorario.getText().length() > 20) {
                             throw new MuchoTextoException("Horario", 20);
                         } else {
 
