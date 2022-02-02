@@ -195,6 +195,8 @@ public class VentanaPrincipalController implements Initializable {
 
     private ObservableList<String> nombresLagosFiltros = FXCollections.observableArrayList();
 
+    private ArrayList<String> cargosExistentes = new ArrayList<String>();
+
     /*___________________________________________________________________________________________________________________________________________________________________________*/
     //Lo primero que se ejecutará al iniciar el programa
     @Override
@@ -587,6 +589,13 @@ public class VentanaPrincipalController implements Initializable {
         //Almacena los nombres de cada lago.
         for (int i = 0; i < ListaLagos.size(); i++) {
             nombresLagosFiltros.add(ListaLagos.get(i).getNombre_Lago());
+        }
+
+        //Almacena los cargos existentes.
+        for (int i = 0; i < ListaEmpleados.size(); i++) {
+            if (!cargosExistentes.contains(ListaEmpleados.get(i).getCargo())) {
+                cargosExistentes.add(ListaEmpleados.get(i).getCargo());
+            }
         }
 
         //Introduce los elementos para autocompletar en los elementos respectivos.
@@ -1097,6 +1106,11 @@ public class VentanaPrincipalController implements Initializable {
         } else if (botonAnadirEmple.isFocused()) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vista/VentanaCamposEmpleados.fxml"));
             Parent root = loader.load();
+
+            VentanaCamposController controlador = loader.getController();
+
+            controlador.iniciaFieldEmpleados(cargosExistentes, nombresLagosFiltros);
+
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.getIcons().add(new Image("/Imagenes/iconoSolo.png"));
@@ -1208,12 +1222,42 @@ public class VentanaPrincipalController implements Initializable {
             stage.showAndWait();
 
         } else if (botonModificarEmple.isFocused()) {
+            ListView<CustomListView> seleccionada = null; //Almacenará al empleado seleccionado.
+
+            //Controla la ListView en la que se haya clicado.
+            if (listViewEmpleados.isFocused()) {
+                seleccionada = listViewEmpleados;
+
+            } else if (listViewEmpleadosActivos.isFocused()) {
+                seleccionada = listViewEmpleadosActivos;
+            }
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vista/VentanaCamposEmpleados.fxml"));
             Parent root = loader.load();
+
+            VentanaCamposController controlador = loader.getController();
+
+            controlador.iniciaFieldEmpleados(cargosExistentes, nombresLagosFiltros);
+
+            //Recorre la lista de Empleados para encontrar el seleccionado y mostrar sus datos.
+            for (int i = 0; i < ListaEmpleados.size(); i++) {
+
+                if (ListaEmpleados.get(i).getNombreCompleto().equals(seleccionada.getSelectionModel().getSelectedItem().getNombreCompleto())) {
+                    try {
+
+                        controlador.iniciarCampos(ListaEmpleados.get(i));
+                        break;
+
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.getIcons().add(new Image("/Imagenes/iconoSolo.png"));
-            stage.setTitle("Añadir Empleado");
+            stage.setTitle("Modificar Empleado");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.showAndWait();

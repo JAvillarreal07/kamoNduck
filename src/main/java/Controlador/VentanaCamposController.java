@@ -57,8 +57,8 @@ public class VentanaCamposController {
     public DatePicker DPfechaEntradaEstancia, DPfechaSalidaEstancia;
     public ComboBox<String> CBNombreLagoEstancia;
 
-    // Elementos Estancia
-    public JFXTextField textNomEmp, txtApEmp, txtTlfEmp, txtEmailEmp, txtCargoEmp, txtHorario;
+    // Elementos Empleados
+    public JFXTextField textDNIEmp, textNomEmp, txtApEmp, txtTlfEmp, txtEmailEmp, txtCargoEmp, txtHorario;
     public ComboBox<String> comboTurno, comboNombreLago;
 
     //Botones comunes entre las ventanas.
@@ -206,8 +206,9 @@ public class VentanaCamposController {
     }
     /**************************/
 
-    /******Para Empleador******/
+    /******Para Empleados******/
     public void iniciarCampos(Empleado empl) throws SQLException {
+        textDNIEmp.setText(empl.getDNI_Empleado());
         textNomEmp.setText(empl.getNombre_Empleado());
         txtApEmp.setText(empl.getApellidos_Empleado());
         txtTlfEmp.setText(empl.getTelefono_Empleado());
@@ -262,6 +263,20 @@ public class VentanaCamposController {
     }
     /**************************/
 
+    /******Para Empleados******/
+    public void iniciaFieldEmpleados(ArrayList<String> cargo, ObservableList<String> lagos) {
+        comboNombreLago.getItems().clear(); //Vacia el ComboBox para evitar duplicados.
+
+        //Introduce los elementos para autocompletar en los elementos respectivos.
+        TextFields.bindAutoCompletion(txtCargoEmp, cargo);
+        comboNombreLago.getItems().addAll(lagos);
+
+        //Vacia las listas proporcionada para evitar duplicados.
+        cargo.clear();
+        lagos.clear();
+    }
+    /**************************/
+
     /*___________________________________________________________________________________________________________________________________________________________________________*/
     //Guarda la imegen seleccionada en su respectiva carpeta.
     public void saveToFile() {
@@ -278,12 +293,16 @@ public class VentanaCamposController {
             carpeta = "ImgProveedores";
 
         } else if (stage.getTitle().contains("Pato")) {
-            nombreNuevoImagen = (textNomPato.getText() + " " + textNCartillaPato).replace(" ", "_");
+            nombreNuevoImagen = (textNomPato.getText() + " " + textNCartillaPato.getText()).replace(" ", "_");
             carpeta = "ImgPatos";
 
         } else if (stage.getTitle().contains("Cliente")) {
-            nombreNuevoImagen = (textNomCliente.getText() + " " + textApeCliente).replace(" ", "_");
+            nombreNuevoImagen = (textNomCliente.getText() + " " + textApeCliente.getText()).replace(" ", "_");
             carpeta = "ImgClientes";
+
+        } else if (stage.getTitle().contains("Empleado")) {
+            nombreNuevoImagen = (textNomEmp.getText() + " " + txtApEmp.getText()).replace(" ", "_");
+            carpeta = "ImgEmpleados";
         }
 
         //Guarda la imagen en formato png.
@@ -455,7 +474,7 @@ public class VentanaCamposController {
                                     "Raza = '" + textRazaPato.getText() + "', " +
                                     "Edad = " + textEdadPato.getText() + ", " +
                                     "Num_Cartilla = " + textNCartillaPato.getText() + ", " +
-                                    "Descripcion = '" + textDescPato.getText() + "', " +
+                                    "Descripcion = '" + textDescPato.getText() + "' " +
                                     "WHERE IDPato = " + IDPato);
                         }
                         break;
@@ -467,7 +486,7 @@ public class VentanaCamposController {
                             //Añade al cliente a la BD.
                             IO.actualizaRegistros("INSERT INTO PROVEEDOR VALUES ("
                                     + "null" + ", '"
-                                    + textDNICliente.getText() + "', '"
+                                    + textDNICliente.getText().toUpperCase() + "', '"
                                     + textNomCliente.getText() + "', '"
                                     + textApeCliente.getText() + "', '"
                                     + textTlf1Cliente.getText() + "', '"
@@ -483,13 +502,13 @@ public class VentanaCamposController {
 
                             //Modifica el cliente en la BD.
                             IO.actualizaRegistros("UPDATE CLIENTES set " +
-                                    "DNI = '" + textDNICliente.getText() + "', " +
+                                    "DNI = '" + textDNICliente.getText().toUpperCase() + "', " +
                                     "Nombre_Cliente = '" + textNomCliente.getText() + "', " +
                                     "Apellidos_Cliente = '" + textApeCliente.getText() + "', " +
                                     "Telefono_Cliente1 = '" + textTlf1Cliente.getText() + "', " +
                                     "Telefono_Cliente2 = '" + textTelf2Cliente.getText() + "', " +
                                     "Email_Cliente = '" + textEmailCliente.getText() + "', " +
-                                    "TipoPago = '" + CBTipPagoCliente.getValue() + "', " +
+                                    "TipoPago = '" + CBTipPagoCliente.getValue() + "' " +
                                     "WHERE IDCliente = " + IDCliente);
                         }
                         break;
@@ -535,8 +554,58 @@ public class VentanaCamposController {
                                     "Fecha_Salida = '" + DPfechaSalidaEstancia.getValue() + "', " +
                                     "IDPato = " + busqueda.getString("IDPato") + ", " +
                                     "IDCliente = " + busqueda.getString("IDCliente") + ", " +
-                                    "IDLago = " + busqueda.getString("IDLago") + ", " +
+                                    "IDLago = " + busqueda.getString("IDLago") +
                                     "WHERE IDEstancia = " + IDEstancia);
+                        }
+                        break;
+
+                    case "Añadir Empleado":
+                        //Comprueba varios aspectos del los campos antes de seguir con el INSERT.
+                        if (comprobacionGeneral("Empleados")) {
+
+                            //Buscar el ID del lago seleccionado.
+                            ResultSet busqueda = IO.introduceRegistros("SELECT IDLago FROM EMPLEADOS WHERE " +
+                                    "Nombre_Lago = " + comboNombreLago.getValue());
+
+                            busqueda.next();
+
+                            //Añade al empleado a la BD.
+                            IO.actualizaRegistros("INSERT INTO EMPLEADOS VALUES ("
+                                    + "null" + ", '"
+                                    + textDNIEmp.getText().toUpperCase() + "', '"
+                                    + textNomEmp.getText() + "', '"
+                                    + txtApEmp.getText() + "', '"
+                                    + txtTlfEmp.getText() + "', '"
+                                    + txtEmailEmp.getText() + "', '"
+                                    + txtCargoEmp.getText() + "', '"
+                                    + txtHorario.getText() + "', '"
+                                    + comboTurno.getValue() + "', "
+                                    + busqueda.getInt("IDLago") + ")");
+                        }
+                        break;
+
+                    case "Modificar Empleado":
+                        //Comprueba varios aspectos del los campos antes de seguir con el INSERT.
+                        if (comprobacionGeneral("Empleado")) {
+
+                            //Buscar el ID del lago seleccionado.
+                            ResultSet busqueda = IO.introduceRegistros("SELECT IDLago FROM EMPLEADOS WHERE " +
+                                    "Nombre_Lago = " + comboNombreLago.getValue());
+
+                            busqueda.next();
+
+                            //Modifica al empleado en la BD.
+                            IO.actualizaRegistros("UPDATE EMPLEADOS set " +
+                                    "DNI_Empleado = '" + textDNIEmp.getText().toUpperCase() + "', " +
+                                    "Nombre_Empleado = '" + textNomEmp.getText() + "', " +
+                                    "Apellidos_Empleado = '" + txtApEmp.getText() + "', " +
+                                    "Telefono_Empleado = '" + txtTlfEmp.getText() + "', " +
+                                    "Email_Empleado = '" + txtEmailEmp.getText() + "', " +
+                                    "Cargo = '" + txtCargoEmp.getText() + "', " +
+                                    "Horario_Trabajo = '" + txtHorario.getText() + "', " +
+                                    "Turno = '" + comboTurno.getValue() + "', " +
+                                    "IDLago = " + busqueda.getInt("IDLago") +
+                                    " WHERE IDEmpleado = " + IDEmpleado);
                         }
                         break;
                 }
@@ -625,6 +694,15 @@ public class VentanaCamposController {
                         "Num_Cartilla = " + comprueba);
 
                 if (patoExist.next()) {
+                    respuesta = true;
+                }
+                break;
+
+            case "Empleado":
+                ResultSet empExist = IO.introduceRegistros("SELECT IDEmpleado FROM EMPLEADOS WHERE " +
+                        "DNI_Empleado = " + comprueba);
+
+                if (empExist.next()) {
                     respuesta = true;
                 }
                 break;
@@ -777,6 +855,48 @@ public class VentanaCamposController {
                             throw new MuchoTextoException("Apellidos", 50);
                         } else if (textEmailCliente.getText().length() > 50) {
                             throw new MuchoTextoException("Email", 50);
+                        } else {
+
+                            comprobado = true;
+                        }
+                    } else {
+                        throw new CamposVaciosException();
+                    }
+                    break;
+
+                case "Empleado":
+                    if (!textDNIEmp.getText().isEmpty() ||
+                            !textNomEmp.getText().isEmpty() ||
+                            !txtApEmp.getText().isEmpty() ||
+                            !txtTlfEmp.getText().isEmpty() ||
+                            !txtEmailEmp.getText().isEmpty() ||
+                            !txtCargoEmp.getText().isEmpty() ||
+                            !txtHorario.getText().isEmpty() ||
+                            comboTurno.getValue() != null) {
+
+                        Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+                        Matcher mather = pattern.matcher(txtEmailEmp.getText());
+
+                        if (textDNIEmp.getText().length() != 9 && !isNum(textDNIEmp.getText().substring(0, 9)) && isNum(textDNIEmp.getText().substring(9))) {
+                            throw new NoNumericoException("El campo 'DNI' debe contener 9 carácteres (8 numéricos y una letra).");
+                        } else if (existeComprobar(textDNIEmp.getText(), "Empleado")) {
+                            throw new YaExisteException("El empleado con DNI '" + textDNIEmp.getText() + "' ya se encuentra registrado.");
+                        } else if (!isNum(txtTlfEmp.getText().replace("+", ""))) {
+                            throw new NoNumericoException("El campo 'Tlfn' solo puede contener números y '+'.");
+                        }else if (!mather.find()) {
+                            throw new FormatoIncorrectoException("Email");
+                        } else if (textNomEmp.getText().length() > 50) {
+                            throw new MuchoTextoException("Nombre", 50);
+                        } else if (txtApEmp.getText().length() > 50) {
+                            throw new MuchoTextoException("Apellidos", 50);
+                        } else if (txtTlfEmp.getText().length() > 16) {
+                            throw new MuchoTextoException("Tlfn", 16);
+                        }else if (txtEmailEmp.getText().length() > 50) {
+                            throw new MuchoTextoException("Email", 50);
+                        }else if (txtCargoEmp.getText().length() > 50) {
+                            throw new MuchoTextoException("Cargo", 50);
+                        }else if (txtHorario.getText().length() > 20) {
+                            throw new MuchoTextoException("Horario", 20);
                         } else {
 
                             comprobado = true;
