@@ -19,8 +19,6 @@ X
 (src/main/java/Modelo/CustomListView.java,b\e\be6a60e83a28ce5c509a5eeae8b077779128cc61
 [
 +src/main/java/Modelo/CustomProgressBar.java,9\1\915268de6e968b881a0fa7fb677f4abdd03e2355
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 V
 &src/main/java/Controlador/REPORTES.txt,8\1\81e3fdc2bf3332d25429573fe0819ef5f1374ba7
 R

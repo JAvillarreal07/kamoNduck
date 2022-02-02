@@ -233,12 +233,6 @@ public class VentanaPrincipalController implements Initializable {
 
         while (r1.next()) {
 
-            //Realiza un reporte de pedido en caso de que la cantidad de existencias del producdo
-            // sea menor que el mínimo que debería haber.
-            if (r1.getInt("Cantidad") < r1.getInt("Minimo")){
-                reportePedirProd(r1.getInt("IDProducto"),  r1.getString("Nombre_Producto"));
-            }
-
             //Crea el nuevo producto.
             Producto prod = new Producto(r1.getInt("IDProducto"),
                     r1.getString("Nombre_Producto"),
@@ -1346,7 +1340,7 @@ public class VentanaPrincipalController implements Initializable {
         HashMap parametros = new HashMap();
 
         //Inserta los parámetros.
-        parametros.put("ParIDPro",ID);
+        parametros.put("ParIDProducto",ID);
 
         JasperReport reporte;
 
