@@ -321,8 +321,11 @@ public class VentanaCamposController {
     /*___________________________________________________________________________________________________________________________________________________________________________*/
     //Controla las acciones de los botones.
     public void accionBotones() {
+
+        Stage stage = (Stage) this.botonCancelar.getScene().getWindow();
+
         try {
-            if (botonSubirImagen.isFocused()) {
+            if (!stage.getTitle().contains("Estancia") && botonSubirImagen.isFocused()) {
 
                 //Usa el explorador de archivos para poder seleccionar la imagen.
                 FileChooser fileChooser = new FileChooser();
@@ -343,13 +346,11 @@ public class VentanaCamposController {
 
             } else if (botonEnviar.isFocused()) {
 
-                Stage stage = (Stage) this.botonCancelar.getScene().getWindow();
-
                 //Realiza acciones según el elemento que se desea Añadir/Modificar.
                 switch (stage.getTitle()) {
                     case "Añadir Producto":
                         //Comprueba varios aspectos del los campos antes de seguir con el INSERT.
-                        if (comprobacionGeneral("Producto")) {
+                        if (comprobacionGeneral("Producto", "Añadir")) {
 
                             //Buscar el ID del proveedor seleccionado.
                             ResultSet pvID1 = IO.introduceRegistros("SELECT IDProveedor FROM PROVEEDOR WHERE " +
@@ -393,7 +394,7 @@ public class VentanaCamposController {
 
                     case "Modificar Producto":
                         //Comprueba varios aspectos del los campos antes de seguir con el UPDATE.
-                        if (comprobacionGeneral("Producto")) {
+                        if (comprobacionGeneral("Producto", "Modificar")) {
 
                             //Buscar el ID del proveedor seleccionado.
                             ResultSet pvID2 = IO.introduceRegistros("SELECT IDProveedor FROM PROVEEDOR WHERE " +
@@ -424,7 +425,7 @@ public class VentanaCamposController {
 
                     case "Añadir Proveedor":
                         //Comprueba varios aspectos del los campos antes de seguir con el INSERT.
-                        if (comprobacionGeneral("Proveedor")) {
+                        if (comprobacionGeneral("Proveedor", "Añadir")) {
 
                             //Añade al proveedor a la BD.
                             IO.actualizaRegistros("INSERT INTO PROVEEDOR VALUES ("
@@ -438,20 +439,20 @@ public class VentanaCamposController {
 
                     case "Modificar Proveedor":
                         //Comprueba varios aspectos del los campos antes de seguir con el UPDATE.
-                        if (comprobacionGeneral("Proveedor")) {
+                        if (comprobacionGeneral("Proveedor", "Modificar")) {
 
                             //Modifica al proveedor en la BD.
                             IO.actualizaRegistros("UPDATE PROVEEDOR set " +
                                     "Nombre_Proveedor = '" + textNomProv.getText() + "', " +
                                     "Direccion = '" + textDireProv.getText() + "', " +
                                     "Telefono_Proveedor = '" + textTelProv.getText() + "', " +
-                                    "Pais = '" + textPaisProv.getText() + "', " +
+                                    "Pais = '" + textPaisProv.getText() + "' " +
                                     "WHERE IDProveedor = " + IDPrv);
                         }
                         break;
 
                     case "Añadir Pato":
-                        if (comprobacionGeneral("Pato")) {
+                        if (comprobacionGeneral("Pato", "Añadir")) {
 
                             //Añade al pato a la BD.
                             IO.actualizaRegistros("INSERT INTO PATOS VALUES ("
@@ -466,7 +467,7 @@ public class VentanaCamposController {
 
                     case "Modificar Pato":
                         //Comprueba varios aspectos del los campos antes de seguir con el UPDATE.
-                        if (comprobacionGeneral("Pato")) {
+                        if (comprobacionGeneral("Pato", "Modificar")) {
 
                             //Modifica al pato en la BD.
                             IO.actualizaRegistros("UPDATE PATOS set " +
@@ -481,7 +482,7 @@ public class VentanaCamposController {
 
                     case "Añadir Cliente":
                         //Comprueba varios aspectos del los campos antes de seguir con el INSERT.
-                        if (comprobacionGeneral("Cliente")) {
+                        if (comprobacionGeneral("Cliente", "Añadir")) {
 
                             //Añade al cliente a la BD.
                             IO.actualizaRegistros("INSERT INTO PROVEEDOR VALUES ("
@@ -498,7 +499,7 @@ public class VentanaCamposController {
 
                     case "Modificar Cliente":
                         //Comprueba varios aspectos del los campos antes de seguir con el UPDATE.
-                        if (comprobacionGeneral("Cliente")) {
+                        if (comprobacionGeneral("Cliente", "Modificar")) {
 
                             //Modifica el cliente en la BD.
                             IO.actualizaRegistros("UPDATE CLIENTES set " +
@@ -515,13 +516,13 @@ public class VentanaCamposController {
 
                     case "Añadir Estancia":
                         //Comprueba varios aspectos del los campos antes de seguir con el INSERT.
-                        if (comprobacionGeneral("Estancia")) {
+                        if (comprobacionGeneral("Estancia", "Añadir")) {
 
                             //Buscar el ID del pato, cliente y lago seleccionado.
                             ResultSet busqueda = IO.introduceRegistros("SELECT patos.IDPato, clientes.IDCliente, lagos.IDLago FROM patos, clientes, lagos WHERE " +
                                     "clientes.DNI = '" + textDNIClEstancia.getText() + "' && " +
                                     "patos.Num_Cartilla = " + textNCartillaPatoEstancia.getText() + " && " +
-                                    "lagos.IDLago = " + CBNombreLagoEstancia.getValue());
+                                    "lagos.Nombre_Lago = '" + CBNombreLagoEstancia.getValue() + "'");
 
                             busqueda.next();
 
@@ -538,13 +539,13 @@ public class VentanaCamposController {
 
                     case "Modificar Estancia":
                         //Comprueba varios aspectos del los campos antes de seguir con el UPDATE.
-                        if (comprobacionGeneral("Estancia")) {
+                        if (comprobacionGeneral("Estancia", "Modificar")) {
 
                             //Buscar el ID del pato, cliente y lago seleccionado.
                             ResultSet busqueda = IO.introduceRegistros("SELECT patos.IDPato, clientes.IDCliente, lagos.IDLago FROM patos, clientes, lagos WHERE " +
                                     "clientes.DNI = '" + textDNIClEstancia.getText() + "' && " +
                                     "patos.Num_Cartilla = " + textNCartillaPatoEstancia.getText() + " && " +
-                                    "lagos.IDLago = " + CBNombreLagoEstancia.getValue());
+                                    "lagos.Nombre_Lago = '" + CBNombreLagoEstancia.getValue() + "'");
 
                             busqueda.next();
 
@@ -555,13 +556,13 @@ public class VentanaCamposController {
                                     "IDPato = " + busqueda.getString("IDPato") + ", " +
                                     "IDCliente = " + busqueda.getString("IDCliente") + ", " +
                                     "IDLago = " + busqueda.getString("IDLago") +
-                                    "WHERE IDEstancia = " + IDEstancia);
+                                    " WHERE IDEstancia = " + IDEstancia);
                         }
                         break;
 
                     case "Añadir Empleado":
                         //Comprueba varios aspectos del los campos antes de seguir con el INSERT.
-                        if (comprobacionGeneral("Empleados")) {
+                        if (comprobacionGeneral("Empleados", "Añadir")) {
 
                             //Buscar el ID del lago seleccionado.
                             ResultSet busqueda = IO.introduceRegistros("SELECT IDLago FROM EMPLEADOS WHERE " +
@@ -586,7 +587,7 @@ public class VentanaCamposController {
 
                     case "Modificar Empleado":
                         //Comprueba varios aspectos del los campos antes de seguir con el INSERT.
-                        if (comprobacionGeneral("Empleado")) {
+                        if (comprobacionGeneral("Empleado", "Modificar")) {
 
                             //Buscar el ID del lago seleccionado.
                             ResultSet busqueda = IO.introduceRegistros("SELECT IDLago FROM EMPLEADOS WHERE " +
@@ -615,7 +616,6 @@ public class VentanaCamposController {
 
             } else if (botonCancelar.isFocused()) {
                 //Cierra la ventana.
-                Stage stage = (Stage) this.botonCancelar.getScene().getWindow();
                 stage.close();
 
             }
@@ -668,53 +668,66 @@ public class VentanaCamposController {
     public boolean existeComprobar(String comprueba, String para) throws SQLException {
         boolean respuesta = false;
 
-        switch (para) {
-            case "Producto":
-                ResultSet proveedorExist1 = IO.introduceRegistros("SELECT IDProveedor FROM PROVEEDOR WHERE " +
-                        "Nombre_Proveedor = '" + comprueba + "'");
+        try {
 
-                if (proveedorExist1.next()) {
-                    respuesta = true;
-                }
-                break;
+            switch (para) {
+                case "Producto":
+                    ResultSet proveedorExist1 = IO.introduceRegistros("SELECT IDProveedor FROM PROVEEDOR WHERE " +
+                            "Nombre_Proveedor = '" + comprueba + "'");
 
-            case "Proveedor":
-                ResultSet proveedorExist2 = IO.introduceRegistros("SELECT IDProveedor FROM PROVEEDOR WHERE " +
-                        "Nombre_Proveedor = '" + comprueba + "' " +
-                        "Direccion = '" + textDireProv.getText() + "' " +
-                        "Pais = '" + textPaisProv.getText() + "'");
+                    if (proveedorExist1.next()) {
+                        respuesta = true;
+                    }
+                    break;
 
-                if (proveedorExist2.next()) {
-                    respuesta = true;
-                }
-                break;
+                case "Proveedor":
+                    ResultSet proveedorExist2 = IO.introduceRegistros("SELECT IDProveedor FROM PROVEEDOR WHERE " +
+                            "Nombre_Proveedor = '" + comprueba + "' " +
+                            "Direccion = '" + textDireProv.getText() + "' " +
+                            "Pais = '" + textPaisProv.getText() + "'");
 
-            case "Pato":
-                ResultSet patoExist = IO.introduceRegistros("SELECT IDPato FROM PATOS WHERE " +
-                        "Num_Cartilla = " + comprueba);
+                    if (proveedorExist2.next()) {
+                        respuesta = true;
+                    }
+                    break;
 
-                if (patoExist.next()) {
-                    respuesta = true;
-                }
-                break;
+                case "Pato":
+                    ResultSet patoExist = IO.introduceRegistros("SELECT IDPato FROM PATOS WHERE " +
+                            "Num_Cartilla = '" + comprueba + "'");
 
-            case "Empleado":
-                ResultSet empExist = IO.introduceRegistros("SELECT IDEmpleado FROM EMPLEADOS WHERE " +
-                        "DNI_Empleado = " + comprueba);
+                    if (patoExist.next()) {
+                        respuesta = true;
+                    }
+                    break;
 
-                if (empExist.next()) {
-                    respuesta = true;
-                }
-                break;
-        }
+                case "Cliente":
+                    ResultSet clienteExist = IO.introduceRegistros("SELECT IDCliente FROM CLIENTES WHERE " +
+                            "DNI = '" + comprueba + "'");
+
+                    if (clienteExist.next()) {
+                        respuesta = true;
+                    }
+                    break;
+
+                case "Empleado":
+                    ResultSet empExist = IO.introduceRegistros("SELECT IDEmpleado FROM EMPLEADOS WHERE " +
+                            "DNI_Empleado = '" + comprueba + "'");
+
+                    if (empExist.next()) {
+                        respuesta = true;
+                    }
+                    break;
+            }
+        }catch (NullPointerException e){};
 
         return respuesta;
     }
 
     /*___________________________________________________________________________________________________________________________________________________________________________*/
     //Comprueba que todos los campos de la ventana estén bien escritos.
-    public boolean comprobacionGeneral(String aComprobar) {
+    public boolean comprobacionGeneral(String aComprobar, String accion) {
         boolean comprobado = false;
+        Stage stage = (Stage) this.botonCancelar.getScene().getWindow();
 
         try {
             switch (aComprobar) {
@@ -751,9 +764,9 @@ public class VentanaCamposController {
                             !textTelProv.getText().isEmpty() ||
                             !textPaisProv.getText().isEmpty()) {
 
-                        if (!isNum(textTelProv.getText().replace("+", ""))) {
+                        if (!isNum(textTelProv.getText().replace("+", "").replace(" ", ""))) {
                             throw new NoNumericoException("El campo 'Teléfono' solo puede contener números y '+'.");
-                        } else if (existeComprobar(textNomProv.getText(), "Proveedor")) {
+                        } else if (accion.equals("Añadir") && existeComprobar(textNomProv.getText(), "Proveedor")) {
                             throw new YaExisteException("El proveedor '" + textNomProv.getText() + "' ya se encuentra registrado.");
                         } else if (textNomProv.getText().length() > 100) {
                             throw new MuchoTextoException("Nombre empresa", 100);
@@ -782,7 +795,7 @@ public class VentanaCamposController {
                             throw new NoNumericoException("El campo 'Edad' solo puede contener números.");
                         } else if (!isNum(textNCartillaPato.getText())) {
                             throw new NoNumericoException("El campo 'Nº Cartilla' solo puede contener números.");
-                        } else if (existeComprobar(textNCartillaPato.getText(), "Pato")) {
+                        } else if (accion.equals("Añadir") && existeComprobar(textNCartillaPato.getText(), "Pato")) {
                             throw new YaExisteException("El pato con cartilla '" + textNCartillaPato.getText() + "' ya se encuentra registrado.");
                         } else if (textNomPato.getText().length() > 50) {
                             throw new MuchoTextoException("Nombre Pato", 50);
@@ -809,15 +822,15 @@ public class VentanaCamposController {
                         Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
                         Matcher mather = pattern.matcher(textEmailCliente.getText());
 
-                        if (!isNum(textTlf1Cliente.getText().replace("+", ""))) {
+                        if (!isNum(textTlf1Cliente.getText().replace("+", "").replace(" ", ""))) {
                             throw new NoNumericoException("El campo 'Tlfn1' solo puede contener números y '+'.");
-                        } else if (!isNum(textTelf2Cliente.getText().replace("+", ""))) {
+                        } else if (!isNum(textTelf2Cliente.getText().replace("+", "").replace(" ", ""))) {
                             throw new NoNumericoException("El campo 'Tlfn2' solo puede contener números y '+'.");
                         } else if (!mather.find()) {
                             throw new FormatoIncorrectoException("Email");
                         } else if (textDNICliente.getText().length() != 9 && !isNum(textDNICliente.getText().substring(0, 9)) && isNum(textDNICliente.getText().substring(9))) {
                             throw new NoNumericoException("El campo 'DNI' debe contener 9 carácteres (8 numéricos y una letra).");
-                        } else if (existeComprobar(textDNICliente.getText(), "Cliente")) {
+                        } else if (accion.equals("Añadir") && existeComprobar(textDNICliente.getText(), "Cliente")) {
                             throw new YaExisteException("El cliente con DNI '" + textDNICliente.getText() + "' ya se encuentra registrado.");
                         } else {
 
@@ -849,12 +862,6 @@ public class VentanaCamposController {
                             throw new FechaInvalidaException("El campo 'Fecha Salida' no contiene una fecha válida.");
                         } else if (DPfechaEntradaEstancia.getValue().compareTo(DPfechaSalidaEstancia.getValue()) > -1) {
                             throw new FechaInvalidaException("La fecha del campo 'Fecha Ingreso' debe ser anterior a la de 'Fecha Salida'.");
-                        } else if (textNomCliente.getText().length() > 50) {
-                            throw new MuchoTextoException("Nombre", 50);
-                        } else if (textApeCliente.getText().length() > 50) {
-                            throw new MuchoTextoException("Apellidos", 50);
-                        } else if (textEmailCliente.getText().length() > 50) {
-                            throw new MuchoTextoException("Email", 50);
                         } else {
 
                             comprobado = true;
@@ -879,9 +886,9 @@ public class VentanaCamposController {
 
                         if (textDNIEmp.getText().length() != 9 && !isNum(textDNIEmp.getText().substring(0, 9)) && isNum(textDNIEmp.getText().substring(9))) {
                             throw new NoNumericoException("El campo 'DNI' debe contener 9 carácteres (8 numéricos y una letra).");
-                        } else if (existeComprobar(textDNIEmp.getText(), "Empleado")) {
+                        } else if (accion.equals("Añadir") && existeComprobar(textDNIEmp.getText(), "Empleado")) {
                             throw new YaExisteException("El empleado con DNI '" + textDNIEmp.getText() + "' ya se encuentra registrado.");
-                        } else if (!isNum(txtTlfEmp.getText().replace("+", ""))) {
+                        } else if (!isNum(txtTlfEmp.getText().replace("+", "").replace(" ", ""))) {
                             throw new NoNumericoException("El campo 'Tlfn' solo puede contener números y '+'.");
                         }else if (!mather.find()) {
                             throw new FormatoIncorrectoException("Email");

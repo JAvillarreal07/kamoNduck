@@ -1006,7 +1006,7 @@ public class VentanaPrincipalController implements Initializable {
     //Mustra los datos del Empleado seleccionado en las ListViews en sus respectivos elementos.
     public void seleccionarEmpleado() {
 
-        ListView<CustomListView> seleccionada = null; //Almacenará al empleado seleccionado.
+        JFXListView<CustomListView> seleccionada = null; //Almacenará al empleado seleccionado.
 
         //Controla la ListView en la que se haya clicado.
         if (listViewEmpleados.isFocused()) {
@@ -1216,7 +1216,7 @@ public class VentanaPrincipalController implements Initializable {
             stage.showAndWait();
 
         } else if (botonModificarEmple.isFocused()) {
-            ListView<CustomListView> seleccionada = null; //Almacenará al empleado seleccionado.
+            JFXListView<CustomListView> seleccionada = null; //Almacenará al empleado seleccionado.
 
             //Controla la ListView en la que se haya clicado.
             if (listViewEmpleados.isFocused()) {
@@ -1236,10 +1236,11 @@ public class VentanaPrincipalController implements Initializable {
             //Recorre la lista de Empleados para encontrar el seleccionado y mostrar sus datos.
             for (int i = 0; i < ListaEmpleados.size(); i++) {
 
-                if (ListaEmpleados.get(i).getNombreCompleto().equals(seleccionada.getSelectionModel().getSelectedItem().getNombreCompleto())) {
+                if (ListaEmpleados.get(i).getNombreCompleto().equals(tarjetaEmpleNom.getText() + " " + tarjetaEmpleApe.getText())) {
                     try {
 
-                        controlador.iniciarCampos(ListaEmpleados.get(i));
+                        Empleado encontrado = ListaEmpleados.get(i);
+                        controlador.iniciarCampos(encontrado);
                         break;
 
                     } catch (SQLException e) {
