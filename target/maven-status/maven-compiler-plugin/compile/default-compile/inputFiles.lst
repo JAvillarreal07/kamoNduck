@@ -1,5 +1,6 @@
 C:\Users\josea\Desktop\kamoNduck\src\main\java\Controlador\Excepciones\FechaInvalidaException.java
 C:\Users\josea\Desktop\kamoNduck\src\main\java\Controlador\Excepciones\YaExisteException.java
+C:\Users\josea\Desktop\kamoNduck\src\main\java\Modelo\CustomProgressBar.java
 C:\Users\josea\Desktop\kamoNduck\src\main\java\Modelo\Estancia.java
 C:\Users\josea\Desktop\kamoNduck\src\main\java\Modelo\Lago.java
 C:\Users\josea\Desktop\kamoNduck\src\main\java\Controlador\VentanaCamposController.java
@@ -12,6 +13,7 @@ C:\Users\josea\Desktop\kamoNduck\src\main\java\Controlador\VentanaPrincipalContr
 C:\Users\josea\Desktop\kamoNduck\src\main\java\Controlador\Excepciones\MuchoTextoException.java
 C:\Users\josea\Desktop\kamoNduck\src\main\java\Controlador\Excepciones\CamposVaciosException.java
 C:\Users\josea\Desktop\kamoNduck\src\main\java\Modelo\Pato.java
+C:\Users\josea\Desktop\kamoNduck\src\main\java\Controlador\Excepciones\FormatoIncorrectoException.java
 C:\Users\josea\Desktop\kamoNduck\src\main\java\Modelo\Empleado.java
 C:\Users\josea\Desktop\kamoNduck\src\main\java\Modelo\Cliente.java
 C:\Users\josea\Desktop\kamoNduck\src\main\java\Modelo\Producto.java

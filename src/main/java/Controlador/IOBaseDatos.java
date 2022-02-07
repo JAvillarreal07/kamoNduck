@@ -49,8 +49,9 @@ public class IOBaseDatos {
         return resulCons;
     }
 
-    Connection con = null;
+    Connection con = null; //Almacena la conexión con la BD.
 
+    //Devuelve la conexión con la BD.
     public Connection conexion() {
 
         try {

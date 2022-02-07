@@ -2,8 +2,6 @@ package Controlador.Excepciones;
 
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
@@ -14,9 +12,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Random;
 
+//Excepción personalizada para los elementos en los que no se haya escrito contenido.
 public class CamposVaciosException extends Exception {
     public CamposVaciosException() {
         super("Se deben rellenar todos los campos.");
+
+        //Genera una alerta con la información del error.
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText(null);
         alert.setTitle("Informacion");
@@ -24,6 +25,7 @@ public class CamposVaciosException extends Exception {
         stage.getIcons().add(new Image("/Imagenes/error-logo.png"));
         alert.setContentText("Se deben rellenar todos los campos obligatorios (*).");
 
+        //Reproduce uno de los sonidos.
         try {
             String nombreAudio = "src/main/resources/Sonidos/Quack_Sound_Effect.mp3";
 

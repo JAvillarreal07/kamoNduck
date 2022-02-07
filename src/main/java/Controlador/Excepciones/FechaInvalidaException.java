@@ -12,9 +12,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Random;
 
+//Excepción personalizada para los elementos en los que se haya escrito una fecha inválida.
 public class FechaInvalidaException extends Exception{
     public FechaInvalidaException(String mensaje){
         super(mensaje);
+
+        //Genera una alerta con la información del error.
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText(null);
         alert.setTitle("Informacion");
@@ -22,6 +25,7 @@ public class FechaInvalidaException extends Exception{
         stage.getIcons().add(new Image("/Imagenes/error-logo.png"));
         alert.setContentText(mensaje);
 
+        //Reproduce uno de los sonidos.
         try {
             String nombreAudio = "src/main/resources/Sonidos/Quack_Sound_Effect.mp3";
 

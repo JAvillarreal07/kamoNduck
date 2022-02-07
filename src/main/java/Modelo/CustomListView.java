@@ -1,19 +1,15 @@
 package Modelo;
 
-import Controlador.IOBaseDatos;
-import Controlador.VentanaPrincipalController;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Priority;
 
 public class CustomListView extends HBox {
     private ImageView ImagenView = new ImageView();
     private Label NombreCompleto = new Label();
     private String Nombre, Apellidos;
-
-    VentanaPrincipalController vpc = new VentanaPrincipalController();
 
     public CustomListView(Image imagen, String nombre, String apellidos, String cargo) {
         super();

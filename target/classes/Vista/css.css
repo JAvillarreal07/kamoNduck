@@ -75,3 +75,11 @@
     -fx-border-color: -fx-box-border;
     -fx-border-insets: -1 -1 0 0;
 }
+
+/*.jfx-progress-bar > .bar {*/
+/*    -fx-background-color: red;*/
+/*}*/
+
+.green-bar > .bar { -fx-background-color: green; }
+.orange-bar > .bar { -fx-background-color: orange; }
+.red-bar > .bar { -fx-background-color: red; }
