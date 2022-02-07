@@ -1,0 +1,104 @@
+
+p	java:S1165"[Rename this field "CBTipPagoCliente" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹ÓÜ
+{	java:S1169"aRename this field "DPfechaEntradaEstancia" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è€¬§ùÿÿÿÿ
+z	java:S1169"`Rename this field "DPfechaSalidaEstancia" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è€¬§ùÿÿÿÿ
+t	java:S116:"_Rename this field "CBNombreLagoEstancia" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñÃœ˜
+b	java:S116E"MRename this field "IO" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(øù“Á
+j	java:S116L"PRename this field "IDPrd" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßï½Öúÿÿÿÿ
+j	java:S116L"PRename this field "IDPrv" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßï½Öúÿÿÿÿ
+k	java:S116L"QRename this field "IDPato" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßï½Öúÿÿÿÿ
+n	java:S116L"TRename this field "IDCliente" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßï½Öúÿÿÿÿ
+o	java:S116L"URename this field "IDEstancia" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßï½Öúÿÿÿÿ
+o	java:S116L"URename this field "IDEmpleado" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßï½Öúÿÿÿÿ
+C	java:S108_")Either remove or fill this block of code.(¥¨›ıÿÿÿÿ
+C	java:S108p")Either remove or fill this block of code.(¥¨›ıÿÿÿÿ
+D	java:S108‚")Either remove or fill this block of code.(¥¨›ıÿÿÿÿ
+D	java:S108–")Either remove or fill this block of code.(¥¨›ıÿÿÿÿ
+D	java:S108ì")Either remove or fill this block of code.(¥¨›ıÿÿÿÿ
+=
+java:S1075Å"&Remove this hard-coded path-delimiter.(ÛƒË¼
+?	java:S108Ê")Either remove or fill this block of code.(˜Âø
+n
+java:S3776Ò"RRefactor this method to reduce its Cognitive Complexity from 72 to the 15 allowed.(áÛÊ†ûÿÿÿÿ
+7	java:S131î""Add a default case to this switch.(É¬ßD
+=	java:S131î""Add a default case to this switch.(¦–‚îùÿÿÿÿ
+?	java:S108")Either remove or fill this block of code.(ßÈ´
+8
+java:S1116 "Remove this empty statement.(Åñ­õşÿÿÿÿ
+n
+java:S3776§"RRefactor this method to reduce its Cognitive Complexity from 97 to the 15 allowed.(‚·úÿÿÿÿ
+P
+java:S1854©"9Remove this useless assignment to local variable "stage".(ı®§¹
+A
+java:S1481©"*Remove this unused "stage" local variable.(ı®§¹
+\
+java:S2147æ"ECombine this catch with the one at line 996, which has the same body.(¥¨ĞŒ
+a
+java:S2147è"ECombine this catch with the one at line 996, which has the same body.(”ä¥§ıÿÿÿÿ
+\
+java:S2147ê"ECombine this catch with the one at line 996, which has the same body.(ıÙÅ
+a
+java:S2147î"ECombine this catch with the one at line 996, which has the same body.(çø»Ïøÿÿÿÿ
+\
+java:S2147ğ"ECombine this catch with the one at line 996, which has the same body.(¤ıÒ©
+=	java:S131¬""Add a default case to this switch.(·èÜşÿÿÿÿ
+h
+java:S5998…"LRefactor this repetition that can lead to a stack overflow for large inputs.(ù³®úÿÿÿÿ
+h
+java:S5998Ã"LRefactor this repetition that can lead to a stack overflow for large inputs.(ù³®úÿÿÿÿ
+e
+java:S1192ñ"IDefine a constant instead of duplicating this literal "AÃ±adir" 10 times.(Ğœ›‘ùÿÿÿÿ
+e
+java:S1192¾"IDefine a constant instead of duplicating this literal "Empleado" 5 times.(½ùö¬ùÿÿÿÿ
+f
+java:S1192²"JDefine a constant instead of duplicating this literal "Proveedor" 7 times.(±”¡¨üÿÿÿÿ
+u
+java:S1192¶"^Define a constant instead of duplicating this literal "' no se encuentra registrado." 3 times.(ØÒÄÿ
+_
+java:S1192Ç"HDefine a constant instead of duplicating this literal "DNI = '" 3 times.(óé»«
+a
+java:S1192§"JDefine a constant instead of duplicating this literal "ImgLagos/" 3 times.(Õñöƒ
+{
+java:S1192È"_Define a constant instead of duplicating this literal "INSERT INTO PROVEEDOR VALUES (" 3 times.(‰¤†ûûÿÿÿÿ
+e
+java:S1192×"IDefine a constant instead of duplicating this literal "Estancia" 4 times.(õ½¨¸ıÿÿÿÿ
+d
+java:S1192º"HDefine a constant instead of duplicating this literal "Cliente" 7 times.(¨¨œ˜úÿÿÿÿ
+q
+java:S1192õ"UDefine a constant instead of duplicating this literal "Nombre_Proveedor = '" 5 times.(‚›§Æúÿÿÿÿ
+u
+java:S1192Ñ"^Define a constant instead of duplicating this literal "' ya se encuentra registrado." 4 times.(­¹…¥
+]
+java:S1192"FDefine a constant instead of duplicating this literal "Email" 3 times.(×±Â³
+`
+java:S1192®"IDefine a constant instead of duplicating this literal "Producto" 6 times.(­ÍÓÒ
+¤
+java:S1192"‡Define a constant instead of duplicating this literal "El campo 'DNI' debe contener 9 carÃ¡cteres (8 numÃ©ricos y una letra)." 3 times.(•ÑÁÿÿÿÿÿ
+c
+java:S1192Ï"GDefine a constant instead of duplicating this literal "IDLago" 4 times.(ª•ÈÔùÿÿÿÿ
+i
+java:S1192•"MDefine a constant instead of duplicating this literal "ImgClientes/" 3 times.(üöŞ‰ıÿÿÿÿ
+€
+java:S1192ô"iDefine a constant instead of duplicating this literal "SELECT IDProveedor FROM PROVEEDOR WHERE " 4 times.(ÖÜé
+f
+java:S1192"JDefine a constant instead of duplicating this literal "ImgPatos/" 3 times.(¡¶Â‚şÿÿÿÿ
+f
+java:S1192¡"JDefine a constant instead of duplicating this literal "Modificar" 6 times.(Î“­çøÿÿÿÿ
+‡
+java:S1319ş"kThe type of "nombresProv" should be an interface such as "List" rather than the implementation "ArrayList".(ûì­Ãûÿÿÿÿ
+€
+java:S1319‡"iThe type of "cartillas" should be an interface such as "List" rather than the implementation "ArrayList".(òØÄÃ
+|
+java:S1319™"eThe type of "cargo" should be an interface such as "List" rather than the implementation "ArrayList".(Şß¬´
+g	java:S117‡"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òØÄÃ
+l	java:S117ù"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·Õõ»üÿÿÿÿ
+l	java:S117©"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿Ïœùÿÿÿÿ
+D
+java:S1604¯"(Make this anonymous inner class a lambda(äÍ¤¦ıÿÿÿÿ
+D
+java:S1604Â"(Make this anonymous inner class a lambda(±‘‚õúÿÿÿÿ
+D
+java:S1604Ô"(Make this anonymous inner class a lambda(Ü½îüÿÿÿÿ
+?
+java:S1604ï"(Make this anonymous inner class a lambda(›¶Ö
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ï‡Î£

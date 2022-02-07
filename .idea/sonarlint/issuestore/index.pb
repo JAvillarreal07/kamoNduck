@@ -15,8 +15,6 @@ R
 "src/main/java/Modelo/Producto.java,4\7\47587026e76765dad2c0142b592adfc079c12eb2
 S
 #src/main/java/Modelo/Proveedor.java,9\5\9599cd063c9ae24574abe3f138bd598ccd769fbe
-V
-&src/main/java/Controlador/REPORTES.txt,8\1\81e3fdc2bf3332d25429573fe0819ef5f1374ba7
 R
 "src/main/java/Modelo/Empleado.java,c\b\cb9243f098275572bf5a07c06b47ad7244e95d60
 p
@@ -55,3 +53,9 @@ j
 +src/main/java/Modelo/CustomProgressBar.java,9\1\915268de6e968b881a0fa7fb677f4abdd03e2355
 R
 "src/main/java/Modelo/Estancia.java,9\0\900274131eee07204622f8e3c06ba53f4ff6a927
+X
+(src/main/java/Modelo/CustomListView.java,b\e\be6a60e83a28ce5c509a5eeae8b077779128cc61
+f
+6src/main/java/Controlador/VentanaCamposController.java,7\c\7c287026e2a4ce3a5e7aaa7b8aba8376f64a59e2
+i
+9src/main/java/Controlador/VentanaPrincipalController.java,e\6\e6d2aa5d371f185ca8ac5b122b57a039a9aa5acd

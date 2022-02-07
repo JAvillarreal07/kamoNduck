@@ -1,92 +1,223 @@
 
-n	java:S116e"MRename this field "IO" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÓÒÏÜıÿÿÿÿ8öÜ‰Ûè/
-u	java:S116g"YRename this field "ListaProductos" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÓãÁ8öÜ‰Ûè/
-z	java:S116h"YRename this field "ListaProveedor" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İÕæøÿÿÿÿ8öÜ‰Ûè/
-z	java:S116i"YRename this field "ListaEmpleados" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î°áıÿÿÿÿ8öÜ‰Ûè/
-t	java:S116n"XRename this field "IDProdFiltros" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×ÎÙ«8÷Ü‰Ûè/
-t	java:S116o"XRename this field "IDProvFiltros" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ìİø8÷Ü‰Ûè/
-u
-java:S3776Ä"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(î€ºëùÿÿÿÿ8³İ‰Ûè/
-F	java:S108Ò")Either remove or fill this block of code.(ßÈ´8·İ‰Ûè/
-F	java:S108ã")Either remove or fill this block of code.(ßÈ´8»İ‰Ûè/
-D	java:S131‹""Add a default case to this switch.(Î´ßøÿÿÿÿ8Åİ‰Ûè/
-u
-java:S3776¹"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(‘³áöøÿÿÿÿ8Ëİ‰Ûè/
-D	java:S131’""Add a default case to this switch.(‹©ƒĞûÿÿÿÿ8ßİ‰Ûè/
-O
-java:S1905ë"1Remove this unnecessary cast to "ObservableList".(ö²Óš8æİ‰Ûè/
-T
-java:S1905÷"1Remove this unnecessary cast to "ObservableList".(ªã×Óıÿÿÿÿ8èİ‰Ûè/
-F	java:S108”")Either remove or fill this block of code.(ßÈ´8ìİ‰Ûè/
-F	java:S108¨")Either remove or fill this block of code.(ßÈ´8ğİ‰Ûè/
-D	java:S131³""Add a default case to this switch.(ì»¾úÿÿÿÿ8òİ‰Ûè/
-^
-java:S1126Ë"AReplace this if-then-else statement by a single return statement.(¶·šb8òİ‰Ûè/
-¤
-java:S1130Ó"†Remove the declaration of thrown exception 'Controlador.Excepciones.CamposVaciosException', as it cannot be thrown from method's body.(íüá/8óİ‰Ûè/
-[	java:S106Õ"9Replace this use of System.out or System.err by a logger.(†üçşÿÿÿÿ8óİ‰Ûè/
-{
-java:S2293X"YReplace the type specification in this constructor call with the diamond operator ("<>").(­ËïÑÿÿÿÿÿ8öİ‰Ûè/
-v
-java:S2293Z"YReplace the type specification in this constructor call with the diamond operator ("<>").(İÄ÷•8÷İ‰Ûè/
-v
-java:S2293n"YReplace the type specification in this constructor call with the diamond operator ("<>").(×ÎÙ«8÷İ‰Ûè/
-v
-java:S2293o"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ìİø8÷İ‰Ûè/
-v
-java:S2293p"YReplace the type specification in this constructor call with the diamond operator ("<>").(Í¬ğî8÷İ‰Ûè/
-{
-java:S2293q"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÙÓğşÿÿÿÿ8÷İ‰Ûè/
-{
-java:S2293r"YReplace the type specification in this constructor call with the diamond operator ("<>").(î“ş°ùÿÿÿÿ8÷İ‰Ûè/
-u
-java:S2293s"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ô‹¢A8øİ‰Ûè/
-v
-java:S2293t"YReplace the type specification in this constructor call with the diamond operator ("<>").(¼êØ©8øİ‰Ûè/
-{
-java:S2293u"YReplace the type specification in this constructor call with the diamond operator ("<>").(€ï¥ôüÿÿÿÿ8øİ‰Ûè/
-{
-java:S2293v"YReplace the type specification in this constructor call with the diamond operator ("<>").(ßÎ‹¸ÿÿÿÿÿ8øİ‰Ûè/
-l
-java:S1192½"IDefine a constant instead of duplicating this literal "AlmacÃ©n" 8 times.(®“àùøÿÿÿÿ8ùİ‰Ûè/
-o
-java:S1192˜"QDefine a constant instead of duplicating this literal "Nombre_Proveedor" 3 times.(â¨Ä…8ùİ‰Ûè/
-o
-java:S1192–"LDefine a constant instead of duplicating this literal "IDProveedor" 3 times.(å ×Âûÿÿÿÿ8úİ‰Ûè/
-v
-java:S1192Î"XDefine a constant instead of duplicating this literal "/Imagenes/iconoSolo.png" 7 times.(õö¿Ì8úİ‰Ûè/
-n	java:S117ê"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù¤ö8üİ‰Ûè/
-s	java:S117ö"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íà‚ëıÿÿÿÿ8ıİ‰Ûè/
-K
-java:S1604„"(Make this anonymous inner class a lambda(Ã¤µ×üÿÿÿÿ8ıİ‰Ûè/
-F
-java:S1604‹"(Make this anonymous inner class a lambda(óğÒ¹8ıİ‰Ûè/
-F
-java:S1604’"(Make this anonymous inner class a lambda(áìŸˆ8ıİ‰Ûè/
-K
-java:S1604™"(Make this anonymous inner class a lambda(Á ÍÅüÿÿÿÿ8ıİ‰Ûè/
-F
-java:S1604 "(Make this anonymous inner class a lambda(ˆıíœ8ıİ‰Ûè/
-K
-java:S1604§"(Make this anonymous inner class a lambda(½¯ëùÿÿÿÿ8şİ‰Ûè/
-F
-java:S1604®"(Make this anonymous inner class a lambda(áËç·8şİ‰Ûè/
-F
-java:S1604µ"(Make this anonymous inner class a lambda(øúşñ8şİ‰Ûè/
-F
-java:S1604¼"(Make this anonymous inner class a lambda( Ş˜¯8şİ‰Ûè/
+r	java:S116`"^Rename this field "colNum_cartillaPato" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹¬Ò7
+h	java:S116“"MRename this field "IO" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÓÒÏÜıÿÿÿÿ
+o	java:S116–"YRename this field "ListaProductos" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÓãÁ
+t	java:S116—"YRename this field "ListaProveedor" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İÕæøÿÿÿÿ
+p	java:S116˜"URename this field "ListaPatos" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şšŒÒüÿÿÿÿ
+s	java:S116™"XRename this field "ListaClientes" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†Øéïıÿÿÿÿ
+j	java:S116š"URename this field "ListaLagos" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş÷„
+o	java:S116›"YRename this field "ListaEstancias" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌÂĞŞ
+t	java:S116œ"YRename this field "ListaEmpleados" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î°áıÿÿÿÿ
+n	java:S116¦"XRename this field "IDProdFiltros" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×ÎÙ«
+n	java:S116¬"XRename this field "IDProvFiltros" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ìİø
+n	java:S116±"XRename this field "IDPatoFiltros" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÕÔû“
+q	java:S116·"[Rename this field "IDClienteFiltros" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ı°±
+w	java:S116¸"\Rename this field "DNIClienteFiltros" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨·³Òıÿÿÿÿ
+r	java:S116À"\Rename this field "IDEstanciaFiltros" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äè˜
+h
+java:S3776à"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(Â”ãw
 n
-java:S1301‹"KReplace this "switch" statement by "if" statements to increase readability.(Î´ßøÿÿÿÿ8ÿİ‰Ûè/
+java:S3776Ô"RRefactor this method to reduce its Cognitive Complexity from 49 to the 15 allowed.(ğİ®²üÿÿÿÿ
+n
+java:S3776Ë"RRefactor this method to reduce its Cognitive Complexity from 50 to the 15 allowed.(î€ºëùÿÿÿÿ
+?	java:S108ª")Either remove or fill this block of code.(ßÈ´
+=	java:S131Ş""Add a default case to this switch.(Î´ßøÿÿÿÿ
+n
+java:S3776š"RRefactor this method to reduce its Cognitive Complexity from 86 to the 15 allowed.(‘³áöøÿÿÿÿ
+\
+java:S1854Ë	"@Remove this useless assignment to local variable "seleccionada".(ı­¡¯úÿÿÿÿ
+W
+java:S1854Î	"@Remove this useless assignment to local variable "seleccionada".(½„¥
+
+java:S1130š"qRemove the declaration of thrown exception 'java.text.ParseException', as it cannot be thrown from method's body.(‘³áöøÿÿÿÿ
+=	java:S131£""Add a default case to this switch.(‹©ƒĞûÿÿÿÿ
+H
+java:S1481Ç	"1Remove this unused "seleccionada" local variable.(Â—Ä
+M
+java:S1905
+"1Remove this unnecessary cast to "ObservableList".(‰üïèşÿÿÿÿ
+O	java:S106µ
+"9Replace this use of System.out or System.err by a logger.(éŒ½ğ
+O	java:S106Ô
+"9Replace this use of System.out or System.err by a logger.(éŒ½ğ
+=	java:S131à
+""Add a default case to this switch.(‹©ƒĞûÿÿÿÿ
+n
+java:S3776Ò"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(®à„åøÿÿÿÿ
+H
+java:S1905×"1Remove this unnecessary cast to "ObservableList".(ö²Óš
+M
+java:S1905æ"1Remove this unnecessary cast to "ObservableList".(ªã×Óıÿÿÿÿ
+M
+java:S1905õ"1Remove this unnecessary cast to "ObservableList".(ÀƒõÌûÿÿÿÿ
+H
+java:S1905„"1Remove this unnecessary cast to "ObservableList".(ííÑ®
+M
+java:S1905“"1Remove this unnecessary cast to "ObservableList".(ˆ—ßàıÿÿÿÿ
+M
+java:S1905¡"1Remove this unnecessary cast to "ObservableList".(‰üïèşÿÿÿÿ
+?	java:S108ˆ")Either remove or fill this block of code.(ßÈ´
+=	java:S131¿""Add a default case to this switch.(ì»¾úÿÿÿÿ
+W
+java:S1126×"AReplace this if-then-else statement by a single return statement.(¶·šb
+u
+java:S2293„"YReplace the type specification in this constructor call with the diamond operator ("<>").(­ËïÑÿÿÿÿÿ
+p
+java:S2293†"YReplace the type specification in this constructor call with the diamond operator ("<>").(İÄ÷•
+p
+java:S2293¦"YReplace the type specification in this constructor call with the diamond operator ("<>").(×ÎÙ«
+p
+java:S2293§"YReplace the type specification in this constructor call with the diamond operator ("<>").(Í¬ğî
+u
+java:S2293¨"YReplace the type specification in this constructor call with the diamond operator ("<>").(î“ş°ùÿÿÿÿ
+o
+java:S2293©"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ô‹¢A
+p
+java:S2293ª"YReplace the type specification in this constructor call with the diamond operator ("<>").(¼êØ©
+p
+java:S2293¬"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ìİø
+u
+java:S2293­"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÙÓğşÿÿÿÿ
+u
+java:S2293®"YReplace the type specification in this constructor call with the diamond operator ("<>").(€ï¥ôüÿÿÿÿ
+u
+java:S2293¯"YReplace the type specification in this constructor call with the diamond operator ("<>").(ßÎ‹¸ÿÿÿÿÿ
+p
+java:S2293±"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÕÔû“
+p
+java:S2293²"YReplace the type specification in this constructor call with the diamond operator ("<>").(›öˆ”
+u
+java:S2293³"YReplace the type specification in this constructor call with the diamond operator ("<>").(½Ö©¯ıÿÿÿÿ
+o
+java:S2293´"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÍÃÊ
+u
+java:S2293µ"YReplace the type specification in this constructor call with the diamond operator ("<>").(Û³Ñøÿÿÿÿ
+p
+java:S2293·"YReplace the type specification in this constructor call with the diamond operator ("<>").(›ı°±
+u
+java:S2293¸"YReplace the type specification in this constructor call with the diamond operator ("<>").(¨·³Òıÿÿÿÿ
+p
+java:S2293¹"YReplace the type specification in this constructor call with the diamond operator ("<>").(µ¬ßì
+p
+java:S2293º"YReplace the type specification in this constructor call with the diamond operator ("<>").(·ƒÌî
+p
+java:S2293»"YReplace the type specification in this constructor call with the diamond operator ("<>").(¾Œ¤»
+p
+java:S2293¼"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÀƒÀ
+u
+java:S2293½"YReplace the type specification in this constructor call with the diamond operator ("<>").(´ğÛ¤úÿÿÿÿ
+u
+java:S2293¾"YReplace the type specification in this constructor call with the diamond operator ("<>").(âË‘·úÿÿÿÿ
+p
+java:S2293À"YReplace the type specification in this constructor call with the diamond operator ("<>").(äè˜
+p
+java:S2293Á"YReplace the type specification in this constructor call with the diamond operator ("<>").(ìÄ³è
+u
+java:S2293Â"YReplace the type specification in this constructor call with the diamond operator ("<>").(ì¢£ƒşÿÿÿÿ
+u
+java:S2293Ã"YReplace the type specification in this constructor call with the diamond operator ("<>").(˜‘„ıÿÿÿÿ
+u
+java:S2293Ä"YReplace the type specification in this constructor call with the diamond operator ("<>").(Îäó©şÿÿÿÿ
+p
+java:S2293Å"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÜëÜş
+u
+java:S2293É"YReplace the type specification in this constructor call with the diamond operator ("<>").(›©ÒÓúÿÿÿÿ
+o
+java:S2293¡
+"YReplace the type specification in this constructor call with the diamond operator ("<>").(çîf
+o
+java:S2293Á
+"YReplace the type specification in this constructor call with the diamond operator ("<>").(çîf
+c
+java:S1192–"MDefine a constant instead of duplicating this literal "FACTURACIÃ“N" 4 times.(»íĞU
+`
+java:S1192¤"IDefine a constant instead of duplicating this literal "AlmacÃ©n" 7 times.(‡ Ì¼
+i
+java:S1192®"MDefine a constant instead of duplicating this literal "FacturaciÃ³n" 9 times.(Ëµ€Ïıÿÿÿÿ
+a
+java:S1192"JDefine a constant instead of duplicating this literal "ImgLagos/" 3 times.(«ì˜
+h
+java:S1192÷"LDefine a constant instead of duplicating this literal "IDProveedor" 3 times.(Šï¿áÿÿÿÿÿ
+p
+java:S1192Ê"YDefine a constant instead of duplicating this literal "/Imagenes/iconoSolo.png" 37 times.(õö¿Ì
+f
+java:S1192¼"JDefine a constant instead of duplicating this literal "IDCliente" 3 times.(¡¶Ò£øÿÿÿÿ
+c
+java:S1192£"GDefine a constant instead of duplicating this literal "IDPato" 3 times.(åµŞÕşÿÿÿÿ
+c
+java:S1192Ö"LDefine a constant instead of duplicating this literal "KAMO(N)DUCK" 6 times.(—ô‚
+c
+java:S1192×"GDefine a constant instead of duplicating this literal "IDLago" 4 times.(‚ÌÇçúÿÿÿÿ
+l	java:S117
+"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ĞÁÄıÿÿÿÿ
+l	java:S117¾
+"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁšßÖÿÿÿÿÿ
+g	java:S117Ö"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù¤ö
+l	java:S117å"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íà‚ëıÿÿÿÿ
+g	java:S117ô"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏÍ —
+l	java:S117ƒ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ëğçùÿÿÿÿ
+f	java:S117’"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»™´.
+l	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ĞÁÄıÿÿÿÿ
+D
+java:S1604ƒ"(Make this anonymous inner class a lambda(Ã¤µ×üÿÿÿÿ
+?
+java:S1604Š"(Make this anonymous inner class a lambda(óğÒ¹
+?
+java:S1604‘"(Make this anonymous inner class a lambda(áìŸˆ
+D
+java:S1604˜"(Make this anonymous inner class a lambda(Á ÍÅüÿÿÿÿ
+?
+java:S1604Ÿ"(Make this anonymous inner class a lambda(ˆıíœ
+D
+java:S1604¨"(Make this anonymous inner class a lambda(½¯ëùÿÿÿÿ
+?
+java:S1604¯"(Make this anonymous inner class a lambda(áËç·
+?
+java:S1604¶"(Make this anonymous inner class a lambda(øúşñ
+?
+java:S1604½"(Make this anonymous inner class a lambda( Ş˜¯
+D
+java:S1604Æ"(Make this anonymous inner class a lambda(Òö°¿şÿÿÿÿ
+?
+java:S1604Í"(Make this anonymous inner class a lambda(¸·É
+D
+java:S1604Ô"(Make this anonymous inner class a lambda(ÊÈŸöøÿÿÿÿ
+?
+java:S1604Û"(Make this anonymous inner class a lambda(í…š¬
+D
+java:S1604â"(Make this anonymous inner class a lambda(•›à×şÿÿÿÿ
+D
+java:S1604ë"(Make this anonymous inner class a lambda(ŠàÒ€ùÿÿÿÿ
+D
+java:S1604ò"(Make this anonymous inner class a lambda(œßÇµıÿÿÿÿ
+?
+java:S1604ù"(Make this anonymous inner class a lambda(š£Œğ
+?
+java:S1604€"(Make this anonymous inner class a lambda(õ¢œ£
+D
+java:S1604‡"(Make this anonymous inner class a lambda(¼À¿áüÿÿÿÿ
+?
+java:S1604"(Make this anonymous inner class a lambda(ŠÜ¢Õ
+?
+java:S1604•"(Make this anonymous inner class a lambda(èâû
+D
+java:S1604"(Make this anonymous inner class a lambda(ÙŸ¿—ÿÿÿÿÿ
+D
+java:S1604¥"(Make this anonymous inner class a lambda(Ó›ôãıÿÿÿÿ
+D
+java:S1604¬"(Make this anonymous inner class a lambda(ÄÑÛØşÿÿÿÿ
+D
+java:S1604³"(Make this anonymous inner class a lambda(–ŸûËÿÿÿÿÿ
+D
+java:S1604º"(Make this anonymous inner class a lambda(ÃÏ‚èşÿÿÿÿ
+?
+java:S1604Á"(Make this anonymous inner class a lambda(Ë¶Óå
+g
+java:S1301£"KReplace this "switch" statement by "if" statements to increase readability.(‹©ƒĞûÿÿÿÿ
+H
+java:S1153¨"1Directly append the argument of String.valueOf().(¡Ë›é
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ï‡Î£
-m
-java:S2259¡"JA "NullPointerException" could be thrown; "seleccionada" is nullable here.(ÊÔà§ÿÿÿÿÿ8µâ‰Ûè/
-g
-java:S2259Å"DA "NullPointerException" could be thrown; "loader" is nullable here.(©ü’úÿÿÿÿ8µâ‰Ûè/
-g
-java:S2259ô"DA "NullPointerException" could be thrown; "loader" is nullable here.(©ü’úÿÿÿÿ8µâ‰Ûè/
-Z
-java:S2589Ï"7Remove this expression which always evaluates to "true"(º ±Ùùÿÿÿÿ8µâ‰Ûè/
-Z
-java:S2589·"7Remove this expression which always evaluates to "true"(ìÒ£¢şÿÿÿÿ8¶â‰Ûè/
-U
-java:S2589£"7Remove this expression which always evaluates to "true"(ô…ïÙ8¶â‰Ûè/
+`
+java:S2259¼"DA "NullPointerException" could be thrown; "loader" is nullable here.(©ü’úÿÿÿÿ
+f
+java:S2259"JA "NullPointerException" could be thrown; "seleccionada" is nullable here.(ÊÔà§ÿÿÿÿÿ
