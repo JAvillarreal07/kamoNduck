@@ -21,13 +21,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="793.0" prefWidth="1454.0" stylesheets="@css.css" xmlns="http://javafx.com/javafx/1.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VentanaPrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="782.0" prefWidth="1455.0" stylesheets="@css.css" xmlns="http://javafx.com/javafx/1.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VentanaPrincipalController">
     <children>
+      <Rectangle fx:id="rectanguloEmpleados" arcHeight="5.0" arcWidth="5.0" fill="#9b9090" height="783.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="676.0" />
 
-        <ComboBox fx:id="menuModulos" accessibleRole="COMBO_BOX" layoutX="1137.0" layoutY="3.0" onAction="#cambiaModulo" stylesheets="@css.css">
+        <ComboBox fx:id="menuModulos" accessibleRole="COMBO_BOX" layoutX="1305.0" onAction="#cambiaModulo" stylesheets="@css.css">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="Almacén" />
@@ -39,18 +41,18 @@
         </ComboBox>
 
         <!--Modulo Almacén===============================================================-->
-        <JFXTabPane fx:id="tabsAlmacen" focusTraversable="false" prefHeight="702.0" prefWidth="955.0" visible="false">
+        <JFXTabPane fx:id="tabsAlmacen" focusTraversable="false" prefHeight="783.0" prefWidth="955.0">
             <tabs>
                 <Tab fx:id="tabProductos" onSelectionChanged="#escuchaTabs" text="Productos">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
                             <children>
-                                <TableView fx:id="tablaProductos" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="673.0" prefWidth="955.0">
+                                <TableView fx:id="tablaProductos" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="749.0" prefWidth="955.0">
                                     <columns>
                                         <TableColumn fx:id="colIDProduc" prefWidth="44.0" text="ID" />
-                                        <TableColumn fx:id="colNomProduc" prefWidth="326.00001525878906" text="NOMBRE" />
-                                        <TableColumn fx:id="colTipoProduc" prefWidth="116.0" text="TIPO" />
-                                        <TableColumn fx:id="colCantProduc" prefWidth="94.0" text="CANTIDAD" />
+                                        <TableColumn fx:id="colNomProduc" prefWidth="289.0" text="NOMBRE" />
+                                        <TableColumn fx:id="colTipoProduc" prefWidth="141.0" text="TIPO" />
+                                        <TableColumn fx:id="colCantProduc" prefWidth="107.0" text="CANTIDAD" />
                                         <TableColumn fx:id="colPorvProduc" prefWidth="110.0" text="PROVEEDOR" />
                                         <TableColumn fx:id="colObserProduc" prefWidth="264.0" text="OBSERVACIONES" />
                                     </columns>
@@ -64,13 +66,13 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
                             <children>
-                                <TableView fx:id="tablaProveedor" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="666.0" prefWidth="955.0">
+                                <TableView fx:id="tablaProveedor" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="749.0" prefWidth="955.0">
                                     <columns>
                                         <TableColumn fx:id="colProvID" prefWidth="44.0" text="ID" />
                                         <TableColumn fx:id="colProvNom" prefWidth="201.0" text="NOMBRE" />
-                                        <TableColumn fx:id="colProvDirec" prefWidth="448.0" text="DIRECCION" />
-                                        <TableColumn fx:id="colProvTel" prefWidth="158.0" text="TELEFONO" />
-                                        <TableColumn fx:id="colProvPais" prefWidth="103.0" text="PAIS" />
+                                        <TableColumn fx:id="colProvDirec" prefWidth="407.0" text="DIRECCION" />
+                                        <TableColumn fx:id="colProvTel" prefWidth="160.0" text="TELEFONO" />
+                                        <TableColumn fx:id="colProvPais" prefWidth="142.0" text="PAIS" />
                                     </columns>
                                 </TableView>
                             </children>
@@ -149,20 +151,20 @@
         <!--=============================================================================-->
 
         <!--Modulo Facturación===========================================================-->
-        <JFXTabPane fx:id="tabsFacturacion" focusTraversable="false" prefHeight="702.0" prefWidth="955.0" visible="false">
+        <JFXTabPane fx:id="tabsFacturacion" focusTraversable="false" prefHeight="783.0" prefWidth="955.0" visible="false">
             <tabs>
                 <Tab fx:id="tabPatos" onSelectionChanged="#escuchaTabs" text="Pato">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
                             <children>
-                                <TableView fx:id="tablaPatos" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="673.0" prefWidth="955.0">
+                                <TableView fx:id="tablaPatos" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="749.0" prefWidth="955.0">
                                     <columns>
                                         <TableColumn fx:id="colIDpato" prefWidth="44.0" text="ID" />
-                                        <TableColumn fx:id="colNombrePato" prefWidth="326.00001525878906" text="NOMBRE" />
-                                        <TableColumn fx:id="colRazaPato" prefWidth="116.0" text="Raza" />
-                                        <TableColumn fx:id="colEdadPato" prefWidth="94.0" text="Edad" />
-                                        <TableColumn fx:id="colNum_cartillaPato" prefWidth="110.0" text="Numero cartilla" />
-                                        <TableColumn fx:id="colDescPato" prefWidth="264.0" text="Descripción" />
+                                        <TableColumn fx:id="colNombrePato" prefWidth="171.0" text="NOMBRE" />
+                                        <TableColumn fx:id="colRazaPato" prefWidth="205.0" text="Raza" />
+                                        <TableColumn fx:id="colEdadPato" prefWidth="104.0" text="Edad" />
+                                        <TableColumn fx:id="colNum_cartillaPato" prefWidth="154.0" text="Numero cartilla" />
+                                        <TableColumn fx:id="colDescPato" prefWidth="277.0" text="Descripción" />
                                     </columns>
                                 </TableView>
                             </children>
@@ -172,18 +174,18 @@
 
                 <Tab fx:id="tabCliente" onSelectionChanged="#escuchaTabs" text="Cliente">
                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="1418.0">
                             <children>
-                                <TableView fx:id="tablaClientes" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="673.0" prefWidth="955.0">
+                                <TableView fx:id="tablaClientes" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="749.0" prefWidth="955.0">
                                     <columns>
                                         <TableColumn fx:id="colIDCliente" prefWidth="44.0" text="ID" />
-                                        <TableColumn fx:id="colDNICliente" prefWidth="326.00001525878906" text="DNI" />
-                                        <TableColumn fx:id="colNombreCliente" prefWidth="116.0" text="Nombre" />
-                                        <TableColumn fx:id="colApellidosCliente" prefWidth="94.0" text="Apellidos" />
-                                        <TableColumn fx:id="colTelf1Cliente" prefWidth="110.0" text="Telefono 1" />
-                                        <TableColumn fx:id="colTelef2Cliente" prefWidth="264.0" text="Telefono 2" />
-                                        <TableColumn fx:id="colEmailCliente" prefWidth="264.0" text="Email" />
-                                        <TableColumn fx:id="colTipoPagoCliente" prefWidth="264.0" text="Tipo de pago" />
+                                        <TableColumn fx:id="colDNICliente" prefWidth="137.0" text="DNI" />
+                                        <TableColumn fx:id="colNombreCliente" prefWidth="178.0" text="Nombre" />
+                                        <TableColumn fx:id="colApellidosCliente" prefWidth="242.0" text="Apellidos" />
+                                        <TableColumn fx:id="colTelf1Cliente" prefWidth="185.0" text="Telefono 1" />
+                                        <TableColumn fx:id="colTelef2Cliente" prefWidth="161.0" text="Telefono 2" />
+                                        <TableColumn fx:id="colEmailCliente" prefWidth="316.0" text="Email" />
+                                        <TableColumn fx:id="colTipoPagoCliente" prefWidth="163.0" text="Tipo de pago" />
                                     </columns>
                                 </TableView>
                             </children>
@@ -195,14 +197,14 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
                             <children>
-                                <TableView fx:id="tablaLagos" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="666.0" prefWidth="955.0">
+                                <TableView fx:id="tablaLagos" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="749.0" prefWidth="955.0">
                                     <columns>
                                         <TableColumn fx:id="colIDLago" prefWidth="44.0" text="ID" />
-                                        <TableColumn fx:id="colNombreLago" prefWidth="201.0" text="NOMBRE" />
-                                        <TableColumn fx:id="colTamanoLago" prefWidth="448.0" text="Tamaño" />
-                                        <TableColumn fx:id="colCapLago" prefWidth="158.0" text="Capacidad" />
-                                        <TableColumn fx:id="colPatosAC" prefWidth="103.0" text="Patos actuales" />
-                                        <TableColumn fx:id="colTarifaPatos" prefWidth="103.0" text="Tarifa" />
+                                        <TableColumn fx:id="colNombreLago" prefWidth="161.0" text="NOMBRE" />
+                                        <TableColumn fx:id="colTamanoLago" prefWidth="169.0" text="Tamaño" />
+                                        <TableColumn fx:id="colCapLago" prefWidth="166.0" text="Capacidad" />
+                                        <TableColumn fx:id="colPatosAC" prefWidth="255.0" text="Patos actuales" />
+                                        <TableColumn fx:id="colTarifaPatos" prefWidth="159.0" text="Tarifa" />
                                     </columns>
                                 </TableView>
                             </children>
@@ -214,14 +216,14 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="855.0">
                             <children>
-                                <TableView fx:id="tablaEstancia" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="673.0" prefWidth="955.0">
+                                <TableView fx:id="tablaEstancia" layoutX="2.0" layoutY="-1.0" onMouseClicked="#escuchaTablas" prefHeight="749.0" prefWidth="955.0">
                                     <columns>
                                         <TableColumn fx:id="colIDEstancia" prefWidth="44.0" text="ID" />
-                                        <TableColumn fx:id="colFechaIngresoEstancia" prefWidth="326.00001525878906" text="Fecha de ingreso" />
-                                        <TableColumn fx:id="colFechaSalidaEstancia" prefWidth="116.0" text="Fecha salida" />
-                                        <TableColumn fx:id="colNombrePatoEstancia" prefWidth="94.0" text="Nombre del pato" />
-                                        <TableColumn fx:id="colNombreClienteEstancia" prefWidth="110.0" text="Nombre del dueño" />
-                                        <TableColumn fx:id="colNombreLagoEstancia" prefWidth="264.0" text="Nombre del lago" />
+                                        <TableColumn fx:id="colFechaIngresoEstancia" prefWidth="189.0" text="Fecha de ingreso" />
+                                        <TableColumn fx:id="colFechaSalidaEstancia" prefWidth="184.0" text="Fecha salida" />
+                                        <TableColumn fx:id="colNombrePatoEstancia" prefWidth="150.0" text="Nombre del pato" />
+                                        <TableColumn fx:id="colNombreClienteEstancia" prefWidth="189.0" text="Nombre del dueño" />
+                                        <TableColumn fx:id="colNombreLagoEstancia" prefWidth="199.0" text="Nombre del lago" />
                                     </columns>
                                 </TableView>
                             </children>
@@ -251,38 +253,46 @@
             </image>
         </ImageView>
 
-        <JFXButton fx:id="reporteEstancia" layoutX="1124.0" layoutY="692.0" onAction="#accionesCRUD" text="Reporte Estancia" visible="false" />
+        <JFXButton fx:id="reporteEstancia" layoutX="1124.0" layoutY="692.0" onAction="#accionesCRUD" text="Generar Factura" textFill="WHITE" visible="false" />
         <!--=============================================================================-->
 
         <!--Modulo Empleados=============================================================-->
-        <JFXListView id="tabsEmpleados" fx:id="listViewEmpleados" layoutX="60.0" layoutY="26.0" onMouseClicked="#seleccionarEmpleado" prefHeight="757.0" prefWidth="372.0" visible="false" />
+        <JFXListView id="tabsEmpleados" fx:id="listViewEmpleados" layoutX="14.0" layoutY="66.0" onMouseClicked="#seleccionarEmpleado" prefHeight="711.0" prefWidth="308.0" visible="false" />
 
-        <JFXListView fx:id="listViewEmpleadosActivos" layoutX="452.0" layoutY="58.0" onMouseClicked="#seleccionarEmpleado" prefHeight="477.0" prefWidth="230.0" visible="false" />
+        <JFXListView fx:id="listViewEmpleadosActivos" layoutX="354.0" layoutY="66.0" onMouseClicked="#seleccionarEmpleado" prefHeight="711.0" prefWidth="308.0" visible="false" />
 
-        <Label fx:id="labelNoModifiEmpleados" layoutX="1016.0" layoutY="709.0" prefHeight="19.0" prefWidth="315.0" text="¿Quien está trabajando hoy?" visible="false" />
+        <Label fx:id="labelNoModifiEmpleados" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="52.0" prefWidth="308.0" style="-fx-background-color: #ff5353;" text="Todos los empleados" textAlignment="CENTER" textFill="WHITE" visible="false">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
 
-        <Label fx:id="labelNombreEmpleado" layoutX="932.0" layoutY="737.0" prefHeight="19.0" prefWidth="352.0" text="Nombre empleado &amp; (Diurno/nocturno)" visible="false" />
+        <Label fx:id="labelNombreEmpleado" alignment="CENTER" contentDisplay="CENTER" layoutX="354.0" layoutY="14.0" prefHeight="52.0" prefWidth="308.0" style="-fx-background-color: #ff5353;" text="Trabajando hoy" textAlignment="CENTER" textFill="WHITE" visible="false">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
 
-        <Pane fx:id="tarjetaEmplePanel" layoutX="746.0" layoutY="112.0" prefHeight="407.0" prefWidth="652.0" visible="false">
+        <Pane fx:id="tarjetaEmplePanel" layoutX="746.0" layoutY="140.0" prefHeight="498.0" prefWidth="652.0" visible="false">
             <children>
 
-                <Label fx:id="tarjetaEmpleNom" layoutX="26.0" layoutY="22.0" prefHeight="29.0" prefWidth="315.0" text="Nombre" />
-                <Label fx:id="tarjetaEmpleApe" layoutX="26.0" layoutY="61.0" prefHeight="29.0" prefWidth="315.0" text="Apellidos" />
-                <Label fx:id="tarjetaEmpleDNI" layoutX="26.0" layoutY="101.0" prefHeight="29.0" prefWidth="315.0" text="DNI" />
-                <Label fx:id="tarjetaEmpleTel" layoutX="26.0" layoutY="144.0" prefHeight="29.0" prefWidth="315.0" text="Teléfono" />
-                <Label fx:id="tarjetaEmpleEmail" layoutX="26.0" layoutY="189.0" prefHeight="23.0" prefWidth="315.0" text="email" />
-                <Label fx:id="tarjetaEmpleCargo" layoutX="26.0" layoutY="228.0" prefHeight="29.0" prefWidth="315.0" text="Cargo" />
-                <Label fx:id="tarjetaEmpleHorario" layoutX="26.0" layoutY="272.0" prefHeight="29.0" prefWidth="315.0" text="Horario" />
-                <Label fx:id="tarjetaEmpleTurno" layoutX="26.0" layoutY="310.0" prefHeight="29.0" prefWidth="315.0" text="Turno" />
-                <Label fx:id="tarjetaEmpleLago" layoutX="26.0" layoutY="345.0" prefHeight="29.0" prefWidth="315.0" text="Lago" />
+                <Label fx:id="tarjetaEmpleNom" alignment="CENTER" contentDisplay="CENTER" layoutX="13.0" layoutY="107.0" prefHeight="29.0" prefWidth="187.0" text="Nombre" />
+                <Label fx:id="tarjetaEmpleApe" alignment="CENTER" contentDisplay="CENTER" layoutX="198.0" layoutY="108.0" prefHeight="29.0" prefWidth="224.0" text="Apellidos" />
+                <Label fx:id="tarjetaEmpleDNI" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="170.0" prefHeight="29.0" prefWidth="105.0" text="DNI" />
+                <Label fx:id="tarjetaEmpleTel" alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="170.0" prefHeight="29.0" prefWidth="136.0" text="Teléfono" />
+                <Label fx:id="tarjetaEmpleEmail" alignment="CENTER" contentDisplay="CENTER" layoutX="269.0" layoutY="173.0" prefHeight="23.0" prefWidth="154.0" text="email" />
+                <Label fx:id="tarjetaEmpleCargo" alignment="CENTER" contentDisplay="CENTER" layoutX="17.0" layoutY="235.0" prefHeight="29.0" prefWidth="148.0" text="Cargo" />
+                <Label fx:id="tarjetaEmpleHorario" alignment="CENTER" contentDisplay="CENTER" layoutX="170.0" layoutY="235.0" prefHeight="29.0" prefWidth="129.0" text="Horario" />
+                <Label fx:id="tarjetaEmpleTurno" alignment="CENTER" contentDisplay="CENTER" layoutX="305.0" layoutY="235.0" prefHeight="29.0" prefWidth="119.0" text="Turno" />
+                <Label fx:id="tarjetaEmpleLago" alignment="CENTER" contentDisplay="CENTER" layoutX="64.0" layoutY="274.0" prefHeight="29.0" prefWidth="169.0" text="Lago" />
 
-                <ImageView fx:id="tarjetaEmpleImg" fitHeight="150.0" fitWidth="187.0" layoutX="451.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="tarjetaEmpleImg" fitHeight="150.0" fitWidth="187.0" layoutX="451.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../Imagenes/iconoSolo.png" />
                     </image>
                 </ImageView>
 
-                <JFXButton fx:id="botonAnadirEmple" layoutX="585.0" layoutY="331.0" onAction="#accionesCRUD" prefHeight="43.0" prefWidth="32.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="+" textAlignment="CENTER" textFill="#f35d6d">
+                <JFXButton fx:id="botonAnadirEmple" layoutX="580.0" layoutY="278.0" onAction="#accionesCRUD" prefHeight="43.0" prefWidth="32.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="+" textAlignment="CENTER" textFill="#f35d6d">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
@@ -297,7 +307,7 @@
                     </tooltip>
                 </JFXButton>
 
-                <JFXButton fx:id="botonModificarEmple" layoutX="475.0" layoutY="331.0" onAction="#accionesCRUD" prefHeight="43.0" prefWidth="39.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="↩" textAlignment="CENTER" textFill="#f35d6d">
+                <JFXButton fx:id="botonModificarEmple" layoutX="470.0" layoutY="278.0" onAction="#accionesCRUD" prefHeight="43.0" prefWidth="39.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="↩" textAlignment="CENTER" textFill="#f35d6d">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
@@ -312,7 +322,7 @@
                     </tooltip>
                 </JFXButton>
 
-                <JFXButton fx:id="botonEliminarEmple" layoutX="533.0" layoutY="331.0" onAction="#accionesCRUD" prefHeight="43.0" prefWidth="32.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="-" textAlignment="CENTER" textFill="#f35d6d">
+                <JFXButton fx:id="botonEliminarEmple" layoutX="528.0" layoutY="278.0" onAction="#accionesCRUD" prefHeight="43.0" prefWidth="32.0" ripplerFill="#d90f0f" style="-fx-background-color: black; -fx-font-size: 35; -fx-padding: 0;" stylesheets="@css.css" text="-" textAlignment="CENTER" textFill="#f35d6d">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
@@ -326,14 +336,42 @@
                         <Tooltip text="elimine del almacén" />
                     </tooltip>
                 </JFXButton>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="80.0" prefHeight="19.0" prefWidth="174.0" style="-fx-font-weight: bold;" text="NOMBRE" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="201.0" layoutY="80.0" prefHeight="19.0" prefWidth="221.0" style="-fx-font-weight: bold;" text="APELLIDOS" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="16.0" layoutY="144.0" prefHeight="19.0" prefWidth="101.0" style="-fx-font-weight: bold;" text="DNI" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1e92ff" height="68.0" layoutX="12.0" layoutY="71.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" width="187.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1e92ff" height="68.0" layoutX="198.0" layoutY="71.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" width="226.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="169.0" layoutY="209.0" prefHeight="19.0" prefWidth="130.0" style="-fx-font-weight: bold;" text="HORARIO" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="452.0" layoutY="227.0" prefHeight="19.0" prefWidth="180.0" style="-fx-font-weight: bold;" text="FOTO" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="305.0" layoutY="209.0" prefHeight="19.0" prefWidth="117.0" style="-fx-font-weight: bold;" text="TURNO" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="16.0" layoutY="209.0" prefHeight="19.0" prefWidth="148.0" style="-fx-font-weight: bold;" text="CARGO" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="17.0" layoutY="280.0" style="-fx-font-weight: bold;" text="LAGO:" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="267.0" layoutY="144.0" prefHeight="19.0" prefWidth="156.0" style="-fx-font-weight: bold;" text="EMAIL" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="120.0" layoutY="145.0" prefHeight="19.0" prefWidth="143.0" style="-fx-font-weight: bold;" text="TELÉFONO" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1e92ff" height="68.0" layoutX="12.0" layoutY="137.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" width="109.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1e92ff" height="68.0" layoutX="119.0" layoutY="137.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" width="148.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1e92ff" height="68.0" layoutX="265.0" layoutY="137.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" width="160.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1e92ff" height="68.0" layoutX="300.0" layoutY="203.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" width="126.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1e92ff" height="68.0" layoutX="166.0" layoutY="203.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" width="136.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1e92ff" height="68.0" layoutX="12.0" layoutY="203.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" width="156.0" />
+            <ImageView fx:id="tarjetaEmpleImgLago" fitHeight="150.0" fitWidth="187.0" layoutX="17.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/iconoSolo.png" />
+               </image>
+            </ImageView>
             </children>
         </Pane>
+      <Label fx:id="tarjetaTituloEmple" alignment="CENTER" contentDisplay="CENTER" layoutX="746.0" layoutY="138.0" prefHeight="52.0" prefWidth="652.0" text="EMPLEADO" textAlignment="CENTER" visible="false">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
 
-        <Accordion fx:id="panelFiltros" layoutX="753.0" visible="false">
+        <Accordion fx:id="panelFiltros" layoutX="753.0" prefHeight="34.0" prefWidth="202.0">
             <panes>
-                <TitledPane prefHeight="367.0" prefWidth="202.0" style="-fx-max-height: 255;" text="FILTROS">
+                <TitledPane contentDisplay="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="367.0" prefWidth="202.0" style="-fx-max-height: 255;" text="FILTROS" textAlignment="RIGHT">
                     <content>
-                        <AnchorPane fx:id="anchoPanelFiltros" prefWidth="200.0">
+                        <AnchorPane fx:id="anchoPanelFiltros" nodeOrientation="LEFT_TO_RIGHT" prefWidth="200.0">
                             <children>
                                 <JFXTextField fx:id="textFiltroIDProd" layoutX="34.0" layoutY="26.0" prefHeight="23.0" prefWidth="132.0" promptText="ID" visible="false" />
                                 <JFXTextField fx:id="textFiltroNombreProd" layoutX="34.0" layoutY="64.0" prefHeight="23.0" prefWidth="132.0" promptText="NOMBRE" visible="false" />
@@ -367,7 +405,7 @@
                                 <JFXTextField fx:id="textFiltroNomClienteEstancia" layoutX="34.0" layoutY="178.0" prefHeight="23.0" prefWidth="132.0" promptText="CLIENTE" visible="false" />
                                 <JFXTextField fx:id="textFiltroNomLagoEstancia" layoutX="34.0" layoutY="216.0" prefHeight="23.0" prefWidth="132.0" promptText="LAGO" visible="false" />
 
-                                <JFXButton fx:id="botonLimpiarFiltros" layoutX="49.0" layoutY="290.0" onAction="#accionesCRUD" text="Limpiar" textAlignment="CENTER" />
+                                <JFXButton fx:id="botonLimpiarFiltros" layoutX="49.0" layoutY="290.0" onAction="#accionesCRUD" text="Limpiar" textAlignment="CENTER" textFill="WHITE" />
                             </children>
                         </AnchorPane>
                     </content>

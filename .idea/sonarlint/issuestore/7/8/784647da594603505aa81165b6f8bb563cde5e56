@@ -1,8 +1,4 @@
 
 _
-java:S2147-"DCombine this catch with the one at line 43, which has the same body.(¯œ­îüÿÿÿÿ
-R
-java:S1128"5Remove this unused import 'javafx.scene.media.Media'.(¿àÆ¾8ß‘‹ç/
-W
-java:S1128";Remove this unused import 'javafx.scene.media.MediaPlayer'.(‡µºU8ß‘‹ç/
+java:S2147/"DCombine this catch with the one at line 45, which has the same body.(¯œ­îüÿÿÿÿ
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ê¹¬
