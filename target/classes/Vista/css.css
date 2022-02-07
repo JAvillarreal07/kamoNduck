@@ -1,9 +1,11 @@
-.root{
+.root {
     -fx-background-color: white;
 }
-.root{
+
+.root {
     -fx-font-family: "Courier New";
 }
+
 #botonAlmacen {
     /*-fx-graphic: url('/Imagenes/iconoAlmacen.png');
     -fx-graphic-size: 74px 86px;*/
@@ -35,27 +37,27 @@
 .button {
     -fx-background-size: 60px 65px;
     -fx-padding: 8 15 15 15;
-    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-insets: 0, 0 0 5 0, 0 0 6 0, 0 0 7 0;
     -fx-background-radius: 8;
-    -fx-background-color:
-            linear-gradient(from 0% 93% to 0% 100%, #FF5757 0%, #DD4D4D 100%),
-            #FF5757,
-            #DD4D4D,
-            radial-gradient(center 50% 50%, radius 100%, black, black);
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #FF5757 0%, #DD4D4D 100%),
+    #FF5757,
+    #DD4D4D,
+    radial-gradient(center 50% 50%, radius 100%, black, black);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 4, 0, 0, 1);
     -fx-font-weight: bold;
     -fx-font-size: 1.1em;
 }
+
 .button:hover {
-    -fx-background-color:
-            linear-gradient(from 0% 93% to 0% 100%, BLACK 0%, BLACK 100%),
-            #8D3131,
-            #8D3131,
-            radial-gradient(center 50% 50%, radius 100%, #ff5353, #CF8080);
+    -fx-background-color: linear-gradient(from 0% 93% to 0% 100%, BLACK 0%, BLACK 100%),
+    #8D3131,
+    #8D3131,
+    radial-gradient(center 50% 50%, radius 100%, #ff5353, #CF8080);
 }
+
 .button:pressed {
     -fx-padding: 10 15 13 15;
-    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+    -fx-background-insets: 2 0 0 0, 2 0 3 0, 2 0 4 0, 2 0 5 0;
 }
 
 .jfx-tab-pane .tab-header-background {
@@ -76,10 +78,70 @@
     -fx-border-insets: -1 -1 0 0;
 }
 
-/*.jfx-progress-bar > .bar {*/
-/*    -fx-background-color: red;*/
-/*}*/
+.green-bar > .bar {
+    -fx-background-color: green;
+}
 
-.green-bar > .bar { -fx-background-color: green; }
-.orange-bar > .bar { -fx-background-color: orange; }
-.red-bar > .bar { -fx-background-color: red; }
+.orange-bar > .bar {
+    -fx-background-color: orange;
+}
+
+.red-bar > .bar {
+    -fx-background-color: red;
+}
+
+#tarjetaEmplePanel {
+
+    -fx-background-image: url(../Imagenes/fondocampos.png);
+    -fx-background-repeat: none;
+    -fx-background-size: cover;
+}
+
+#tarjetaEmplePanel > .label {
+    -fx-text-fill: white;
+}
+
+.combo-box > .list-cell {
+    -fx-background: #f35d6d;
+    -fx-background-color: #f35d6d;
+    -fx-text-fill: black;
+}
+
+.combo-box-popup .list-view .list-cell{
+    -fx-background-color: white;
+    -fx-text-fill: black;
+}
+
+.accordion .titled-pane .title {
+    -fx-background-color: transparent ;
+}
+
+.empleadoDia {
+
+    -fx-background-image: url(../Imagenes/banner-diurno.png);
+    -fx-background-repeat: none;
+    -fx-background-size: cover;
+    -fx-font-weight: bold;
+
+}
+
+.empleadoNoche {
+
+    -fx-background-image: url(../Imagenes/banner-nocturno.png);
+    -fx-background-repeat: none;
+    -fx-background-size: cover;
+    -fx-font-weight: bold;
+}
+
+.empleadoPartido {
+
+    -fx-background-image: url(../Imagenes/banner-partido.png);
+    -fx-background-repeat: none;
+    -fx-background-size: cover;
+    -fx-font-weight: bold;
+}
+
+.empleadoNoche .label, .empleadoPartido .label {
+
+    -fx-text-fill: white;
+}

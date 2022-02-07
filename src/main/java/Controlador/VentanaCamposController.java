@@ -50,7 +50,7 @@ public class VentanaCamposController {
 
     // Elementos Clientes
     public JFXTextField textNomCliente, textApeCliente, textTlf1Cliente, textTelf2Cliente, textEmailCliente, textDNICliente;
-    public ComboBox CBTipPagoCliente;
+    public ComboBox<String> CBTipPagoCliente;
 
     // Elementos Estancia
     public JFXTextField textDNIClEstancia, textNCartillaPatoEstancia;
@@ -162,19 +162,31 @@ public class VentanaCamposController {
         DPfechaSalidaEstancia.setValue(LocalDate.parse(est.getFecha_Salida().toString()));
         CBNombreLagoEstancia.setValue(est.getNombreLago());
 
+        imagenPato.setImage(new Image(new File("ImgPatos/" + (est.getNombrePato() + " " + est.getNumCartilla()).replace(" ", "_") + ".png").toURI().toString()));
+        imagenCliente.setImage(new Image(new File("ImgClientes/" + est.getNombreCliente().replace(" ", "_") + ".png").toURI().toString()));
+        imagenLago.setImage(new Image(new File("ImgLagos/" + est.getNombreLago().replace(" ", "_") + ".png").toURI().toString()));
+
+        IDEstancia = est.getIDEstancia(); //Almacena el ID de la estancia a modificar.
+    }
+
+    public void escuchaCamposEstancia() {
+
         //Estos tres listener buscan las imagenes para el pato y el cliente escrito y para el lago seleccionado.
         textNCartillaPatoEstancia.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                ResultSet paraImg = IO.introduceRegistros("SELECT Concat(Nombre_Pato, ' ', Num_Cartilla) AS 'Imagen' FROM Patos WHERE " +
-                        "Num_Cartilla = " + newValue + "");
+                if  (newValue.length() == 6 && isNum(newValue)) {
 
-                try {
-                    paraImg.next();
+                    ResultSet paraImg = IO.introduceRegistros("SELECT Concat(Nombre_Pato, ' ', Num_Cartilla) AS 'Imagen' FROM Patos WHERE " +
+                            "Num_Cartilla = " + newValue + "");
 
-                    imagenPato.setImage(new Image(new File("ImgPatos/" + paraImg.getString("Imagen").replace(" ", "_") + ".png").toURI().toString()));
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                    try {
+                        paraImg.next();
+
+                        imagenPato.setImage(new Image(new File("ImgPatos/" + paraImg.getString("Imagen").replace(" ", "_") + ".png").toURI().toString()));
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
@@ -182,15 +194,17 @@ public class VentanaCamposController {
         textDNIClEstancia.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                ResultSet paraImg = IO.introduceRegistros("SELECT Concat(Nombre_Cliente, ' ', Apellidos_Cliente) AS 'Imagen' FROM CLIENTES WHERE " +
-                        "DNI = '" + newValue.toUpperCase() + "'");
+                if (newValue.length() == 9 && isNum(newValue.substring(0, 9)) && !isNum(newValue.substring(9))) {
+                    ResultSet paraImg = IO.introduceRegistros("SELECT Concat(Nombre_Cliente, ' ', Apellidos_Cliente) AS 'Imagen' FROM CLIENTES WHERE " +
+                            "DNI = '" + newValue.toUpperCase() + "'");
 
-                try {
-                    paraImg.next();
+                    try {
+                        paraImg.next();
 
-                    imagenPato.setImage(new Image(new File("ImgClientes/" + paraImg.getString("Imagen").replace(" ", "_") + ".png").toURI().toString()));
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                        imagenCliente.setImage(new Image(new File("ImgClientes/" + paraImg.getString("Imagen").replace(" ", "_") + ".png").toURI().toString()));
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
@@ -201,8 +215,6 @@ public class VentanaCamposController {
                 imagenLago.setImage(new Image(new File("ImgLagos/" + newValue.replace(" ", "_") + ".png").toURI().toString()));
             }
         });
-
-        IDEstancia = est.getIDEstancia(); //Almacena el ID de la estancia a modificar.
     }
     /**************************/
 
@@ -255,6 +267,8 @@ public class VentanaCamposController {
         TextFields.bindAutoCompletion(textDNIClEstancia, DNI);
         TextFields.bindAutoCompletion(textNCartillaPatoEstancia, cartillas);
         CBNombreLagoEstancia.getItems().addAll(lagos);
+
+        escuchaCamposEstancia();
 
         //Vacia las listas proporcionada para evitar duplicados.
         DNI.clear();
@@ -447,7 +461,7 @@ public class VentanaCamposController {
                                     + textPaisProv.getText() + "')");
 
                             sinErrores = true;
-                        }else {
+                        } else {
                             sinErrores = false;
                         }
 
@@ -466,7 +480,7 @@ public class VentanaCamposController {
                                     "WHERE IDProveedor = " + IDPrv);
 
                             sinErrores = true;
-                        }else {
+                        } else {
                             sinErrores = false;
                         }
 
@@ -485,7 +499,7 @@ public class VentanaCamposController {
                                     + textDescPato.getText() + "')");
 
                             sinErrores = true;
-                        }else {
+                        } else {
                             sinErrores = false;
                         }
 
@@ -505,7 +519,7 @@ public class VentanaCamposController {
                                     "WHERE IDPato = " + IDPato);
 
                             sinErrores = true;
-                        }else {
+                        } else {
                             sinErrores = false;
                         }
 
@@ -527,7 +541,7 @@ public class VentanaCamposController {
                                     + CBTipPagoCliente.getValue() + "')");
 
                             sinErrores = true;
-                        }else {
+                        } else {
                             sinErrores = false;
                         }
 
@@ -549,7 +563,7 @@ public class VentanaCamposController {
                                     "WHERE IDCliente = " + IDCliente);
 
                             sinErrores = true;
-                        }else {
+                        } else {
                             sinErrores = false;
                         }
 
@@ -577,7 +591,7 @@ public class VentanaCamposController {
                                     + busqueda.getString("IDLago") + ")");
 
                             sinErrores = true;
-                        }else {
+                        } else {
                             sinErrores = false;
                         }
 
@@ -605,7 +619,7 @@ public class VentanaCamposController {
                                     " WHERE IDEstancia = " + IDEstancia);
 
                             sinErrores = true;
-                        }else {
+                        } else {
                             sinErrores = false;
                         }
 
@@ -635,7 +649,7 @@ public class VentanaCamposController {
                                     + busqueda.getInt("IDLago") + ")");
 
                             sinErrores = true;
-                        }else {
+                        } else {
                             sinErrores = false;
                         }
 
@@ -665,7 +679,7 @@ public class VentanaCamposController {
                                     " WHERE IDEmpleado = " + IDEmpleado);
 
                             sinErrores = true;
-                        }else {
+                        } else {
                             sinErrores = false;
                         }
 

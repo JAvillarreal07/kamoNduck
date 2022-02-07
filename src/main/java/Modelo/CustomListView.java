@@ -22,6 +22,7 @@ public class CustomListView extends HBox {
 
         this.NombreCompleto.setMaxWidth(Double.MAX_VALUE);
         this.NombreCompleto.setMaxHeight(Double.MAX_VALUE);
+        this.NombreCompleto.setStyle("rgba(255, 255, 255, 0);");
 
 
         this.ImagenView.setPreserveRatio(true);

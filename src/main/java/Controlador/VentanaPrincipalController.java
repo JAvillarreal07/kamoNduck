@@ -20,6 +20,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -132,11 +133,13 @@ public class VentanaPrincipalController implements Initializable {
     @FXML
     public JFXListView<CustomListView> listViewEmpleadosActivos = new JFXListView<CustomListView>();
     @FXML
+    public Rectangle rectanguloEmpleados;
+    @FXML
     public Pane tarjetaEmplePanel;
     @FXML
-    public ImageView tarjetaEmpleImg;
+    public ImageView tarjetaEmpleImg, tarjetaEmpleImgLago;
     @FXML
-    public Label tarjetaEmpleNom, tarjetaEmpleApe, tarjetaEmpleDNI, tarjetaEmpleTel, tarjetaEmpleEmail, tarjetaEmpleCargo, tarjetaEmpleHorario, tarjetaEmpleTurno, tarjetaEmpleLago;
+    public Label tarjetaTituloEmple, tarjetaEmpleNom, tarjetaEmpleApe, tarjetaEmpleDNI, tarjetaEmpleTel, tarjetaEmpleEmail, tarjetaEmpleCargo, tarjetaEmpleHorario, tarjetaEmpleTurno, tarjetaEmpleLago;
     @FXML
     public JFXButton botonAnadirEmple, botonModificarEmple, botonEliminarEmple;
 
@@ -986,15 +989,15 @@ public class VentanaPrincipalController implements Initializable {
 
                     switch (ListaEmpleados.get(j).getTurno()) {
                         case "Diurno":
-                            listViewEmpleadosActivos.getItems().get(i).setStyle("-fx-background-color: pink");
+                            listViewEmpleadosActivos.getItems().get(i).getStyleClass().add("empleadoDia");
                             break;
 
                         case "Nocturno":
-                            listViewEmpleadosActivos.getItems().get(i).setStyle("-fx-background-color: cyan");
+                            listViewEmpleadosActivos.getItems().get(i).getStyleClass().add("empleadoNoche");
                             break;
 
                         case "Partido":
-                            listViewEmpleadosActivos.getItems().get(i).setStyle("-fx-background-color: lime");
+                            listViewEmpleadosActivos.getItems().get(i).getStyleClass().add("empleadoPartido");
                             break;
                     }
                     break;
@@ -1031,6 +1034,7 @@ public class VentanaPrincipalController implements Initializable {
                     tarjetaEmpleHorario.setText(ListaEmpleados.get(i).getHorario_Trabajo());
                     tarjetaEmpleTurno.setText(ListaEmpleados.get(i).getTurno());
                     tarjetaEmpleLago.setText(ListaEmpleados.get(i).getNombreLago());
+                    tarjetaEmpleImgLago.setImage(new Image(new File("ImgLagos/" + ListaEmpleados.get(i).getNombreLago().replace(" ", "_") + ".png").toURI().toString()));
                     tarjetaEmpleImg.setImage(new Image(new File("ImgEmpleados/" + seleccionada.getSelectionModel().getSelectedItem().getNombreCompleto().replace(" ", "_") + ".png").toURI().toString()));
                     break;
 
@@ -1388,6 +1392,8 @@ public class VentanaPrincipalController implements Initializable {
                 labelNombreEmpleado.setVisible(false);
                 listViewEmpleados.setVisible(false);
                 listViewEmpleadosActivos.setVisible(false);
+                rectanguloEmpleados.setVisible(false);
+                tarjetaTituloEmple.setVisible(false);
                 tarjetaEmplePanel.setVisible(false);
 
                 reporteEstancia.setVisible(false);
@@ -1413,6 +1419,8 @@ public class VentanaPrincipalController implements Initializable {
                 labelNombreEmpleado.setVisible(false);
                 listViewEmpleados.setVisible(false);
                 listViewEmpleadosActivos.setVisible(false);
+                rectanguloEmpleados.setVisible(false);
+                tarjetaTituloEmple.setVisible(false);
                 tarjetaEmplePanel.setVisible(false);
 
                 escuchaTabs();
@@ -1436,6 +1444,8 @@ public class VentanaPrincipalController implements Initializable {
                 labelNombreEmpleado.setVisible(true);
                 listViewEmpleados.setVisible(true);
                 listViewEmpleadosActivos.setVisible(true);
+                rectanguloEmpleados.setVisible(true);
+                tarjetaTituloEmple.setVisible(true);
                 tarjetaEmplePanel.setVisible(true);
 
                 labelNomPato.setVisible(false);
